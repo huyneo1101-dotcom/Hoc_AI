@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hướng dẫn sử dụng AI</title>
+<meta name="description" content="Hướng dẫn cơ bản, dễ hiểu về cách dùng các trợ lý AI như ChatGPT, Claude, Gemini trong công việc và cuộc sống hàng ngày.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>
+  :root{
+    --pink:#e85d8a;
+    --pink-light:#ff8fb1;
+    --bg:#fff0f4;
+    --text:#3a2530;
+    --muted:#8a6b76;
+    --card:#ffffff;
+    --border:#ffd9e4;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+  }
+  a{color:var(--pink)}
+  .wrap{max-width:820px;margin:0 auto;padding:32px 20px 80px}
+  header.hero{
+    text-align:center;
+    padding:48px 20px 36px;
+    background:linear-gradient(135deg,var(--pink-light),var(--pink));
+    color:#fff;
+  }
+  header.hero .icon{width:56px;height:56px;margin-bottom:14px}
+  header.hero h1{margin:0 0 8px;font-size:1.9rem}
+  header.hero p{margin:0;opacity:.95;font-size:1.02rem}
+  nav.toc{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:18px 22px;
+    margin:-28px auto 32px;
+    max-width:780px;
+    box-shadow:0 6px 20px rgba(232,93,138,.08);
+  }
+  nav.toc h2{font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 10px}
+  nav.toc ol{margin:0;padding-left:1.2rem}
+  nav.toc li{margin:4px 0}
+  section{margin:36px 0}
+  section h2{
+    font-size:1.35rem;
+    display:flex;align-items:center;gap:10px;
+    border-bottom:2px solid var(--border);
+    padding-bottom:10px;
+  }
+  section h2 .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:50%;
+    background:var(--pink);color:#fff;font-size:.9rem;flex:none;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px 20px;
+    margin:14px 0;
+  }
+  .tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:14px}
+  .tool{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:16px 18px;
+  }
+  .tool h3{margin:0 0 6px;font-size:1.05rem}
+  .tool p{margin:0;color:var(--muted);font-size:.92rem}
+  .tip{
+    background:#fff7f9;
+    border-left:4px solid var(--pink);
+    border-radius:8px;
+    padding:12px 16px;
+    margin:12px 0;
+    font-size:.95rem;
+  }
+  .example{
+    background:#fdf2f6;
+    border-radius:10px;
+    padding:14px 16px;
+    font-size:.93rem;
+    white-space:pre-wrap;
+    border:1px dashed var(--border);
+  }
+  .example .label{display:block;font-weight:600;color:var(--pink);margin-bottom:6px;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+  table{width:100%;border-collapse:collapse;margin:14px 0}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);font-size:.93rem}
+  th{color:var(--muted);font-weight:600}
+  ul.checklist{list-style:none;padding:0;margin:0}
+  ul.checklist li{padding:8px 0 8px 30px;position:relative;border-bottom:1px solid var(--border)}
+  ul.checklist li:last-child{border-bottom:none}
+  ul.checklist li::before{content:"✓";position:absolute;left:0;top:8px;color:var(--pink);font-weight:700}
+  footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:60px}
+  code{background:#fdeef3;padding:2px 6px;border-radius:6px;font-size:.9em}
+
+  .tabs{
+    display:flex;justify-content:center;gap:8px;flex-wrap:wrap;
+    margin:-24px auto 0;padding:0 20px;position:relative;z-index:1;
+  }
+  .tab-btn{
+    font:inherit;font-weight:600;font-size:.95rem;
+    background:var(--card);color:var(--muted);
+    border:1px solid var(--border);border-radius:999px;
+    padding:10px 20px;cursor:pointer;
+    box-shadow:0 6px 16px rgba(232,93,138,.10);
+  }
+  .tab-btn.active{background:var(--pink);color:#fff;border-color:var(--pink)}
+  .badge{
+    display:inline-block;font-size:.72rem;font-weight:700;
+    background:var(--pink);color:#fff;border-radius:999px;
+    padding:2px 9px;margin-left:8px;vertical-align:middle;
+  }
+  .course-table td strong{color:var(--text)}
+  .track-tag{
+    display:inline-block;font-size:.75rem;font-weight:600;
+    background:#fdeef3;color:var(--pink);border-radius:6px;
+    padding:2px 8px;
+  }
+  .cmd{
+    display:block;background:#2c1b23;color:#ffd9e4;
+    border-radius:10px;padding:12px 16px;margin:10px 0;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.88rem;overflow-x:auto;white-space:pre;
+  }
+  .source-note{font-size:.85rem;color:var(--muted);margin-top:10px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="icon" viewBox="0 0 512 512" aria-hidden="true">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#ffe3ec"/></linearGradient></defs>
+    <rect width="512" height="512" rx="104" fill="url(#g)"/>
+    <path fill="#e85d8a" d="M256 430C256 430 96 330 96 206c0-52 41-92 92-92 35 0 58 19 68 40 10-21 33-40 68-40 51 0 92 40 92 92 0 124-160 224-160 224z"/>
+  </svg>
+  <h1>Hướng dẫn sử dụng AI</h1>
+  <p>Cẩm nang ngắn gọn cho người mới bắt đầu dùng ChatGPT, Claude, Gemini... trong công việc và đời sống.</p>
+</header>
+
+<div class="tabs" role="tablist">
+  <button class="tab-btn" data-tab="general" role="tab" aria-selected="false" onclick="showTab('general')">Hướng dẫn chung</button>
+  <button class="tab-btn" data-tab="claude" role="tab" aria-selected="false" onclick="showTab('claude')">Claude &amp; Claude Code</button>
+</div>
+
+<div class="wrap" id="tab-general">
+
+  <nav class="toc" aria-label="Mục lục">
+    <h2>Mục lục</h2>
+    <ol>
+      <li><a href="#khai-niem">AI trợ lý (chatbot) là gì?</a></li>
+      <li><a href="#cong-cu">Các công cụ phổ biến</a></li>
+      <li><a href="#bat-dau">Bắt đầu trong 3 bước</a></li>
+      <li><a href="#viet-prompt">Cách viết yêu cầu (prompt) hiệu quả</a></li>
+      <li><a href="#vi-du">Ví dụ prompt theo tình huống</a></li>
+      <li><a href="#luu-y">Lưu ý & giới hạn</a></li>
+      <li><a href="#meo">Mẹo nâng cao</a></li>
+    </ol>
+  </nav>
+
+  <section id="khai-niem">
+    <h2><span class="num">1</span> AI trợ lý (chatbot) là gì?</h2>
+    <p>AI trợ lý là phần mềm được huấn luyện để hiểu ngôn ngữ tự nhiên và trò chuyện, trả lời câu hỏi, viết văn bản,
+      tóm tắt, dịch, lập trình... Bạn chỉ cần <strong>gõ yêu cầu bằng lời</strong> (gọi là <em>prompt</em>), AI sẽ
+      trả lời ngay trong khung chat — không cần biết lập trình.</p>
+    <div class="tip">💡 Hãy nghĩ về AI như một trợ lý rất chăm chỉ nhưng không đọc được suy nghĩ của bạn — nói càng
+      rõ ràng, cụ thể, AI trả lời càng đúng ý.</div>
+  </section>
+
+  <section id="cong-cu">
+    <h2><span class="num">2</span> Các công cụ phổ biến</h2>
+    <div class="tools-grid">
+      <div class="tool">
+        <h3>ChatGPT (OpenAI)</h3>
+        <p>Phổ biến nhất, dễ dùng, có bản miễn phí. Mạnh về viết lách, tra cứu, brainstorm.</p>
+      </div>
+      <div class="tool">
+        <h3>Claude (Anthropic)</h3>
+        <p>Trả lời cẩn thận, văn phong tự nhiên, xử lý tài liệu dài rất tốt, mạnh về lập trình.</p>
+      </div>
+      <div class="tool">
+        <h3>Gemini (Google)</h3>
+        <p>Tích hợp sẵn trong Gmail, Docs, Android; tra cứu thông tin thời gian thực tốt.</p>
+      </div>
+      <div class="tool">
+        <h3>Copilot (Microsoft)</h3>
+        <p>Tích hợp trong Word/Excel/Windows, tiện cho công việc văn phòng hàng ngày.</p>
+      </div>
+    </div>
+    <div class="tip">Bạn không cần chọn "cái tốt nhất" — hãy thử 1–2 công cụ miễn phí trước, quen tay rồi mới cân
+      nhắc trả phí nếu cần dùng nhiều.</div>
+  </section>
+
+  <section id="bat-dau">
+    <h2><span class="num">3</span> Bắt đầu trong 3 bước</h2>
+    <ul class="checklist">
+      <li>Vào trang web của công cụ (vd. chatgpt.com, claude.ai, gemini.google.com) và tạo tài khoản miễn phí bằng email.</li>
+      <li>Gõ câu hỏi hoặc yêu cầu vào ô chat, giống như đang nhắn tin — không cần cú pháp đặc biệt.</li>
+      <li>Đọc câu trả lời, nếu chưa đúng ý thì trả lời tiếp để AI chỉnh sửa — cuộc trò chuyện tiếp tục theo ngữ cảnh trước đó.</li>
+    </ul>
+  </section>
+
+  <section id="viet-prompt">
+    <h2><span class="num">4</span> Cách viết yêu cầu (prompt) hiệu quả</h2>
+    <p>Một prompt tốt thường có đủ 4 phần:</p>
+    <table>
+      <tr><th>Phần</th><th>Ý nghĩa</th></tr>
+      <tr><td><strong>Vai trò</strong></td><td>AI nên đóng vai gì? (vd: "bạn là biên tập viên")</td></tr>
+      <tr><td><strong>Bối cảnh</strong></td><td>Thông tin nền cần thiết (đối tượng, mục đích, giới hạn)</td></tr>
+      <tr><td><strong>Yêu cầu</strong></td><td>Việc cụ thể cần AI làm</td></tr>
+      <tr><td><strong>Định dạng</strong></td><td>Kết quả mong muốn trông như thế nào (danh sách, bảng, độ dài...)</td></tr>
+    </table>
+    <div class="tip">🎯 Càng cụ thể càng tốt. Thay vì "viết email", hãy nói "viết email xin nghỉ phép 2 ngày, giọng
+      lịch sự, gửi cho quản lý, khoảng 4 câu".</div>
+  </section>
+
+  <section id="vi-du">
+    <h2><span class="num">5</span> Ví dụ prompt theo tình huống</h2>
+
+    <div class="example">
+      <span class="label">Viết nội dung</span>Viết caption Instagram cho ảnh đi biển cùng người yêu, giọng vui vẻ, dưới 30 từ, có 2-3 emoji.</div>
+
+    <div class="example">
+      <span class="label">Tóm tắt tài liệu</span>Tóm tắt đoạn văn bản dưới đây thành 5 gạch đầu dòng, mỗi dòng tối đa 15 từ:
+[dán nội dung cần tóm tắt vào đây]</div>
+
+    <div class="example">
+      <span class="label">Lên kế hoạch</span>Gợi ý lịch trình hẹn hò 1 ngày ở Đà Lạt cho cặp đôi, ngân sách 1 triệu đồng, ưu tiên quán cà phê view đẹp và ít đi bộ.</div>
+
+    <div class="example">
+      <span class="label">Học tập / công việc</span>Giải thích khái niệm "lãi suất kép" như đang nói với người chưa học tài chính bao giờ, dùng ví dụ thực tế, không quá 100 từ.</div>
+  </section>
+
+  <section id="luu-y">
+    <h2><span class="num">6</span> Lưu ý & giới hạn</h2>
+    <div class="card">
+      <ul class="checklist">
+        <li>AI có thể trả lời sai hoặc "bịa" thông tin (gọi là ảo giác) — luôn kiểm tra lại số liệu, tên riêng, trích dẫn quan trọng.</li>
+        <li>Không dán thông tin nhạy cảm (mật khẩu, số CCCD, dữ liệu công ty mật) vào chat AI.</li>
+        <li>AI không thay thế tư vấn y tế, pháp lý, tài chính chuyên sâu — chỉ nên dùng để tham khảo ban đầu.</li>
+        <li>Với bài tập/công việc cần tính trung thực, hãy dùng AI để hỗ trợ tư duy, không sao chép nguyên văn.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="meo">
+    <h2><span class="num">7</span> Mẹo nâng cao</h2>
+    <div class="tip">🔁 Trò chuyện nhiều lượt: đừng cố nhồi mọi thứ vào 1 câu — hỏi từng bước, rồi yêu cầu AI chỉnh sửa dần theo phản hồi của bạn.</div>
+    <div class="tip">📎 Đính kèm file: hầu hết công cụ AI cho phép tải lên PDF, ảnh, file Word để hỏi trực tiếp về nội dung bên trong.</div>
+    <div class="tip">🗂️ Lưu prompt hay dùng: nếu có một mẫu câu lệnh hiệu quả, hãy lưu lại (ghi chú, Google Keep) để dùng lại về sau.</div>
+    <div class="tip">🌐 Kiểm tra nguồn: với thông tin thời sự hoặc số liệu, ưu tiên công cụ có tính năng "tìm kiếm web" và luôn đối chiếu nguồn gốc trước khi tin.</div>
+  </section>
+
+  <footer>
+    Trang cá nhân · Hướng dẫn tổng quan, không liên kết với bất kỳ hãng AI nào cụ thể.
+  </footer>
+</div>
+
+<div class="wrap" id="tab-claude" hidden>
+
+  <nav class="toc" aria-label="Mục lục">
+    <h2>Mục lục</h2>
+    <ol>
+      <li><a href="#claude-vs-code">Claude và Claude Code khác nhau thế nào?</a></li>
+      <li><a href="#claude-code-cai-dat">Cài đặt & bắt đầu với Claude Code</a></li>
+      <li><a href="#claude-code-meo">Dùng Claude Code hiệu quả</a></li>
+      <li><a href="#agent-skills">Agent Skills — đóng gói kỹ năng tái sử dụng</a></li>
+      <li><a href="#khoa-hoc">Tổng hợp khóa học Anthropic Academy</a></li>
+    </ol>
+  </nav>
+
+  <section id="claude-vs-code">
+    <h2><span class="num">1</span> Claude và Claude Code khác nhau thế nào?</h2>
+    <div class="tools-grid">
+      <div class="tool">
+        <h3>Claude<span class="badge">Chatbot / API</span></h3>
+        <p>Trợ lý AI trò chuyện tại claude.ai (hoặc qua API) — viết lách, tóm tắt, trả lời câu hỏi, phân tích ảnh/tài liệu, giống ChatGPT/Gemini.</p>
+      </div>
+      <div class="tool">
+        <h3>Claude Code<span class="badge">CLI cho lập trình</span></h3>
+        <p>Công cụ dòng lệnh chạy Claude ngay trong terminal của lập trình viên — đọc/sửa file, chạy lệnh, dùng git, tự kiểm thử code trong dự án thật.</p>
+      </div>
+    </div>
+    <div class="tip">💡 Hiểu đơn giản: <strong>Claude</strong> là "người trò chuyện", còn <strong>Claude Code</strong> là
+      "người trò chuyện đó được trao thêm quyền thao tác trực tiếp trên máy/dự án của bạn".</div>
+  </section>
+
+  <section id="claude-code-cai-dat">
+    <h2><span class="num">2</span> Cài đặt & bắt đầu với Claude Code</h2>
+    <p>Yêu cầu: đã cài <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a>. Mở terminal và chạy:</p>
+    <code class="cmd">npm install -g @anthropic-ai/claude-code</code>
+    <p>Sau đó vào thư mục dự án và gõ:</p>
+    <code class="cmd">cd duong-dan/den/du-an
+claude</code>
+    <p>Claude Code sẽ mở phiên làm việc ngay trong terminal — bạn gõ yêu cầu bằng lời (tiếng Việt hoặc tiếng Anh đều
+      được), ví dụ: <em>"Sửa lỗi trang đăng nhập không lưu được mật khẩu"</em>, Claude sẽ tự đọc code, đề xuất/thực
+      hiện thay đổi và cho bạn xem trước khi áp dụng.</p>
+    <ul class="checklist">
+      <li>Gõ <code>/help</code> để xem danh sách lệnh có sẵn.</li>
+      <li>Gõ <code>/init</code> trong một dự án mới để Claude Code tự tạo file <code>CLAUDE.md</code> ghi nhớ ngữ cảnh dự án.</li>
+      <li>Gõ <code>/clear</code> để bắt đầu một phiên làm việc mới, không mang theo lịch sử cũ.</li>
+    </ul>
+  </section>
+
+  <section id="claude-code-meo">
+    <h2><span class="num">3</span> Dùng Claude Code hiệu quả</h2>
+    <div class="tip">📄 <strong>File CLAUDE.md</strong>: ghi các quy ước của dự án (cấu trúc thư mục, cách chạy test, style code) — Claude Code sẽ tự đọc file này ở mỗi phiên làm việc.</div>
+    <div class="tip">🧩 <strong>Yêu cầu nhỏ, rõ ràng</strong>: thay vì "làm lại cả trang web", hãy chia nhỏ thành từng việc cụ thể — dễ kiểm tra và sửa sai hơn.</div>
+    <div class="tip">🔍 <strong>Luôn xem lại thay đổi</strong>: Claude Code cho xem diff (phần code thay đổi) trước khi ghi vào file — nên đọc qua trước khi đồng ý.</div>
+    <div class="tip">🗺️ <strong>Chế độ lập kế hoạch (plan mode)</strong>: với việc lớn/phức tạp, để Claude Code lên kế hoạch trước rồi mới cho thực thi, tránh sửa lan man.</div>
+    <div class="tip">🔁 <strong>Dùng lại lệnh riêng (custom slash command)</strong>: các thao tác lặp lại (vd. review code, viết commit message) có thể lưu thành lệnh riêng để gọi nhanh.</div>
+  </section>
+
+  <section id="agent-skills">
+    <h2><span class="num">4</span> Agent Skills — đóng gói kỹ năng tái sử dụng</h2>
+    <p><strong>Agent Skill</strong> là một "gói kỹ năng" cho Claude Code: một thư mục chứa hướng dẫn (và có thể kèm
+      script, file mẫu) dạy Claude cách làm tốt một việc cụ thể — ví dụ viết báo cáo theo đúng mẫu công ty, thao tác
+      với một hệ thống nội bộ, hay tuân theo quy trình review code riêng của nhóm bạn. Thay vì phải giải thích lại
+      quy trình đó mỗi lần chat, bạn viết một lần rồi Claude tự dùng lại mỗi khi phù hợp.</p>
+
+    <div class="tip">💡 Khác với custom slash command (bạn phải gõ lệnh để gọi), Skill có thể được <strong>Claude tự
+      nhận ra và kích hoạt</strong> khi thấy yêu cầu của bạn khớp với phần mô tả của Skill đó.</div>
+
+    <h3 style="margin:20px 0 6px;font-size:1.05rem">Cấu trúc một Skill</h3>
+    <p>Một Skill tối thiểu chỉ cần 1 file <code>SKILL.md</code> nằm trong thư mục riêng:</p>
+    <code class="cmd">ten-skill/
+└── SKILL.md   (có thể kèm thêm script, template, tài liệu tham khảo...)</code>
+    <p>Đầu file <code>SKILL.md</code> có phần khai báo ngắn (frontmatter), theo sau là nội dung hướng dẫn bằng
+      ngôn ngữ tự nhiên:</p>
+    <code class="cmd">---
+name: viet-bao-cao-tuan
+description: Dùng khi cần viết báo cáo công việc hàng tuần theo mẫu chuẩn của phòng.
+---
+
+# Hướng dẫn viết báo cáo tuần
+1. Lấy danh sách việc đã làm từ ghi chú người dùng cung cấp.
+2. Nhóm theo dự án, sắp theo mức ưu tiên.
+3. Viết theo mẫu: Mục tiêu tuần / Đã làm / Đang vướng / Kế hoạch tuần sau.
+...</code>
+
+    <h3 style="margin:20px 0 6px;font-size:1.05rem">Nơi lưu & cách chia sẻ</h3>
+    <ul class="checklist">
+      <li><strong>Cá nhân</strong>: lưu trong thư mục Skill của riêng bạn — dùng được ở mọi dự án trên máy bạn.</li>
+      <li><strong>Theo dự án</strong>: lưu trong thư mục <code>.claude/skills/</code> ngay trong repo — commit lên
+        git để cả nhóm cùng dùng chung một Skill.</li>
+      <li><strong>Dạng plugin</strong>: đóng gói cùng các Skill/lệnh khác thành một plugin để chia sẻ rộng hơn,
+        cài vào nhiều dự án/nhóm khác nhau chỉ bằng một lệnh cài đặt.</li>
+    </ul>
+
+    <h3 style="margin:20px 0 6px;font-size:1.05rem">Mẹo khi tự viết Skill</h3>
+    <div class="tip">🎯 <strong>Mô tả (description) phải rõ "khi nào dùng"</strong> — Claude chọn Skill dựa vào phần
+      mô tả này, mô tả mơ hồ thì Claude khó biết lúc nào nên gọi tới.</div>
+    <div class="tip">✂️ <strong>Một Skill làm một việc</strong> — đừng nhồi nhiều quy trình không liên quan vào
+      chung một Skill, khó bảo trì và dễ bị gọi nhầm lúc.</div>
+    <div class="tip">🧪 <strong>Thử trước khi dùng thật</strong>: tạo Skill xong, thử vài yêu cầu khác nhau xem
+      Claude có kích hoạt đúng lúc và làm đúng ý không, rồi mới đưa cả nhóm dùng.</div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">🐣 Hướng dẫn từng bước cho người chưa biết gì</h3>
+    <p>Phần dưới đây giả sử bạn <strong>chưa từng viết Skill lần nào</strong> — làm theo đúng thứ tự là có một
+      Skill chạy được ngay. Ví dụ: tạo Skill giúp Claude Code luôn tóm tắt cuộc họp theo đúng 1 mẫu cố định.</p>
+
+    <div class="card">
+      <p><strong>Bước 1 — Mở terminal, vào đúng thư mục dự án</strong></p>
+      <code class="cmd">cd duong-dan/den/du-an</code>
+      <p style="margin:8px 0 0;color:var(--muted);font-size:.9rem">Đây phải là thư mục bạn đang mở Claude Code
+        để làm việc (có file code, hoặc chỉ cần một thư mục trống để thử nghiệm cũng được).</p>
+    </div>
+
+    <div class="card">
+      <p><strong>Bước 2 — Tạo thư mục chứa Skill</strong></p>
+      <code class="cmd">mkdir -p .claude/skills/tom-tat-hop</code>
+      <p style="margin:8px 0 0;color:var(--muted);font-size:.9rem">Tên thư mục <code>tom-tat-hop</code> chính là
+        tên Skill — nên đặt ngắn gọn, không dấu, không khoảng trắng.</p>
+    </div>
+
+    <div class="card">
+      <p><strong>Bước 3 — Tạo file <code>SKILL.md</code> bên trong thư mục vừa tạo</strong>, dán đúng nội dung sau
+        (không cần biết lập trình, đây chỉ là văn bản thường):</p>
+      <code class="cmd">---
+name: tom-tat-hop
+description: Dùng khi người dùng đưa nội dung cuộc họp và muốn tóm tắt lại theo mẫu chuẩn.
+---
+
+# Cách tóm tắt cuộc họp
+Khi người dùng dán nội dung một cuộc họp (biên bản, ghi chú, đoạn hội thoại...),
+hãy tóm tắt lại theo đúng mẫu sau, bằng tiếng Việt:
+
+## Mục tiêu cuộc họp
+(1-2 câu)
+
+## Các quyết định chính
+- ...
+
+## Việc cần làm tiếp theo
+- [Người phụ trách] — [việc cần làm] — [hạn]
+
+Giữ mỗi mục ngắn gọn, không thêm thông tin không có trong nội dung gốc.</code>
+      <p style="margin:8px 0 0;color:var(--muted);font-size:.9rem">Bạn có thể tạo file này bằng bất kỳ trình soạn
+        thảo nào (VS Code, Notepad...), hoặc nhờ chính Claude Code tạo giúp bằng câu lệnh tự nhiên: <em>"Tạo giúp tôi
+        một Skill tên tom-tat-hop với nội dung như trên"</em>.</p>
+    </div>
+
+    <div class="card">
+      <p><strong>Bước 4 — Mở phiên Claude Code trong đúng thư mục đó</strong></p>
+      <code class="cmd">claude</code>
+      <p style="margin:8px 0 0;color:var(--muted);font-size:.9rem">Nếu phiên Claude Code đang mở sẵn từ trước,
+        gõ <code>/clear</code> hoặc mở lại phiên mới để Claude Code quét thấy Skill vừa tạo.</p>
+    </div>
+
+    <div class="card">
+      <p><strong>Bước 5 — Thử ngay</strong>: gõ một yêu cầu khớp với phần <code>description</code> ở Bước 3, ví dụ:</p>
+      <div class="example" style="margin-top:8px">Tóm tắt giúp mình cuộc họp này:
+"Team bàn về việc đổi giao diện trang chủ, quyết định dùng bản mẫu 2,
+Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung song song."</div>
+      <p style="margin:8px 0 0">Claude Code sẽ tự nhận ra yêu cầu này khớp với Skill <code>tom-tat-hop</code> và trả
+        lời đúng theo mẫu 3 phần đã định nghĩa — bạn không cần gõ thêm gì khác.</p>
+    </div>
+
+    <div class="card">
+      <p><strong>Bước 6 — Kiểm tra & chỉnh sửa</strong></p>
+      <ul class="checklist">
+        <li>Nếu Claude <strong>không</strong> dùng đúng mẫu: mở lại <code>SKILL.md</code>, viết phần
+          <code>description</code> cụ thể hơn (nêu rõ tình huống nên dùng), rồi thử lại.</li>
+        <li>Nếu muốn hỏi thẳng xem Claude có đang dùng Skill nào không, cứ hỏi bằng lời: <em>"Bạn có đang dùng
+          Skill nào để trả lời câu này không?"</em></li>
+        <li>Muốn xoá Skill: xoá cả thư mục <code>tom-tat-hop</code> là xong, không ảnh hưởng gì khác.</li>
+      </ul>
+    </div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">❓ Câu hỏi thường gặp</h3>
+    <div class="card">
+      <table class="course-table">
+        <tr><td style="width:38%"><strong>Có cần biết lập trình không?</strong></td>
+          <td>Không. <code>SKILL.md</code> chỉ là văn bản thường (Markdown) — viết hướng dẫn bằng lời như đang
+            hướng dẫn một người mới vào làm.</td></tr>
+        <tr><td><strong>Skill tự chạy hay phải gọi?</strong></td>
+          <td>Mặc định Claude tự nhận diện khi thấy yêu cầu khớp mô tả. Không thấy kích hoạt thì có thể nhắc thẳng
+            tên Skill trong câu yêu cầu.</td></tr>
+        <tr><td><strong>Có cần internet hay cài thêm gì không?</strong></td>
+          <td>Không — chỉ cần Claude Code đã cài sẵn (xem mục 2) và một file văn bản đặt đúng thư mục.</td></tr>
+        <tr><td><strong>Skill có dùng được cho cả nhóm không?</strong></td>
+          <td>Có — nếu để trong <code>.claude/skills/</code> của repo và commit lên git, ai kéo code về cũng dùng
+            được ngay.</td></tr>
+        <tr><td><strong>Viết sai thì có hỏng gì không?</strong></td>
+          <td>Không — Skill chỉ là hướng dẫn thêm cho Claude, viết sai nhiều lắm là Claude làm chưa đúng ý, sửa lại
+            file rồi thử lại là được, không ảnh hưởng tới code hay dữ liệu dự án.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="khoa-hoc">
+    <h2><span class="num">5</span> Tổng hợp khóa học Anthropic Academy</h2>
+    <p>Anthropic có nền tảng học chính thức, miễn phí — <strong>Anthropic Academy</strong>
+      (<a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener">anthropic.skilljar.com</a>),
+      chia thành 3 nhóm: <span class="track-tag">AI Fluency</span> cho người dùng phổ thông,
+      <span class="track-tag">Product Training</span> cho người dùng Claude nói chung, và
+      <span class="track-tag">Developer</span> cho lập trình viên xây dựng trên Claude API.
+      Mỗi khóa chỉ cần đăng ký bằng email, học xong được cấp chứng chỉ.</p>
+
+    <div class="card">
+      <table class="course-table">
+        <tr><th>Khóa học</th><th>Nhóm</th><th>Nội dung (tóm tắt)</th></tr>
+        <tr>
+          <td><strong>Claude 101</strong></td>
+          <td><span class="track-tag">Product</span></td>
+          <td>Làm quen các tính năng cốt lõi của Claude, quy trình sử dụng thực tế và các cách dùng hay trong công việc hàng ngày.</td>
+        </tr>
+        <tr>
+          <td><strong>AI Fluency: Framework &amp; Foundations</strong></td>
+          <td><span class="track-tag">AI Fluency</span></td>
+          <td>Xây dựng tư duy về cách AI hoạt động, AI làm được/không làm được gì, theo khung "4E": Hiệu quả — Hiệu suất — Đạo đức — An toàn.</td>
+        </tr>
+        <tr>
+          <td><strong>AI Fluency for Students</strong></td>
+          <td><span class="track-tag">AI Fluency</span></td>
+          <td>Phiên bản dành cho học sinh, sinh viên — dùng AI đúng cách trong học tập, tránh phụ thuộc và gian lận học thuật.</td>
+        </tr>
+        <tr>
+          <td><strong>AI Fluency for Nonprofits</strong></td>
+          <td><span class="track-tag">AI Fluency</span></td>
+          <td>Ứng dụng AI cho tổ chức phi lợi nhuận, tập trung vào mục tiêu sứ mệnh và hiệu quả thực tế với nguồn lực hạn chế.</td>
+        </tr>
+        <tr>
+          <td><strong>Building with the Claude API</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Toàn cảnh làm việc với Claude API: gọi model, streaming, tool use, cấu hình, đưa ứng dụng lên production.</td>
+        </tr>
+        <tr>
+          <td><strong>Claude Code in Action</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Khóa thực hành đưa Claude Code vào quy trình phát triển phần mềm thật để làm việc nhanh hơn.</td>
+        </tr>
+        <tr>
+          <td><strong>Introduction to Agent Skills</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Xây dựng, cấu hình và chia sẻ các "Skill" tái sử dụng được cho Claude Code — xem chi tiết ở
+            <a href="#agent-skills">mục 4</a> phía trên.</td>
+        </tr>
+        <tr>
+          <td><strong>Intro to Model Context Protocol (MCP)</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Từ số 0 đến xây dựng MCP server/client bằng Python — nắm 3 thành phần cốt lõi: tools, resources, prompts.</td>
+        </tr>
+        <tr>
+          <td><strong>MCP: Advanced Topics</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Các mẫu triển khai MCP nâng cao ở mức sản xuất: sampling, notification, truy cập file hệ thống, cơ chế transport.</td>
+        </tr>
+        <tr>
+          <td><strong>Claude with Amazon Bedrock</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Tích hợp và triển khai Claude thông qua Amazon Bedrock cho hạ tầng AWS.</td>
+        </tr>
+        <tr>
+          <td><strong>Claude with Google Cloud Vertex AI</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Thiết lập và triển khai Claude trên Google Cloud Vertex AI, từ cấu hình đến production.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="tip">⚠️ Đây là bản <strong>tóm tắt tiếng Việt</strong> theo mô tả chính thức của từng khóa — nội dung
+      bài học đầy đủ (video, bài tập tương tác, quiz) nằm trên nền tảng Skilljar của Anthropic và cần đăng ký để xem trực tiếp,
+      nên không thể sao chép/dịch nguyên văn vào trang tĩnh này.</div>
+
+    <p class="source-note">Nguồn tham khảo: trang khóa học chính thức tại
+      <a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener">anthropic.skilljar.com</a> và
+      <a href="https://www.anthropic.com/learn" target="_blank" rel="noopener">anthropic.com/learn</a>.</p>
+  </section>
+
+  <footer>
+    Trang cá nhân · Tóm tắt phi chính thức, không thay thế nội dung gốc từ Anthropic Academy.
+  </footer>
+</div>
+
+<script>
+  function showTab(name){
+    var tabs = {general: document.getElementById('tab-general'), claude: document.getElementById('tab-claude')};
+    var btns = document.querySelectorAll('.tab-btn');
+    Object.keys(tabs).forEach(function(key){
+      tabs[key].hidden = key !== name;
+    });
+    btns.forEach(function(btn){
+      var on = btn.dataset.tab === name;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    if (window.history && history.replaceState) history.replaceState(null, '', '#' + name);
+  }
+  showTab(location.hash.replace('#', '') === 'claude' ? 'claude' : 'general');
+</script>
+
+</body>
+</html>
