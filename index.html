@@ -135,6 +135,26 @@
     font-size:.88rem;overflow-x:auto;white-space:pre;
   }
   .source-note{font-size:.85rem;color:var(--muted);margin-top:10px}
+
+  .loop{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .loop-step{
+    background:var(--card);border:1px solid var(--border);border-radius:12px;
+    padding:14px 16px 14px 44px;position:relative;font-size:.92rem;
+  }
+  .loop-step .n{
+    position:absolute;left:12px;top:14px;
+    width:24px;height:24px;border-radius:50%;
+    background:var(--pink);color:#fff;font-size:.8rem;font-weight:700;
+    display:inline-flex;align-items:center;justify-content:center;
+  }
+  .loop-step strong{display:block;margin-bottom:2px}
+  .loop-note{text-align:center;color:var(--muted);font-size:.9rem;margin:4px 0 0}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+  .pill{
+    display:inline-block;font-size:.82rem;font-weight:600;
+    background:#fdeef3;color:var(--pink);border:1px solid var(--border);
+    border-radius:999px;padding:5px 12px;
+  }
 </style>
 </head>
 <body>
@@ -153,6 +173,7 @@
 <div class="tabs" role="tablist">
   <button class="tab-btn" data-tab="general" role="tab" aria-selected="false" onclick="showTab('general')">Hướng dẫn chung</button>
   <button class="tab-btn" data-tab="claude" role="tab" aria-selected="false" onclick="showTab('claude')">Claude &amp; Claude Code</button>
+  <button class="tab-btn" data-tab="agentic" role="tab" aria-selected="false" onclick="showTab('agentic')">AI Agent (Agentic)</button>
 </div>
 
 <div class="wrap" id="tab-general">
@@ -545,9 +566,207 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
   </footer>
 </div>
 
+<div class="wrap" id="tab-agentic" hidden>
+
+  <nav class="toc" aria-label="Mục lục">
+    <h2>Mục lục</h2>
+    <ol>
+      <li><a href="#agent-la-gi">AI Agent là gì?</a></li>
+      <li><a href="#vong-lap">Vòng lặp agent hoạt động thế nào?</a></li>
+      <li><a href="#cong-cu-agent">Công cụ (tools) — "tay chân" của agent</a></li>
+      <li><a href="#mcp">MCP — chuẩn cắm công cụ &amp; dữ liệu</a></li>
+      <li><a href="#ngu-canh">Ngữ cảnh &amp; bộ nhớ của agent</a></li>
+      <li><a href="#da-tac-tu">Nhiều agent phối hợp (multi-agent)</a></li>
+      <li><a href="#tu-xay">Tự xây agent với Claude Agent SDK</a></li>
+      <li><a href="#an-toan">Dùng agent an toàn &amp; bắt đầu học</a></li>
+    </ol>
+  </nav>
+
+  <section id="agent-la-gi">
+    <h2><span class="num">1</span> AI Agent là gì?</h2>
+    <p>Một <strong>chatbot</strong> thông thường chỉ <em>trả lời</em>: bạn hỏi một câu, nó đưa ra một câu trả lời rồi
+      dừng. Một <strong>AI agent</strong> ("agentic AI") thì <em>tự hành động</em>: bạn giao một
+      <strong>mục tiêu</strong>, nó tự lập kế hoạch, dùng <strong>công cụ</strong> để làm từng bước, tự kiểm tra kết quả
+      và <strong>lặp lại</strong> cho tới khi hoàn thành — không cần bạn nhắc từng thao tác.</p>
+
+    <div class="tip">💡 Cách nhớ đơn giản: <strong>chatbot cho bạn lời khuyên nấu ăn; agent thì tự vào bếp nấu</strong> —
+      mở tủ lạnh (đọc dữ liệu), bật bếp (dùng công cụ), nếm thử và chỉnh vị (tự kiểm tra), dọn ra bàn (trả kết quả).</div>
+
+    <p>Ba thứ khiến một AI trở thành "agent":</p>
+    <div class="pill-row">
+      <span class="pill">🎯 Mục tiêu (thay vì câu hỏi lẻ)</span>
+      <span class="pill">🛠️ Công cụ (để thao tác thật)</span>
+      <span class="pill">🔁 Quyền tự lặp (tự làm nhiều bước)</span>
+    </div>
+
+    <h3 style="margin:20px 0 6px;font-size:1.05rem">Chatbot khác Agent ở đâu?</h3>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>&nbsp;</th><th>Chatbot (trợ lý trò chuyện)</th><th>Agent</th></tr>
+        <tr><td><strong>Bạn đưa gì</strong></td><td>Một câu hỏi</td><td>Một mục tiêu / nhiệm vụ</td></tr>
+        <tr><td><strong>Nó làm gì</strong></td><td>Sinh ra văn bản trả lời</td><td>Tự lập kế hoạch &amp; thực hiện nhiều bước</td></tr>
+        <tr><td><strong>Có tự thao tác không</strong></td><td>Không — chỉ trả chữ</td><td>Có — dùng công cụ: đọc/ghi file, chạy lệnh, tìm web, gọi API</td></tr>
+        <tr><td><strong>Số lượt</strong></td><td>1 lượt hỏi–đáp</td><td>Lặp nhiều lượt cho tới khi xong</td></tr>
+        <tr><td><strong>Ví dụ</strong></td><td>"Cách sửa lỗi đăng nhập là gì?"</td><td>"Tự tìm và sửa lỗi đăng nhập, chạy test cho xanh rồi báo lại."</td></tr>
+      </table>
+    </div>
+    <div class="tip">Claude vừa dùng được như chatbot (tại claude.ai), vừa là "bộ não" cho agent. <strong>Claude Code</strong>
+      (xem tab trước) chính là một agent thực thụ: nó tự đọc code, chạy lệnh, sửa file trong dự án của bạn.</div>
+  </section>
+
+  <section id="vong-lap">
+    <h2><span class="num">2</span> Vòng lặp agent hoạt động thế nào?</h2>
+    <p>Trái tim của mọi agent là một <strong>vòng lặp</strong> đơn giản, lặp đi lặp lại cho đến khi đạt mục tiêu:</p>
+
+    <div class="loop">
+      <div class="loop-step"><span class="n">1</span><strong>Thu thập ngữ cảnh</strong>Đọc mục tiêu + thông tin liên quan (file, dữ liệu, kết quả bước trước).</div>
+      <div class="loop-step"><span class="n">2</span><strong>Suy nghĩ &amp; quyết định</strong>Chọn bước tiếp theo: cần dùng công cụ nào, với thông tin gì?</div>
+      <div class="loop-step"><span class="n">3</span><strong>Hành động</strong>Gọi công cụ để làm thật: chạy lệnh, sửa file, tìm web, gọi API…</div>
+      <div class="loop-step"><span class="n">4</span><strong>Quan sát kết quả</strong>Xem công cụ trả về gì; đã đạt mục tiêu chưa? Chưa → quay lại bước 1.</div>
+    </div>
+    <p class="loop-note">↑ Lặp lại 1 → 2 → 3 → 4 → 1… cho tới khi hoàn thành mục tiêu (hoặc cần hỏi lại bạn).</p>
+
+    <div class="tip">🔍 Vì agent <strong>quan sát kết quả rồi tự chỉnh</strong> ở mỗi vòng, nó xử lý được việc nhiều bước mà
+      lúc đầu chưa biết hết đường đi — ví dụ: chạy test thấy còn lỗi thì tự sửa tiếp rồi chạy lại, thay vì bỏ cuộc.</div>
+    <div class="tip">⚠️ Đổi lại, agent có thể "đi lạc" trong vòng lặp (làm sai hướng, lặp vô ích). Vì vậy cần
+      <strong>mục tiêu rõ ràng</strong>, <strong>giới hạn</strong> và điểm dừng để hỏi lại người dùng — xem mục 8.</div>
+  </section>
+
+  <section id="cong-cu-agent">
+    <h2><span class="num">3</span> Công cụ (tools) — "tay chân" của agent</h2>
+    <p>Bản thân mô hình AI chỉ sinh ra chữ. Muốn nó <em>làm</em> được việc thật, ta trao cho nó các <strong>công cụ</strong>
+      (tools) — mỗi công cụ là một hành động nó được phép gọi. Đây chính là điều biến "người trò chuyện" thành "người
+      làm việc".</p>
+    <div class="tools-grid">
+      <div class="tool"><h3>📄 Đọc / ghi file</h3><p>Mở tài liệu, sửa nội dung, tạo file mới trong dự án.</p></div>
+      <div class="tool"><h3>⌨️ Chạy lệnh</h3><p>Thực thi lệnh terminal: cài gói, chạy test, dùng git…</p></div>
+      <div class="tool"><h3>🌐 Tìm kiếm web</h3><p>Tra thông tin mới, đọc trang web, kiểm chứng số liệu.</p></div>
+      <div class="tool"><h3>🔌 Gọi API / dịch vụ</h3><p>Kết nối tới hệ thống khác: gửi email, tra cơ sở dữ liệu, đặt lịch…</p></div>
+    </div>
+    <div class="tip">💡 Cơ chế gọi là <strong>tool use</strong> (hay "function calling"): mô hình không tự tay chạy lệnh, mà
+      <em>nói ra</em> "tôi muốn dùng công cụ X với dữ liệu Y"; phần chương trình bao quanh (gọi là <strong>harness</strong>)
+      sẽ chạy công cụ đó rồi đưa kết quả về cho mô hình ở vòng lặp kế tiếp.</div>
+    <p>Bạn cho agent càng <strong>ít nhưng đúng</strong> công cụ, nó càng dễ chọn đúng và ít đi lạc. Không cần trao mọi
+      quyền — chỉ trao những công cụ cần cho nhiệm vụ.</p>
+  </section>
+
+  <section id="mcp">
+    <h2><span class="num">4</span> MCP — chuẩn cắm công cụ &amp; dữ liệu</h2>
+    <p><strong>Model Context Protocol (MCP)</strong> là một <em>chuẩn mở</em> do Anthropic khởi xướng để kết nối agent AI
+      với công cụ và nguồn dữ liệu bên ngoài một cách thống nhất. Hãy hình dung MCP như <strong>"cổng USB-C cho AI"</strong>:
+      thay vì mỗi công cụ một kiểu cắm riêng, mọi thứ dùng chung một chuẩn.</p>
+    <div class="tip">🔌 Nhờ MCP, cùng một "trình cắm" (MCP server) cho Google Drive, GitHub, Slack, cơ sở dữ liệu… có thể
+      dùng lại với nhiều agent/ứng dụng khác nhau — viết một lần, cắm nhiều nơi.</div>
+    <p>Một MCP server có thể cung cấp 3 loại thứ cho agent:</p>
+    <ul class="checklist">
+      <li><strong>Tools</strong> — các hành động agent gọi được (vd: "tạo issue trên GitHub", "gửi tin nhắn Slack").</li>
+      <li><strong>Resources</strong> — dữ liệu để đọc làm ngữ cảnh (vd: nội dung một tài liệu, một bảng dữ liệu).</li>
+      <li><strong>Prompts</strong> — mẫu câu lệnh dựng sẵn cho các thao tác hay lặp lại.</li>
+    </ul>
+    <p class="source-note">Anthropic Academy có 2 khóa riêng về MCP (<em>Intro to MCP</em> và <em>MCP: Advanced Topics</em>) —
+      xem bảng khóa học ở tab "Claude &amp; Claude Code".</p>
+  </section>
+
+  <section id="ngu-canh">
+    <h2><span class="num">5</span> Ngữ cảnh &amp; bộ nhớ của agent</h2>
+    <p>Agent "nhớ" mọi thứ trong một không gian gọi là <strong>cửa sổ ngữ cảnh</strong> (context window) — toàn bộ mục
+      tiêu, lịch sử trò chuyện, kết quả các công cụ đã gọi. Cửa sổ này rất lớn nhưng <strong>có giới hạn</strong>: việc
+      càng dài, ngữ cảnh càng đầy.</p>
+    <ul class="checklist">
+      <li><strong>Nén ngữ cảnh (compaction)</strong>: khi gần đầy, agent tự tóm tắt lại phần cũ để còn chỗ làm tiếp — nên
+        nó vẫn xử lý được nhiệm vụ dài mà không "quên sạch" từ đầu.</li>
+      <li><strong>Bộ nhớ ngoài</strong>: thông tin cần giữ lâu dài được ghi ra file/ghi chú (vd file <code>CLAUDE.md</code>
+        ghi quy ước dự án) để agent đọc lại ở mọi phiên, thay vì nhớ trong đầu.</li>
+      <li><strong>Ngữ cảnh sạch, đúng trọng tâm</strong> giúp agent làm tốt hơn — nhồi quá nhiều thông tin thừa dễ khiến
+        nó lạc hướng. Giao việc gọn, rõ vẫn hiệu quả hơn "đổ hết mọi thứ" vào một lần.</li>
+    </ul>
+    <div class="tip">📄 Đây là lý do <code>CLAUDE.md</code> quan trọng với Claude Code: nó là "bộ nhớ ngoài" ổn định — quy
+      ước dự án, cách chạy test, style code — để agent luôn có đúng ngữ cảnh mà không phải nhắc lại mỗi lần.</div>
+  </section>
+
+  <section id="da-tac-tu">
+    <h2><span class="num">6</span> Nhiều agent phối hợp (multi-agent)</h2>
+    <p>Với việc lớn, một agent có thể <strong>chia nhỏ và giao cho các "agent con" (subagent)</strong> — giống một
+      quản lý giao việc cho từng thành viên trong nhóm, rồi tổng hợp kết quả.</p>
+    <div class="card">
+      <p><strong>Ví dụ dễ hình dung</strong> — viết một báo cáo thị trường:</p>
+      <ul class="checklist">
+        <li><strong>Agent điều phối</strong> chia việc: mỗi phần một chủ đề.</li>
+        <li><strong>Subagent A</strong> tra dữ liệu kinh tế · <strong>Subagent B</strong> tìm tin công nghệ ·
+          <strong>Subagent C</strong> tổng hợp phân tích.</li>
+        <li>Điều phối gom kết quả, kiểm tra chất lượng, ghép thành báo cáo cuối.</li>
+      </ul>
+    </div>
+    <div class="tip">🧩 Lợi ích: mỗi subagent có ngữ cảnh <strong>riêng, gọn</strong>, làm song song → nhanh hơn và ít
+      "quá tải" hơn một agent ôm hết. (Đây đúng là cách dự án "Điểm Tin Thế Giới" quét tin: 1 điều phối + nhiều subagent
+      mỗi mảng.)</div>
+    <div class="tip">💡 Đừng nhầm với <strong>Agent Skills</strong>: Skill là "gói hướng dẫn" dạy một agent làm tốt một
+      việc (xem tab trước, mục 4); còn multi-agent là <em>nhiều agent</em> chạy song song cùng phối hợp. Chúng bổ trợ nhau.</div>
+  </section>
+
+  <section id="tu-xay">
+    <h2><span class="num">7</span> Tự xây agent với Claude Agent SDK</h2>
+    <p>Bạn không chỉ <em>dùng</em> agent có sẵn — bạn có thể <strong>tự xây agent riêng</strong> cho công việc của mình.
+      Anthropic cung cấp <strong>Claude Agent SDK</strong>: chính bộ khung ("harness") chạy nên Claude Code, được mở ra để
+      lập trình viên dựng agent của riêng họ trên đó.</p>
+    <div class="pill-row">
+      <span class="pill">🧠 Model Claude lo phần suy nghĩ</span>
+      <span class="pill">🔁 SDK lo vòng lặp agent</span>
+      <span class="pill">🛠️ Bạn khai báo công cụ &amp; mục tiêu</span>
+    </div>
+    <p>Nhờ SDK, bạn có thể tạo agent làm những việc rất riêng — ví dụ: một agent tự phân loại email đến và soạn trả lời
+      nháp, một agent rà soát hợp đồng theo checklist của công ty, hay một agent trực CI/CD tự sửa lỗi build.</p>
+    <div class="tip">🎓 Muốn học bài bản: khóa <strong>Building with the Claude API</strong> (tool use, streaming) và
+      <strong>Introduction to Agent Skills</strong> trên Anthropic Academy là điểm khởi đầu tốt — xem bảng khóa học ở tab
+      "Claude &amp; Claude Code".</div>
+  </section>
+
+  <section id="an-toan">
+    <h2><span class="num">8</span> Dùng agent an toàn &amp; bắt đầu học</h2>
+    <p>Vì agent <strong>tự hành động thật</strong> (sửa file, chạy lệnh, gửi dữ liệu ra ngoài), dùng nó cần cẩn trọng hơn
+      một chatbot chỉ trả chữ:</p>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Người vẫn ở trong vòng lặp (human-in-the-loop)</strong>: với thao tác quan trọng/khó hoàn tác (xoá
+          file, gửi email, đẩy code, thanh toán), để agent <strong>hỏi xác nhận</strong> trước khi làm.</li>
+        <li><strong>Xem lại thay đổi</strong>: đọc phần diff/kết quả agent đề xuất trước khi đồng ý — như xem lại việc của
+          một người mới, nhiệt tình nhưng chưa quen hết quy trình.</li>
+        <li><strong>Giới hạn quyền &amp; công cụ</strong>: chỉ trao đúng công cụ cần cho nhiệm vụ; hạn chế quyền truy cập dữ
+          liệu nhạy cảm.</li>
+        <li><strong>Không giao dữ liệu bí mật</strong> (mật khẩu, khoá API, dữ liệu khách hàng) nếu chưa chắc agent xử lý
+          và lưu trữ an toàn.</li>
+        <li><strong>Đặt điểm dừng</strong>: giới hạn số bước / phạm vi để agent không "chạy mãi" đi sai hướng.</li>
+      </ul>
+    </div>
+    <div class="tip">🧭 Nguyên tắc chung: <strong>giao mục tiêu rõ, cho công cụ vừa đủ, giữ quyền duyệt ở những bước hệ
+      trọng.</strong> Agent càng tự do thì càng mạnh — nhưng cũng càng cần lằn ranh rõ ràng.</div>
+
+    <h3 style="margin:20px 0 6px;font-size:1.05rem">Bắt đầu học từ đâu?</h3>
+    <ul class="checklist">
+      <li><strong>Trải nghiệm một agent thật</strong>: cài <strong>Claude Code</strong> và giao cho nó một việc nhỏ trong
+        dự án — xem tab "Claude &amp; Claude Code", mục 2.</li>
+      <li><strong>Đóng gói kỹ năng tái dùng</strong>: học viết <strong>Agent Skill</strong> — tab "Claude &amp; Claude
+        Code", mục 4 (có hướng dẫn từng bước cho người chưa biết gì).</li>
+      <li><strong>Học nền tảng</strong>: các khóa miễn phí ở <strong>Anthropic Academy</strong> — tab "Claude &amp; Claude
+        Code", mục 5.</li>
+    </ul>
+    <div class="tip">🌱 Cách học nhanh nhất là <strong>tự tay giao cho một agent một việc thật nho nhỏ</strong> và quan sát
+      nó chạy qua từng vòng lặp — bạn sẽ "thấm" khái niệm agentic nhanh hơn nhiều so với chỉ đọc.</div>
+  </section>
+
+  <footer>
+    Trang cá nhân · Giới thiệu khái niệm về AI agent (agentic AI), không thay thế tài liệu chính thức từ Anthropic.
+  </footer>
+</div>
+
 <script>
   function showTab(name){
-    var tabs = {general: document.getElementById('tab-general'), claude: document.getElementById('tab-claude')};
+    var tabs = {
+      general: document.getElementById('tab-general'),
+      claude: document.getElementById('tab-claude'),
+      agentic: document.getElementById('tab-agentic')
+    };
+    if (!tabs[name]) name = 'general';
     var btns = document.querySelectorAll('.tab-btn');
     Object.keys(tabs).forEach(function(key){
       tabs[key].hidden = key !== name;
@@ -559,7 +778,7 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
     });
     if (window.history && history.replaceState) history.replaceState(null, '', '#' + name);
   }
-  showTab(location.hash.replace('#', '') === 'claude' ? 'claude' : 'general');
+  showTab(location.hash.replace('#', ''));
 </script>
 
 </body>
