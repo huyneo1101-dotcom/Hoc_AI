@@ -1,0 +1,88 @@
+name: do-url-tu-ci
+
+# Do xem cac URL bi chan tu may Huy (Viet Nam, FPT Telecom) co mo duoc tu runner GitHub
+# dat o My khong. Chi chay tay, KHONG co lich, khong dinh gi toi deploy Pages cua repo.
+#
+# Muc dich la tach bach hai gia thuyet ve nguyen nhan bi chan:
+#   - curl tren runner My VAN bi chan  => chan theo VAN TAY TLS cua curl, dia ly khong lien quan.
+#   - curl tren runner My QUA duoc     => co yeu to dia ly hoac danh tieng IP, va CI dung lam
+#                                          duong xac minh URL tu dong duoc.
+#
+# Xoa file nay sau khi do xong.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  do:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Khai vi tri runner
+        run: |
+          echo "=== VI TRI RUNNER ==="
+          curl -sS --max-time 20 https://ifconfig.co/json || echo "(khong lay duoc)"
+          echo
+          curl --version | head -2
+
+      - name: Do bang curl HTTP/2
+        if: always()
+        run: |
+          cat > /tmp/urls.txt <<'EOF'
+          https://www.defence.gov.au/
+          https://www.defence.gov.au/news-events/releases/2026-07-16/exercise-pitch-black-2026-takes-skies
+          https://www.defence.gov.au/news-events/releases/2024-08-02/exercise-pitch-black-2024-concludes
+          https://www.defence.gov.au/news-events/news/2026-07-28/pitch-black-after-dark
+          https://www.minister.defence.gov.au/statements/2025-10-20/defence-ministers-joint-statement-png-australia-mutual-defence-treaty-implementation
+          https://www.minister.defence.gov.au/media-releases/2026-07-06/australia-fiji-sign-historic-vuvale-union-ocean-peace-alliance
+          https://ministers.dfat.gov.au/minister/pat-conroy/media-release/nauru-australia-treaty
+          https://www.airforce.gov.au/our-work/exercises/exercise-pitch-black
+          https://www.army.mil/article/285192/
+          https://www.hawaiipublicradio.org/2026-07-27/rimpac-2026-nears-its-conclusion
+          https://profile.id.com.au/rda-northern-territory/about
+          https://mb.com.ph/2026/07/24/philippines-japan-defense-logistics-pact-to-take-effect-in-august
+          https://thediplomat.com/2024/04/a-paradigm-shift-in-the-philippines-defense-strategy/
+          https://www.pacaf.af.mil/News/Article-Display/Article/1077209/f-22-raptors-to-deploy-to-raaf-base-tindal-as-part-of-enhanced-air-cooperation/
+          https://www.pacom.mil/Media/News/News-Articles/Article/4551982/
+          https://news.usni.org/2026/07/27/george-washington-csg-in-the-south-china-sea-after-philippine-chinese-clashes
+          https://www.pna.gov.ph/articles/1272896
+          https://www.nato.int/cps/en/natohq/news_240001.htm
+          https://www.pm.gov.au/media/australia-and-indonesia-sign-historic-security-treaty
+          EOF
+          sed -i 's/^[[:space:]]*//' /tmp/urls.txt
+          echo "=== HTTP/2, user-agent Chrome ==="
+          while IFS= read -r u; do
+            [ -z "$u" ] && continue
+            out=$(curl -sS -o /dev/null -w '%{http_code} %{time_total}s' --max-time 25 \
+                  -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36' \
+                  "$u" 2>&1 | tail -1)
+            printf '%-14s %s\n' "$out" "$u"
+          done < /tmp/urls.txt
+
+      - name: Do lai bang curl HTTP/1.1
+        if: always()
+        run: |
+          echo "=== HTTP/1.1, user-agent Chrome ==="
+          while IFS= read -r u; do
+            [ -z "$u" ] && continue
+            out=$(curl -sS --http1.1 -o /dev/null -w '%{http_code} %{time_total}s' --max-time 25 \
+                  -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36' \
+                  "$u" 2>&1 | tail -1)
+            printf '%-14s %s\n' "$out" "$u"
+          done < /tmp/urls.txt
+
+      - name: Doi chung user-agent curl mac dinh
+        if: always()
+        run: |
+          echo "=== user-agent curl mac dinh, do xem UA co phai yeu to quyet dinh khong ==="
+          curl -sS -o /dev/null -w 'trang chu      %{http_code} %{time_total}s\n' --max-time 25 "https://www.defence.gov.au/" 2>&1 | tail -1
+          curl -sS -o /dev/null -w 'thong cao PB26 %{http_code} %{time_total}s\n' --max-time 25 "https://www.defence.gov.au/news-events/releases/2026-07-16/exercise-pitch-black-2026-takes-skies" 2>&1 | tail -1
+
+      - name: Trich noi dung de kiem chat luong
+        if: always()
+        run: |
+          echo "=== TRICH NOI DUNG thong cao Pitch Black 2026 ==="
+          curl -sS --max-time 25 \
+            -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36' \
+            "https://www.defence.gov.au/news-events/releases/2026-07-16/exercise-pitch-black-2026-takes-skies" \
+            | sed -e 's/<[^>]*>//g' | grep -i -m 6 -E 'nations|jet aircraft|personnel|Tindal|Amberley' \
+            || echo "(khong lay duoc noi dung)"
