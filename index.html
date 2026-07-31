@@ -470,6 +470,45 @@ claude</code>
     <div class="tip">🔍 <strong>Luôn xem lại thay đổi</strong>: Claude Code cho xem diff (phần code thay đổi) trước khi ghi vào file — nên đọc qua trước khi đồng ý.</div>
     <div class="tip">🗺️ <strong>Chế độ lập kế hoạch (plan mode)</strong>: với việc lớn/phức tạp, để Claude Code lên kế hoạch trước rồi mới cho thực thi, tránh sửa lan man.</div>
     <div class="tip">🔁 <strong>Dùng lại lệnh riêng (custom slash command)</strong>: các thao tác lặp lại (vd. review code, viết commit message) có thể lưu thành lệnh riêng để gọi nhanh.</div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">🗺️ Ví dụ dùng Plan Mode</h3>
+    <p>Ở <strong>plan mode</strong>, Claude Code chỉ đọc và phân tích code — <strong>chưa sửa file nào cả</strong>.
+      Nó trình bày một bản kế hoạch từng bước để bạn duyệt trước, xong bạn mới cho chạy thật. Rất hợp với việc lớn,
+      ảnh hưởng nhiều file, hoặc khi bạn chưa chắc nên làm theo cách nào.</p>
+
+    <div class="card">
+      <p style="margin:0 0 8px"><strong>Cách bật/thoát</strong></p>
+      <ul class="checklist">
+        <li>Bấm <code>Shift+Tab</code> để chuyển qua lại giữa các chế độ — giao diện sẽ báo rõ đang ở
+          "plan mode".</li>
+        <li>Gõ yêu cầu như bình thường — Claude Code sẽ tự đọc code liên quan rồi <strong>trả lời bằng một bản kế
+          hoạch</strong>, không đụng vào file.</li>
+        <li>Đọc kế hoạch, có thể yêu cầu chỉnh sửa ngay trong lúc này (thêm/bớt bước) trước khi đồng ý cho chạy
+          thật.</li>
+      </ul>
+    </div>
+
+    <p style="margin-top:20px"><strong>Ví dụ cụ thể</strong>: thêm tính năng "tự động đăng xuất sau 30 phút không
+      hoạt động".</p>
+
+    <div class="example" style="border-color:#e0525f;background:#fdf3f0">
+      <span class="label" style="color:#c0392b">❌ Không dùng plan mode</span>Thêm tính năng tự động đăng xuất sau 30 phút không hoạt động.
+→ Claude Code tự chọn cách làm và sửa luôn nhiều file cùng lúc — khó kiểm soát nếu cách nó chọn không như bạn hình dung.</div>
+
+    <div class="example" style="margin-top:10px">
+      <span class="label">✅ Bật plan mode trước</span>(Shift+Tab để bật plan mode) Thêm tính năng tự động đăng xuất sau 30 phút không hoạt động.
+
+→ Claude Code trả lời bằng kế hoạch, ví dụ:
+1. Thêm bộ đếm thời gian không hoạt động (idle timer) trong app.js
+2. Reset bộ đếm mỗi khi có thao tác chuột/bàn phím
+3. Hết 30 phút → gọi hàm đăng xuất có sẵn
+4. (chưa có) cảnh báo trước 1 phút cho người dùng kịp thao tác tiếp
+
+→ Bạn thấy thiếu bước cảnh báo, yêu cầu bổ sung ngay trong plan mode → Claude chỉnh lại kế hoạch → bạn đồng ý → lúc
+đó mới bắt đầu sửa code thật.</div>
+
+    <div class="tip">⏱️ <strong>Không phải lúc nào cũng cần plan mode</strong> — việc nhỏ, rõ ràng như sửa lỗi
+      chính tả hay đổi màu một nút thì cứ giao thẳng, dùng plan mode chỉ tổ mất thêm một bước không cần thiết.</div>
   </section>
 
   <section id="agent-skills">
