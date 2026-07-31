@@ -155,6 +155,61 @@
     background:#fdeef3;color:var(--pink);border:1px solid var(--border);
     border-radius:999px;padding:5px 12px;
   }
+
+  .quiz-shell{max-width:600px;margin:0 auto}
+  .quiz-intro{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:32px 26px;text-align:center;
+  }
+  .quiz-intro .big{font-size:2.2rem;margin-bottom:6px}
+  .quiz-intro h3{margin:0 0 8px;font-size:1.25rem}
+  .quiz-intro p{color:var(--muted);font-size:.94rem;max-width:38ch;margin:0 auto}
+  .quiz-tags{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:16px 0 4px}
+  .quiz-btn{
+    display:inline-block;background:var(--pink);color:#fff;border:none;
+    border-radius:999px;padding:12px 30px;font:inherit;font-size:1rem;font-weight:600;
+    cursor:pointer;margin-top:18px;
+  }
+  .quiz-btn:hover{filter:brightness(1.05)}
+  .quiz-progress-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+  .quiz-progress-row span{font-size:.8rem;color:var(--muted)}
+  .quiz-bar{height:6px;background:var(--border);border-radius:99px;overflow:hidden;margin-bottom:22px}
+  .quiz-bar-fill{height:100%;background:var(--pink);transition:width .25s ease}
+  .quiz-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px}
+  .quiz-tag{
+    display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+    background:#fdeef3;color:var(--pink);border-radius:6px;padding:3px 8px;margin-bottom:12px;
+  }
+  .quiz-question{font-size:1.12rem;font-weight:600;margin:0 0 18px;line-height:1.45}
+  .quiz-options{display:flex;flex-direction:column;gap:10px}
+  .quiz-option{
+    text-align:left;padding:13px 16px;border-radius:12px;border:1.5px solid var(--border);
+    background:#fff;font:inherit;font-size:.94rem;cursor:pointer;color:var(--text);
+    transition:border-color .15s, background .15s;
+  }
+  .quiz-option:hover:not([disabled]){border-color:var(--pink)}
+  .quiz-option[disabled]{cursor:default}
+  .quiz-option.correct{border-color:#3bab6f;background:#eafaf1;color:#1d6b41;font-weight:600}
+  .quiz-option.wrong{border-color:#e0525f;background:#fdecee;color:#a3222d}
+  .quiz-explain{margin-top:16px}
+  .quiz-next-row{display:flex;justify-content:flex-end;margin-top:18px}
+  .quiz-result{text-align:center}
+  .quiz-score{font-size:3rem;font-weight:700;color:var(--pink);margin:10px 0 2px;line-height:1}
+  .quiz-score span{font-size:1.4rem;color:var(--muted);font-weight:600}
+  .quiz-tier{font-size:1.05rem;font-weight:600;margin-bottom:6px}
+  .quiz-tier-desc{color:var(--muted);font-size:.9rem;max-width:40ch;margin:0 auto 20px}
+  .quiz-breakdown{text-align:left;margin:20px 0}
+  .quiz-breakdown-row{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding:9px 0;border-bottom:1px solid var(--border);font-size:.88rem;
+  }
+  .quiz-breakdown-row:last-child{border-bottom:none}
+  .quiz-breakdown-bar{flex:1;height:6px;background:var(--border);border-radius:99px;overflow:hidden;margin:0 10px}
+  .quiz-breakdown-bar i{display:block;height:100%;background:var(--pink)}
+  .quiz-result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+  .quiz-btn.ghost{
+    background:#fff;color:var(--pink);border:1.5px solid var(--pink);
+  }
 </style>
 </head>
 <body>
@@ -175,6 +230,7 @@
   <button class="tab-btn" data-tab="claude" role="tab" aria-selected="false" onclick="showTab('claude')">Claude &amp; Claude Code</button>
   <button class="tab-btn" data-tab="agentic" role="tab" aria-selected="false" onclick="showTab('agentic')">AI Agent (Agentic)</button>
   <button class="tab-btn" data-tab="roadmap" role="tab" aria-selected="false" onclick="showTab('roadmap')">Lộ trình học</button>
+  <button class="tab-btn" data-tab="quiz" role="tab" aria-selected="false" onclick="showTab('quiz')">Kiểm tra kiến thức</button>
 </div>
 
 <div class="wrap" id="tab-general">
@@ -1003,13 +1059,21 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
   </footer>
 </div>
 
+<div class="wrap" id="tab-quiz" hidden>
+  <div class="quiz-shell" id="quiz-root"></div>
+  <footer>
+    Trang cá nhân · 15 câu hỏi tự chấm ngay trên trình duyệt, không lưu hay gửi kết quả đi đâu cả.
+  </footer>
+</div>
+
 <script>
   function showTab(name){
     var tabs = {
       general: document.getElementById('tab-general'),
       claude: document.getElementById('tab-claude'),
       agentic: document.getElementById('tab-agentic'),
-      roadmap: document.getElementById('tab-roadmap')
+      roadmap: document.getElementById('tab-roadmap'),
+      quiz: document.getElementById('tab-quiz')
     };
     if (!tabs[name]) name = 'general';
     var btns = document.querySelectorAll('.tab-btn');
@@ -1024,6 +1088,245 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
     if (window.history && history.replaceState) history.replaceState(null, '', '#' + name);
   }
   showTab(location.hash.replace('#', ''));
+</script>
+
+<script>
+(function(){
+  var QUIZ_TAG_LABEL = {
+    general: 'Hướng dẫn chung',
+    claude: 'Claude & Claude Code',
+    agentic: 'AI Agent (Agentic)',
+    roadmap: 'Lộ trình học'
+  };
+
+  var QUESTIONS = [
+    {
+      tag: 'general',
+      q: 'Một prompt (yêu cầu) tốt theo hướng dẫn trên trang này thường gồm mấy phần?',
+      options: ['2 phần: câu hỏi và câu trả lời', '3 phần: ai, làm gì, khi nào', '4 phần: vai trò, bối cảnh, yêu cầu, định dạng', 'Không cần theo phần nào cả'],
+      correct: 2,
+      explain: 'Prompt tốt nên có đủ Vai trò – Bối cảnh – Yêu cầu – Định dạng (tab "Hướng dẫn chung", mục 4).'
+    },
+    {
+      tag: 'general',
+      q: '"AI ảo giác" (hallucination) nghĩa là gì?',
+      options: ['AI từ chối trả lời', 'AI trả lời sai hoặc bịa thông tin nhưng nghe vẫn có vẻ đúng', 'AI bị lỗi không chạy được', 'AI luôn hỏi lại người dùng'],
+      correct: 1,
+      explain: 'AI có thể tự "bịa" số liệu, tên riêng, trích dẫn — luôn kiểm tra lại thông tin quan trọng (tab "Hướng dẫn chung", mục 6).'
+    },
+    {
+      tag: 'general',
+      q: 'Theo trang này, nên làm gì khi mới dùng AI lần đầu?',
+      options: ['Trả phí công cụ tốt nhất ngay từ đầu', 'Thử 1–2 công cụ miễn phí trước, quen tay rồi mới cân nhắc trả phí', 'Phải học lập trình trước khi dùng AI', 'Chỉ dùng được nếu biết tiếng Anh'],
+      correct: 1,
+      explain: 'Không cần chọn "cái tốt nhất" ngay — thử công cụ miễn phí trước (tab "Hướng dẫn chung", mục 2).'
+    },
+    {
+      tag: 'claude',
+      q: 'Claude và Claude Code khác nhau ở điểm nào?',
+      options: ['Không khác gì nhau', 'Claude Code chỉ chạy trên điện thoại', 'Claude là chatbot trò chuyện; Claude Code là công cụ dòng lệnh thao tác trực tiếp trên dự án', 'Claude Code là bản trả phí của Claude'],
+      correct: 2,
+      explain: 'Claude = "người trò chuyện"; Claude Code = người trò chuyện đó được trao thêm quyền thao tác trên máy/dự án (tab "Claude & Claude Code", mục 1).'
+    },
+    {
+      tag: 'claude',
+      q: 'Lệnh nào dùng để cài Claude Code?',
+      options: ['pip install claude-code', 'npm install -g @anthropic-ai/claude-code', 'brew install claude', 'Không cần cài, dùng thẳng trên web'],
+      correct: 1,
+      explain: 'Cần Node.js, sau đó chạy npm install -g @anthropic-ai/claude-code rồi gõ "claude" (mục 2).'
+    },
+    {
+      tag: 'claude',
+      q: 'File CLAUDE.md dùng để làm gì?',
+      options: ['Lưu lịch sử chat cũ', 'Ghi quy ước/ngữ cảnh dự án để Claude Code tự đọc mỗi phiên làm việc', 'Chứa mã nguồn chính của ứng dụng', 'Bắt buộc phải có mới chạy được Claude Code'],
+      correct: 1,
+      explain: 'Tạo bằng lệnh /init — giúp Claude Code nhớ cấu trúc, quy ước dự án của bạn (mục 2).'
+    },
+    {
+      tag: 'claude',
+      q: 'Agent Skill được Claude Code kích hoạt dựa vào đâu?',
+      options: ['Ngày tạo file', 'Tên thư mục chứa Skill', 'Phần description trong SKILL.md — Claude so khớp với yêu cầu của bạn', 'Người dùng phải chọn thủ công mỗi lần'],
+      correct: 2,
+      explain: 'Mô tả càng rõ "khi nào dùng" thì Claude càng kích hoạt đúng lúc (mục 4).'
+    },
+    {
+      tag: 'claude',
+      q: 'Muốn cả nhóm cùng dùng chung một Skill, nên lưu ở đâu?',
+      options: ['Gửi qua email cho từng người', 'Thư mục .claude/skills/ trong repo, commit lên git', 'Lưu trong Google Drive cá nhân', 'Không thể chia sẻ Skill cho người khác'],
+      correct: 1,
+      explain: 'Lưu trong .claude/skills/ và commit lên git để cả nhóm cùng dùng (mục 4, "Nơi lưu & cách chia sẻ").'
+    },
+    {
+      tag: 'claude',
+      q: 'Khi nào nên dùng Slash command thay vì để Claude tự nhận diện bằng Skill?',
+      options: ['Khi muốn Claude tự đoán lúc nào nên chạy', 'Khi bạn muốn chủ động gõ lệnh để chạy, không cần Claude tự nhận diện', 'Slash command và Skill là một, không khác nhau', 'Slash command chỉ dùng được cho subagent'],
+      correct: 1,
+      explain: 'Slash command phải gõ lệnh (vd. /review) mới chạy — hợp với thao tác bạn chủ động gọi (bảng so sánh, mục 4).'
+    },
+    {
+      tag: 'claude',
+      q: 'Anthropic Academy là gì?',
+      options: ['Nền tảng học chính thức, miễn phí, có cấp chứng chỉ', 'Một hội nghị thường niên', 'Chương trình trả phí bắt buộc để dùng Claude', 'Một cuộc thi lập trình'],
+      correct: 0,
+      explain: 'anthropic.skilljar.com — 3 nhóm: AI Fluency, Product Training, Developer (mục 5).'
+    },
+    {
+      tag: 'agentic',
+      q: 'Điểm khác biệt chính giữa chatbot và AI agent là gì?',
+      options: ['Agent chỉ trả lời văn bản dài hơn', 'Agent tự lập kế hoạch, dùng công cụ và tự lặp lại nhiều bước để đạt mục tiêu', 'Chatbot luôn nhanh hơn agent', 'Không có khác biệt thực sự'],
+      correct: 1,
+      explain: '"Chatbot cho lời khuyên nấu ăn; agent thì tự vào bếp nấu" (tab "AI Agent (Agentic)", mục 1).'
+    },
+    {
+      tag: 'agentic',
+      q: 'Ba yếu tố khiến một AI trở thành "agent" là gì?',
+      options: ['Tốc độ, giá cả, ngôn ngữ', 'Mục tiêu, công cụ, quyền tự lặp', 'Giao diện đẹp, nhiều tính năng, giá rẻ', 'Chỉ cần kết nối internet'],
+      correct: 1,
+      explain: 'Mục tiêu (thay vì câu hỏi lẻ) + Công cụ (thao tác thật) + Quyền tự lặp (mục 1).'
+    },
+    {
+      tag: 'agentic',
+      q: 'MCP (Model Context Protocol) dùng để làm gì?',
+      options: ['Mã hoá dữ liệu cá nhân', 'Là chuẩn chung để agent "cắm" vào công cụ và nguồn dữ liệu khác nhau', 'Tăng tốc độ phản hồi của AI', 'Giới hạn số câu hỏi mỗi ngày'],
+      correct: 1,
+      explain: 'Xem mục "MCP — chuẩn cắm công cụ & dữ liệu" trong tab "AI Agent (Agentic)".'
+    },
+    {
+      tag: 'roadmap',
+      q: 'Theo lộ trình học, thói quen nào KHÔNG nên làm khi dùng AI?',
+      options: ['Chia việc nhỏ, rõ ràng', 'Dán mật khẩu hoặc API key trực tiếp vào đoạn chat với AI', 'Xem qua diff trước khi đồng ý thay đổi', 'Ghi ngữ cảnh dự án vào CLAUDE.md'],
+      correct: 1,
+      explain: 'Giai đoạn 3 (an toàn dữ liệu): không bao giờ dán mật khẩu/khóa bí mật vào chat AI.'
+    },
+    {
+      tag: 'roadmap',
+      q: 'RLS (Row Level Security) trong Just Us có tác dụng gì?',
+      options: ['Làm web tải nhanh hơn', 'Đảm bảo mỗi tài khoản chỉ đọc/sửa được dữ liệu của chính mình, dù khóa Supabase công khai', 'Mã hoá toàn bộ ảnh trên server', 'Ngăn đăng nhập sai mật khẩu quá 3 lần'],
+      correct: 1,
+      explain: 'Xem tab "Lộ trình học", giai đoạn 3.'
+    }
+  ];
+
+  var root = document.getElementById('quiz-root');
+  var state = { started: false, i: 0, score: 0, answered: false, byTag: {} };
+
+  function resetState(){
+    state = { started: true, i: 0, score: 0, answered: false, byTag: {} };
+    Object.keys(QUIZ_TAG_LABEL).forEach(function(t){ state.byTag[t] = { correct: 0, total: 0 }; });
+  }
+
+  function renderIntro(){
+    root.innerHTML =
+      '<div class="quiz-intro">' +
+        '<div class="big">🧠</div>' +
+        '<h3>Kiểm tra kiến thức</h3>' +
+        '<p>' + QUESTIONS.length + ' câu trắc nghiệm, khoảng 5 phút — ôn lại nhanh những gì bạn vừa đọc ở các tab trên.</p>' +
+        '<div class="quiz-tags">' +
+          Object.keys(QUIZ_TAG_LABEL).map(function(t){ return '<span class="pill">' + QUIZ_TAG_LABEL[t] + '</span>'; }).join('') +
+        '</div>' +
+        '<button class="quiz-btn" id="quiz-start-btn">Bắt đầu làm bài</button>' +
+      '</div>';
+    document.getElementById('quiz-start-btn').addEventListener('click', function(){
+      resetState();
+      renderQuestion();
+    });
+  }
+
+  function renderQuestion(){
+    var idx = state.i;
+    var total = QUESTIONS.length;
+    var item = QUESTIONS[idx];
+    var pct = Math.round((idx / total) * 100);
+
+    root.innerHTML =
+      '<div class="quiz-progress-row"><span>Câu ' + (idx + 1) + ' / ' + total + '</span><span>' + state.score + ' đúng</span></div>' +
+      '<div class="quiz-bar"><div class="quiz-bar-fill" style="width:' + pct + '%"></div></div>' +
+      '<div class="quiz-card">' +
+        '<span class="quiz-tag">' + QUIZ_TAG_LABEL[item.tag] + '</span>' +
+        '<p class="quiz-question">' + item.q + '</p>' +
+        '<div class="quiz-options" id="quiz-options"></div>' +
+        '<div id="quiz-explain-slot"></div>' +
+        '<div class="quiz-next-row" id="quiz-next-slot"></div>' +
+      '</div>';
+
+    var optWrap = document.getElementById('quiz-options');
+    item.options.forEach(function(optText, oi){
+      var btn = document.createElement('button');
+      btn.className = 'quiz-option';
+      btn.textContent = optText;
+      btn.addEventListener('click', function(){ answer(oi); });
+      optWrap.appendChild(btn);
+    });
+  }
+
+  function answer(oi){
+    var item = QUESTIONS[state.i];
+    var optWrap = document.getElementById('quiz-options');
+    var btns = optWrap.querySelectorAll('.quiz-option');
+    var isCorrect = oi === item.correct;
+
+    btns.forEach(function(b, bi){
+      b.disabled = true;
+      if (bi === item.correct) b.classList.add('correct');
+      else if (bi === oi) b.classList.add('wrong');
+    });
+
+    if (isCorrect) state.score++;
+    state.byTag[item.tag].total++;
+    if (isCorrect) state.byTag[item.tag].correct++;
+
+    document.getElementById('quiz-explain-slot').innerHTML =
+      '<div class="tip quiz-explain">' + (isCorrect ? '✅ ' : '❌ ') + item.explain + '</div>';
+
+    var isLast = state.i === QUESTIONS.length - 1;
+    var nextBtn = document.createElement('button');
+    nextBtn.className = 'quiz-btn';
+    nextBtn.textContent = isLast ? 'Xem kết quả' : 'Câu tiếp →';
+    nextBtn.addEventListener('click', function(){
+      if (isLast) { renderResult(); }
+      else { state.i++; renderQuestion(); }
+    });
+    document.getElementById('quiz-next-slot').appendChild(nextBtn);
+  }
+
+  function renderResult(){
+    var total = QUESTIONS.length;
+    var pct = Math.round((state.score / total) * 100);
+    var tier, tierDesc;
+    if (pct >= 85) { tier = '🏆 Nắm rất chắc'; tierDesc = 'Bạn đọc kỹ và nhớ tốt gần hết nội dung trang này — có thể bắt tay áp dụng ngay.'; }
+    else if (pct >= 60) { tier = '👍 Khá vững'; tierDesc = 'Nắm được phần lớn ý chính — xem lại các câu sai để chắc thêm.'; }
+    else { tier = '🌱 Mới bắt đầu'; tierDesc = 'Chưa sao — quay lại đọc các tab tương ứng với câu sai rồi làm lại bài là nhớ ngay.'; }
+
+    var breakdown = Object.keys(QUIZ_TAG_LABEL).map(function(t){
+      var d = state.byTag[t];
+      if (!d || d.total === 0) return '';
+      var p = Math.round((d.correct / d.total) * 100);
+      return '<div class="quiz-breakdown-row">' +
+        '<span>' + QUIZ_TAG_LABEL[t] + '</span>' +
+        '<div class="quiz-breakdown-bar"><i style="width:' + p + '%"></i></div>' +
+        '<span>' + d.correct + '/' + d.total + '</span>' +
+      '</div>';
+    }).join('');
+
+    root.innerHTML =
+      '<div class="quiz-card quiz-result">' +
+        '<div class="quiz-score">' + state.score + '<span>/' + total + '</span></div>' +
+        '<div class="quiz-tier">' + tier + '</div>' +
+        '<p class="quiz-tier-desc">' + tierDesc + '</p>' +
+        '<div class="quiz-breakdown">' + breakdown + '</div>' +
+        '<div class="quiz-result-actions">' +
+          '<button class="quiz-btn" id="quiz-retry-btn">Làm lại</button>' +
+        '</div>' +
+      '</div>';
+
+    document.getElementById('quiz-retry-btn').addEventListener('click', function(){
+      resetState();
+      renderQuestion();
+    });
+  }
+
+  renderIntro();
+})();
 </script>
 
 </body>
