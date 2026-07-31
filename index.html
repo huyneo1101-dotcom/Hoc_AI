@@ -991,11 +991,12 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
     <h2>Mục lục</h2>
     <ol>
       <li><a href="#rm-cho-ai">Lộ trình này dành cho ai?</a></li>
-      <li><a href="#rm-tong-quan">Tổng quan 4 giai đoạn</a></li>
+      <li><a href="#rm-tong-quan">Tổng quan 5 giai đoạn</a></li>
       <li><a href="#rm-gd1">Giai đoạn 1 — Dùng AI đúng cách</a></li>
       <li><a href="#rm-gd2">Giai đoạn 2 — Làm việc thật với Claude Code</a></li>
       <li><a href="#rm-gd3">Giai đoạn 3 — Thói quen an toàn dữ liệu</a></li>
       <li><a href="#rm-gd4">Giai đoạn 4 — Hiểu AI Agent</a></li>
+      <li><a href="#rm-gd5">Giai đoạn 5 — Debug &amp; Git nâng cao</a></li>
       <li><a href="#rm-xa-hon">Nếu muốn đi xa hơn: lập trình cơ bản</a></li>
       <li><a href="#rm-tu-kiem-tra">Tự kiểm tra: bạn đang ở đâu?</a></li>
     </ol>
@@ -1013,7 +1014,7 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
   </section>
 
   <section id="rm-tong-quan">
-    <h2><span class="num">2</span> Tổng quan 4 giai đoạn</h2>
+    <h2><span class="num">2</span> Tổng quan 5 giai đoạn</h2>
     <p>Đi theo thứ tự — mỗi giai đoạn xây trên nền giai đoạn trước, không cần vội nhảy cóc:</p>
     <div class="card">
       <table class="course-table">
@@ -1022,6 +1023,7 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
         <tr><td><strong>2. Làm việc thật với Claude Code</strong></td><td>Chỉ đạo AI code cho dự án của bạn</td><td>Đang làm — duy trì liên tục</td></tr>
         <tr><td><strong>3. Thói quen an toàn dữ liệu</strong></td><td>Bảo vệ tài khoản/dữ liệu thật của người dùng</td><td>Học 1 lần, áp dụng mãi mãi</td></tr>
         <tr><td><strong>4. Hiểu AI Agent</strong></td><td>Biết AI đang "nghĩ" và hành động thế nào</td><td>1–2 tuần, khi rảnh</td></tr>
+        <tr><td><strong>5. Debug &amp; Git nâng cao</strong></td><td>Tự xử lý lỗi và sự cố mà không hoảng</td><td>Học dần khi gặp sự cố thật</td></tr>
       </table>
     </div>
   </section>
@@ -1087,8 +1089,45 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
       lý thuyết trước mới bắt đầu dùng.</div>
   </section>
 
+  <section id="rm-gd5">
+    <h2><span class="num">7</span> Giai đoạn 5 — Debug &amp; Git nâng cao</h2>
+    <p>Khi dự án lớn dần, sớm muộn bạn cũng gặp lỗi hoặc thay đổi chồng chéo — hai kỹ năng dưới đây giúp bạn tự xử
+      lý mà không hoảng, thay vì lúc nào cũng phải nhờ AI cứu.</p>
+
+    <h3 style="margin:20px 0 6px;font-size:1.05rem">Kiểm tra thay đổi (debug) đúng cách</h3>
+    <ul class="checklist">
+      <li><strong>Luôn mở thử app sau khi AI sửa code</strong> — đọc diff chỉ biết "code đổi gì", mở trình duyệt
+        mới biết "chạy có đúng không".</li>
+      <li><strong>Test đường đi chính trước</strong>: thao tác người dùng hay làm nhất, rồi mới thử trường hợp
+        hiếm/biên.</li>
+      <li><strong>Đọc lỗi trong Console</strong>: bấm <code>F12</code> (hoặc <code>Cmd+Option+I</code> trên Mac) →
+        tab Console → copy nguyên dòng đỏ báo lỗi đưa lại cho AI, thay vì chỉ nói "nó bị lỗi rồi".</li>
+    </ul>
+    <div class="tip">🔍 Một dòng lỗi copy nguyên văn giúp AI sửa nhanh hơn rất nhiều so với mô tả chung chung như
+      "web bị đơ".</div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">Git nâng cao: nhánh &amp; quay lại phiên bản cũ</h3>
+    <p>Vài lệnh git nên hiểu thêm ngoài commit/push:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>Lệnh</th><th>Dùng khi nào</th></tr>
+        <tr><td><code>git status</code></td><td>Xem trước những gì sẽ thay đổi/mất — nên chạy trước mọi lệnh
+          "nguy hiểm" (checkout, reset, clean).</td></tr>
+        <tr><td><code>git checkout -b ten-nhanh</code></td><td>Tạo nhánh riêng để thử nghiệm mà không ảnh hưởng
+          bản chính (main).</td></tr>
+        <tr><td><code>git log --oneline</code></td><td>Xem lịch sử các lần commit để biết nên quay lại mốc nào.</td></tr>
+        <tr><td><code>git revert &lt;commit&gt;</code></td><td>Hoàn tác một thay đổi cũ mà vẫn giữ nguyên lịch sử
+          — an toàn hơn xoá hẳn.</td></tr>
+      </table>
+    </div>
+    <div class="tip">⚠️ Khi thấy dòng <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> ... <code>=======</code> ...
+      <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> trong file — đó là <strong>merge conflict</strong>: hai thay đổi
+      cùng đụng một chỗ. Đọc cả 2 bản, giữ lại phần đúng (hoặc gộp cả hai), xoá các dòng dấu
+      <code>&lt;&lt;&lt;</code>/<code>===</code>/<code>&gt;&gt;&gt;</code> rồi lưu lại.</div>
+  </section>
+
   <section id="rm-xa-hon">
-    <h2><span class="num">7</span> Nếu muốn đi xa hơn: lập trình cơ bản</h2>
+    <h2><span class="num">8</span> Nếu muốn đi xa hơn: lập trình cơ bản</h2>
     <p>Không bắt buộc — nhưng nếu một ngày bạn muốn <strong>tự đọc hiểu</strong> code AI viết (không chỉ tin tưởng
       hoàn toàn), hoặc tự sửa những lỗi nhỏ mà không cần hỏi AI, đây là 3 thứ đáng học trước:</p>
     <div class="tools-grid">
@@ -1097,9 +1136,9 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
         <p>Đủ để đọc hiểu cấu trúc trang web và tự chỉnh sửa nhỏ (đổi màu, đổi chữ) mà không cần nhờ AI.</p>
       </div>
       <div class="tool">
-        <h3>Git cơ bản</h3>
-        <p>Bạn đã dùng quen commit/push/merge qua Claude Code — học thêm ý nghĩa từng lệnh để hiểu rõ mình đang
-          làm gì.</p>
+        <h3>Git sâu hơn nữa</h3>
+        <p>Đã quen branch/revert ở giai đoạn 5? Học thêm rebase, tag, và cách đọc lịch sử phức tạp khi nhiều người
+          cùng sửa một file.</p>
       </div>
       <div class="tool">
         <h3>Một ngôn ngữ lập trình</h3>
@@ -1110,7 +1149,7 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
   </section>
 
   <section id="rm-tu-kiem-tra">
-    <h2><span class="num">8</span> Tự kiểm tra: bạn đang ở đâu?</h2>
+    <h2><span class="num">9</span> Tự kiểm tra: bạn đang ở đâu?</h2>
     <div class="card">
       <table class="course-table">
         <tr><th>Bạn đã...?</th><th>Giai đoạn</th></tr>
@@ -1118,6 +1157,7 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
         <tr><td>Tự viết và dùng thử được 1 Agent Skill</td><td>Xong giai đoạn 2</td></tr>
         <tr><td>Biết RLS là gì và luôn kiểm tra trước khi push lên main</td><td>Xong giai đoạn 3</td></tr>
         <tr><td>Giải thích được vòng lặp agent cho người khác nghe</td><td>Xong giai đoạn 4</td></tr>
+        <tr><td>Đọc được lỗi trong Console và biết cách tạo nhánh/hoàn tác (revert)</td><td>Xong giai đoạn 5</td></tr>
       </table>
     </div>
     <div class="tip">📌 Không cần xong tuần tự 100% mới sang giai đoạn sau — cứ vừa làm dự án thật (giai đoạn 2) vừa
