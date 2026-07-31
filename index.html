@@ -302,6 +302,77 @@
     </table>
     <div class="tip">🎯 Càng cụ thể càng tốt. Thay vì "viết email", hãy nói "viết email xin nghỉ phép 2 ngày, giọng
       lịch sự, gửi cho quản lý, khoảng 4 câu".</div>
+
+    <h3 style="margin:24px 0 6px;font-size:1.05rem">So sánh: mơ hồ vs cụ thể</h3>
+    <p>Cùng một mục đích, nhưng kết quả khác hẳn tùy vào cách hỏi:</p>
+    <div class="example" style="border-color:#e0525f;background:#fdf3f0">
+      <span class="label" style="color:#c0392b">❌ Mơ hồ</span>Viết cho tôi bài đăng bán hàng.</div>
+    <div class="example" style="margin-top:10px">
+      <span class="label">✅ Cụ thể</span>Viết bài đăng Facebook bán son môi handmade, giọng gần gũi như nói chuyện
+với bạn thân, nhấn vào thành phần thiên nhiên, dài 4-5 câu, kết thúc bằng câu kêu gọi để lại bình luận "chốt đơn".</div>
+    <div class="tip">👀 Bản "mơ hồ" khiến AI phải tự đoán rất nhiều thứ (bán gì, cho ai, giọng gì) — càng đoán nhiều,
+      càng dễ ra kết quả không đúng ý.</div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">5 kỹ thuật nâng cao</h3>
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>1. Đưa ví dụ mẫu (few-shot)</strong></p>
+      <p style="margin:0 0 10px;color:var(--muted);font-size:.9rem">Cho AI xem 1–2 ví dụ đúng ý trước khi giao việc
+        thật — giúp AI bắt đúng giọng văn/định dạng thay vì đoán mò.</p>
+      <div class="example">Đây là 2 caption tôi thích:
+1. "Cà phê sáng thứ Hai, tỉnh táo cả tuần ☕"
+2. "Một ngày mới, một lý do mới để mỉm cười 🌤️"
+Viết thêm 1 caption tương tự cho ảnh hoàng hôn ở biển.</div>
+    </div>
+
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>2. Yêu cầu suy luận từng bước (chain-of-thought)</strong></p>
+      <p style="margin:0 0 10px;color:var(--muted);font-size:.9rem">Với việc cần cân nhắc nhiều yếu tố, thêm câu
+        "suy nghĩ từng bước trước khi kết luận" giúp AI ít bỏ sót lý do, quyết định chắc chắn hơn.</p>
+      <div class="example">So sánh ưu/nhược điểm của việc thuê nhà gần công ty vs xa công ty nhưng rẻ hơn.
+Hãy liệt kê từng yếu tố trước, rồi mới đưa ra khuyến nghị cuối cùng.</div>
+    </div>
+
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>3. Nói rõ điều KHÔNG muốn (negative prompting)</strong></p>
+      <p style="margin:0 0 10px;color:var(--muted);font-size:.9rem">Giới hạn rõ ràng giúp AI ít "đi lạc hướng" hơn
+        là chỉ nói điều bạn muốn.</p>
+      <div class="example">Viết mô tả sản phẩm cho nồi chiên không dầu, khoảng 60 từ.
+Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không viết dạng danh sách.</div>
+    </div>
+
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>4. Tinh chỉnh qua nhiều lượt (iterative refinement)</strong></p>
+      <p style="margin:0 0 10px;color:var(--muted);font-size:.9rem">Không cần đúng ngay từ câu đầu tiên — nhận xét
+        cụ thể để AI sửa dần vẫn nhanh hơn là viết lại từ đầu.</p>
+      <div class="example">Ngắn lại một nửa, bỏ phần mở đầu, và đổi giọng thân mật hơn.</div>
+    </div>
+
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>5. Nhờ AI tự kiểm tra lại (self-check)</strong></p>
+      <p style="margin:0 0 10px;color:var(--muted);font-size:.9rem">Với nội dung có số liệu/sự kiện, nhờ AI tự rà
+        soát lại trước khi chốt câu trả lời — giảm bớt rủi ro "ảo giác".</p>
+      <div class="example">Trước khi trả lời, kiểm tra lại xem các số liệu bạn nêu có khớp với nội dung tôi
+đã đưa ở trên không — nếu không chắc, hãy nói rõ là không chắc.</div>
+    </div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">Sai lầm hay gặp khi viết prompt</h3>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Yêu cầu mơ hồ, thiếu bối cảnh</strong> — AI phải tự đoán quá nhiều, dễ lệch ý.</li>
+        <li><strong>Nhồi nhiều việc không liên quan vào 1 câu</strong> — nên tách thành từng yêu cầu, làm xong việc
+          này rồi mới sang việc khác.</li>
+        <li><strong>Cần định dạng/giọng văn riêng nhưng không cho ví dụ</strong> — AI sẽ mặc định theo giọng
+          "trung tính" chung chung.</li>
+        <li><strong>Quên nói rõ đối tượng đọc</strong> — cùng một nội dung nhưng viết cho sếp khác viết cho bạn bè.</li>
+        <li><strong>Tin tuyệt đối câu trả lời đầu tiên</strong> — không tinh chỉnh thêm dù kết quả chưa thật sự đúng ý.</li>
+      </ul>
+    </div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">✔️ Tự kiểm tra trước khi gửi</h3>
+    <div class="tip">Trước khi bấm gửi, tự hỏi nhanh 5 câu: <strong>(1)</strong> Đã nói rõ AI đóng vai gì chưa?
+      <strong>(2)</strong> Đủ bối cảnh (đối tượng, mục đích) chưa? <strong>(3)</strong> Yêu cầu đã cụ thể, đo lường
+      được chưa (độ dài, số lượng, giọng văn)? <strong>(4)</strong> Có cần ví dụ mẫu để AI bắt đúng "gu" không?
+      <strong>(5)</strong> Định dạng đầu ra mong muốn đã rõ chưa?</div>
   </section>
 
   <section id="vi-du">
