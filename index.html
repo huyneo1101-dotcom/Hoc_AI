@@ -359,13 +359,78 @@ description: Dùng khi cần viết báo cáo công việc hàng tuần theo m�
         cài vào nhiều dự án/nhóm khác nhau chỉ bằng một lệnh cài đặt.</li>
     </ul>
 
-    <h3 style="margin:20px 0 6px;font-size:1.05rem">Mẹo khi tự viết Skill</h3>
+    <h3 style="margin:20px 0 6px;font-size:1.05rem">Các trường cấu hình nâng cao (không bắt buộc)</h3>
+    <p>Ngoài <code>name</code> và <code>description</code>, frontmatter còn nhận thêm vài trường tuỳ chọn để kiểm
+      soát Skill chặt hơn:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>Trường</th><th>Tác dụng</th></tr>
+        <tr>
+          <td><code>argument-hint</code></td>
+          <td>Gợi ý tham số khi gọi Skill trực tiếp, ví dụ <code>[tên-dự-án]</code> — hiện ra như gợi ý ngay khi bạn
+            gõ tên Skill.</td>
+        </tr>
+        <tr>
+          <td><code>allowed-tools</code></td>
+          <td>Giới hạn Skill chỉ được dùng một số công cụ nhất định (vd. chỉ đọc file, không được chạy lệnh hệ
+            thống) — an toàn hơn khi chia sẻ Skill cho người khác dùng.</td>
+        </tr>
+        <tr>
+          <td><code>disable-model-invocation</code></td>
+          <td>Đặt <code>true</code> để Skill <strong>không</strong> tự kích hoạt theo mô tả — chỉ chạy khi được gọi
+            thẳng, tránh Claude dùng nhầm lúc không mong muốn.</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tip">👍 Người mới không cần quan tâm mấy trường này ngay — chỉ <code>name</code> + <code>description</code>
+      là đã dùng được. Thêm vào sau khi Skill đã chạy ổn và muốn kiểm soát chặt hơn.</div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">Skill, Slash Command hay Subagent?</h3>
+    <p>Claude Code có vài cách "mở rộng" khác nhau, dễ nhầm với nhau — bảng dưới đây so sánh nhanh:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>Cơ chế</th><th>Kích hoạt</th><th>Phù hợp khi</th></tr>
+        <tr>
+          <td><strong>Agent Skill</strong></td>
+          <td>Claude tự nhận diện theo mô tả (hoặc gọi tay)</td>
+          <td>Một quy trình/kiến thức cụ thể, lặp lại nhiều lần</td>
+        </tr>
+        <tr>
+          <td><strong>Slash command</strong></td>
+          <td>Phải gõ lệnh (vd. <code>/review</code>) để chạy</td>
+          <td>Thao tác bạn chủ động gọi, ít khi cần Claude tự đoán lúc nào nên dùng</td>
+        </tr>
+        <tr>
+          <td><strong>Subagent</strong></td>
+          <td>Được gọi trong lúc làm việc để xử lý một việc con riêng</td>
+          <td>Việc cần tách ngữ cảnh riêng (vd. tìm kiếm rộng trong code) mà không làm loãng cuộc trò chuyện chính</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tip">🤔 Chưa chắc nên dùng cái nào? Cứ bắt đầu bằng <strong>Agent Skill</strong> — dễ viết nhất (chỉ
+      cần văn bản thường), phù hợp với phần lớn nhu cầu cá nhân và nhóm nhỏ.</div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">Mẹo khi tự viết Skill</h3>
     <div class="tip">🎯 <strong>Mô tả (description) phải rõ "khi nào dùng"</strong> — Claude chọn Skill dựa vào phần
       mô tả này, mô tả mơ hồ thì Claude khó biết lúc nào nên gọi tới.</div>
     <div class="tip">✂️ <strong>Một Skill làm một việc</strong> — đừng nhồi nhiều quy trình không liên quan vào
       chung một Skill, khó bảo trì và dễ bị gọi nhầm lúc.</div>
     <div class="tip">🧪 <strong>Thử trước khi dùng thật</strong>: tạo Skill xong, thử vài yêu cầu khác nhau xem
       Claude có kích hoạt đúng lúc và làm đúng ý không, rồi mới đưa cả nhóm dùng.</div>
+
+    <div class="card">
+      <p style="margin:0 0 10px"><strong>Sai lầm hay gặp</strong></p>
+      <ul class="checklist">
+        <li><strong>Mô tả chung chung</strong> (vd. "giúp viết văn bản") — Claude không biết khi nào nên/không nên
+          dùng, dễ kích hoạt sai lúc hoặc bỏ sót lúc cần.</li>
+        <li><strong>Nhồi quá nhiều việc vào 1 Skill</strong> — nên tách thành nhiều Skill nhỏ, mỗi cái một nhiệm vụ
+          rõ ràng, dễ sửa và dễ tái sử dụng hơn.</li>
+        <li><strong>Copy Skill người khác mà không đọc kỹ</strong> — nhất là Skill có kèm script, nên xem qua nội
+          dung trước khi dùng, giống như không chạy code lạ chưa rõ nguồn gốc.</li>
+        <li><strong>Quên cập nhật khi quy trình đổi</strong> — Skill là văn bản tĩnh, quy trình đổi mà không sửa
+          lại <code>SKILL.md</code> thì Claude vẫn làm theo cách cũ.</li>
+      </ul>
+    </div>
 
     <h3 style="margin:28px 0 6px;font-size:1.05rem">🐣 Hướng dẫn từng bước cho người chưa biết gì</h3>
     <p>Phần dưới đây giả sử bạn <strong>chưa từng viết Skill lần nào</strong> — làm theo đúng thứ tự là có một
@@ -437,6 +502,39 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
           Skill nào để trả lời câu này không?"</em></li>
         <li>Muốn xoá Skill: xoá cả thư mục <code>tom-tat-hop</code> là xong, không ảnh hưởng gì khác.</li>
       </ul>
+    </div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">💡 Gợi ý Skill theo lĩnh vực</h3>
+    <p>Chưa biết nên viết Skill gì trước? Vài ý tưởng theo từng nhu cầu — chỉ mang tính gợi mở, đổi lại cho đúng
+      quy trình thật của bạn:</p>
+    <div class="tools-grid">
+      <div class="tool">
+        <h3>Văn phòng</h3>
+        <p>Viết báo cáo tuần theo mẫu công ty, soạn email xin nghỉ phép/xin duyệt chi đúng văn phong, tóm tắt biên
+          bản họp.</p>
+      </div>
+      <div class="tool">
+        <h3>Lập trình</h3>
+        <p>Checklist review code theo chuẩn nhóm, viết commit message đúng quy ước, sinh test case theo mẫu có
+          sẵn.</p>
+      </div>
+      <div class="tool">
+        <h3>Nội dung / Marketing</h3>
+        <p>Viết caption đúng giọng thương hiệu, chuyển bài dài thành thread mạng xã hội, dịch nội dung mà vẫn giữ
+          nguyên thuật ngữ riêng.</p>
+      </div>
+      <div class="tool">
+        <h3>Chăm sóc khách hàng</h3>
+        <p>Trả lời câu hỏi thường gặp theo kịch bản chuẩn, phân loại mức độ ưu tiên của yêu cầu hỗ trợ.</p>
+      </div>
+      <div class="tool">
+        <h3>Học tập cá nhân</h3>
+        <p>Tóm tắt tài liệu học theo dàn ý cố định, tạo flashcard ôn tập từ ghi chú.</p>
+      </div>
+      <div class="tool">
+        <h3>Tài chính cá nhân</h3>
+        <p>Phân loại chi tiêu theo danh mục cố định, tóm tắt sao kê hàng tháng theo mẫu quen thuộc.</p>
+      </div>
     </div>
 
     <h3 style="margin:28px 0 6px;font-size:1.05rem">❓ Câu hỏi thường gặp</h3>
