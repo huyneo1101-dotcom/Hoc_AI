@@ -174,6 +174,7 @@
   <button class="tab-btn" data-tab="general" role="tab" aria-selected="false" onclick="showTab('general')">Hướng dẫn chung</button>
   <button class="tab-btn" data-tab="claude" role="tab" aria-selected="false" onclick="showTab('claude')">Claude &amp; Claude Code</button>
   <button class="tab-btn" data-tab="agentic" role="tab" aria-selected="false" onclick="showTab('agentic')">AI Agent (Agentic)</button>
+  <button class="tab-btn" data-tab="roadmap" role="tab" aria-selected="false" onclick="showTab('roadmap')">Lộ trình học</button>
 </div>
 
 <div class="wrap" id="tab-general">
@@ -857,12 +858,158 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
   </footer>
 </div>
 
+<div class="wrap" id="tab-roadmap" hidden>
+
+  <nav class="toc" aria-label="Mục lục">
+    <h2>Mục lục</h2>
+    <ol>
+      <li><a href="#rm-cho-ai">Lộ trình này dành cho ai?</a></li>
+      <li><a href="#rm-tong-quan">Tổng quan 4 giai đoạn</a></li>
+      <li><a href="#rm-gd1">Giai đoạn 1 — Dùng AI đúng cách</a></li>
+      <li><a href="#rm-gd2">Giai đoạn 2 — Làm việc thật với Claude Code</a></li>
+      <li><a href="#rm-gd3">Giai đoạn 3 — Thói quen an toàn dữ liệu</a></li>
+      <li><a href="#rm-gd4">Giai đoạn 4 — Hiểu AI Agent</a></li>
+      <li><a href="#rm-xa-hon">Nếu muốn đi xa hơn: lập trình cơ bản</a></li>
+      <li><a href="#rm-tu-kiem-tra">Tự kiểm tra: bạn đang ở đâu?</a></li>
+    </ol>
+  </nav>
+
+  <section id="rm-cho-ai">
+    <h2><span class="num">1</span> Lộ trình này dành cho ai?</h2>
+    <p>Dành cho người <strong>tự làm dự án cá nhân bằng AI</strong> — như bạn đang làm với Just Us: chỉ đạo Claude
+      Code viết code, tự deploy web, mà không đi theo hướng học máy (ML) hay kỹ sư phần mềm chuyên nghiệp. Mục tiêu
+      không phải "biết code giỏi", mà là <strong>dùng AI như một công cụ đúng cách, an toàn và ngày càng hiệu quả
+      hơn</strong>.</p>
+    <div class="tip">🧭 Nếu bạn đang tìm hướng "trở thành kỹ sư AI/ML", lộ trình này chưa đủ — nó tập trung vào
+      <strong>vibe coding</strong> (chỉ đạo AI làm, không tự viết từng dòng), giống đúng cách bạn đang làm với
+      Just Us và Học AI.</div>
+  </section>
+
+  <section id="rm-tong-quan">
+    <h2><span class="num">2</span> Tổng quan 4 giai đoạn</h2>
+    <p>Đi theo thứ tự — mỗi giai đoạn xây trên nền giai đoạn trước, không cần vội nhảy cóc:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>Giai đoạn</th><th>Mục tiêu</th><th>Thời gian gợi ý</th></tr>
+        <tr><td><strong>1. Dùng AI đúng cách</strong></td><td>Viết yêu cầu rõ ràng, hiểu giới hạn của AI</td><td>1 tuần</td></tr>
+        <tr><td><strong>2. Làm việc thật với Claude Code</strong></td><td>Chỉ đạo AI code cho dự án của bạn</td><td>Đang làm — duy trì liên tục</td></tr>
+        <tr><td><strong>3. Thói quen an toàn dữ liệu</strong></td><td>Bảo vệ tài khoản/dữ liệu thật của người dùng</td><td>Học 1 lần, áp dụng mãi mãi</td></tr>
+        <tr><td><strong>4. Hiểu AI Agent</strong></td><td>Biết AI đang "nghĩ" và hành động thế nào</td><td>1–2 tuần, khi rảnh</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="rm-gd1">
+    <h2><span class="num">3</span> Giai đoạn 1 — Dùng AI đúng cách</h2>
+    <p>Nền tảng bắt buộc, áp dụng cho mọi công cụ AI (ChatGPT, Claude, Gemini...), không riêng Claude Code:</p>
+    <ul class="checklist">
+      <li><strong>Viết yêu cầu (prompt) rõ ràng</strong>: nêu rõ vai trò, bối cảnh, việc cần làm, định dạng mong
+        muốn — xem tab "Hướng dẫn chung", mục 4.</li>
+      <li><strong>Luyện với ví dụ thật</strong>: thử các mẫu prompt theo tình huống ở tab "Hướng dẫn chung", mục 5,
+        rồi áp dụng vào việc của chính bạn.</li>
+      <li><strong>Hiểu giới hạn của AI</strong>: AI có thể trả lời sai/"bịa" (ảo giác), không nên tin tuyệt đối —
+        xem tab "Hướng dẫn chung", mục 6.</li>
+    </ul>
+    <div class="tip">✅ Xong giai đoạn này khi: bạn tự viết được một yêu cầu đủ 4 phần (vai trò – bối cảnh – yêu cầu –
+      định dạng) mà không cần nhìn mẫu.</div>
+  </section>
+
+  <section id="rm-gd2">
+    <h2><span class="num">4</span> Giai đoạn 2 — Làm việc thật với Claude Code</h2>
+    <p>Đây là giai đoạn bạn <strong>đang làm</strong> với dự án Just Us — tiếp tục xây thói quen tốt:</p>
+    <ul class="checklist">
+      <li><strong>Chia việc nhỏ, rõ ràng</strong>: yêu cầu cụ thể từng phần thay vì "làm lại cả trang" — dễ kiểm
+        tra, dễ sửa khi sai.</li>
+      <li><strong>Luôn xem qua thay đổi trước khi đồng ý</strong>: Claude Code cho xem diff trước khi ghi file —
+        tập thói quen đọc lướt qua, không chỉ bấm "ok" theo phản xạ.</li>
+      <li><strong>Ghi lại ngữ cảnh dự án vào CLAUDE.md</strong>: giúp Claude Code nhớ quy ước, cấu trúc dự án của
+        bạn ở mỗi phiên làm việc mới — xem tab "Claude &amp; Claude Code", mục 2.</li>
+      <li><strong>Viết Agent Skill đầu tiên</strong>: đóng gói một việc bạn hay nhờ AI làm lặp đi lặp lại thành một
+        Skill dùng lại được — có hướng dẫn từng bước cho người chưa biết gì ở tab "Claude &amp; Claude Code", mục 4.</li>
+    </ul>
+    <div class="tip">✅ Xong "vòng đầu" của giai đoạn này khi: bạn tự viết và dùng thử được ít nhất 1 Skill của
+      riêng mình.</div>
+  </section>
+
+  <section id="rm-gd3">
+    <h2><span class="num">5</span> Giai đoạn 3 — Thói quen an toàn dữ liệu</h2>
+    <p>Quan trọng vì Just Us có tài khoản, mật khẩu, dữ liệu thật của người dùng (qua Supabase) — sai một thói quen
+      nhỏ có thể lộ dữ liệu thật:</p>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Không bao giờ dán mật khẩu, khóa bí mật (API key) trực tiếp vào đoạn chat</strong> với AI —
+          kể cả khi nhờ AI debug.</li>
+        <li><strong>Hiểu sơ về RLS (Row Level Security)</strong>: cơ chế đang bảo vệ dữ liệu Just Us — về cơ bản,
+          nó đảm bảo mỗi tài khoản chỉ đọc/sửa được dữ liệu của chính mình, kể cả khi khóa Supabase là công khai.</li>
+        <li><strong>Luôn kiểm tra trước khi push lên nhánh chính (main)</strong>: nhất là khi thay đổi liên quan
+          tới đăng nhập, quyền truy cập, hay cấu hình Supabase.</li>
+        <li><strong>Sao lưu trước thay đổi lớn</strong>: trước khi để AI sửa nhiều file cùng lúc, đảm bảo code cũ
+          đã được commit — lỡ sai thì luôn quay lại được.</li>
+      </ul>
+    </div>
+    <div class="tip">🔒 Đây là giai đoạn <strong>học một lần, áp dụng mãi mãi</strong> — không cần học sâu bảo mật,
+      chỉ cần biến các thói quen trên thành phản xạ.</div>
+  </section>
+
+  <section id="rm-gd4">
+    <h2><span class="num">6</span> Giai đoạn 4 — Hiểu AI Agent</h2>
+    <p>Khi đã quen tay với Claude Code, tìm hiểu thêm <strong>vì sao nó hoạt động được như vậy</strong> sẽ giúp bạn
+      đoán trước và chỉ đạo AI tốt hơn — xem toàn bộ ở tab "AI Agent (Agentic)": vòng lặp agent, công cụ (tools),
+      MCP, ngữ cảnh &amp; bộ nhớ, và cách dùng agent an toàn.</p>
+    <div class="tip">🌱 Cách học nhanh nhất vẫn là <strong>giao việc thật rồi quan sát</strong> — không cần đọc hết
+      lý thuyết trước mới bắt đầu dùng.</div>
+  </section>
+
+  <section id="rm-xa-hon">
+    <h2><span class="num">7</span> Nếu muốn đi xa hơn: lập trình cơ bản</h2>
+    <p>Không bắt buộc — nhưng nếu một ngày bạn muốn <strong>tự đọc hiểu</strong> code AI viết (không chỉ tin tưởng
+      hoàn toàn), hoặc tự sửa những lỗi nhỏ mà không cần hỏi AI, đây là 3 thứ đáng học trước:</p>
+    <div class="tools-grid">
+      <div class="tool">
+        <h3>HTML/CSS cơ bản</h3>
+        <p>Đủ để đọc hiểu cấu trúc trang web và tự chỉnh sửa nhỏ (đổi màu, đổi chữ) mà không cần nhờ AI.</p>
+      </div>
+      <div class="tool">
+        <h3>Git cơ bản</h3>
+        <p>Bạn đã dùng quen commit/push/merge qua Claude Code — học thêm ý nghĩa từng lệnh để hiểu rõ mình đang
+          làm gì.</p>
+      </div>
+      <div class="tool">
+        <h3>Một ngôn ngữ lập trình</h3>
+        <p>JavaScript là lựa chọn hợp lý nhất vì Just Us và Học AI đều dùng nó — giúp bạn đọc hiểu phần lớn code
+          AI đang viết cho bạn.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rm-tu-kiem-tra">
+    <h2><span class="num">8</span> Tự kiểm tra: bạn đang ở đâu?</h2>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>Bạn đã...?</th><th>Giai đoạn</th></tr>
+        <tr><td>Viết được yêu cầu đủ 4 phần mà không cần xem mẫu</td><td>Xong giai đoạn 1</td></tr>
+        <tr><td>Tự viết và dùng thử được 1 Agent Skill</td><td>Xong giai đoạn 2</td></tr>
+        <tr><td>Biết RLS là gì và luôn kiểm tra trước khi push lên main</td><td>Xong giai đoạn 3</td></tr>
+        <tr><td>Giải thích được vòng lặp agent cho người khác nghe</td><td>Xong giai đoạn 4</td></tr>
+      </table>
+    </div>
+    <div class="tip">📌 Không cần xong tuần tự 100% mới sang giai đoạn sau — cứ vừa làm dự án thật (giai đoạn 2) vừa
+      tranh thủ học 1, 3, 4 song song, miễn giai đoạn 1 đã chắc.</div>
+  </section>
+
+  <footer>
+    Trang cá nhân · Lộ trình gợi ý riêng cho người dùng AI để tự làm dự án (vibe coding), không phải chương trình
+    đào tạo chính thức.
+  </footer>
+</div>
+
 <script>
   function showTab(name){
     var tabs = {
       general: document.getElementById('tab-general'),
       claude: document.getElementById('tab-claude'),
-      agentic: document.getElementById('tab-agentic')
+      agentic: document.getElementById('tab-agentic'),
+      roadmap: document.getElementById('tab-roadmap')
     };
     if (!tabs[name]) name = 'general';
     var btns = document.querySelectorAll('.tab-btn');
