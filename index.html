@@ -509,6 +509,39 @@ claude</code>
 
     <div class="tip">⏱️ <strong>Không phải lúc nào cũng cần plan mode</strong> — việc nhỏ, rõ ràng như sửa lỗi
       chính tả hay đổi màu một nút thì cứ giao thẳng, dùng plan mode chỉ tổ mất thêm một bước không cần thiết.</div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">📝 File .md (Markdown) là gì?</h3>
+    <p><code>.md</code> là đuôi file <strong>Markdown</strong> — định dạng văn bản đơn giản, gõ bằng ký tự thường
+      mà vẫn có định dạng khi hiển thị (in đậm, tiêu đề, danh sách...). <code>CLAUDE.md</code>, <code>SKILL.md</code>
+      và cả <code>README.md</code> đều là file Markdown — không cần phần mềm đặc biệt, mở bằng bất kỳ trình soạn
+      thảo văn bản nào (Notepad, VS Code...) cũng viết được, chỉ cần lưu đúng đuôi <code>.md</code>.</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>Gõ thế này</th><th>Hiển thị ra sao</th></tr>
+        <tr><td><code># Tiêu đề</code></td><td>Tiêu đề lớn</td></tr>
+        <tr><td><code>## Tiêu đề phụ</code></td><td>Tiêu đề nhỏ hơn</td></tr>
+        <tr><td><code>**chữ đậm**</code></td><td><strong>chữ đậm</strong></td></tr>
+        <tr><td><code>- việc 1</code><br><code>- việc 2</code></td><td>Danh sách gạch đầu dòng</td></tr>
+        <tr><td><code>`lệnh`</code></td><td><code>lệnh</code> (định dạng như mã lệnh)</td></tr>
+        <tr><td><code>[Just Us](https://...)</code></td><td>Một đường link bấm được</td></tr>
+      </table>
+    </div>
+    <div class="tip">💡 Bạn không cần thuộc hết cú pháp này — cứ để Claude Code tự viết file <code>.md</code> giúp
+      bạn, chỉ cần hiểu sơ để đọc lại và biết mình đang sửa cái gì khi cần chỉnh tay.</div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">🗂️ Scratchpad — nơi để file tạm</h3>
+    <p>Khi làm việc, đôi lúc Claude Code cần tạo những file <strong>không thuộc về dự án thật</strong> — ảnh chụp
+      màn hình để kiểm tra giao diện, một script thử nghiệm, file tải về tạm thời để xử lý. Thay vì vứt những file
+      này lẫn vào code dự án, Claude Code dùng một <strong>scratchpad</strong>: thư mục tạm, tách riêng khỏi project
+      của bạn.</p>
+    <ul class="checklist">
+      <li><strong>Giữ dự án sạch</strong>: file tạm không lẫn vào git, không vô tình bị commit theo code thật.</li>
+      <li><strong>Không cần tự tạo</strong>: Claude Code tự biết dùng scratchpad khi cần — bạn không phải yêu cầu.</li>
+      <li><strong>An toàn khi thấy nhắc tới</strong>: nếu thấy Claude Code nói đang lưu gì đó vào thư mục scratchpad,
+        đây là chuyện bình thường — không phải lỗi hay file rác nguy hiểm.</li>
+    </ul>
+    <div class="tip">🧹 Hiểu đơn giản: scratchpad giống <strong>"giấy nháp"</strong> trên bàn làm việc — dùng để
+      tính toán/thử nghiệm, không phải bản chính thức nộp lại, nên không cần giữ gìn cẩn thận như file dự án.</div>
   </section>
 
   <section id="agent-skills">
