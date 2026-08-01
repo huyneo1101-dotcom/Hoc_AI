@@ -1178,6 +1178,35 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
     <div class="tip">🔍 Một dòng lỗi copy nguyên văn giúp AI sửa nhanh hơn rất nhiều so với mô tả chung chung như
       "web bị đơ".</div>
 
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">🌐 Proxy mạng — vì sao curl/tải web đôi khi bị chặn?</h3>
+    <p>Khi Claude Code chạy trong một môi trường đám mây, các yêu cầu ra internet (chạy <code>curl</code>, tải
+      trang web, gọi API...) thường <strong>không đi thẳng</strong> — mà đi qua một <strong>proxy</strong> trước.</p>
+    <div class="tip">🏢 Hiểu đơn giản: proxy giống <strong>phòng bảo vệ ở cổng công ty</strong> — mọi gói hàng gửi
+      ra ngoài đều bị kiểm tra trước khi thật sự rời khỏi công ty. Một yêu cầu web cũng vậy: máy chạy Claude Code
+      không "nói chuyện" thẳng với internet, mà gửi qua proxy trước, proxy mới chuyển tiếp ra ngoài (hoặc chặn lại).</div>
+    <p>Vì sao môi trường cần dùng proxy như vậy:</p>
+    <ul class="checklist">
+      <li><strong>Kiểm soát nơi được phép gọi tới</strong>: chỉ cho agent truy cập những địa chỉ nằm trong chính
+        sách cho phép của tổ chức.</li>
+      <li><strong>Ghi lại nhật ký</strong>: biết agent đang gửi yêu cầu ra những đâu, phục vụ theo dõi/kiểm toán.</li>
+      <li><strong>"Bóc kiểm tra" nội dung mã hoá (TLS)</strong>: để quét an toàn, proxy cần dùng một chứng chỉ (CA)
+        riêng — công cụ nào chưa "tin tưởng" chứng chỉ này sẽ báo lỗi liên quan tới TLS/chứng chỉ.</li>
+    </ul>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>Gặp lỗi này</th><th>Thường có nghĩa là</th></tr>
+        <tr><td>Lỗi chứng chỉ (certificate/TLS)</td><td>Công cụ đang dùng chưa được trỏ tới chứng chỉ (CA) riêng
+          của proxy — cần cấu hình để nó tin tưởng chứng chỉ đó.</td></tr>
+        <tr><td>403 / 407</td><td>Điểm đến bị <strong>chặn theo chính sách</strong> của tổ chức — không phải lỗi
+          tạm thời, thử lại cũng không khác.</td></tr>
+        <tr><td>Treo/timeout không rõ lý do</td><td>Công cụ đó không tự đọc cấu hình proxy — cần chỉnh riêng cho
+          từng công cụ.</td></tr>
+      </table>
+    </div>
+    <div class="tip">⚠️ Gặp lỗi proxy, <strong>đừng tắt việc kiểm tra chứng chỉ hay né proxy để "cho chạy được"</strong>
+      — đây là quyết định bảo mật có chủ đích của tổ chức, không phải lỗi vặt cần lách qua. Cách đúng là báo lại
+      địa chỉ bị chặn, hoặc trỏ đúng cấu hình chứng chỉ cho công cụ đang dùng.</div>
+
     <h3 style="margin:28px 0 6px;font-size:1.05rem">Commit, Merge, Pull Request là gì?</h3>
     <p>Ba khái niệm hay gặp nhất khi làm việc với Git/GitHub qua Claude Code — hiểu rõ giúp bạn đọc thông báo và
       chỉ đạo AI tự tin hơn, không còn thấy chúng "bí ẩn":</p>
