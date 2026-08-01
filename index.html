@@ -1145,6 +1145,50 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
     <div class="tip">🔍 Một dòng lỗi copy nguyên văn giúp AI sửa nhanh hơn rất nhiều so với mô tả chung chung như
       "web bị đơ".</div>
 
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">Commit, Merge, Pull Request là gì?</h3>
+    <p>Ba khái niệm hay gặp nhất khi làm việc với Git/GitHub qua Claude Code — hiểu rõ giúp bạn đọc thông báo và
+      chỉ đạo AI tự tin hơn, không còn thấy chúng "bí ẩn":</p>
+
+    <div class="card">
+      <table class="course-table">
+        <tr><th>Khái niệm</th><th>Hiểu đơn giản là gì</th></tr>
+        <tr>
+          <td><strong>Commit</strong></td>
+          <td>Một "điểm lưu" có kèm mô tả — giống bấm lưu bản nháp và ghi chú lại "vừa sửa gì". Có commit rồi thì
+            sau này luôn xem lại được lịch sử, hoặc quay về đúng lúc đó nếu cần.</td>
+        </tr>
+        <tr>
+          <td><strong>Branch (nhánh)</strong></td>
+          <td>Một bản sao riêng của code để thử nghiệm, tách khỏi bản chính (thường gọi là <code>main</code>) — sửa
+            sai ở nhánh riêng không ảnh hưởng bản đang chạy thật.</td>
+        </tr>
+        <tr>
+          <td><strong>Pull Request (PR)</strong></td>
+          <td>Một "đề nghị xin gộp" nhánh của bạn vào nhánh chính, kèm mô tả thay đổi — để ai đó (hoặc chính bạn)
+            xem lại toàn bộ thay đổi một lần trước khi đồng ý, giống gửi bản nháp cho người khác duyệt trước khi
+            cập nhật vào tài liệu chính thức.</td>
+        </tr>
+        <tr>
+          <td><strong>Merge</strong></td>
+          <td>Hành động gộp nhánh (đã duyệt qua PR, hoặc gộp trực tiếp) vào lại nhánh chính — từ lúc này thay đổi
+            mới thật sự "lên bản chính thức".</td>
+        </tr>
+      </table>
+    </div>
+
+    <p style="margin-top:20px">Thứ tự thường gặp khi làm việc với Claude Code trên một dự án:</p>
+    <div class="loop">
+      <div class="loop-step"><span class="n">1</span><strong>Sửa file</strong>Claude Code thay đổi code theo yêu cầu của bạn.</div>
+      <div class="loop-step"><span class="n">2</span><strong>Commit</strong>Lưu lại thay đổi kèm mô tả ngắn gọn ("sửa lỗi đăng nhập", "thêm nút xoá"...).</div>
+      <div class="loop-step"><span class="n">3</span><strong>Push</strong>Đẩy commit từ máy lên GitHub, vào nhánh đang làm việc.</div>
+      <div class="loop-step"><span class="n">4</span><strong>Pull Request</strong>Mở đề nghị gộp nhánh vào main, kèm mô tả để xem lại (bỏ qua bước này nếu làm một mình, muốn nhanh).</div>
+      <div class="loop-step"><span class="n">5</span><strong>Merge</strong>Gộp vào main — thay đổi chính thức có hiệu lực, có thể deploy.</div>
+    </div>
+
+    <div class="tip">🙋 <strong>Làm một mình như với Just Us thì có cần Pull Request không?</strong> Không bắt buộc —
+      push thẳng vào <code>main</code> vẫn chạy tốt. PR hữu ích hơn khi có <strong>nhiều người cùng sửa</strong>
+      hoặc bạn muốn có một bước "xem lại toàn bộ thay đổi" trước khi nó chính thức lên bản chạy thật.</div>
+
     <h3 style="margin:28px 0 6px;font-size:1.05rem">Git nâng cao: nhánh &amp; quay lại phiên bản cũ</h3>
     <p>Vài lệnh git nên hiểu thêm ngoài commit/push:</p>
     <div class="card">
