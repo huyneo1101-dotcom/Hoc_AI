@@ -168,6 +168,28 @@
     font-size:.88rem;overflow-x:auto;white-space:pre;
   }
   .source-note{font-size:.85rem;color:var(--muted);margin-top:10px}
+  .news-note{
+    background:#fdeef3;border:1px dashed var(--border);border-radius:12px;
+    padding:14px 18px;margin:14px 0 24px;font-size:.9rem;color:var(--muted);
+  }
+  .news-note b{color:var(--text)}
+  .news-list{display:flex;flex-direction:column;gap:14px}
+  .news-item{
+    background:var(--card);border:1px solid var(--border);border-radius:14px;
+    padding:16px 20px;
+  }
+  .news-item-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .news-date{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.76rem;color:var(--muted);white-space:nowrap;
+  }
+  .news-cat{
+    display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+    background:#fdeef3;color:var(--pink);border-radius:6px;padding:2px 8px;
+  }
+  .news-item h3{margin:2px 0 6px;font-size:1.02rem}
+  .news-item p{margin:0;color:var(--text);font-size:.93rem}
+  .news-item .source-note{margin-top:8px}
 
   .loop{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
   .loop-step{
@@ -260,9 +282,11 @@
 
 <div class="tabs" role="tablist">
   <button class="tab-btn" data-tab="general" role="tab" aria-selected="false" onclick="showTab('general')">Hướng dẫn chung</button>
+  <button class="tab-btn" data-tab="concepts" role="tab" aria-selected="false" onclick="showTab('concepts')">Kiến thức chung</button>
   <button class="tab-btn" data-tab="claude" role="tab" aria-selected="false" onclick="showTab('claude')">Claude &amp; Claude Code</button>
   <button class="tab-btn" data-tab="agentic" role="tab" aria-selected="false" onclick="showTab('agentic')">AI Agent (Agentic)</button>
   <button class="tab-btn" data-tab="roadmap" role="tab" aria-selected="false" onclick="showTab('roadmap')">Lộ trình học</button>
+  <button class="tab-btn" data-tab="news" role="tab" aria-selected="false" onclick="showTab('news')">Tin mới</button>
   <button class="tab-btn" data-tab="quiz" role="tab" aria-selected="false" onclick="showTab('quiz')">Kiểm tra kiến thức</button>
   <div class="tools-menu">
     <button class="tab-btn tools-menu-btn" id="tools-menu-btn" type="button" aria-haspopup="true"
@@ -545,6 +569,114 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
 
   <footer>
     Trang cá nhân · Hướng dẫn tổng quan, không liên kết với bất kỳ hãng AI nào cụ thể.
+  </footer>
+</div>
+
+<div class="wrap" id="tab-concepts" hidden>
+
+  <nav class="toc" aria-label="Mục lục">
+    <h2>Mục lục</h2>
+    <ol>
+      <li><a href="#mo-hinh-la-gi">AI thực chất "hiểu" như thế nào?</a></li>
+      <li><a href="#token-ngu-canh">Token &amp; cửa sổ ngữ cảnh</a></li>
+      <li><a href="#ao-giac">Vì sao AI hay "bịa" (ảo giác)?</a></li>
+      <li><a href="#kien-thuc-cutoff">Giới hạn kiến thức theo thời gian</a></li>
+      <li><a href="#free-vs-tra-phi">Free và trả phí khác nhau ở đâu?</a></li>
+      <li><a href="#du-lieu-rieng-tu">Dữ liệu bạn nhập vào có an toàn?</a></li>
+      <li><a href="#ban-quyen">Ai sở hữu nội dung AI tạo ra?</a></li>
+      <li><a href="#thien-vi">Thiên vị &amp; giới hạn suy luận</a></li>
+      <li><a href="#kiem-chung">Cách kiểm chứng một câu trả lời</a></li>
+    </ol>
+  </nav>
+
+  <section id="mo-hinh-la-gi">
+    <h2><span class="num">1</span> AI thực chất "hiểu" như thế nào?</h2>
+    <p>Mọi chatbot AI hiện nay (ChatGPT, Claude, Gemini...) đều là <strong>mô hình ngôn ngữ lớn (LLM)</strong>: được
+      huấn luyện bằng cách đọc một lượng văn bản khổng lồ và học cách <strong>dự đoán từ/chữ tiếp theo</strong> hợp
+      lý nhất dựa trên những gì đã có trước đó. Nó không "suy nghĩ" hay "hiểu" theo nghĩa con người, không có ký ức
+      dài hạn, không có ý thức — chỉ giỏi nhận diện khuôn mẫu ngôn ngữ ở quy mô rất lớn.</p>
+    <div class="tip">💡 Vì cơ chế là "đoán chữ tiếp theo nghe hợp lý", AI có thể trả lời rất trôi chảy dù nội dung
+      sai — sự trôi chảy không đồng nghĩa với chính xác.</div>
+  </section>
+
+  <section id="token-ngu-canh">
+    <h2><span class="num">2</span> Token &amp; cửa sổ ngữ cảnh (context window)</h2>
+    <p>AI không đọc "chữ" như người mà chia văn bản thành các mảnh nhỏ gọi là <strong>token</strong> (khoảng ¾ một
+      từ tiếng Anh, hoặc ít hơn 1 từ tiếng Việt có dấu). Mỗi AI có giới hạn số token có thể "nhớ" cùng lúc trong một
+      cuộc trò chuyện, gọi là <strong>cửa sổ ngữ cảnh</strong>. Cuộc chat càng dài hoặc file đính kèm càng lớn, AI
+      càng dễ "quên" những phần đầu để nhường chỗ cho nội dung mới.</p>
+    <div class="tip">🪟 Cửa sổ ngữ cảnh là khái niệm áp dụng cho <strong>mọi</strong> AI, không riêng công cụ nào —
+      khi thấy AI trả lời lạc chủ đề sau một hội thoại rất dài, nhiều khả năng phần đầu đã bị "trôi" khỏi bộ nhớ.</div>
+  </section>
+
+  <section id="ao-giac">
+    <h2><span class="num">3</span> Vì sao AI hay "bịa" (ảo giác)?</h2>
+    <p>Vì AI được huấn luyện để luôn đưa ra câu trả lời <strong>nghe hợp lý</strong>, nó không có cơ chế mặc định để
+      nói "tôi không biết" khi thiếu dữ liệu — thay vào đó, nó có xu hướng tạo ra thông tin nghe rất tự tin nhưng sai
+      sự thật, gọi là <strong>ảo giác (hallucination)</strong>. Hiện tượng này hay xảy ra nhất với: số liệu cụ thể,
+      tên riêng ít phổ biến, trích dẫn nguồn/link, và các sự kiện nằm ngoài dữ liệu huấn luyện.</p>
+    <div class="tip">⚠️ Ảo giác không phải lỗi hiếm gặp — hãy coi mọi số liệu/trích dẫn quan trọng do AI đưa ra là
+      "cần kiểm tra lại", đặc biệt khi dùng cho công việc, học tập, hay quyết định quan trọng.</div>
+  </section>
+
+  <section id="kien-thuc-cutoff">
+    <h2><span class="num">4</span> Giới hạn kiến thức theo thời gian (knowledge cutoff)</h2>
+    <p>AI học từ dữ liệu được thu thập tới một <strong>mốc thời gian nhất định</strong> (gọi là knowledge cutoff) —
+      sau mốc đó, nó không tự động biết sự kiện gì đã xảy ra, trừ khi công cụ có bật <strong>tìm kiếm web</strong>
+      để tra cứu thời gian thực. Vì vậy nhiều AI vẫn "đoán" hoặc dùng thông tin cũ khi được hỏi về tin tức mới nếu
+      không bật tính năng tìm kiếm.</p>
+    <div class="tip">🔎 Với câu hỏi về tin tức, giá cả, sự kiện gần đây — luôn ưu tiên bật chế độ "tìm kiếm web"
+      (nếu công cụ hỗ trợ) thay vì tin vào trí nhớ có sẵn của AI.</div>
+  </section>
+
+  <section id="free-vs-tra-phi">
+    <h2><span class="num">5</span> Free và trả phí khác nhau ở đâu?</h2>
+    <p>Dù mỗi hãng đặt tên gói khác nhau, điểm khác biệt chung giữa bản miễn phí và trả phí thường là: model
+      <strong>yếu/chậm hơn</strong> ở bản free, <strong>giới hạn số lượt hỏi</strong> mỗi ngày/tháng, và các tính
+      năng nâng cao (xử lý file lớn, tạo ảnh/video, dùng agent, gọi API) thường chỉ mở ở gói trả phí. Bản free vẫn
+      đủ dùng tốt cho nhu cầu cơ bản hàng ngày.</p>
+    <div class="tip">💰 Đừng vội trả phí — dùng thử bản free 1–2 tuần để biết mình thật sự cần tính năng nào trước
+      khi nâng cấp.</div>
+  </section>
+
+  <section id="du-lieu-rieng-tu">
+    <h2><span class="num">6</span> Dữ liệu bạn nhập vào có an toàn?</h2>
+    <p>Nhiều nền tảng AI có tuỳ chọn dùng hội thoại của bạn để <strong>cải thiện mô hình</strong> trong tương lai —
+      thường có thể tắt trong phần cài đặt (settings) của tài khoản. Dù tắt hay không, nguyên tắc an toàn chung vẫn
+      là: <strong>không nhập</strong> mật khẩu, số căn cước, hợp đồng mật, dữ liệu khách hàng hay bí mật công ty vào
+      bất kỳ chat AI nào — vì bạn không kiểm soát được toàn bộ vòng đời của dữ liệu sau khi gửi đi.</p>
+  </section>
+
+  <section id="ban-quyen">
+    <h2><span class="num">7</span> Ai sở hữu nội dung AI tạo ra?</h2>
+    <p>Đây vẫn là <strong>vùng xám pháp lý</strong>, khác nhau theo từng quốc gia và điều khoản dịch vụ của từng nền
+      tảng. Một số nơi cho phép bạn toàn quyền sử dụng nội dung tạo ra (kể cả thương mại), số khác có điều kiện đi
+      kèm. Nếu định dùng ảnh/video/văn bản do AI tạo cho mục đích thương mại, nên đọc kỹ điều khoản sử dụng
+      (terms of service) của công cụ đó trước.</p>
+  </section>
+
+  <section id="thien-vi">
+    <h2><span class="num">8</span> Thiên vị &amp; giới hạn suy luận</h2>
+    <p>AI học từ dữ liệu do con người tạo ra, nên nó cũng <strong>thừa hưởng thiên vị</strong> có sẵn trong dữ liệu
+      đó (về giới, vùng miền, quan điểm phổ biến...). AI cũng dễ sai hơn với: toán phức tạp nhiều bước, suy luận
+      logic dài, hoặc chủ đề rất chuyên sâu/ít tài liệu công khai. Biết trước giới hạn này giúp bạn đặt câu hỏi và
+      kiểm tra kết quả hợp lý hơn.</p>
+  </section>
+
+  <section id="kiem-chung">
+    <h2><span class="num">9</span> Cách kiểm chứng một câu trả lời</h2>
+    <div class="card">
+      <ul class="checklist">
+        <li>Hỏi lại theo cách diễn đạt khác — nếu câu trả lời mâu thuẫn với lần trước, đó là dấu hiệu cần nghi ngờ.</li>
+        <li>Yêu cầu AI nêu nguồn/trích dẫn cụ thể, rồi tự kiểm tra nguồn đó có thật và nói đúng như vậy không.</li>
+        <li>Với số liệu, ngày tháng, tên riêng quan trọng — đối chiếu với ít nhất một nguồn độc lập bên ngoài AI.</li>
+        <li>Bật tính năng "tìm kiếm web" nếu có, thay vì chỉ dựa vào kiến thức có sẵn của model.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Trang cá nhân · Kiến thức nền áp dụng chung cho mọi công cụ AI, không riêng hãng nào.
   </footer>
 </div>
 
@@ -1598,6 +1730,82 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   </footer>
 </div>
 
+<div class="wrap" id="tab-news" hidden>
+
+  <section id="tin-moi">
+    <h2><span class="num">📰</span> Tin mới về AI</h2>
+    <p>Tổng hợp nhanh các model, tính năng mới đáng chú ý — cập nhật thủ công khi có tin quan trọng, mới nhất
+      nằm trên cùng.</p>
+    <div class="news-note">📌 Đây là bản <b>diễn giải lại</b> từ các bài báo/trang tổng hợp công khai, không phải
+      thông cáo chính thức của các hãng — luôn bấm vào nguồn ở cuối mỗi tin để xem chi tiết chính xác nhất, vì tin
+      tức AI thay đổi rất nhanh và thông số (giá, benchmark) có thể đã cập nhật thêm sau ngày đăng ở đây.</div>
+
+    <div class="news-list">
+
+      <div class="news-item">
+        <div class="news-item-head"><span class="news-date">24/07/2026</span><span class="news-cat">Model mới</span></div>
+        <h3>Anthropic ra mắt Claude Opus 5</h3>
+        <p>Bản nâng cấp hướng tới lập trình agentic phức tạp và công việc doanh nghiệp: cửa sổ ngữ cảnh tới 1 triệu
+          token, tối đa 128K token đầu ra, "adaptive thinking" (tự điều chỉnh mức suy luận) bật mặc định, và 5 mức
+          effort để cân bằng tốc độ/chất lượng. Cũng bổ sung khả năng đổi công cụ giữa chừng hội thoại (beta) và tự
+          chuyển sang model dự phòng khi gặp sự cố an toàn (beta).</p>
+        <div class="source-note">Nguồn: <a href="https://hidekazu-konishi.com/entry/anthropic_claude_model_release_timeline.html" target="_blank" rel="noopener">Anthropic Claude Model Release Timeline</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-item-head"><span class="news-date">07/2026</span><span class="news-cat">Giá &amp; gói dùng</span></div>
+        <h3>Claude Sonnet 5 thành model mặc định cho gói Free &amp; Pro</h3>
+        <p>Theo các trang tổng hợp giá API, Sonnet 5 hiện là lựa chọn mặc định cho người dùng Free và Pro, với mức
+          giá API ưu đãi tới hết 31/8/2026 trước khi tăng nhẹ sau đó. Đây là mẫu hình quen thuộc: model "gần đỉnh"
+          (near-flagship) dần thay thế model mặc định cũ để cân bằng chi phí/chất lượng cho số đông người dùng.</p>
+        <div class="source-note">Nguồn: tổng hợp qua <a href="https://llm-stats.com/ai-news" target="_blank" rel="noopener">llm-stats.com — LLM News</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-item-head"><span class="news-date">07/2026</span><span class="news-cat">Tính năng mới</span></div>
+        <h3>Claude thêm "Reflect" — bảng theo dõi thói quen dùng AI</h3>
+        <p>Một dashboard mới cho phép người dùng xem lại và trực quan hoá cách họ đang dùng Claude theo thời gian
+          (tần suất, loại tác vụ hay dùng...). Hướng đi này phản ánh xu hướng chung: các hãng AI bắt đầu quan tâm
+          tới việc giúp người dùng "biết mình đang dùng AI thế nào", không chỉ tập trung vào bản thân câu trả lời.</p>
+        <div class="source-note">Nguồn: <a href="https://techcrunch.com/2026/07/09/anthropics-new-claude-feature-is-quietly-selling-you-on-ai/" target="_blank" rel="noopener">TechCrunch</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-item-head"><span class="news-date">28/07/2026</span><span class="news-cat">Hạ tầng agent</span></div>
+        <h3>MCP (Model Context Protocol) cập nhật spec mới</h3>
+        <p>Chuẩn kết nối AI với công cụ ngoài (mà Claude Code và nhiều agent khác đang dùng) ra bản cập nhật với
+          nền tảng "stateless" gọn hơn, xác thực OAuth/OIDC chặt chẽ hơn, và mở rộng phiên bản riêng cho Apps &amp;
+          Tasks. Ảnh hưởng trực tiếp tới cách các MCP server (GitHub, Google Drive, cơ sở dữ liệu...) hoạt động ổn
+          định và an toàn hơn khi agent gọi tới.</p>
+        <div class="source-note">Nguồn: tổng hợp qua <a href="https://releasebot.io/updates/anthropic/claude" target="_blank" rel="noopener">Releasebot — Claude Updates</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-item-head"><span class="news-date">30/07/2026</span><span class="news-cat">Model mới</span></div>
+        <h3>OpenAI mở GPT-5.6 cho công chúng, giảm giá API</h3>
+        <p>Các bản GPT-5.6 (đặt tên Sol, Terra, Luna theo mức mạnh/giá khác nhau) đã mở rộng cho công chúng trong
+          ChatGPT, Codex và qua API. OpenAI đồng thời giảm giá hai bản rẻ hơn — bản rẻ nhất giảm khoảng 80%, bản còn
+          lại giảm khoảng 20% — tiếp tục cuộc đua hạ chi phí mỗi token giữa các hãng.</p>
+        <div class="source-note">Nguồn: tổng hợp qua <a href="https://llm-stats.com/ai-news" target="_blank" rel="noopener">llm-stats.com — LLM News</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-item-head"><span class="news-date">19/05/2026</span><span class="news-cat">Model mới</span></div>
+        <h3>Google nâng cấp Gemini tại sự kiện I/O 2026</h3>
+        <p>Google giới thiệu Gemini 3.6 Flash — được hãng mô tả là model "chủ lực" cân bằng tốc độ/chi phí tốt nhất
+          của họ tới thời điểm đó — cùng loạt cập nhật cho app Gemini nhằm cạnh tranh trực tiếp với ChatGPT và
+          Claude trên các tác vụ hàng ngày.</p>
+        <div class="source-note">Nguồn: <a href="https://techcrunch.com/2026/05/19/google-updates-its-gemini-app-to-take-on-chatgpt-and-claude-at-io-2026/" target="_blank" rel="noopener">TechCrunch</a></div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    Trang cá nhân · Tin tổng hợp không đầy đủ, không thay thế trang thông báo chính thức của từng hãng AI.
+  </footer>
+</div>
+
 <div class="wrap" id="tab-quiz" hidden>
   <div class="quiz-shell" id="quiz-root"></div>
   <footer>
@@ -1609,9 +1817,11 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   function showTab(name){
     var tabs = {
       general: document.getElementById('tab-general'),
+      concepts: document.getElementById('tab-concepts'),
       claude: document.getElementById('tab-claude'),
       agentic: document.getElementById('tab-agentic'),
       roadmap: document.getElementById('tab-roadmap'),
+      news: document.getElementById('tab-news'),
       quiz: document.getElementById('tab-quiz')
     };
     if (!tabs[name]) name = 'general';
