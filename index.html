@@ -255,6 +255,9 @@
       trả lời ngay trong khung chat — không cần biết lập trình.</p>
     <div class="tip">💡 Hãy nghĩ về AI như một trợ lý rất chăm chỉ nhưng không đọc được suy nghĩ của bạn — nói càng
       rõ ràng, cụ thể, AI trả lời càng đúng ý.</div>
+    <div class="tip">🖼️ Phần lớn AI hiện nay là <strong>đa phương thức (multimodal)</strong>: ngoài gõ chữ, bạn có
+      thể tải lên ảnh, PDF, file Word/Excel để hỏi trực tiếp về nội dung bên trong — không chỉ giới hạn ở văn bản
+      thuần.</div>
   </section>
 
   <section id="cong-cu">
@@ -288,6 +291,8 @@
       <li>Gõ câu hỏi hoặc yêu cầu vào ô chat, giống như đang nhắn tin — không cần cú pháp đặc biệt.</li>
       <li>Đọc câu trả lời, nếu chưa đúng ý thì trả lời tiếp để AI chỉnh sửa — cuộc trò chuyện tiếp tục theo ngữ cảnh trước đó.</li>
     </ul>
+    <div class="tip">📱 Hầu hết công cụ đều có <strong>app điện thoại</strong> riêng (iOS/Android), đăng nhập cùng
+      tài khoản với bản web — tiện để hỏi nhanh khi không ở máy tính, cuộc trò chuyện đồng bộ giữa các thiết bị.</div>
   </section>
 
   <section id="viet-prompt">
@@ -444,6 +449,9 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
     </div>
     <div class="tip">💡 Hiểu đơn giản: <strong>Claude</strong> là "người trò chuyện", còn <strong>Claude Code</strong> là
       "người trò chuyện đó được trao thêm quyền thao tác trực tiếp trên máy/dự án của bạn".</div>
+    <div class="tip">🧩 Claude Code còn có thể <strong>tự điều phối nhiều subagent</strong> cho việc lớn (vd. vừa
+      tìm kiếm sâu trong code, vừa tổng hợp tài liệu) — xem chi tiết cách dùng multi-agent ở tab "AI Agent
+      (Agentic)", mục 6.</div>
   </section>
 
   <section id="claude-code-cai-dat">
@@ -946,6 +954,21 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
       sẽ chạy công cụ đó rồi đưa kết quả về cho mô hình ở vòng lặp kế tiếp.</div>
     <p>Bạn cho agent càng <strong>ít nhưng đúng</strong> công cụ, nó càng dễ chọn đúng và ít đi lạc. Không cần trao mọi
       quyền — chỉ trao những công cụ cần cho nhiệm vụ.</p>
+
+    <h3 style="margin:24px 0 6px;font-size:1.05rem">Ví dụ tên công cụ thật trong Claude Code</h3>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>Tên công cụ</th><th>Việc nó làm</th></tr>
+        <tr><td><code>Read</code></td><td>Đọc nội dung một file trong dự án.</td></tr>
+        <tr><td><code>Edit</code></td><td>Sửa một đoạn cụ thể trong file đã có.</td></tr>
+        <tr><td><code>Write</code></td><td>Tạo file mới hoặc ghi đè toàn bộ nội dung file.</td></tr>
+        <tr><td><code>Bash</code></td><td>Chạy lệnh terminal — cài gói, chạy test, thao tác git...</td></tr>
+        <tr><td><code>Grep</code> / <code>Glob</code></td><td>Tìm kiếm nội dung/tên file trong toàn bộ dự án.</td></tr>
+        <tr><td><code>Agent</code></td><td>Giao một phần việc cho subagent chuyên biệt xử lý riêng — xem mục 6.</td></tr>
+      </table>
+    </div>
+    <div class="tip">👀 Bạn không cần nhớ tên từng công cụ — chỉ cần biết rằng mỗi hành động cụ thể agent làm được
+      (đọc file, sửa file, chạy lệnh...) đều tương ứng với một công cụ được khai báo sẵn, không phải "phép màu".</div>
   </section>
 
   <section id="mcp">
@@ -961,6 +984,23 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
       <li><strong>Resources</strong> — dữ liệu để đọc làm ngữ cảnh (vd: nội dung một tài liệu, một bảng dữ liệu).</li>
       <li><strong>Prompts</strong> — mẫu câu lệnh dựng sẵn cho các thao tác hay lặp lại.</li>
     </ul>
+
+    <h3 style="margin:24px 0 6px;font-size:1.05rem">Ví dụ MCP server phổ biến</h3>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>MCP server</th><th>Agent làm được gì qua đó</th></tr>
+        <tr><td><strong>GitHub</strong></td><td>Đọc/tạo issue, xem pull request, kiểm tra trạng thái CI, tạo commit —
+          không cần bạn tự copy-paste giữa terminal và trình duyệt.</td></tr>
+        <tr><td><strong>Google Drive</strong></td><td>Tìm, đọc nội dung file Docs/Sheets có sẵn để agent dùng làm
+          ngữ cảnh khi viết/tổng hợp báo cáo.</td></tr>
+        <tr><td><strong>Cơ sở dữ liệu (Postgres, v.v.)</strong></td><td>Truy vấn dữ liệu thật để trả lời câu hỏi
+          dựa trên số liệu hiện tại, thay vì chỉ dựa vào kiến thức huấn luyện sẵn có.</td></tr>
+      </table>
+    </div>
+    <div class="tip">🔗 Trong một phiên làm việc với Claude Code, việc dùng nhiều MCP server cùng lúc (vd. vừa
+      GitHub vừa Google Drive) là bình thường — mỗi server chỉ "cắm thêm" một nhóm khả năng, agent tự chọn dùng
+      server nào phù hợp với từng yêu cầu.</div>
+
     <p class="source-note">Anthropic Academy có 2 khóa riêng về MCP (<em>Intro to MCP</em> và <em>MCP: Advanced Topics</em>) —
       xem bảng khóa học ở tab "Claude &amp; Claude Code".</p>
   </section>
@@ -985,21 +1025,135 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
   <section id="da-tac-tu">
     <h2><span class="num">6</span> Nhiều agent phối hợp (multi-agent)</h2>
     <p>Với việc lớn, một agent có thể <strong>chia nhỏ và giao cho các "agent con" (subagent)</strong> — giống một
-      quản lý giao việc cho từng thành viên trong nhóm, rồi tổng hợp kết quả.</p>
+      quản lý giao việc cho từng thành viên trong nhóm, rồi tổng hợp kết quả. Đây là kỹ thuật ngày càng quan trọng
+      khi công việc giao cho AI ngày càng lớn và phức tạp hơn.</p>
+
+    <h3 style="margin:24px 0 6px;font-size:1.05rem">Vì sao cần nhiều agent thay vì một?</h3>
     <div class="card">
-      <p><strong>Ví dụ dễ hình dung</strong> — viết một báo cáo thị trường:</p>
+      <table class="course-table">
+        <tr><th>&nbsp;</th><th>Lợi ích</th><th>Đánh đổi</th></tr>
+        <tr>
+          <td><strong>Tốc độ</strong></td>
+          <td>Nhiều việc độc lập chạy <strong>song song</strong> thay vì tuần tự → xong nhanh hơn nhiều lần.</td>
+          <td>Tốn nhiều lượt gọi model hơn — chậm hơn nếu việc vốn dĩ đơn giản, không chia nhỏ được.</td>
+        </tr>
+        <tr>
+          <td><strong>Ngữ cảnh</strong></td>
+          <td>Mỗi subagent có cửa sổ ngữ cảnh <strong>riêng, gọn</strong> — không bị "loãng" bởi thông tin của
+            phần việc khác.</td>
+          <td>Agent điều phối phải tự tổng hợp lại kết quả từ nhiều nguồn — dễ sai sót nếu không kiểm tra.</td>
+        </tr>
+        <tr>
+          <td><strong>Chuyên biệt hoá</strong></td>
+          <td>Mỗi subagent có thể được "chỉ định" làm đúng một việc (tìm code, review, viết tài liệu...) — làm
+            tốt hơn một agent tổng quát ôm hết.</td>
+          <td>Cần thiết kế rõ "ai làm gì" — chia việc sai khiến các subagent giẫm chân/xung đột nhau.</td>
+        </tr>
+      </table>
+    </div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">3 kiểu phối hợp thường gặp</h3>
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>1. Song song (fan-out)</strong> — các subagent làm độc lập, cùng lúc</p>
+      <p style="margin:0;color:var(--muted);font-size:.9rem">Ví dụ: viết báo cáo thị trường — Subagent A tra dữ
+        liệu kinh tế, Subagent B tìm tin công nghệ, Subagent C phân tích đối thủ, chạy cùng lúc. Agent điều phối
+        gom kết quả, kiểm tra, ghép thành báo cáo cuối. Phù hợp khi các phần việc <strong>không phụ thuộc lẫn
+        nhau</strong>.</p>
+    </div>
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>2. Tuần tự (pipeline)</strong> — agent này làm xong mới chuyển cho agent
+        tiếp theo</p>
+      <p style="margin:0;color:var(--muted);font-size:.9rem">Ví dụ: Agent nghiên cứu thu thập tài liệu → Agent viết
+        soạn bản nháp từ tài liệu đó → Agent biên tập rà soát & chỉnh sửa bản nháp. Phù hợp khi đầu ra của bước
+        này là đầu vào bắt buộc của bước sau.</p>
+    </div>
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>3. Điều phối – chuyên gia (orchestrator-worker)</strong> — một agent chính
+        quyết định <em>khi nào</em> cần gọi agent con nào, không theo thứ tự cố định</p>
+      <p style="margin:0;color:var(--muted);font-size:.9rem">Đây là cách Claude Code thực tế vận hành: agent chính
+        (điều phối) tự đánh giá yêu cầu của bạn, quyết định có cần "mượn" một subagent chuyên biệt hay không (vd.
+        subagent chuyên tìm kiếm code trong dự án lớn, hay subagent chuyên review chất lượng code) — thay vì luôn
+        chạy theo một quy trình cứng.</p>
+    </div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">🧪 Thực hành: dùng multi-agent trong Claude Code</h3>
+    <p>Trong Claude Code, cơ chế subagent thể hiện qua công cụ điều phối tác vụ (thường gọi tắt là <strong>Agent
+      tool</strong>) — khi bạn giao một việc đủ lớn hoặc cần khám phá rộng, Claude Code (đóng vai điều phối) có thể
+      tự "mở" một phiên subagent riêng để xử lý một phần việc, rồi nhận lại kết quả tóm tắt.</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>Khái niệm</th><th>Ý nghĩa thực hành</th></tr>
+        <tr>
+          <td><strong>Foreground</strong></td>
+          <td>Điều phối <strong>chờ</strong> subagent làm xong rồi mới tiếp tục — dùng khi cần kết quả đó ngay để
+            quyết định bước kế tiếp.</td>
+        </tr>
+        <tr>
+          <td><strong>Background</strong></td>
+          <td>Điều phối <strong>giao việc rồi làm tiếp việc khác song song</strong>, subagent chạy nền và báo lại
+            khi xong — dùng khi việc mất thời gian (tìm kiếm rộng, tác vụ dài) mà không cần chờ mới làm được việc
+            khác.</td>
+        </tr>
+        <tr>
+          <td><strong>Cách ly (isolation / worktree)</strong></td>
+          <td>Subagent có thể làm việc trên một <strong>bản sao code riêng</strong> (nhánh git tách biệt) — thử
+            nghiệm, chỉnh sửa mà không ảnh hưởng tới bản chính cho tới khi kết quả được duyệt và gộp lại.</td>
+        </tr>
+      </table>
+    </div>
+    <div class="example">Ví dụ yêu cầu thực tế: "Tìm hiểu xem dự án đang dùng thư viện quản lý state nào, đồng
+thời viết luôn changelog cho phiên bản vừa rồi."
+→ Claude Code có thể tách 2 việc độc lập này cho 2 subagent chạy song song (một chuyên "tìm kiếm sâu"
+trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả hai kết quả lại để trả lời bạn một lần.</div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">Khi nào NÊN và KHÔNG NÊN dùng multi-agent</h3>
+    <div class="card">
       <ul class="checklist">
-        <li><strong>Agent điều phối</strong> chia việc: mỗi phần một chủ đề.</li>
-        <li><strong>Subagent A</strong> tra dữ liệu kinh tế · <strong>Subagent B</strong> tìm tin công nghệ ·
-          <strong>Subagent C</strong> tổng hợp phân tích.</li>
-        <li>Điều phối gom kết quả, kiểm tra chất lượng, ghép thành báo cáo cuối.</li>
+        <li><strong>Nên dùng khi</strong>: việc chia nhỏ được rõ ràng thành các phần độc lập; khối lượng công việc
+          lớn cần tăng tốc bằng cách xử lý song song; cần một góc nhìn "khách quan hơn" bằng cách để một agent
+          khác review lại việc agent đầu vừa làm.</li>
+        <li><strong>Không nên dùng khi</strong>: việc nhỏ, đơn giản — chi phí điều phối (thời gian gọi thêm model,
+          tổng hợp kết quả) còn tốn hơn lợi ích mang lại; các phần việc phụ thuộc chặt vào nhau, cần chia sẻ ngữ
+          cảnh liên tục (tách ra dễ mất thông tin quan trọng giữa các phần); bạn cần phản hồi tức thì và không
+          muốn tốn thêm lượt gọi model.</li>
       </ul>
     </div>
-    <div class="tip">🧩 Lợi ích: mỗi subagent có ngữ cảnh <strong>riêng, gọn</strong>, làm song song → nhanh hơn và ít
-      "quá tải" hơn một agent ôm hết. (Đây đúng là cách dự án "Điểm Tin Thế Giới" quét tin: 1 điều phối + nhiều subagent
-      mỗi mảng.)</div>
-    <div class="tip">💡 Đừng nhầm với <strong>Agent Skills</strong>: Skill là "gói hướng dẫn" dạy một agent làm tốt một
-      việc (xem tab trước, mục 4); còn multi-agent là <em>nhiều agent</em> chạy song song cùng phối hợp. Chúng bổ trợ nhau.</div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">Sai lầm hay gặp</h3>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Giao việc mơ hồ cho agent điều phối</strong> — nó không biết chia việc thế nào cho hợp lý,
+          subagent con dễ làm sai hướng hoặc trùng lặp công việc.</li>
+        <li><strong>Nhiều subagent cùng sửa một file/tài nguyên</strong> — dễ dẫn tới xung đột, giống hệt merge
+          conflict khi nhiều người cùng sửa chung một chỗ (xem tab "Lộ trình học", Giai đoạn 5).</li>
+        <li><strong>Không kiểm tra lại kết quả subagent trả về</strong> — lỗi nhỏ ở một subagent có thể "cộng dồn"
+          vào kết quả cuối nếu điều phối tin tưởng tuyệt đối mà không rà soát.</li>
+        <li><strong>Dùng multi-agent cho việc quá đơn giản</strong> — như dùng cả một đội để làm việc một người
+          làm cũng xong, tốn kém và chậm hơn không cần thiết.</li>
+      </ul>
+    </div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">❓ Câu hỏi thường gặp</h3>
+    <div class="card">
+      <table class="course-table">
+        <tr><td style="width:40%"><strong>Multi-agent có tốn kém hơn dùng 1 agent không?</strong></td>
+          <td>Có — mỗi subagent là một (hoặc nhiều) lượt gọi model riêng, nên tổng chi phí/thời gian thường cao
+            hơn. Đổi lại việc song song có thể xong nhanh hơn nhiều nếu chia đúng.</td></tr>
+        <tr><td><strong>Subagent có "nhớ" được cuộc trò chuyện chính không?</strong></td>
+          <td>Thường không đầy đủ — subagent nhận một bản tóm tắt/yêu cầu cụ thể từ điều phối, không tự động thấy
+            toàn bộ lịch sử chat. Đây chính là lý do ngữ cảnh của nó "gọn" hơn.</td></tr>
+        <tr><td><strong>Có cần biết lập trình để dùng multi-agent trong Claude Code không?</strong></td>
+          <td>Không — bạn chỉ cần mô tả việc đủ rõ, Claude Code tự quyết định có cần tách việc cho subagent hay
+            không.</td></tr>
+        <tr><td><strong>Multi-agent khác gì Agent Skills?</strong></td>
+          <td>Skill là "gói hướng dẫn" dạy <em>một</em> agent làm tốt một việc cụ thể (xem tab "Claude &amp; Claude
+            Code", mục 4); multi-agent là <em>nhiều agent</em> chạy cùng lúc phối hợp với nhau. Một subagent hoàn
+            toàn có thể tự dùng Skill trong lúc làm việc — hai khái niệm bổ trợ nhau, không thay thế nhau.</td></tr>
+      </table>
+    </div>
+
+    <div class="tip">🧩 Ví dụ thực tế khác: đây đúng là cách dự án "Điểm Tin Thế Giới" quét tin — 1 agent điều phối
+      cộng nhiều subagent, mỗi subagent phụ trách một mảng tin, chạy song song rồi gộp lại thành bản tổng hợp.</div>
   </section>
 
   <section id="tu-xay">
@@ -1014,6 +1168,9 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
     </div>
     <p>Nhờ SDK, bạn có thể tạo agent làm những việc rất riêng — ví dụ: một agent tự phân loại email đến và soạn trả lời
       nháp, một agent rà soát hợp đồng theo checklist của công ty, hay một agent trực CI/CD tự sửa lỗi build.</p>
+    <div class="tip">🧩 SDK cũng cho phép dựng <strong>hệ thống multi-agent riêng</strong> (xem mục 6): lập trình
+      viên tự viết agent điều phối, tự quyết định khi nào giao việc cho agent con nào, phù hợp khi muốn kiểm soát
+      chặt luồng phối hợp thay vì để mặc định tự quyết.</div>
     <div class="tip">🎓 Muốn học bài bản: khóa <strong>Building with the Claude API</strong> (tool use, streaming) và
       <strong>Introduction to Agent Skills</strong> trên Anthropic Academy là điểm khởi đầu tốt — xem bảng khóa học ở tab
       "Claude &amp; Claude Code".</div>
