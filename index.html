@@ -117,6 +117,39 @@
     box-shadow:0 6px 16px rgba(232,93,138,.10);
   }
   .tab-btn.active{background:var(--pink);color:#fff;border-color:var(--pink)}
+  .tools-menu{position:relative}
+  .tools-menu-btn{display:flex;align-items:center;gap:6px}
+  .tools-menu-btn .car{font-size:.7rem;color:var(--muted);transition:transform .15s}
+  .tools-menu-btn.open .car{transform:rotate(180deg)}
+  .tools-menu-panel{
+    display:none;position:fixed;top:130px;left:50%;transform:translateX(-50%);
+    width:min(720px,92vw);background:var(--card);border:1px solid var(--border);border-radius:16px;
+    box-shadow:0 14px 34px rgba(232,93,138,.18);padding:20px 22px;z-index:30;
+  }
+  .tools-menu-panel.open{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .tm-col h4{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+    margin:0 0 9px;display:flex;align-items:center;gap:6px}
+  .tm-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+  .tm-col a{font-size:.88rem;color:var(--text);text-decoration:none}
+  .tm-col a:hover,.tm-col a:focus-visible{color:var(--pink)}
+  .tm-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex:none}
+  .tm-dot.chat{background:#4f6fac}.tm-dot.image{background:#b5791f}
+  .tm-dot.video{background:#7a5cc4}.tm-dot.voice{background:#2f8f80}
+  @media (max-width:640px){
+    .tools-menu-panel{top:auto;left:16px;right:16px;bottom:16px;transform:none;
+      width:auto;max-height:70vh;overflow:auto}
+    .tools-menu-panel.open{display:flex;flex-direction:column;gap:2px}
+    .tools-menu-panel .tm-col h4{margin:10px 0 4px;padding:0 4px}
+    .tools-menu-panel .tm-col ul{gap:0}
+    .tools-menu-panel .tm-col a{display:block;padding:8px 6px;border-radius:8px}
+    .tools-menu-panel .tm-col a:hover{background:var(--bg)}
+  }
+  @keyframes toolFlash{
+    0%{box-shadow:0 0 0 0 rgba(232,93,138,.55)}
+    100%{box-shadow:0 0 0 10px rgba(232,93,138,0)}
+  }
+  .tool.tool-flash{animation:toolFlash 1s ease-out 2;border-color:var(--pink)}
+  @media (prefers-reduced-motion:reduce){.tool.tool-flash{animation:none;border-color:var(--pink)}}
   .badge{
     display:inline-block;font-size:.72rem;font-weight:700;
     background:var(--pink);color:#fff;border-radius:999px;
@@ -231,6 +264,11 @@
   <button class="tab-btn" data-tab="agentic" role="tab" aria-selected="false" onclick="showTab('agentic')">AI Agent (Agentic)</button>
   <button class="tab-btn" data-tab="roadmap" role="tab" aria-selected="false" onclick="showTab('roadmap')">Lộ trình học</button>
   <button class="tab-btn" data-tab="quiz" role="tab" aria-selected="false" onclick="showTab('quiz')">Kiểm tra kiến thức</button>
+  <div class="tools-menu">
+    <button class="tab-btn tools-menu-btn" id="tools-menu-btn" type="button" aria-haspopup="true"
+      aria-expanded="false" onclick="toggleToolsMenu()">Công cụ AI (18) <span class="car">▾</span></button>
+    <div class="tools-menu-panel" id="tools-menu-panel" role="menu"></div>
+  </div>
 </div>
 
 <div class="wrap" id="tab-general">
@@ -267,31 +305,31 @@
 
     <h3 style="margin:24px 0 6px;font-size:1.05rem">💬 Trò chuyện &amp; viết lách (text)</h3>
     <div class="tools-grid">
-      <div class="tool">
+      <div class="tool" id="tool-chatgpt">
         <h3>ChatGPT (OpenAI)</h3>
         <p>Phổ biến nhất, dễ dùng, có bản miễn phí. Mạnh về viết lách, tra cứu, brainstorm.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-claude">
         <h3>Claude (Anthropic)</h3>
         <p>Trả lời cẩn thận, văn phong tự nhiên, xử lý tài liệu dài rất tốt, mạnh về lập trình.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-gemini">
         <h3>Gemini (Google)</h3>
         <p>Tích hợp sẵn trong Gmail, Docs, Android; tra cứu thông tin thời gian thực tốt.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-copilot">
         <h3>Copilot (Microsoft)</h3>
         <p>Tích hợp trong Word/Excel/Windows, tiện cho công việc văn phòng hàng ngày.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-perplexity">
         <h3>Perplexity</h3>
         <p>Chuyên "tìm kiếm bằng AI" — trả lời kèm trích dẫn nguồn rõ ràng, hợp khi cần tra cứu có căn cứ.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-grok">
         <h3>Grok (xAI)</h3>
         <p>Tích hợp trong X (Twitter), truy cập bài đăng thời gian thực, giọng điệu thẳng thắn/hài hước hơn.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-deepseek">
         <h3>DeepSeek</h3>
         <p>Mô hình mã nguồn mở, chi phí rẻ, hiệu năng cạnh tranh — nhiều người dùng thử vì miễn phí/giá tốt.</p>
       </div>
@@ -303,20 +341,20 @@
     <p>Chỉ cần mô tả bằng lời (vd: "một chú mèo phi hành gia, phong cách tranh sơn dầu"), AI vẽ ra ảnh tương ứng
       trong vài giây — không cần biết vẽ hay dùng phần mềm thiết kế.</p>
     <div class="tools-grid">
-      <div class="tool">
+      <div class="tool" id="tool-midjourney">
         <h3>Midjourney</h3>
         <p>Nổi tiếng về chất lượng nghệ thuật, bố cục đẹp — dùng qua Discord hoặc web riêng, có phí.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-dalle">
         <h3>DALL-E (trong ChatGPT)</h3>
         <p>Tạo ảnh ngay trong khung chat ChatGPT — tiện vì không cần công cụ riêng, hiểu mô tả chi tiết tốt.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-firefly">
         <h3>Adobe Firefly</h3>
         <p>Tích hợp Photoshop/Illustrator, huấn luyện từ nguồn được cấp phép — an tâm hơn khi dùng cho việc thương
           mại.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-stablediffusion">
         <h3>Stable Diffusion</h3>
         <p>Mã nguồn mở, có thể tự chạy trên máy riêng — tuỳ biến sâu, phù hợp người thích can thiệp kỹ thuật.</p>
       </div>
@@ -328,19 +366,19 @@
     <p>Từ một đoạn mô tả hoặc một tấm ảnh, AI tạo ra đoạn video ngắn (vài giây tới vài phút) có chuyển động, ánh
       sáng, góc quay hợp lý — công nghệ còn rất mới và thay đổi nhanh.</p>
     <div class="tools-grid">
-      <div class="tool">
+      <div class="tool" id="tool-sora">
         <h3>Sora (OpenAI)</h3>
         <p>Tạo video từ văn bản với chất lượng cao, chuyển động mượt — tích hợp trong hệ sinh thái OpenAI.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-veo">
         <h3>Veo (Google)</h3>
         <p>Công cụ tạo video của Google, tích hợp trong Gemini — mạnh về hiểu ngữ cảnh mô tả dài.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-runway">
         <h3>Runway</h3>
         <p>Bộ công cụ chỉnh sửa + tạo video AI hướng tới nhà làm phim/dựng phim chuyên nghiệp.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-pika">
         <h3>Pika / Kling</h3>
         <p>Các công cụ tạo video ngắn phổ biến khác, thường dùng cho nội dung mạng xã hội nhanh gọn.</p>
       </div>
@@ -352,17 +390,17 @@
     <p>Nhóm này gồm AI chuyển chữ thành giọng nói tự nhiên, nhân bản giọng của một người, và cả AI sáng tác nhạc
       hoàn chỉnh có lời.</p>
     <div class="tools-grid">
-      <div class="tool">
+      <div class="tool" id="tool-elevenlabs">
         <h3>ElevenLabs</h3>
         <p>Tạo giọng đọc tự nhiên đa ngôn ngữ, nhân bản giọng nói (voice cloning) từ một mẫu ghi âm ngắn — hay dùng
           để lồng tiếng, đọc sách nói.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-suno">
         <h3>Suno / Udio</h3>
         <p>Chỉ cần mô tả thể loại/tâm trạng bài hát, AI sáng tác cả nhạc nền lẫn lời và hát luôn — tạo một bài
           hoàn chỉnh trong vài phút.</p>
       </div>
-      <div class="tool">
+      <div class="tool" id="tool-whisper">
         <h3>Whisper (OpenAI)</h3>
         <p>Chuyển giọng nói thành văn bản (speech-to-text) độ chính xác cao, mã nguồn mở và miễn phí — hay dùng
           để phụ đề hoặc ghi chú cuộc họp.</p>
@@ -1589,6 +1627,87 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     if (window.history && history.replaceState) history.replaceState(null, '', '#' + name);
   }
   showTab(location.hash.replace('#', ''));
+</script>
+
+<script>
+(function(){
+  var CATS = {
+    chat:{label:'💬 Trò chuyện',cls:'chat'}, image:{label:'🖼️ Tạo ảnh',cls:'image'},
+    video:{label:'🎬 Tạo video',cls:'video'}, voice:{label:'🎙️ Giọng nói',cls:'voice'}
+  };
+  var TOOLS = [
+    {id:'tool-chatgpt',name:'ChatGPT',cat:'chat'},{id:'tool-claude',name:'Claude',cat:'chat'},
+    {id:'tool-gemini',name:'Gemini',cat:'chat'},{id:'tool-copilot',name:'Copilot',cat:'chat'},
+    {id:'tool-perplexity',name:'Perplexity',cat:'chat'},{id:'tool-grok',name:'Grok',cat:'chat'},
+    {id:'tool-deepseek',name:'DeepSeek',cat:'chat'},
+    {id:'tool-midjourney',name:'Midjourney',cat:'image'},{id:'tool-dalle',name:'DALL-E',cat:'image'},
+    {id:'tool-firefly',name:'Adobe Firefly',cat:'image'},{id:'tool-stablediffusion',name:'Stable Diffusion',cat:'image'},
+    {id:'tool-sora',name:'Sora',cat:'video'},{id:'tool-veo',name:'Veo',cat:'video'},
+    {id:'tool-runway',name:'Runway',cat:'video'},{id:'tool-pika',name:'Pika / Kling',cat:'video'},
+    {id:'tool-elevenlabs',name:'ElevenLabs',cat:'voice'},{id:'tool-suno',name:'Suno / Udio',cat:'voice'},
+    {id:'tool-whisper',name:'Whisper',cat:'voice'}
+  ];
+  var panel = document.getElementById('tools-menu-panel');
+  var btn = document.getElementById('tools-menu-btn');
+
+  panel.innerHTML = Object.keys(CATS).map(function(cat){
+    var tools = TOOLS.filter(function(t){ return t.cat === cat; });
+    return '<div class="tm-col"><h4><span class="tm-dot ' + CATS[cat].cls + '"></span>' + CATS[cat].label + '</h4><ul>' +
+      tools.map(function(t){
+        return '<li><a href="#' + t.id + '" data-tool="' + t.id + '">' + t.name + '</a></li>';
+      }).join('') + '</ul></div>';
+  }).join('');
+
+  function closeMenu(){
+    panel.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+
+  function positionPanel(){
+    if(window.innerWidth > 640){
+      var tabs = document.querySelector('.tabs');
+      panel.style.top = (tabs.getBoundingClientRect().bottom + 10) + 'px';
+    } else {
+      panel.style.top = '';
+    }
+  }
+
+  window.toggleToolsMenu = function(){
+    var willOpen = !panel.classList.contains('open');
+    if(willOpen) positionPanel();
+    panel.classList.toggle('open', willOpen);
+    btn.classList.toggle('open', willOpen);
+    btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+  };
+
+  window.addEventListener('resize', function(){
+    if(panel.classList.contains('open')) positionPanel();
+  });
+
+  panel.addEventListener('click', function(e){
+    var a = e.target.closest('[data-tool]');
+    if(!a) return;
+    e.preventDefault();
+    var id = a.getAttribute('data-tool');
+    closeMenu();
+    showTab('general');
+    setTimeout(function(){
+      var el = document.getElementById(id);
+      if(!el) return;
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.classList.add('tool-flash');
+      setTimeout(function(){ el.classList.remove('tool-flash'); }, 1900);
+    }, 60);
+  });
+
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.tools-menu')) closeMenu();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeMenu();
+  });
+})();
 </script>
 
 <script>
