@@ -30,14 +30,21 @@
   a{color:var(--pink)}
   .wrap{max-width:820px;margin:0 auto;padding:32px 20px 80px}
   header.hero{
-    text-align:center;
-    padding:48px 20px 36px;
-    background:linear-gradient(135deg,var(--pink-light),var(--pink));
-    color:#fff;
+    padding:52px 24px 44px;
+    background:#fdf6ef;
+    color:var(--text);
   }
-  header.hero .icon{width:56px;height:56px;margin-bottom:14px}
-  header.hero h1{margin:0 0 8px;font-size:1.9rem}
-  header.hero p{margin:0;opacity:.95;font-size:1.02rem}
+  header.hero .hero-inner{max-width:780px;margin:0 auto}
+  header.hero .eyebrow{
+    display:block;color:var(--pink);font-size:.78rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;
+  }
+  header.hero h1{
+    margin:0;font-size:clamp(2.1rem,7vw,3.2rem);font-weight:800;
+    letter-spacing:-.03em;line-height:.98;text-wrap:balance;
+  }
+  header.hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--pink)}
+  header.hero p{margin:16px 0 0;color:var(--muted);font-size:.98rem;max-width:46ch}
   nav.toc{
     background:var(--card);
     border:1px solid var(--border);
@@ -283,14 +290,11 @@
 <body>
 
 <header class="hero">
-  <svg class="icon" viewBox="0 0 512 512" aria-hidden="true">
-    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffc24b"/><stop offset="1" stop-color="#ff5a6e"/></linearGradient></defs>
-    <rect x="20.48" y="20.48" width="471.04" height="471.04" rx="112.64" fill="url(#g)"/>
-    <path fill="#fff" d="M256,61.44 C286.72,194.56 317.44,225.28 450.56,256 C317.44,286.72 286.72,317.44 256,450.56 C225.28,317.44 194.56,286.72 61.44,256 C194.56,225.28 225.28,194.56 256,61.44 Z"/>
-    <path fill="#fff" opacity=".85" d="M399.36,92.16 C409.6,122.88 419.84,133.12 450.56,143.36 C419.84,153.6 409.6,163.84 399.36,194.56 C389.12,163.84 378.88,153.6 348.16,143.36 C378.88,133.12 389.12,122.88 399.36,92.16 Z"/>
-  </svg>
-  <h1>Hướng dẫn sử dụng AI</h1>
-  <p>Cẩm nang ngắn gọn cho người mới bắt đầu dùng ChatGPT, Claude, Gemini... trong công việc và đời sống.</p>
+  <div class="hero-inner">
+    <span class="eyebrow">Cẩm nang tiếng Việt</span>
+    <h1>Hướng dẫn<br>sử dụng <em>AI</em></h1>
+    <p>Cẩm nang ngắn gọn cho người mới bắt đầu dùng ChatGPT, Claude, Gemini... trong công việc và đời sống.</p>
+  </div>
 </header>
 
 <div class="tabs" role="tablist">
