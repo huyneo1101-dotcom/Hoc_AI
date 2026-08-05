@@ -117,6 +117,19 @@
     box-shadow:0 6px 16px rgba(232,93,138,.10);
   }
   .tab-btn.active{background:var(--pink);color:#fff;border-color:var(--pink)}
+  .subtabs{
+    display:flex;flex-wrap:wrap;gap:7px;margin:0 0 28px;padding-bottom:18px;
+    border-bottom:1px solid var(--border);
+  }
+  .subtab-btn{
+    font:inherit;font-weight:600;font-size:.82rem;
+    background:transparent;color:var(--muted);
+    border:1.5px solid var(--border);border-radius:999px;
+    padding:7px 15px;cursor:pointer;
+  }
+  .subtab-btn:hover{border-color:var(--pink-light)}
+  .subtab-btn.active{background:var(--pink-light);color:#fff;border-color:var(--pink-light)}
+  .subwrap{margin:0}
   .tools-menu{position:relative}
   .tools-menu-btn{display:flex;align-items:center;gap:6px}
   .tools-menu-btn .car{font-size:.7rem;color:var(--muted);transition:transform .15s}
@@ -281,13 +294,8 @@
 </header>
 
 <div class="tabs" role="tablist">
-  <button class="tab-btn" data-tab="general" role="tab" aria-selected="false" onclick="showTab('general')">Hướng dẫn chung</button>
   <button class="tab-btn" data-tab="concepts" role="tab" aria-selected="false" onclick="showTab('concepts')">Kiến thức chung</button>
-  <button class="tab-btn" data-tab="claude" role="tab" aria-selected="false" onclick="showTab('claude')">Claude &amp; Claude Code</button>
-  <button class="tab-btn" data-tab="agentic" role="tab" aria-selected="false" onclick="showTab('agentic')">AI Agent (Agentic)</button>
-  <button class="tab-btn" data-tab="roadmap" role="tab" aria-selected="false" onclick="showTab('roadmap')">Lộ trình học</button>
   <button class="tab-btn" data-tab="news" role="tab" aria-selected="false" onclick="showTab('news')">Tin mới</button>
-  <button class="tab-btn" data-tab="quiz" role="tab" aria-selected="false" onclick="showTab('quiz')">Kiểm tra kiến thức</button>
   <div class="tools-menu">
     <button class="tab-btn tools-menu-btn" id="tools-menu-btn" type="button" aria-haspopup="true"
       aria-expanded="false" onclick="toggleToolsMenu()">Công cụ AI (18) <span class="car">▾</span></button>
@@ -295,7 +303,18 @@
   </div>
 </div>
 
-<div class="wrap" id="tab-general">
+<div class="wrap" id="tab-concepts">
+
+  <div class="subtabs" role="tablist" aria-label="Mục con trong Kiến thức chung">
+    <button class="subtab-btn active" data-subtab="general" role="tab" aria-selected="true" onclick="showSubTab('general')">Hướng dẫn chung</button>
+    <button class="subtab-btn" data-subtab="overview" role="tab" aria-selected="false" onclick="showSubTab('overview')">Khái niệm nền tảng</button>
+    <button class="subtab-btn" data-subtab="claude" role="tab" aria-selected="false" onclick="showSubTab('claude')">Claude &amp; Claude Code</button>
+    <button class="subtab-btn" data-subtab="agentic" role="tab" aria-selected="false" onclick="showSubTab('agentic')">AI Agent (Agentic)</button>
+    <button class="subtab-btn" data-subtab="roadmap" role="tab" aria-selected="false" onclick="showSubTab('roadmap')">Lộ trình học</button>
+    <button class="subtab-btn" data-subtab="quiz" role="tab" aria-selected="false" onclick="showSubTab('quiz')">Kiểm tra kiến thức</button>
+  </div>
+
+  <div class="subwrap" id="sub-general">
 
   <nav class="toc" aria-label="Mục lục">
     <h2>Mục lục</h2>
@@ -570,9 +589,9 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
   <footer>
     Trang cá nhân · Hướng dẫn tổng quan, không liên kết với bất kỳ hãng AI nào cụ thể.
   </footer>
-</div>
+  </div>
 
-<div class="wrap" id="tab-concepts" hidden>
+  <div class="subwrap" id="sub-overview" hidden>
 
   <nav class="toc" aria-label="Mục lục">
     <h2>Mục lục</h2>
@@ -678,9 +697,9 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
   <footer>
     Trang cá nhân · Kiến thức nền áp dụng chung cho mọi công cụ AI, không riêng hãng nào.
   </footer>
-</div>
+  </div>
 
-<div class="wrap" id="tab-claude" hidden>
+  <div class="subwrap" id="sub-claude" hidden>
 
   <nav class="toc" aria-label="Mục lục">
     <h2>Mục lục</h2>
@@ -1128,9 +1147,9 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
   <footer>
     Trang cá nhân · Tóm tắt phi chính thức, không thay thế nội dung gốc từ Anthropic Academy.
   </footer>
-</div>
+  </div>
 
-<div class="wrap" id="tab-agentic" hidden>
+  <div class="subwrap" id="sub-agentic" hidden>
 
   <nav class="toc" aria-label="Mục lục">
     <h2>Mục lục</h2>
@@ -1470,9 +1489,9 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   <footer>
     Trang cá nhân · Giới thiệu khái niệm về AI agent (agentic AI), không thay thế tài liệu chính thức từ Anthropic.
   </footer>
-</div>
+  </div>
 
-<div class="wrap" id="tab-roadmap" hidden>
+  <div class="subwrap" id="sub-roadmap" hidden>
 
   <nav class="toc" aria-label="Mục lục">
     <h2>Mục lục</h2>
@@ -1728,6 +1747,15 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     Trang cá nhân · Lộ trình gợi ý riêng cho người dùng AI để tự làm dự án (vibe coding), không phải chương trình
     đào tạo chính thức.
   </footer>
+  </div>
+
+  <div class="subwrap" id="sub-quiz" hidden>
+  <div class="quiz-shell" id="quiz-root"></div>
+  <footer>
+    Trang cá nhân · 15 câu hỏi tự chấm ngay trên trình duyệt, không lưu hay gửi kết quả đi đâu cả.
+  </footer>
+  </div>
+
 </div>
 
 <div class="wrap" id="tab-news" hidden>
@@ -1806,26 +1834,15 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   </footer>
 </div>
 
-<div class="wrap" id="tab-quiz" hidden>
-  <div class="quiz-shell" id="quiz-root"></div>
-  <footer>
-    Trang cá nhân · 15 câu hỏi tự chấm ngay trên trình duyệt, không lưu hay gửi kết quả đi đâu cả.
-  </footer>
-</div>
 
 <script>
   function showTab(name){
     var tabs = {
-      general: document.getElementById('tab-general'),
       concepts: document.getElementById('tab-concepts'),
-      claude: document.getElementById('tab-claude'),
-      agentic: document.getElementById('tab-agentic'),
-      roadmap: document.getElementById('tab-roadmap'),
-      news: document.getElementById('tab-news'),
-      quiz: document.getElementById('tab-quiz')
+      news: document.getElementById('tab-news')
     };
-    if (!tabs[name]) name = 'general';
-    var btns = document.querySelectorAll('.tab-btn');
+    if (!tabs[name]) name = 'concepts';
+    var btns = document.querySelectorAll('.tabs > .tab-btn');
     Object.keys(tabs).forEach(function(key){
       tabs[key].hidden = key !== name;
     });
@@ -1836,6 +1853,28 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     });
     if (window.history && history.replaceState) history.replaceState(null, '', '#' + name);
   }
+
+  function showSubTab(name){
+    var subs = {
+      general: document.getElementById('sub-general'),
+      overview: document.getElementById('sub-overview'),
+      claude: document.getElementById('sub-claude'),
+      agentic: document.getElementById('sub-agentic'),
+      roadmap: document.getElementById('sub-roadmap'),
+      quiz: document.getElementById('sub-quiz')
+    };
+    if (!subs[name]) name = 'general';
+    var btns = document.querySelectorAll('.subtab-btn');
+    Object.keys(subs).forEach(function(key){
+      subs[key].hidden = key !== name;
+    });
+    btns.forEach(function(btn){
+      var on = btn.dataset.subtab === name;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  }
+
   showTab(location.hash.replace('#', ''));
 </script>
 
@@ -1901,7 +1940,8 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     e.preventDefault();
     var id = a.getAttribute('data-tool');
     closeMenu();
-    showTab('general');
+    showTab('concepts');
+    showSubTab('general');
     setTimeout(function(){
       var el = document.getElementById(id);
       if(!el) return;
