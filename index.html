@@ -176,6 +176,13 @@
   .feature-list .feat span{color:var(--muted);font-size:.88rem}
   .steps{margin:0;padding-left:1.3rem}
   .steps li{margin:6px 0;font-size:.94rem}
+  .applinks{margin:14px 0 4px;display:flex;flex-direction:column;gap:8px}
+  .applinks-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+  .applinks-name{font-size:.82rem;font-weight:600;color:var(--muted);min-width:92px}
+  .applink{display:inline-flex;align-items:center;gap:6px;font-size:.84rem;text-decoration:none;
+    padding:6px 12px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:inherit}
+  .applink:hover{border-color:var(--pink);color:var(--pink)}
+  .applinks-note{margin:2px 0 0;font-size:.82rem;color:var(--muted);max-width:64ch}
   .tool-meta{font-size:.82rem;color:var(--muted);margin-top:22px;padding-top:14px;border-top:1px dashed var(--border)}
   .tools-menu{position:relative}
   .tools-menu-btn{display:flex;align-items:center;gap:6px}
@@ -739,6 +746,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Trợ lý đa năng có hệ sinh thái rộng nhất (Custom GPT, tạo ảnh/video, agent duyệt web) —
             hợp nếu bạn muốn một công cụ làm được gần như mọi việc.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://chatgpt.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6448311069" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+        </div>
 
         <h3>Tính năng chính</h3>
         <div class="feature-list">
@@ -792,6 +806,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <h2>Claude <span class="track-tag">Anthropic</span></h2>
           <p class="tagline">Mạnh về xử lý ngữ cảnh dài, viết cẩn thận, và ngày càng mạnh về lập trình/agent qua
             Claude Code — thiên về "chắc chắn, an toàn" hơn là chạy đua tính năng.</p>
+        </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://claude.ai" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6473753684" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.anthropic.claude" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
         </div>
 
         <h3>Tính năng chính</h3>
@@ -847,6 +868,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Hợp nhất nếu bạn đã dùng Gmail/Docs/Drive hàng ngày — AI được gắn thẳng vào công cụ
             văn phòng quen thuộc thay vì phải mở app riêng.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://gemini.google.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6477489729" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+        </div>
 
         <h3>Tính năng chính</h3>
         <div class="feature-list">
@@ -899,6 +927,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Hợp nếu công việc hàng ngày của bạn xoay quanh Word/Excel/Outlook/Teams — AI gắn thẳng
             vào các ứng dụng đó thay vì một app chat riêng.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://copilot.microsoft.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6472538445" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.microsoft.copilot" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+        </div>
 
         <h3>Tính năng chính</h3>
         <div class="feature-list">
@@ -949,6 +984,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <h2>Perplexity <span class="track-tag">Perplexity AI</span></h2>
           <p class="tagline">Không phải chatbot mở, mà là "máy trả lời" dựa trên tìm kiếm web có trích dẫn — hợp
             khi cần câu trả lời kiểm chứng được, không phải văn bản sáng tạo.</p>
+        </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://www.perplexity.ai" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id1668000334" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=ai.perplexity.app.android" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
         </div>
 
         <h3>Tính năng chính</h3>
@@ -1002,6 +1044,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Gắn chặt với X (Twitter) — mạnh về dữ liệu thời gian thực trên mạng xã hội, giọng điệu
             thẳng thắn hơn và ít giới hạn nội dung hơn các đối thủ.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://grok.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6670324846" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=ai.x.grok" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+        </div>
 
         <h3>Tính năng chính</h3>
         <div class="feature-list">
@@ -1054,6 +1103,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Model mã nguồn mở từ Trung Quốc, rất rẻ hoặc miễn phí mà vẫn mạnh — hợp người muốn
             tiết kiệm chi phí, lập trình viên cần API rẻ, hoặc ai muốn tự host.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://chat.deepseek.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6737597349" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.deepseek.chat" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+        </div>
 
         <h3>Tính năng chính</h3>
         <div class="feature-list">
@@ -1096,6 +1152,12 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <h2>Midjourney <span class="track-tag">Midjourney Inc.</span></h2>
           <p class="tagline">Ảnh đẹp/nghệ thuật nhất trong nhóm tạo ảnh — hợp designer/hoạ sĩ muốn phong cách
             riêng biệt, không phải chatbot nên cách dùng khác hẳn ChatGPT.</p>
+        </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://www.midjourney.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+          </div>
+          <p class="applinks-note">Midjourney không có app điện thoại chính thức — chỉ dùng trên web hoặc trong Discord. Các app tên na ná trên hai kho đều là của bên thứ ba, không phải bản gốc.</p>
         </div>
 
         <h3>Bắt đầu lần đầu</h3>
@@ -1142,6 +1204,14 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Cách dễ nhất để bắt đầu tạo ảnh AI — chỉ cần gõ mô tả bằng lời ngay trong khung chat
             ChatGPT, không cần học cú pháp prompt riêng.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://chatgpt.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6448311069" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+          <p class="applinks-note">DALL·E không có app riêng — vẽ ảnh ngay trong app ChatGPT (link bên trên).</p>
+        </div>
 
         <h3>Bắt đầu lần đầu</h3>
         <ol class="steps">
@@ -1185,6 +1255,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <h2>Adobe Firefly <span class="track-tag">Adobe</span></h2>
           <p class="tagline">Lựa chọn "an toàn cho công việc" — chỉ học từ ảnh Adobe Stock đã có bản quyền, tích
             hợp thẳng vào Photoshop/Illustrator, hợp dùng cho mục đích thương mại.</p>
+        </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://firefly.adobe.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6742595426" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.adobe.firefly" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
         </div>
 
         <h3>Bắt đầu lần đầu</h3>
@@ -1231,6 +1308,12 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Không phải một app duy nhất mà là cả một hệ sinh thái mã nguồn mở — tự chạy miễn phí
             trên máy riêng, tuỳ biến sâu nhất nhưng cũng cần mày mò kỹ thuật nhiều nhất trong 4 công cụ.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://stability.ai" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+          </div>
+          <p class="applinks-note">Không có app điện thoại chính thức của Stability AI. Dùng qua web (DreamStudio, Clipdrop) hoặc cài trên máy tính; app cùng tên trên hai kho là của bên thứ ba.</p>
+        </div>
 
         <h3>Bắt đầu lần đầu (2 cách)</h3>
         <ol class="steps">
@@ -1275,6 +1358,12 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Công cụ tạo video từng rất nổi nhờ tính năng Cameo (đưa gương mặt bạn vào video) —
             nhưng đang bị OpenAI khai tử, nên không còn hợp để học như công cụ chính hiện tại.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://sora.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+          </div>
+          <p class="applinks-note">Ở Việt Nam hiện không tải được app Sora riêng trên cả App Store lẫn Google Play (đo 07/08/2026) — dùng qua web sora.com, hoặc tạo video ngay trong app ChatGPT.</p>
+        </div>
 
         <div class="tip">⚠️ <strong>Sắp ngừng hoạt động:</strong> app Sora dành cho người dùng thường đã đóng từ
           tháng 4/2026; API cho lập trình viên sẽ ngừng hẳn ngày 24/9/2026, toàn bộ dữ liệu tài khoản sẽ bị xoá sau
@@ -1297,6 +1386,14 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <h2>Veo <span class="track-tag">Google, qua Gemini/Flow</span></h2>
           <p class="tagline">Công cụ tạo video của Google, đi kèm trình biên tập Flow — mạnh nhất trong nhóm về
             giữ nhân vật/đồ vật nhất quán xuyên suốt nhiều cảnh nối tiếp nhau.</p>
+        </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://gemini.google.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6477489729" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+          <p class="applinks-note">Veo không có app riêng — dùng trong app Gemini (link bên trên), hoặc trên web ở labs.google/flow.</p>
         </div>
 
         <h3>Bắt đầu lần đầu</h3>
@@ -1343,6 +1440,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Công cụ hướng tới nhà làm phim/agency chuyên nghiệp — kiểm soát camera, ánh sáng chi
             tiết nhất, đồng thời là nơi có thể dùng chung cả Veo lẫn Kling trong một bảng điều khiển.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://runway.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id1665024375" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.runwayml.prod" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+        </div>
 
         <h3>Bắt đầu lần đầu</h3>
         <ol class="steps">
@@ -1387,6 +1491,20 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <h2>Pika / Kling <span class="track-tag">Pika Labs &amp; Kuaishou</span></h2>
           <p class="tagline">Hai công cụ tạo video ngắn phổ biến khác: Pika thiên về hiệu ứng vui/độc lạ dễ dùng,
             Kling thiên về video dài hơn, chất lượng cao, có âm thanh đồng bộ.</p>
+        </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <span class="applinks-name">Pika</span>
+            <a class="applink web" href="https://pika.art" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6680155400" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+          </div>
+          <div class="applinks-row">
+            <span class="applinks-name">Kling</span>
+            <a class="applink web" href="https://kling.ai" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6738049229" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=kling.ai.video.chat" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+          <p class="applinks-note">Pika chỉ có app iPhone, chưa có bản Android chính thức.</p>
         </div>
 
         <h3>Bắt đầu lần đầu</h3>
@@ -1438,6 +1556,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Nền tảng giọng nói AI đầy đủ nhất: đọc văn bản thành giọng tự nhiên, nhân bản giọng
             nói, lồng tiếng đa ngôn ngữ — hay dùng cho lồng tiếng, sách nói, video.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://elevenlabs.io" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6743162587" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=io.elevenlabs.coreapp" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+        </div>
 
         <h3>Bắt đầu lần đầu</h3>
         <ol class="steps">
@@ -1484,6 +1609,20 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Chỉ cần mô tả thể loại/tâm trạng (hoặc dán lời có sẵn), AI sáng tác cả nhạc nền lẫn
             giọng hát, ra một bài hoàn chỉnh trong khoảng một phút.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <span class="applinks-name">Suno</span>
+            <a class="applink web" href="https://suno.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6480136315" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.suno.android" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+          <div class="applinks-row">
+            <span class="applinks-name">Udio</span>
+            <a class="applink web" href="https://www.udio.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6511211165" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+          </div>
+          <p class="applinks-note">Udio chỉ có app iPhone, chưa có bản Android chính thức.</p>
+        </div>
 
         <h3>Bắt đầu lần đầu</h3>
         <ol class="steps">
@@ -1526,6 +1665,12 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Công cụ chuyển giọng nói thành văn bản (speech-to-text), mã nguồn mở — khác các công
             cụ còn lại ở chỗ đây là một "linh kiện" để dùng bên trong ứng dụng khác, không phải app mở lên là dùng
             ngay.</p>
+        </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://openai.com/index/whisper/" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+          </div>
+          <p class="applinks-note">Whisper là công cụ dành cho lập trình viên, không có app điện thoại. Muốn gõ bằng giọng nói trên máy, dùng chức năng nhập giọng nói sẵn có trong app ChatGPT.</p>
         </div>
 
         <h3>Bắt đầu lần đầu (cách dễ nhất cho người không biết code)</h3>
@@ -1571,6 +1716,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Công cụ thiết kế dễ nhất cho người không biết thiết kế — làm poster khuyến mãi, ảnh
             sản phẩm đẹp chỉ trong vài phút, không cần thuê designer.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://www.canva.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id897446215" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.canva.editor" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+        </div>
 
         <h3>Bắt đầu lần đầu</h3>
         <ol class="steps">
@@ -1614,6 +1766,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <h2>CapCut <span class="track-tag">CapCut (ByteDance)</span></h2>
           <p class="tagline">Công cụ dựng video ngắn nhanh nhất cho TikTok/Facebook Reels — biến ảnh sản phẩm có
             sẵn thành video quảng cáo có nhạc, phụ đề tự động chỉ trong vài phút.</p>
+        </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://www.capcut.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id1500855883" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.lemon.lvoverseas" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
         </div>
 
         <h3>Bắt đầu lần đầu</h3>
@@ -1659,6 +1818,21 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Gộp tin nhắn/đơn hàng từ Facebook, Zalo, TikTok Shop... về một chỗ, có chatbot AI
             (Botcake) tự động trả lời và chốt đơn khi bạn không rảnh trực page.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <span class="applinks-name">Pancake POS</span>
+            <a class="applink web" href="https://pancake.vn" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6443717170" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.pancake.pos.prod" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+          <div class="applinks-row">
+            <span class="applinks-name">Pancake (bán hàng)</span>
+            <a class="applink web" href="https://pancake.vn" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id6449825597" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=vn.pancake.app" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+          <p class="applinks-note">Botcake dùng chung tài khoản Pancake, không có app riêng — thao tác trên web botcake.io.</p>
+        </div>
 
         <h3>Bắt đầu lần đầu</h3>
         <ol class="steps">
@@ -1703,6 +1877,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <p class="tagline">Tính năng AI trong quảng cáo Facebook/Instagram — tự tìm khách hàng tiềm năng và tối
             ưu ngân sách, thay vì bạn tự chọn đối tượng/vị trí quảng cáo thủ công như trước.</p>
         </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://business.facebook.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id964397083" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.facebook.adsmanager" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
+        </div>
 
         <h3>Bắt đầu lần đầu</h3>
         <ol class="steps">
@@ -1744,6 +1925,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <h2>PhotoRoom <span class="track-tag">Photoroom</span></h2>
           <p class="tagline">Ứng dụng chuyên chụp/dựng ảnh sản phẩm bằng AI ngay trên điện thoại — làm hàng loạt
             ảnh đẹp, đúng chuẩn sàn thương mại điện tử, nhanh hơn hẳn tự chụp/chỉnh tay từng ảnh.</p>
+        </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://www.photoroom.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+            <a class="applink ios" href="https://apps.apple.com/vn/app/id1455009060" target="_blank" rel="noopener">📱 App Store (iPhone/iPad)</a>
+            <a class="applink and" href="https://play.google.com/store/apps/details?id=com.photoroom.app" target="_blank" rel="noopener">🤖 Google Play (Android)</a>
+          </div>
         </div>
 
         <h3>Bắt đầu lần đầu</h3>
@@ -1788,6 +1976,12 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
           <h2>Copy.ai <span class="track-tag">Copy.ai</span></h2>
           <p class="tagline">Viết nội dung bán hàng hàng loạt — mạnh nhất ở việc biến cả danh sách sản phẩm
             (file Excel) thành hàng loạt mô tả sản phẩm chuẩn SEO trong một lần chạy.</p>
+        </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://www.copy.ai" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+          </div>
+          <p class="applinks-note">Copy.ai không có app điện thoại chính thức — dùng trên web, kể cả từ trình duyệt điện thoại.</p>
         </div>
 
         <h3>Bắt đầu lần đầu</h3>
