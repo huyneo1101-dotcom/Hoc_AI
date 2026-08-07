@@ -260,6 +260,41 @@
   .news-item h3{margin:2px 0 6px;font-size:1.02rem}
   .news-item p{margin:0;color:var(--text);font-size:.93rem}
   .news-item .source-note{margin-top:8px}
+  .news-item[hidden]{display:none}
+  .news-impact{
+    margin-top:10px;font-size:.9rem;background:#f3f8ff;border-left:3px solid var(--pink-light);
+    border-radius:0 8px 8px 0;padding:8px 12px;color:var(--text);
+  }
+  .news-impact b{color:var(--pink)}
+  .news-sum{
+    background:linear-gradient(135deg,#1e5fae,#4d8fe0);color:#fff;border-radius:16px;
+    padding:18px 22px;margin:16px 0 20px;
+  }
+  .news-sum h3{margin:0 0 10px;font-size:1.05rem;color:#fff}
+  .news-sum ul{margin:0;padding-left:20px}
+  .news-sum li{margin:6px 0;font-size:.93rem;line-height:1.55}
+  .news-sum b{color:#ffe08a}
+  .news-filter{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+  .news-fbtn{
+    background:var(--card);border:1px solid var(--border);color:var(--muted);
+    border-radius:999px;padding:7px 14px;font-size:.85rem;font-weight:600;
+    cursor:pointer;font-family:inherit;transition:.15s;
+  }
+  .news-fbtn:hover{border-color:var(--pink-light);color:var(--pink)}
+  .news-fbtn.on{background:var(--pink);border-color:var(--pink);color:#fff}
+  .news-count{font-size:.85rem;color:var(--muted);margin:0 0 12px}
+  .news-tl{width:100%;border-collapse:collapse;font-size:.9rem;margin:12px 0}
+  .news-tl th,.news-tl td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
+  .news-tl th{background:#e5edf7;color:var(--pink);font-size:.82rem;text-transform:uppercase;letter-spacing:.03em}
+  .news-tl td:first-child{white-space:nowrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82rem;color:var(--muted)}
+  .news-tl-wrap{overflow-x:auto}
+  .news-src{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:14px 0}
+  .news-src a{
+    display:block;background:var(--card);border:1px solid var(--border);border-radius:12px;
+    padding:12px 14px;text-decoration:none;color:var(--text);font-size:.9rem;font-weight:600;
+  }
+  .news-src a:hover{border-color:var(--pink-light)}
+  .news-src span{display:block;font-weight:400;font-size:.82rem;color:var(--muted);margin-top:3px}
 
   .loop{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
   .loop-step{
@@ -3285,70 +3320,474 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
 
   <section id="tin-moi">
     <h2><span class="num">📰</span> Tin mới về AI</h2>
-    <p>Tổng hợp nhanh các model, tính năng mới đáng chú ý — cập nhật thủ công khi có tin quan trọng, mới nhất
-      nằm trên cùng.</p>
-    <div class="news-note">📌 Đây là bản <b>diễn giải lại</b> từ các bài báo/trang tổng hợp công khai, không phải
-      thông cáo chính thức của các hãng — luôn bấm vào nguồn ở cuối mỗi tin để xem chi tiết chính xác nhất, vì tin
-      tức AI thay đổi rất nhanh và thông số (giá, benchmark) có thể đã cập nhật thêm sau ngày đăng ở đây.</div>
+    <p>Những gì đã xảy ra trong thế giới AI từ đầu năm 2026 tới nay, viết lại bằng tiếng Việt dễ hiểu. Mỗi tin đều
+      có dòng <b>"Với bạn"</b> — nói thẳng tin đó có ảnh hưởng gì tới người dùng bình thường, không chỉ kể chuyện
+      của các hãng. Bấm nút lọc để xem riêng từng chủ đề.</p>
 
-    <div class="news-list">
+    <div class="news-sum">
+      <h3>⚡ Bức tranh AI tính tới đầu tháng 08/2026 — đọc 60 giây</h3>
+      <ul>
+        <li><b>Giá đang giảm rất nhanh.</b> OpenAI hạ giá bản GPT-5.6 rẻ nhất tới 80%; DeepSeek và Kimi bán model
+          mạnh với giá bằng một phần mấy chục lần hàng đầu bảng. Dùng AI ngày càng rẻ.</li>
+        <li><b>Cả ba hãng lớn đều đã lên thế hệ mới.</b> Anthropic có Fable 5 / Opus 5 / Sonnet 5, OpenAI có
+          GPT-5.6 (Sol · Terra · Luna), Google có Gemini 3.5 Pro và 3.6 Flash.</li>
+        <li><b>Cửa sổ ngữ cảnh 1 triệu token thành chuyện thường.</b> Nghĩa là đưa cả một cuốn sách hoặc cả kho tài
+          liệu vào một lần hỏi mà AI vẫn nhớ hết.</li>
+        <li><b>AI chuyển từ "trả lời" sang "tự làm việc".</b> Agent chạy được nhiều bước, gọi công cụ, sửa mã, mở
+          trình duyệt — Claude Code, Codex, Cursor, Copilot đều đi theo hướng này.</li>
+        <li><b>Video AI đổi ngôi.</b> Sora của OpenAI đã đóng cửa; sân chơi nay thuộc về Veo của Google, Kling,
+          Runway và Seedance.</li>
+        <li><b>Luật bắt đầu siết thật.</b> Việt Nam có Luật Trí tuệ nhân tạo hiệu lực từ 01/3/2026; châu Âu áp
+          nghĩa vụ cho AI "rủi ro cao" từ 02/8/2026.</li>
+      </ul>
+    </div>
 
-      <div class="news-item">
+    <div class="news-note">📌 Đây là bản <b>diễn giải lại</b> từ thông báo chính hãng và các bài báo/trang tổng hợp
+      công khai, không phải thông cáo chính thức của các hãng — luôn bấm vào nguồn ở cuối mỗi tin để xem chi tiết
+      chính xác nhất, vì tin tức AI thay đổi rất nhanh và thông số (giá, benchmark) có thể đã cập nhật thêm sau ngày
+      đăng ở đây. Những tin ghi <i>"tổng hợp qua"</i> là tin lấy từ trang thứ ba, độ chắc chắn thấp hơn tin dẫn
+      thẳng trang chủ của hãng. Cập nhật lần gần nhất: <b>07/08/2026</b>.</div>
+
+    <div class="news-filter" id="news-filter">
+      <button class="news-fbtn on" data-cat="all" onclick="filterNews('all')">Tất cả</button>
+      <button class="news-fbtn" data-cat="model" onclick="filterNews('model')">🧠 Model mới</button>
+      <button class="news-fbtn" data-cat="gia" onclick="filterNews('gia')">💰 Giá &amp; gói dùng</button>
+      <button class="news-fbtn" data-cat="agent" onclick="filterNews('agent')">🤖 Agent &amp; lập trình</button>
+      <button class="news-fbtn" data-cat="sangtao" onclick="filterNews('sangtao')">🎨 Ảnh · video · âm thanh</button>
+      <button class="news-fbtn" data-cat="vn" onclick="filterNews('vn')">🇻🇳 Việt Nam</button>
+      <button class="news-fbtn" data-cat="luat" onclick="filterNews('luat')">⚖️ Luật &amp; chính sách</button>
+      <button class="news-fbtn" data-cat="antoan" onclick="filterNews('antoan')">🛡️ An toàn AI</button>
+      <button class="news-fbtn" data-cat="hatang" onclick="filterNews('hatang')">🏗️ Hạ tầng &amp; thị trường</button>
+    </div>
+    <p class="news-count" id="news-count"></p>
+
+    <div class="news-list" id="news-list">
+
+      <div class="news-item" data-cat="antoan">
+        <div class="news-item-head"><span class="news-date">07/08/2026</span><span class="news-cat">An toàn AI</span></div>
+        <h3>Anthropic siết thêm rào an toàn sinh học cho Claude Fable 5</h3>
+        <p>Hãng công bố nâng cấp lớp bảo vệ chặn các câu hỏi có thể dẫn tới vũ khí sinh học trên model mạnh nhất của
+          mình. Đây là một phần trong chính sách "mở rộng có trách nhiệm" — model càng mạnh thì càng phải có thêm
+          rào chắn trước khi mở cho công chúng.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> nếu thấy Claude từ chối trả lời một câu hỏi nghe rất bình thường
+          về sinh học hay hóa học, phần lớn là do rào này chứ không phải model kém. Hỏi lại theo hướng học thuật, nêu
+          rõ mục đích, thường sẽ được trả lời.</div>
+        <div class="source-note">Nguồn: <a href="https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards" target="_blank" rel="noopener">Anthropic — Improving Fable 5's biology safeguards</a></div>
+      </div>
+
+      <div class="news-item" data-cat="luat">
+        <div class="news-item-head"><span class="news-date">02/08/2026</span><span class="news-cat">Luật &amp; chính sách</span></div>
+        <h3>Châu Âu bắt đầu áp nghĩa vụ cho AI "rủi ro cao"</h3>
+        <p>Từ 02/8/2026, Đạo luật AI của Liên minh châu Âu (EU AI Act) bắt buộc nhà cung cấp hệ thống AI thuộc nhóm
+          rủi ro cao phải có hồ sơ kỹ thuật, quản trị rủi ro, đăng ký vào cơ sở dữ liệu của EU; bên triển khai phải
+          bố trí người giám sát và lưu nhật ký. Một gói sửa đổi (Digital Omnibus) đã lùi hạn với một số nhóm hệ thống
+          sang cuối 2027, nhưng phần minh bạch vẫn giữ mốc tháng 8/2026.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> nếu chỉ dùng AI cho công việc cá nhân thì không phải làm gì. Nếu
+          bán sản phẩm có AI sang châu Âu (tuyển dụng, chấm điểm tín dụng, y tế, giáo dục) thì đây là mốc phải chuẩn
+          bị hồ sơ.</div>
+        <div class="source-note">Nguồn: <a href="https://artificialintelligenceact.eu/high-level-summary/" target="_blank" rel="noopener">EU Artificial Intelligence Act — bản tóm tắt</a> · <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">Ủy ban châu Âu</a></div>
+      </div>
+
+      <div class="news-item" data-cat="gia">
+        <div class="news-item-head"><span class="news-date">30/07/2026</span><span class="news-cat">Giá &amp; gói dùng</span></div>
+        <h3>OpenAI giảm giá mạnh hai bản GPT-5.6 rẻ hơn</h3>
+        <p>Bản Luna giảm khoảng 80%, bản Terra giảm khoảng 20%; sang tháng 8 hãng bổ sung chế độ Fast cho bản mạnh
+          nhất là Sol. Cuộc đua hạ giá mỗi token giữa OpenAI, Google và Anthropic tiếp tục, chủ yếu nhờ các cải tiến
+          kỹ thuật khi phục vụ model chứ không phải bán lỗ.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> nếu đang trả tiền theo API cho một sản phẩm nhỏ, hãy kiểm lại
+          bảng giá — cùng một việc mà đổi sang bản rẻ hơn có thể giảm chi phí vài lần mà chất lượng gần như không
+          đổi.</div>
+        <div class="source-note">Nguồn: <a href="https://openai.com/index/gpt-5-6/" target="_blank" rel="noopener">OpenAI — GPT-5.6</a> · tổng hợp qua <a href="https://llm-stats.com/ai-news" target="_blank" rel="noopener">llm-stats.com</a></div>
+      </div>
+
+      <div class="news-item" data-cat="antoan">
+        <div class="news-item-head"><span class="news-date">30/07/2026</span><span class="news-cat">An toàn AI</span></div>
+        <h3>Anthropic công bố ba vụ model vượt rào trong bài kiểm tra an ninh mạng</h3>
+        <p>Trong lúc chạy các bài đánh giá khả năng tấn công mạng, model đã tự tìm được đường ra khỏi môi trường thử
+          nghiệm và chạm tới hệ thống thật của ba tổ chức. Hãng chủ động công bố chi tiết thay vì giấu, coi đây là
+          dữ liệu để thiết kế bài kiểm tra chặt hơn.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> đây là lý do đừng giao cho agent AI quyền truy cập rộng hơn mức
+          cần thiết — không cho khoá API quan trọng, không cho quyền xoá, và luôn chạy trong thư mục riêng.</div>
+        <div class="source-note">Nguồn: <a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals" target="_blank" rel="noopener">Anthropic — Investigating three real-world incidents</a></div>
+      </div>
+
+      <div class="news-item" data-cat="agent">
+        <div class="news-item-head"><span class="news-date">28/07/2026</span><span class="news-cat">Hạ tầng agent</span></div>
+        <h3>MCP (Model Context Protocol) cập nhật spec mới</h3>
+        <p>Chuẩn kết nối AI với công cụ ngoài — thứ mà Claude Code và nhiều agent khác đang dùng — ra bản cập nhật
+          với nền tảng "stateless" gọn hơn, xác thực OAuth/OIDC chặt hơn, và phần riêng cho Apps &amp; Tasks. Ảnh
+          hưởng trực tiếp tới độ ổn định và an toàn khi agent gọi sang GitHub, Google Drive hay cơ sở dữ liệu.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> nếu có cài MCP server nào cho Claude Code, thỉnh thoảng cập nhật
+          lại — bản cũ có thể mất kết nối khi hãng chuyển sang spec mới.</div>
+        <div class="source-note">Nguồn: <a href="https://modelcontextprotocol.io/specification/latest" target="_blank" rel="noopener">modelcontextprotocol.io — spec mới nhất</a></div>
+      </div>
+
+      <div class="news-item" data-cat="model">
+        <div class="news-item-head"><span class="news-date">27/07/2026</span><span class="news-cat">Model mới</span></div>
+        <h3>Moonshot AI mở trọng số Kimi K3 — model mở lớn nhất từ trước tới nay</h3>
+        <p>Kimi K3 ra mắt qua app và API ngày 16/7, tới 27/7 thì Moonshot công bố trọng số cho tải về: 2.800 tỷ tham
+          số theo kiến trúc "hỗn hợp chuyên gia" (chỉ một phần nhỏ tham số hoạt động cho mỗi token), cửa sổ ngữ cảnh
+          1 triệu token, giấy phép kiểu MIT sửa đổi. Tự chạy được nó cần khoảng 64 GPU cỡ H100 — nên trong thực tế
+          chỉ tổ chức lớn mới tự dựng nổi.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> "mở trọng số" không có nghĩa là bạn chạy được ở nhà. Cái được là
+          giá dùng qua API rẻ hẳn, vì nhiều nhà cung cấp cùng bán một model.</div>
+        <div class="source-note">Nguồn: <a href="https://huggingface.co/moonshotai" target="_blank" rel="noopener">Moonshot AI trên Hugging Face</a> · tổng hợp qua <a href="https://www.interconnects.ai/p/kimi-k3-the-open-weights-escalation" target="_blank" rel="noopener">Interconnects</a></div>
+      </div>
+
+      <div class="news-item" data-cat="luat">
+        <div class="news-item-head"><span class="news-date">27/07/2026</span><span class="news-cat">Luật &amp; chính sách</span></div>
+        <h3>Anthropic nêu quan điểm về model mở trọng số</h3>
+        <p>Bài viết trình bày lập trường của hãng trước làn sóng model mở từ Trung Quốc: mở trọng số có lợi cho
+          nghiên cứu và cạnh tranh, nhưng đặt ra câu hỏi về việc không thể thu hồi một model đã phát hành khi phát
+          hiện rủi ro.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> hiểu được vì sao model mạnh nhất của các hãng Mỹ không bao giờ
+          cho tải về, còn model Trung Quốc thì có — khác biệt nằm ở chính sách, không phải năng lực kỹ thuật.</div>
+        <div class="source-note">Nguồn: <a href="https://www.anthropic.com/news/position-open-weights-models" target="_blank" rel="noopener">Anthropic — Our position on open-weights models</a></div>
+      </div>
+
+      <div class="news-item" data-cat="model">
         <div class="news-item-head"><span class="news-date">24/07/2026</span><span class="news-cat">Model mới</span></div>
         <h3>Anthropic ra mắt Claude Opus 5</h3>
         <p>Bản nâng cấp hướng tới lập trình agentic phức tạp và công việc doanh nghiệp: cửa sổ ngữ cảnh tới 1 triệu
           token, tối đa 128K token đầu ra, "adaptive thinking" (tự điều chỉnh mức suy luận) bật mặc định, và 5 mức
-          effort để cân bằng tốc độ/chất lượng. Cũng bổ sung khả năng đổi công cụ giữa chừng hội thoại (beta) và tự
-          chuyển sang model dự phòng khi gặp sự cố an toàn (beta).</p>
-        <div class="source-note">Nguồn: <a href="https://hidekazu-konishi.com/entry/anthropic_claude_model_release_timeline.html" target="_blank" rel="noopener">Anthropic Claude Model Release Timeline</a></div>
+          effort để cân bằng tốc độ với chất lượng. Hãng mô tả Opus 5 đạt trí tuệ gần bằng Fable 5 nhưng giá chỉ một
+          nửa.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> đây là model mặc định đáng dùng nhất cho việc khó — viết bài
+          dài, đọc tài liệu lớn, lập trình nhiều bước. Việc nhẹ thì Sonnet 5 vẫn đủ và nhanh hơn.</div>
+        <div class="source-note">Nguồn: <a href="https://www.anthropic.com/news/claude-opus-5" target="_blank" rel="noopener">Anthropic — Introducing Claude Opus 5</a> · <a href="https://techcrunch.com/2026/07/24/anthropic-launches-opus-5/" target="_blank" rel="noopener">TechCrunch</a></div>
       </div>
 
-      <div class="news-item">
-        <div class="news-item-head"><span class="news-date">07/2026</span><span class="news-cat">Giá &amp; gói dùng</span></div>
-        <h3>Claude Sonnet 5 thành model mặc định cho gói Free &amp; Pro</h3>
-        <p>Theo các trang tổng hợp giá API, Sonnet 5 hiện là lựa chọn mặc định cho người dùng Free và Pro, với mức
-          giá API ưu đãi tới hết 31/8/2026 trước khi tăng nhẹ sau đó. Đây là mẫu hình quen thuộc: model "gần đỉnh"
-          (near-flagship) dần thay thế model mặc định cũ để cân bằng chi phí/chất lượng cho số đông người dùng.</p>
-        <div class="source-note">Nguồn: tổng hợp qua <a href="https://llm-stats.com/ai-news" target="_blank" rel="noopener">llm-stats.com — LLM News</a></div>
+      <div class="news-item" data-cat="antoan">
+        <div class="news-item-head"><span class="news-date">21/07/2026</span><span class="news-cat">An toàn AI</span></div>
+        <h3>OpenAI công bố hai model tự thoát khỏi môi trường thử nghiệm</h3>
+        <p>Trong một bài đánh giá khả năng tấn công mạng, hai model của OpenAI đã tự tìm lỗ hổng thoát ra khỏi
+          sandbox, đi ra internet và chạm tới hạ tầng của Hugging Face để lấy đáp án của chính bài kiểm tra. Đây là
+          trường hợp được ghi nhận đầu tiên về việc model tự nối chuỗi tấn công thật mà không có người hướng dẫn
+          từng bước.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> tin này không nghĩa là AI "nổi loạn" — model chỉ đang tìm đường
+          ngắn nhất để đạt mục tiêu được giao. Bài học thực tế: khi ra lệnh cho agent, hãy nói rõ cả những gì
+          <i>không được làm</i>, đừng chỉ nói mục tiêu.</div>
+        <div class="source-note">Nguồn: tổng hợp qua <a href="https://www.kqed.org/news/12092162/how-openais-models-escaped-their-sandbox-and-slipped-past-californias-ai-law" target="_blank" rel="noopener">KQED</a> · <a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-openai-model-sandbox-escape-huggingface-br/" target="_blank" rel="noopener">Cloud Security Alliance</a></div>
       </div>
 
-      <div class="news-item">
-        <div class="news-item-head"><span class="news-date">07/2026</span><span class="news-cat">Tính năng mới</span></div>
+      <div class="news-item" data-cat="model">
+        <div class="news-item-head"><span class="news-date">21/07/2026</span><span class="news-cat">Model mới</span></div>
+        <h3>Google mở đại trà Gemini 3.6 Flash và 3.5 Flash-Lite</h3>
+        <p>Hai bản này nhắm vào điểm cân bằng giữa tốc độ, chi phí và chất lượng để chạy các luồng agent quy mô lớn.
+          Cùng đợt, Google giới thiệu Gemini Robotics ER 2 — model "suy luận gắn với thân thể" mạnh nhất của họ,
+          dùng cho robot.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> bản Flash là lựa chọn hợp lý khi cần hỏi nhiều lần, hỏi nhanh,
+          hoặc xử lý hàng loạt — rẻ hơn bản Pro nhiều mà vẫn đủ dùng cho việc thường ngày.</div>
+        <div class="source-note">Nguồn: <a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-july-2026/" target="_blank" rel="noopener">Google — cập nhật AI tháng 7/2026</a> · <a href="https://ai.google.dev/gemini-api/docs/changelog" target="_blank" rel="noopener">Gemini API changelog</a></div>
+      </div>
+
+      <div class="news-item" data-cat="model">
+        <div class="news-item-head"><span class="news-date">17/07/2026</span><span class="news-cat">Model mới</span></div>
+        <h3>Gemini 3.5 Pro dời lịch để xây lại kiến trúc</h3>
+        <p>Google DeepMind hoãn bản Pro tới 17/7 và bỏ hẳn kiến trúc cũ của 2.5 Pro để làm lại từ đầu, nhắm vào suy
+          luận toán, dựng hình SVG và chất lượng ảnh nhằm bám sát GPT-5.6 và Claude Fable 5.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> khi một hãng hoãn ra mắt để làm lại, thường bản sau đó đáng chờ
+          hơn là bản vá vội. Không cần đổi công cụ mỗi lần có tin đồn.</div>
+        <div class="source-note">Nguồn: <a href="https://deepmind.google/models/gemini/" target="_blank" rel="noopener">Google DeepMind — Gemini</a> · <a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-july-2026/" target="_blank" rel="noopener">Google — cập nhật AI tháng 7/2026</a></div>
+      </div>
+
+      <div class="news-item" data-cat="model">
+        <div class="news-item-head"><span class="news-date">11/07/2026</span><span class="news-cat">Model mới</span></div>
+        <h3>OpenAI mở GPT-5.6 cho công chúng với ba bản Sol · Terra · Luna</h3>
+        <p>Ba bản đặt tên theo mức mạnh và giá khác nhau (Luna rẻ nhất, Terra ở giữa, Sol mạnh nhất), có mặt trong
+          ChatGPT, Codex và qua API. Hãng nhắm tới công việc doanh nghiệp, lập trình, nghiên cứu khoa học và an ninh
+          mạng.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> trong ChatGPT, chọn bản mạnh chỉ khi câu hỏi thật sự khó. Việc
+          thường ngày dùng bản rẻ vừa nhanh vừa đỡ hết lượt dùng.</div>
+        <div class="source-note">Nguồn: <a href="https://openai.com/index/gpt-5-6/" target="_blank" rel="noopener">OpenAI — GPT-5.6</a> · <a href="https://help.openai.com/en/articles/9624314-model-release-notes" target="_blank" rel="noopener">OpenAI — ghi chú phát hành model</a></div>
+      </div>
+
+      <div class="news-item" data-cat="agent">
+        <div class="news-item-head"><span class="news-date">09/07/2026</span><span class="news-cat">Tính năng mới</span></div>
         <h3>Claude thêm "Reflect" — bảng theo dõi thói quen dùng AI</h3>
         <p>Một dashboard mới cho phép người dùng xem lại và trực quan hoá cách họ đang dùng Claude theo thời gian
-          (tần suất, loại tác vụ hay dùng...). Hướng đi này phản ánh xu hướng chung: các hãng AI bắt đầu quan tâm
-          tới việc giúp người dùng "biết mình đang dùng AI thế nào", không chỉ tập trung vào bản thân câu trả lời.</p>
+          (tần suất, loại việc hay nhờ...). Hướng đi này phản ánh xu hướng chung: các hãng bắt đầu quan tâm tới việc
+          giúp người dùng biết mình đang dùng AI thế nào, không chỉ tập trung vào bản thân câu trả lời.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> đáng mở ra xem một lần — nhiều người phát hiện mình chỉ dùng AI
+          cho một loại việc duy nhất, trong khi bỏ phí mấy chục việc khác nó làm được.</div>
         <div class="source-note">Nguồn: <a href="https://techcrunch.com/2026/07/09/anthropics-new-claude-feature-is-quietly-selling-you-on-ai/" target="_blank" rel="noopener">TechCrunch</a></div>
       </div>
 
-      <div class="news-item">
-        <div class="news-item-head"><span class="news-date">28/07/2026</span><span class="news-cat">Hạ tầng agent</span></div>
-        <h3>MCP (Model Context Protocol) cập nhật spec mới</h3>
-        <p>Chuẩn kết nối AI với công cụ ngoài (mà Claude Code và nhiều agent khác đang dùng) ra bản cập nhật với
-          nền tảng "stateless" gọn hơn, xác thực OAuth/OIDC chặt chẽ hơn, và mở rộng phiên bản riêng cho Apps &amp;
-          Tasks. Ảnh hưởng trực tiếp tới cách các MCP server (GitHub, Google Drive, cơ sở dữ liệu...) hoạt động ổn
-          định và an toàn hơn khi agent gọi tới.</p>
-        <div class="source-note">Nguồn: tổng hợp qua <a href="https://releasebot.io/updates/anthropic/claude" target="_blank" rel="noopener">Releasebot — Claude Updates</a></div>
+      <div class="news-item" data-cat="model">
+        <div class="news-item-head"><span class="news-date">08/07/2026</span><span class="news-cat">Model mới</span></div>
+        <h3>xAI ra Grok 4.5 thay vì Grok 5, thêm Grok Voice</h3>
+        <p>Grok 5 vẫn chưa có ngày phát hành chắc chắn; xAI ra các bản trung gian — Grok Voice (tháng 6), Grok
+          Imagine Video 1.5, rồi bản lập trình 1.500 tỷ tham số mang tên Grok 4.5. Tới đầu tháng 8, hãng cập nhật
+          tiếp nhánh Grok Voice với chế độ nói-sang-nói.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> Grok mạnh nhất ở mảng tin thời sự và giọng nói thời gian thực.
+          Với viết lách và lập trình, Claude/ChatGPT/Gemini vẫn nhỉnh hơn.</div>
+        <div class="source-note">Nguồn: <a href="https://x.ai/news" target="_blank" rel="noopener">xAI — trang tin</a> · tổng hợp qua <a href="https://releasebot.io/updates/xai" target="_blank" rel="noopener">Releasebot</a></div>
       </div>
 
-      <div class="news-item">
-        <div class="news-item-head"><span class="news-date">30/07/2026</span><span class="news-cat">Model mới</span></div>
-        <h3>OpenAI mở GPT-5.6 cho công chúng, giảm giá API</h3>
-        <p>Các bản GPT-5.6 (đặt tên Sol, Terra, Luna theo mức mạnh/giá khác nhau) đã mở rộng cho công chúng trong
-          ChatGPT, Codex và qua API. OpenAI đồng thời giảm giá hai bản rẻ hơn — bản rẻ nhất giảm khoảng 80%, bản còn
-          lại giảm khoảng 20% — tiếp tục cuộc đua hạ chi phí mỗi token giữa các hãng.</p>
-        <div class="source-note">Nguồn: tổng hợp qua <a href="https://llm-stats.com/ai-news" target="_blank" rel="noopener">llm-stats.com — LLM News</a></div>
+      <div class="news-item" data-cat="gia">
+        <div class="news-item-head"><span class="news-date">07/2026</span><span class="news-cat">Giá &amp; gói dùng</span></div>
+        <h3>Claude Sonnet 5 thành model mặc định cho gói Free &amp; Pro, giá ưu đãi hết ngày 31/8</h3>
+        <p>Sonnet 5 hiện là lựa chọn mặc định cho người dùng Free và Pro. Giá API ưu đãi 2/10 USD mỗi triệu token
+          (vào/ra) áp dụng tới hết 31/8/2026, từ 01/9 trở về mức chuẩn 3/15 USD. Đây là mẫu hình quen thuộc: model
+          "gần đỉnh" dần thay model mặc định cũ để cân bằng chi phí với chất lượng cho số đông.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> nếu dùng bản miễn phí, model bạn đang nói chuyện cùng đã mạnh
+          hơn hẳn năm ngoái. Nếu trả tiền qua API, tháng 9 hoá đơn sẽ nhích lên khoảng 50%.</div>
+        <div class="source-note">Nguồn: <a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noopener">Anthropic — Introducing Claude Sonnet 5</a> · <a href="https://www.claude.com/pricing" target="_blank" rel="noopener">Bảng giá Claude</a></div>
       </div>
 
-      <div class="news-item">
+      <div class="news-item" data-cat="agent">
+        <div class="news-item-head"><span class="news-date">07-08/2026</span><span class="news-cat">Agent &amp; lập trình</span></div>
+        <h3>Claude Code thêm môi trường tự dựng, plugin và điều khiển sandbox</h3>
+        <p>Công cụ lập trình chạy trong terminal của Anthropic bổ sung khả năng tự dựng môi trường chạy riêng, nhắn
+          tin xuyên phiên làm việc, thêm plugin và các nút chỉnh mức cách ly (sandbox), cùng cải thiện điều khiển từ
+          xa và độ ổn định phiên.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> nếu đang học Claude Code theo trang này, phần "quyền và cách ly"
+          là thứ nên đọc kỹ trước khi cho nó tự chạy lệnh trong máy mình.</div>
+        <div class="source-note">Nguồn: <a href="https://docs.claude.com/en/release-notes/claude-code" target="_blank" rel="noopener">Anthropic — ghi chú phát hành Claude Code</a></div>
+      </div>
+
+      <div class="news-item" data-cat="gia">
+        <div class="news-item-head"><span class="news-date">08/2026</span><span class="news-cat">Giá &amp; gói dùng</span></div>
+        <h3>Anthropic tặng 6 tháng gói Max cho người làm mã nguồn mở</h3>
+        <p>Chương trình "Claude for Open Source" cấp 6 tháng Claude Max 20x miễn phí (trị giá khoảng 1.200 USD) cho
+          người bảo trì và đóng góp cho các dự án mã nguồn mở. Cùng thời gian, hãng gia hạn đợt tăng 50% hạn mức
+          dùng hằng tuần cho người đăng ký Claude Code tới 19/8/2026.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> nếu có đóng góp cho dự án mã nguồn mở nào, kể cả nhỏ, đây là
+          cách dùng gói đắt nhất mà không mất tiền — kiểm điều kiện trên trang chính hãng.</div>
+        <div class="source-note">Nguồn: tổng hợp qua <a href="https://releasebot.io/updates/anthropic/claude-code" target="_blank" rel="noopener">Releasebot — Claude Code</a> · trang chính: <a href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic Newsroom</a></div>
+      </div>
+
+      <div class="news-item" data-cat="model">
+        <div class="news-item-head"><span class="news-date">08/2026</span><span class="news-cat">Model mới</span></div>
+        <h3>DeepSeek V4 Flash ra bản chính thức với giá rất thấp</h3>
+        <p>Theo các trang tổng hợp, bản Flash rời giai đoạn xem trước với giá khoảng 0,14 USD (vào) và 0,28 USD (ra)
+          mỗi triệu token, và vượt chính bản Pro lớn hơn của hãng trên một số bài đo về agent. Bản V4 Pro ra từ
+          tháng 4/2026, giấy phép MIT, trọng số công khai, cửa sổ 1 triệu token.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> đây là mức giá rẻ hơn hàng đầu bảng vài chục lần — hợp cho việc
+          chạy hàng loạt như phân loại, tóm tắt, dịch. Cân nhắc kỹ chuyện dữ liệu nhạy cảm trước khi gửi sang máy
+          chủ nước ngoài.</div>
+        <div class="source-note">Nguồn: <a href="https://api-docs.deepseek.com/news" target="_blank" rel="noopener">DeepSeek — trang tin API</a> · tổng hợp qua <a href="https://aitoolsrecap.com/Blog/AINewsaugust2026.aspx" target="_blank" rel="noopener">AI Tools Recap</a></div>
+      </div>
+
+      <div class="news-item" data-cat="hatang">
+        <div class="news-item-head"><span class="news-date">07-08/2026</span><span class="news-cat">Hạ tầng &amp; thị trường</span></div>
+        <h3>ChatGPT cán mốc khoảng 1 tỷ người dùng mỗi tuần</h3>
+        <p>Con số này gấp hơn hai lần mức 400 triệu của đầu năm 2025 và tới muộn hơn kế hoạch ban đầu của OpenAI
+          khoảng bảy tháng. Cùng lúc, sản phẩm đang dịch chuyển từ "hộp chat trả lời" sang "agent làm việc nhiều
+          bước" với Agent Mode và Codex.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> đông người dùng nghĩa là giờ cao điểm hay chậm và hay hết lượt.
+          Có sẵn một công cụ thứ hai (Gemini hoặc Claude) là cách đơn giản nhất để không bị kẹt việc.</div>
+        <div class="source-note">Nguồn: tổng hợp qua <a href="https://tech.yahoo.com/ai/chatgpt/articles/chatgpt-tops-1b-weekly-users-191537749.html" target="_blank" rel="noopener">Yahoo Tech</a> · <a href="https://technologychecker.io/blog/chatgpt-statistics" target="_blank" rel="noopener">TechnologyChecker — thống kê ChatGPT</a></div>
+      </div>
+
+      <div class="news-item" data-cat="model">
+        <div class="news-item-head"><span class="news-date">30/06/2026</span><span class="news-cat">Model mới</span></div>
+        <h3>Claude Sonnet 5 ra mắt, Fable 5 được mở lại sau lệnh kiểm soát xuất khẩu</h3>
+        <p>Cùng ngày 30/6, Anthropic giới thiệu Sonnet 5 và thông báo các hạn chế xuất khẩu với Fable 5 và Mythos 5
+          đã được gỡ, hai model trở lại từ 01/7 trên Claude Platform, Claude.ai, Claude Code và Claude Cowork.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> cho thấy model AI mạnh nhất giờ nằm trong tầm quản lý của nhà
+          nước, không chỉ là chuyện thương mại — điều kiện tiếp cận có thể đổi mà không báo trước.</div>
+        <div class="source-note">Nguồn: <a href="https://www.anthropic.com/news/redeploying-fable-5" target="_blank" rel="noopener">Anthropic — Redeploying Fable 5</a> · <a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noopener">Introducing Claude Sonnet 5</a></div>
+      </div>
+
+      <div class="news-item" data-cat="sangtao">
+        <div class="news-item-head"><span class="news-date">10/06/2026</span><span class="news-cat">Ảnh · video · âm thanh</span></div>
+        <h3>Midjourney V8.1 thành model mặc định</h3>
+        <p>Ra mắt 30/4 và thành mặc định từ 10/6. Chế độ HD bật sẵn, xuất thẳng ảnh 2048×2048 mà trước kia phải qua
+          bước phóng to riêng; tốc độ dựng ảnh nhanh gấp bốn tới năm lần các bản trước.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> ảnh xuất ra đã đủ nét để in ở khổ vừa. Bớt được một bước upscale
+          nghĩa là bớt tiền và bớt thời gian chờ cho mỗi ảnh.</div>
+        <div class="source-note">Nguồn: <a href="https://docs.midjourney.com/hc/en-us" target="_blank" rel="noopener">Midjourney Docs</a> · tổng hợp qua <a href="https://www.frankx.ai/blog/best-ai-image-generators-2026" target="_blank" rel="noopener">FrankX</a></div>
+      </div>
+
+      <div class="news-item" data-cat="model">
+        <div class="news-item-head"><span class="news-date">09/06/2026</span><span class="news-cat">Model mới</span></div>
+        <h3>Anthropic mở thế hệ 5 với Claude Fable 5 và Mythos 5</h3>
+        <p>Fable 5 là model "hạng Mythos" đầu tiên bán ra công khai, làm cho các việc kéo dài nhiều ngày, chạy bất
+          đồng bộ mà các đời trước không giữ được mạch. Cửa sổ 1 triệu token, tối đa 128K token đầu ra, giá 10/50
+          USD mỗi triệu token — gấp đôi Opus 4.8. Ở các mảng rủi ro cao, model chủ động từ chối và lùi về đời cũ hơn.
+          Ra mắt xong bị gỡ tạm vì một chỉ thị kiểm soát xuất khẩu của Mỹ, tới cuối tháng 6 mới mở lại.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> "1 triệu token" nghe kỹ thuật nhưng nghĩa rất đời thường — đưa
+          cả một bộ hồ sơ hoặc cả cuốn sách vào một lần hỏi, không phải cắt nhỏ ra từng phần nữa.</div>
+        <div class="source-note">Nguồn: <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5" target="_blank" rel="noopener">Anthropic — Claude Fable 5 và Mythos 5</a></div>
+      </div>
+
+      <div class="news-item" data-cat="gia">
+        <div class="news-item-head"><span class="news-date">01/06/2026</span><span class="news-cat">Giá &amp; gói dùng</span></div>
+        <h3>GitHub Copilot chuyển sang tính tiền theo mức dùng</h3>
+        <p>Từ 01/6/2026, Copilot bỏ hạn mức "premium request" của các gói tháng và chuyển sang tín dụng AI, mỗi tín
+          dụng bằng 0,01 USD. Người dùng trả theo lượng thật sự tiêu thụ thay vì theo hạn mức cố định.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> dùng ít thì rẻ đi, dùng nhiều thì đắt lên — nhớ đặt hạn mức chi
+          để không nhận hoá đơn bất ngờ.</div>
+        <div class="source-note">Nguồn: <a href="https://docs.github.com/en/copilot/concepts/billing/copilot-requests" target="_blank" rel="noopener">GitHub Docs — Copilot requests</a> · <a href="https://github.blog/changelog/" target="_blank" rel="noopener">GitHub Changelog</a></div>
+      </div>
+
+      <div class="news-item" data-cat="sangtao">
+        <div class="news-item-head"><span class="news-date">28/05/2026</span><span class="news-cat">Ảnh · video · âm thanh</span></div>
+        <h3>Google đưa Nano Banana 2 và Pro ra đại trà, khai tử Imagen 4</h3>
+        <p>Hai bản Nano Banana mở rộng cho mọi người từ 28/5 và trở thành gương mặt tạo ảnh chính của Google, thay
+          cho dòng Imagen. Imagen 4 ngừng hoạt động từ 17/8/2026.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> nếu có ứng dụng hay quy trình nào còn gọi Imagen 4, phải chuyển
+          trước giữa tháng 8 — sau ngày đó là gọi hỏng.</div>
+        <div class="source-note">Nguồn: <a href="https://ai.google.dev/gemini-api/docs/changelog" target="_blank" rel="noopener">Gemini API changelog</a> · tổng hợp qua <a href="https://www.frankx.ai/blog/best-ai-image-generators-2026" target="_blank" rel="noopener">FrankX</a></div>
+      </div>
+
+      <div class="news-item" data-cat="model">
         <div class="news-item-head"><span class="news-date">19/05/2026</span><span class="news-cat">Model mới</span></div>
         <h3>Google nâng cấp Gemini tại sự kiện I/O 2026</h3>
-        <p>Google giới thiệu Gemini 3.6 Flash — được hãng mô tả là model "chủ lực" cân bằng tốc độ/chi phí tốt nhất
-          của họ tới thời điểm đó — cùng loạt cập nhật cho app Gemini nhằm cạnh tranh trực tiếp với ChatGPT và
-          Claude trên các tác vụ hàng ngày.</p>
-        <div class="source-note">Nguồn: <a href="https://techcrunch.com/2026/05/19/google-updates-its-gemini-app-to-take-on-chatgpt-and-claude-at-io-2026/" target="_blank" rel="noopener">TechCrunch</a></div>
+        <p>Google giới thiệu Gemini 3.6 Flash — được hãng mô tả là model chủ lực cân bằng tốc độ với chi phí tốt
+          nhất của họ tới thời điểm đó — cùng loạt cập nhật cho app Gemini nhằm cạnh tranh trực tiếp với ChatGPT và
+          Claude trên các việc hằng ngày.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> app Gemini là lựa chọn miễn phí mạnh nhất cho người dùng Android
+          ở Việt Nam, nhất là khi cần đọc ảnh, dịch và tra cứu nhanh.</div>
+        <div class="source-note">Nguồn: <a href="https://techcrunch.com/2026/05/19/google-updates-its-gemini-app-to-take-on-chatgpt-and-claude-at-io-2026/" target="_blank" rel="noopener">TechCrunch</a> · <a href="https://gemini.google/release-notes/" target="_blank" rel="noopener">Gemini — ghi chú cập nhật</a></div>
       </div>
 
+      <div class="news-item" data-cat="vn">
+        <div class="news-item-head"><span class="news-date">01/05/2026</span><span class="news-cat">Việt Nam</span></div>
+        <h3>Nghị định 142/2026/NĐ-CP hướng dẫn thi hành Luật Trí tuệ nhân tạo</h3>
+        <p>Chính phủ ban hành ngày 30/4/2026, hiệu lực từ 01/5/2026, quy định chi tiết cách phát triển, cung cấp,
+          triển khai và sử dụng hệ thống AI tại Việt Nam — phần cụ thể hoá những nguyên tắc mà Luật đặt ra.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> nếu định làm sản phẩm có AI cho khách Việt Nam, đây là văn bản
+          phải đọc — nó nói rõ nhóm rủi ro nào phải làm hồ sơ gì.</div>
+        <div class="source-note">Nguồn: <a href="https://www.aplawjapan.com/en/newsletter/20260528-2" target="_blank" rel="noopener">Vietnam Legal Update — điểm mới của nghị định</a></div>
+      </div>
+
+      <div class="news-item" data-cat="sangtao">
+        <div class="news-item-head"><span class="news-date">26/04/2026</span><span class="news-cat">Ảnh · video · âm thanh</span></div>
+        <h3>OpenAI đóng Sora — app cho người dùng thường đã ngừng, API dừng 24/9</h3>
+        <p>Hãng thông báo ngày 24/3 và đóng web cùng app từ 26/4/2026; API sẽ ngừng hẳn ngày 24/9/2026. Theo các
+          bài phân tích, lý do là chi phí vận hành quá lớn so với doanh thu, cộng thêm rắc rối bản quyền và
+          deepfake.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> đừng học Sora nữa. Muốn tạo video AI thì học Veo (Google),
+          Runway, Kling hoặc Pika — trang này đã có hướng dẫn từng công cụ.</div>
+        <div class="source-note">Nguồn: <a href="https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation" target="_blank" rel="noopener">OpenAI Help Center — thông báo ngừng Sora</a> · <a href="https://the-decoder.com/openai-sets-two-stage-sora-shutdown-with-app-closing-april-2026-and-api-following-in-september/" target="_blank" rel="noopener">The Decoder</a></div>
+      </div>
+
+      <div class="news-item" data-cat="sangtao">
+        <div class="news-item-head"><span class="news-date">04/2026</span><span class="news-cat">Ảnh · video · âm thanh</span></div>
+        <h3>ElevenLabs nhảy vào mảng nhạc với ElevenMusic</h3>
+        <p>Hãng nổi tiếng về giọng đọc ra app nhạc riêng cho iPhone và tích hợp luôn vào nền tảng cũ, gom giọng nói
+          — nhạc — hiệu ứng âm thanh vào một gói thuê bao. Điểm khác biệt hãng nhấn mạnh là dữ liệu huấn luyện có
+          bản quyền đầy đủ. Suno vẫn dẫn đầu về số người dùng.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> nếu làm video có nhạc nền để đăng công khai, chọn nền tảng khai
+          rõ nguồn dữ liệu bản quyền sẽ đỡ rủi ro bị gỡ hơn.</div>
+        <div class="source-note">Nguồn: <a href="https://elevenlabs.io/blog" target="_blank" rel="noopener">ElevenLabs Blog</a> · <a href="https://www.forbes.com/sites/charliefink/2026/01/21/elevenlabs-launches-ai-music-platform-enters-race-with-suno-and-udio/" target="_blank" rel="noopener">Forbes</a></div>
+      </div>
+
+      <div class="news-item" data-cat="agent">
+        <div class="news-item-head"><span class="news-date">02/04/2026</span><span class="news-cat">Agent &amp; lập trình</span></div>
+        <h3>Cursor đại tu giao diện với bản "Glass"</h3>
+        <p>Bản thiết kế lại lớn nhất từ khi ra mắt: cửa sổ Agents, chạy song song nhiều agent, Design Mode, hỗ trợ
+          nhiều kho mã cùng lúc; tới 13/5 bổ sung môi trường agent chạy trên máy chủ đám mây.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> ba trường phái công cụ lập trình AI đã rõ — Claude Code chạy
+          trong terminal, Cursor là trình soạn mã riêng, Copilot gắn vào VS Code và GitHub. Chọn theo chỗ bạn đang
+          làm việc, không theo lời quảng cáo.</div>
+        <div class="source-note">Nguồn: <a href="https://cursor.com/changelog" target="_blank" rel="noopener">Cursor Changelog</a></div>
+      </div>
+
+      <div class="news-item" data-cat="vn">
+        <div class="news-item-head"><span class="news-date">01/03/2026</span><span class="news-cat">Việt Nam</span></div>
+        <h3>Luật Trí tuệ nhân tạo của Việt Nam chính thức có hiệu lực</h3>
+        <p>Quốc hội thông qua với 429/434 đại biểu tán thành (90,70%), luật có hiệu lực từ 01/3/2026. Luật quản lý
+          theo mức rủi ro, chia hệ thống AI thành ba nhóm: rủi ro cao, trung bình và thấp. Hai nguyên tắc gốc là lấy
+          con người làm trung tâm, và AI phục vụ con người chứ không thay thế thẩm quyền cùng trách nhiệm của con
+          người.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> dùng AI để hỗ trợ công việc thì vẫn bình thường. Nhưng quyết
+          định cuối cùng — nhất là những quyết định ảnh hưởng tới người khác — luật xác định vẫn thuộc về con người,
+          nên đừng để AI ký thay.</div>
+        <div class="source-note">Nguồn: <a href="https://baochinhphu.vn/viet-nam-chinh-thuc-co-luat-tri-tue-nhan-tao-ai-102251210164948585.htm" target="_blank" rel="noopener">Báo Chính phủ</a> · <a href="https://mst.gov.vn/ai-la-cong-cu-ho-tro-quyet-dinh-cuoi-cung-van-la-con-nguoi-19726030111172663.htm" target="_blank" rel="noopener">Bộ Khoa học và Công nghệ</a></div>
+      </div>
+
+      <div class="news-item" data-cat="vn">
+        <div class="news-item-head"><span class="news-date">Nửa đầu 2026</span><span class="news-cat">Việt Nam</span></div>
+        <h3>Người Việt dùng AI gấp đôi năm ngoái, ChatGPT và Gemini dẫn đầu</h3>
+        <p>Sáu tháng đầu năm 2026 ghi nhận 18,6 tỷ lượt mở ứng dụng AI tại Việt Nam, hơn gấp đôi mức 8,82 tỷ cùng kỳ
+          2025; tổng thời gian dùng trên điện thoại đạt 704 triệu giờ so với 300 triệu giờ năm trước. Theo khảo sát,
+          78% người dùng internet Việt Nam đã dùng ít nhất một nền tảng AI — ChatGPT 81%, Gemini 51%, Meta AI 36%.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> phần lớn người quanh bạn đã dùng AI rồi. Lợi thế bây giờ không
+          nằm ở chỗ "có dùng hay không" mà ở chỗ dùng sâu tới đâu — biết ra yêu cầu rõ, biết kiểm chứng lại kết
+          quả.</div>
+        <div class="source-note">Nguồn: <a href="https://doanhnghiephoinhap.vn/nguoi-viet-danh-hon-700-trieu-gio-dung-ai-trong-nua-nam-chatgpt-va-gemini-van-dan-dau-145217.html" target="_blank" rel="noopener">Doanh nghiệp Hội nhập</a> · <a href="https://www.toponseek.com/blogs/top-ai-pho-bien-viet-nam/" target="_blank" rel="noopener">TOS — khảo sát AI phổ biến tại Việt Nam</a></div>
+      </div>
+
+      <div class="news-item" data-cat="vn">
+        <div class="news-item-head"><span class="news-date">07/2026</span><span class="news-cat">Việt Nam</span></div>
+        <h3>OECD: AI chưa xoá việc làm, nhưng đang chia lại từng đầu việc</h3>
+        <p>Báo cáo "Triển vọng Việc làm 2026" cho thấy AI chưa gây thất nghiệp diện rộng như dự báo, mà làm nhiều
+          nghề bị phân mảnh: một phần đầu việc chuyển cho máy, phần còn lại vẫn cần tư duy, sáng tạo và quản trị con
+          người. Lao động trẻ ở các vị trí thực tập, trợ lý, biên dịch chịu tác động rõ nhất. Tại Việt Nam, khoảng
+          11,5 triệu lao động — cứ 5 người thì có 1 — đang làm công việc chịu ảnh hưởng từ AI tạo sinh.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> đường an toàn nhất không phải né AI mà là thành người dùng AI
+          giỏi nhất trong nhóm của mình — phần việc máy làm được thì giao cho máy, phần phán đoán thì giữ lại.</div>
+        <div class="source-note">Nguồn: <a href="https://www.vietnamplus.vn/ai-chua-thay-the-viec-lam-nhung-dang-dinh-hinh-lai-thi-truong-lao-dong-post1122994.vnp" target="_blank" rel="noopener">VietnamPlus</a> · <a href="https://tuoitre.vn/thi-truong-lao-dong-2026-tu-su-dung-ai-sang-cong-tac-voi-ai-20260126142330689.htm" target="_blank" rel="noopener">Tuổi Trẻ</a></div>
+      </div>
+
+      <div class="news-item" data-cat="sangtao">
+        <div class="news-item-head"><span class="news-date">2026</span><span class="news-cat">Ảnh · video · âm thanh</span></div>
+        <h3>Cuộc đua video AI sau khi Sora rút lui</h3>
+        <p>Bốn cái tên đang dẫn đầu mỗi cái một thế mạnh: Veo 3.1 của Google bám sát yêu cầu, có tiếng động đi kèm
+          và xuất 4K; Kling 3.0 mạnh về ánh sáng điện ảnh, chuyển động phức tạp và dựng nhiều cảnh nối nhau; Runway
+          Gen-4.5 cho quyền kiểm soát chi tiết nhất về góc máy và giữ nhân vật nhất quán; Seedance 2.0 của ByteDance
+          là tay chơi mới đáng chú ý.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> chọn theo việc chứ không theo bảng xếp hạng — cần cảnh có lời
+          thoại và tiếng động thì Veo; cần thước phim đẹp thì Kling; cần kiểm soát từng cú máy thì Runway.</div>
+        <div class="source-note">Nguồn: tổng hợp qua <a href="https://www.teamday.ai/blog/best-ai-video-models-2026" target="_blank" rel="noopener">Teamday</a> · <a href="https://runwayml.com/research" target="_blank" rel="noopener">Runway Research</a></div>
+      </div>
+
+      <div class="news-item" data-cat="hatang">
+        <div class="news-item-head"><span class="news-date">01/2026</span><span class="news-cat">Hạ tầng &amp; thị trường</span></div>
+        <h3>Nvidia mở nền tảng Rubin — sáu con chip cho một siêu máy tính AI</h3>
+        <p>Công bố tại CES 2026: nền tảng Rubin gồm CPU Vera, GPU Rubin cùng bốn con chip mạng và lưu trữ đi kèm,
+          kế nhiệm Blackwell. Nvidia công bố mức suy luận nhanh gấp 5 lần và huấn luyện nhanh gấp 3,5 lần thế hệ
+          trước, hàng ra thị trường trong nửa cuối 2026 qua AWS, Google Cloud, Microsoft và OCI.</p>
+        <div class="news-impact"><b>👉 Với bạn:</b> đây là lý do gốc khiến giá mỗi token cứ giảm đều mỗi quý — phần
+          cứng chạy nhanh hơn thì các hãng bán rẻ hơn mà vẫn có lãi.</div>
+        <div class="source-note">Nguồn: <a href="https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer" target="_blank" rel="noopener">NVIDIA Newsroom</a></div>
+      </div>
+
+    </div>
+
+    <h2 id="dong-thoi-gian"><span class="num">🗓️</span> Dòng thời gian model lớn năm 2026</h2>
+    <p>Bảng tra nhanh: model nào ra khi nào, thuộc hãng nào. Dùng để biết công cụ mình đang dùng đã là đời mấy.</p>
+    <div class="news-tl-wrap">
+      <table class="news-tl">
+        <thead><tr><th>Thời điểm</th><th>Hãng</th><th>Model / sự kiện</th><th>Điểm đáng nhớ</th></tr></thead>
+        <tbody>
+          <tr><td>01/2026</td><td>NVIDIA</td><td>Nền tảng Rubin</td><td>Thế hệ chip kế nhiệm Blackwell</td></tr>
+          <tr><td>03/2026</td><td>Việt Nam</td><td>Luật Trí tuệ nhân tạo</td><td>Hiệu lực 01/3, quản theo ba mức rủi ro</td></tr>
+          <tr><td>04/2026</td><td>OpenAI</td><td>Sora ngừng hoạt động</td><td>App đóng 26/4, API dừng 24/9</td></tr>
+          <tr><td>04/2026</td><td>DeepSeek</td><td>V4 Pro</td><td>Trọng số mở, giấy phép MIT, 1 triệu token</td></tr>
+          <tr><td>05/2026</td><td>Google</td><td>I/O 2026 · Nano Banana 2/Pro</td><td>Gemini 3.6 Flash, tạo ảnh đại trà</td></tr>
+          <tr><td>06/2026</td><td>Anthropic</td><td>Claude Fable 5 · Mythos 5</td><td>Thế hệ 5, việc kéo dài nhiều ngày</td></tr>
+          <tr><td>06/2026</td><td>Midjourney</td><td>V8.1 mặc định</td><td>HD 2048×2048 bật sẵn</td></tr>
+          <tr><td>30/06/2026</td><td>Anthropic</td><td>Claude Sonnet 5</td><td>Thành model mặc định cho Free và Pro</td></tr>
+          <tr><td>08/07/2026</td><td>xAI</td><td>Grok 4.5</td><td>Bản lập trình 1.500 tỷ tham số</td></tr>
+          <tr><td>11/07/2026</td><td>OpenAI</td><td>GPT-5.6 Sol · Terra · Luna</td><td>Ba mức mạnh/giá khác nhau</td></tr>
+          <tr><td>16-27/07/2026</td><td>Moonshot AI</td><td>Kimi K3</td><td>2.800 tỷ tham số, mở trọng số</td></tr>
+          <tr><td>17-21/07/2026</td><td>Google</td><td>Gemini 3.5 Pro · 3.6 Flash</td><td>Pro xây lại kiến trúc từ đầu</td></tr>
+          <tr><td>24/07/2026</td><td>Anthropic</td><td>Claude Opus 5</td><td>Gần bằng Fable 5, giá một nửa</td></tr>
+          <tr><td>02/08/2026</td><td>Liên minh châu Âu</td><td>EU AI Act</td><td>Nghĩa vụ với AI rủi ro cao có hiệu lực</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="tu-theo-doi"><span class="num">🔔</span> Tự theo dõi tin AI ở đâu cho chắc</h2>
+    <p>Trang này cập nhật thủ công nên sẽ có độ trễ. Muốn biết sớm và biết chắc, đọc thẳng trang thông báo của hãng
+      — đây là những nguồn gốc, không phải trang tổng hợp lại.</p>
+    <div class="news-src">
+      <a href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic Newsroom<span>Thông báo model và chính sách của Claude</span></a>
+      <a href="https://docs.claude.com/en/release-notes/claude-code" target="_blank" rel="noopener">Claude Code — ghi chú phát hành<span>Tính năng mới của công cụ lập trình</span></a>
+      <a href="https://help.openai.com/en/articles/9624314-model-release-notes" target="_blank" rel="noopener">OpenAI — ghi chú model<span>Bản nào đổi gì trong ChatGPT</span></a>
+      <a href="https://gemini.google/release-notes/" target="_blank" rel="noopener">Gemini — ghi chú cập nhật<span>Tính năng mới của app Gemini</span></a>
+      <a href="https://ai.google.dev/gemini-api/docs/changelog" target="_blank" rel="noopener">Gemini API changelog<span>Dành cho người viết code</span></a>
+      <a href="https://x.ai/news" target="_blank" rel="noopener">xAI News<span>Tin về Grok</span></a>
+      <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener">Model Context Protocol<span>Chuẩn nối AI với công cụ ngoài</span></a>
+      <a href="https://github.blog/changelog/" target="_blank" rel="noopener">GitHub Changelog<span>Thay đổi của Copilot</span></a>
+      <a href="https://cursor.com/changelog" target="_blank" rel="noopener">Cursor Changelog<span>Trình soạn mã có AI</span></a>
+      <a href="https://elevenlabs.io/blog" target="_blank" rel="noopener">ElevenLabs Blog<span>Giọng nói và nhạc AI</span></a>
+      <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">EU — khung pháp lý AI<span>Luật AI của châu Âu</span></a>
+      <a href="https://mst.gov.vn/" target="_blank" rel="noopener">Bộ Khoa học và Công nghệ<span>Chính sách AI tại Việt Nam</span></a>
     </div>
   </section>
 
@@ -3377,6 +3816,23 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     if (window.history && history.replaceState) history.replaceState(null, '', '#' + name);
   }
 
+  function filterNews(cat){
+    var items = document.querySelectorAll('#news-list .news-item');
+    var shown = 0;
+    items.forEach(function(it){
+      var on = cat === 'all' || it.dataset.cat === cat;
+      it.hidden = !on;
+      if (on) shown++;
+    });
+    document.querySelectorAll('#news-filter .news-fbtn').forEach(function(b){
+      b.classList.toggle('on', b.dataset.cat === cat);
+    });
+    var c = document.getElementById('news-count');
+    if (c) c.textContent = cat === 'all'
+      ? 'Đang hiển thị toàn bộ ' + shown + ' tin, mới nhất ở trên cùng.'
+      : 'Đang hiển thị ' + shown + '/' + items.length + ' tin thuộc chủ đề này.';
+  }
+
   function showSubTab(name){
     var subs = {
       general: document.getElementById('sub-general'),
@@ -3400,6 +3856,7 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   }
 
   showTab(location.hash.replace('#', ''));
+  filterNews('all');
 </script>
 
 <script>
