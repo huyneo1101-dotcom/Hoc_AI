@@ -157,6 +157,7 @@
   .tp-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex:none}
   .tp-dot.chat{background:#4f6fac}.tp-dot.image{background:#b5791f}
   .tp-dot.video{background:#7a5cc4}.tp-dot.voice{background:#2f8f80}
+  .tp-dot.business{background:#3a8f4f}
 
   .tool-page-head{margin-bottom:18px}
   .tool-page-head h2{margin:0 0 6px;font-size:1.4rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -176,10 +177,10 @@
   .tools-menu-btn.open .car{transform:rotate(180deg)}
   .tools-menu-panel{
     display:none;position:fixed;top:130px;left:50%;transform:translateX(-50%);
-    width:min(720px,92vw);background:var(--card);border:1px solid var(--border);border-radius:16px;
+    width:min(880px,92vw);background:var(--card);border:1px solid var(--border);border-radius:16px;
     box-shadow:0 14px 34px rgba(232,93,138,.18);padding:20px 22px;z-index:30;
   }
-  .tools-menu-panel.open{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .tools-menu-panel.open{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:18px}
   .tm-col h4{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
     margin:0 0 9px;display:flex;align-items:center;gap:6px}
   .tm-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
@@ -188,6 +189,7 @@
   .tm-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex:none}
   .tm-dot.chat{background:#4f6fac}.tm-dot.image{background:#b5791f}
   .tm-dot.video{background:#7a5cc4}.tm-dot.voice{background:#2f8f80}
+  .tm-dot.business{background:#3a8f4f}
   @media (max-width:640px){
     .tools-menu-panel{top:auto;left:16px;right:16px;bottom:16px;transform:none;
       width:auto;max-height:70vh;overflow:auto}
@@ -335,7 +337,7 @@
   <button class="tab-btn" data-tab="news" role="tab" aria-selected="false" onclick="showTab('news')">Tin mới</button>
   <div class="tools-menu">
     <button class="tab-btn tools-menu-btn" id="tools-menu-btn" type="button" aria-haspopup="true"
-      aria-expanded="false" onclick="toggleToolsMenu()">Công cụ AI (18) <span class="car">▾</span></button>
+      aria-expanded="false" onclick="toggleToolsMenu()">Công cụ AI (22) <span class="car">▾</span></button>
     <div class="tools-menu-panel" id="tools-menu-panel" role="menu"></div>
   </div>
 </div>
@@ -489,6 +491,33 @@
     </div>
     <div class="tip">🔊 Nhân bản giọng nói (voice cloning) cần cân nhắc đạo đức/pháp lý — chỉ nhân bản giọng của
       chính bạn hoặc người đã đồng ý, không dùng để giả mạo người khác.</div>
+
+    <h3 style="margin:28px 0 6px;font-size:1.05rem">💼 Kinh doanh &amp; bán hàng</h3>
+    <p>Nhóm này hợp cho ai đang bán hàng (cửa hàng, bán online, mạng xã hội) — thiết kế ảnh/quảng cáo, dựng video
+      ngắn, tự động trả lời khách, và tối ưu quảng cáo bằng AI.</p>
+    <div class="tools-grid">
+      <div class="tool">
+        <h3>Canva</h3>
+        <p>Thiết kế poster/banner/ảnh sản phẩm bằng AI: xoá nền, tạo layout từ mô tả, viết nội dung quảng cáo —
+          không cần biết thiết kế.</p>
+      </div>
+      <div class="tool">
+        <h3>CapCut</h3>
+        <p>Dựng video ngắn TikTok/Reels từ ảnh sản phẩm có sẵn, tự tạo phụ đề, giọng đọc AI, cắt dựng tự động.</p>
+      </div>
+      <div class="tool">
+        <h3>Pancake / Botcake</h3>
+        <p>Quản lý tin nhắn/đơn hàng nhiều kênh (Facebook, Zalo, TikTok Shop...) cùng lúc, có chatbot AI tự động
+          trả lời và chốt đơn khi bạn bận.</p>
+      </div>
+      <div class="tool">
+        <h3>Meta Advantage+</h3>
+        <p>Tính năng AI trong quảng cáo Facebook/Instagram, tự tìm đúng khách hàng tiềm năng và tối ưu ngân sách
+          thay vì bạn tự chọn đối tượng thủ công.</p>
+      </div>
+    </div>
+    <div class="tip">🏪 Chủ cửa hàng nhỏ: kết hợp Canva (ảnh đẹp) + CapCut (video ngắn) + ChatGPT/Gemini (viết caption)
+      là đủ bộ công cụ cơ bản để tự làm marketing hàng ngày mà không cần thuê ngoài.</div>
   </section>
 
   <section id="bat-dau">
@@ -1466,6 +1495,180 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
 
         <div class="tip">💡 Cần mốc thời gian chính xác theo từng từ (VD: dựng phụ đề khớp khẩu hình) — bản Whisper gốc chỉ chia mốc theo cả câu/đoạn, cần công cụ nâng cao hơn như WhisperX mới ra được mốc theo từng từ.</div>
         <div class="tip">⚠️ Độ chính xác giảm rõ rệt với giọng địa phương nặng, nhiều người nói chồng tiếng nhau, hoặc phòng ồn — văn bản quan trọng (pháp lý, y tế, biên bản chính thức) vẫn cần người đọc lại kiểm tra.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-canva" hidden>
+        <div class="tool-page-head">
+          <h2>Canva <span class="track-tag">Canva</span></h2>
+          <p class="tagline">Công cụ thiết kế dễ nhất cho người không biết thiết kế — làm poster khuyến mãi, ảnh
+            sản phẩm đẹp chỉ trong vài phút, không cần thuê designer.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>canva.com</strong>, đăng ký free bằng email hoặc Google.</li>
+          <li>Bấm <strong>"Create a design"</strong>, chọn kích thước có sẵn (VD: "Instagram Post", "Facebook Post", "Poster") tuỳ nơi bạn định đăng.</li>
+          <li>Kéo thả ảnh/chữ vào khung thiết kế, hoặc tìm mẫu có sẵn ở thanh bên trái để chỉnh sửa lại theo ý mình.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Background Remover</b><span>Xoá nền ảnh sản phẩm chỉ với 1 cú bấm — hợp để có ảnh sản phẩm nền trắng/trong suốt chuyên nghiệp.</span></div>
+          <div class="feat"><b>Magic Design</b><span>Mô tả bằng lời điều bạn muốn, Canva tự tạo cả bố cục thiết kế hoàn chỉnh để bạn chỉnh sửa tiếp.</span></div>
+          <div class="feat"><b>Magic Write</b><span>AI viết nội dung quảng cáo/caption ngay trong Canva, không cần mở công cụ khác.</span></div>
+          <div class="feat"><b>Magic Edit</b><span>Tô vùng cần sửa trên ảnh, mô tả muốn thay gì — dùng để chỉnh chi tiết nhỏ trên ảnh sản phẩm.</span></div>
+          <div class="feat"><b>Magic Expand</b><span>Mở rộng ảnh ra ngoài khung gốc — hữu ích khi ảnh sản phẩm quá sát mép, cần thêm khoảng trống để đặt chữ.</span></div>
+          <div class="feat"><b>Magic Resize</b><span>Đổi một thiết kế sang nhiều kích thước khác nhau (story, post, banner) chỉ với 1 cú bấm, không cần làm lại từ đầu.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: làm ảnh sản phẩm nền trắng chuyên nghiệp</h3>
+        <ol class="steps">
+          <li>Tải ảnh sản phẩm (VD: hộp sữa, gói bỉm) lên Canva bằng cách kéo thả vào khung thiết kế.</li>
+          <li>Bấm vào ảnh, chọn <strong>"Edit image"</strong> → <strong>"BG Remover"</strong> (cần gói Pro).</li>
+          <li>Chờ vài giây, nền ảnh tự động biến mất — thêm nền mới (màu trơn, hoạ tiết) hoặc để trong suốt tuỳ mục đích dùng.</li>
+          <li>Lưu lại thành mẫu (template) riêng nếu bạn hay đăng nhiều sản phẩm theo cùng bố cục, lần sau chỉ cần đổi ảnh/giá.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>Đủ dùng thiết kế cơ bản, kho mẫu/ảnh có sẵn giới hạn</td></tr>
+          <tr><td>Pro (trả phí theo tháng/năm)</td><td>Mở khoá Background Remover, Magic Studio đầy đủ, kho ảnh/mẫu bản quyền lớn hơn</td></tr>
+        </table>
+
+        <div class="tip">🏪 Với cửa hàng mẹ và bé: tạo sẵn 1 mẫu "khung poster khuyến mãi" (logo, màu thương hiệu, vị trí giá) dùng lại mỗi đợt sale — chỉ cần đổi ảnh sản phẩm và số giá, không phải thiết kế lại từ đầu mỗi lần.</div>
+        <div class="tip">⚠️ Background Remover và phần lớn tính năng Magic Studio chỉ mở đầy đủ ở gói Pro — bản free vẫn dùng được nhưng khá giới hạn.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-capcut" hidden>
+        <div class="tool-page-head">
+          <h2>CapCut <span class="track-tag">CapCut (ByteDance)</span></h2>
+          <p class="tagline">Công cụ dựng video ngắn nhanh nhất cho TikTok/Facebook Reels — biến ảnh sản phẩm có
+            sẵn thành video quảng cáo có nhạc, phụ đề tự động chỉ trong vài phút.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Tải app <strong>CapCut</strong> trên điện thoại, hoặc vào <strong>capcut.com</strong> để dùng trên máy tính, đăng ký free.</li>
+          <li>Bấm <strong>"Tạo mới"</strong>, chọn ảnh/video từ thư viện máy để đưa vào dự án.</li>
+          <li>Kéo thả sắp xếp thứ tự ảnh trên dòng thời gian bên dưới, bấm nút xuất (Export) khi xong.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Auto Captions</b><span>Tự tạo phụ đề khớp lời nói, hỗ trợ hơn 130 ngôn ngữ — video có phụ đề giữ chân người xem tốt hơn hẳn.</span></div>
+          <div class="feat"><b>Auto-Edit</b><span>AI tự phân tích ảnh/video thô và đề xuất bản dựng sẵn (cắt cảnh, nhạc, hiệu ứng) — bạn chỉnh tiếp thay vì làm từ số 0.</span></div>
+          <div class="feat"><b>Text-to-video</b><span>Tạo video nháp từ mô tả bằng chữ, ghép cảnh có sẵn theo prompt — hợp để thử ý tưởng nhanh.</span></div>
+          <div class="feat"><b>Giọng đọc AI (TTS)</b><span>Hơn 269 giọng đọc có sẵn, đọc voice-over cho video mà không cần tự thu âm.</span></div>
+          <div class="feat"><b>AI Avatar</b><span>Tạo video có "người dẫn" ảo nói thay bạn — hợp nếu bạn ngại xuất hiện trước camera.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: video giới thiệu sản phẩm từ ảnh có sẵn</h3>
+        <ol class="steps">
+          <li>Chọn 4–6 ảnh sản phẩm (VD: bộ đồ sơ sinh) đưa vào dự án mới, sắp xếp theo thứ tự muốn trình bày.</li>
+          <li>Vào mục nhạc, chọn một bản nhạc nền thịnh hành hợp không khí quảng cáo.</li>
+          <li>Bấm vào từng ảnh, thêm hiệu ứng chuyển cảnh đơn giản (Transition) giữa các ảnh.</li>
+          <li>Ghi giọng nói mô tả sản phẩm (hoặc dùng TTS đọc sẵn nội dung bạn viết), bật <strong>"Auto Captions"</strong> để tự thêm phụ đề khớp lời.</li>
+          <li>Xuất video theo tỉ lệ dọc 9:16 nếu đăng TikTok/Reels/Story.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>Đủ dùng hầu hết tính năng dựng video cơ bản, xuất video không giới hạn</td></tr>
+          <tr><td>Pro (trả phí)</td><td>Mở thêm hiệu ứng/nhạc/mẫu có bản quyền, một số tính năng AI nâng cao</td></tr>
+        </table>
+
+        <div class="tip">🏪 Luôn bật Auto Captions cho video sản phẩm — rất nhiều người xem TikTok/Facebook ở chế độ tắt tiếng, phụ đề giúp khách hiểu được nội dung dù không bật âm thanh.</div>
+        <div class="tip">⚠️ Tính năng tạo video tự động từ chữ (text-to-video) dùng cảnh quay có sẵn trong kho, không phải ảnh sản phẩm thật của bạn — chỉ hợp để thử ý tưởng, không thay được video quay/ảnh chụp sản phẩm thật.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-pancake" hidden>
+        <div class="tool-page-head">
+          <h2>Pancake / Botcake <span class="track-tag">Pancake.vn</span></h2>
+          <p class="tagline">Gộp tin nhắn/đơn hàng từ Facebook, Zalo, TikTok Shop... về một chỗ, có chatbot AI
+            (Botcake) tự động trả lời và chốt đơn khi bạn không rảnh trực page.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>pancake.vn</strong>, đăng ký tài khoản, chọn gói phù hợp quy mô cửa hàng.</li>
+          <li>Kết nối các kênh bán hàng đang dùng: fanpage Facebook, Zalo OA, gian hàng TikTok Shop/Shopee...</li>
+          <li>Toàn bộ tin nhắn/bình luận từ các kênh đó hiện chung trong một hộp thư, trả lời ngay từ Pancake mà không cần mở từng app riêng.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Quản lý đa kênh</b><span>Gộp tin nhắn/bình luận từ nhiều fanpage, Zalo OA, sàn thương mại điện tử vào một hộp thư duy nhất.</span></div>
+          <div class="feat"><b>Chốt đơn ngay trong khung chat</b><span>Tạo đơn hàng trực tiếp khi đang trả lời khách, không cần chuyển qua phần mềm khác.</span></div>
+          <div class="feat"><b>Botcake — chatbot AI</b><span>Tự động trả lời hàng trăm bình luận/tin nhắn trong vài giây, tư vấn và chốt đơn cơ bản kể cả khi bạn offline.</span></div>
+          <div class="feat"><b>Quản lý kho &amp; vận đơn</b><span>Theo dõi tồn kho, tạo vận đơn, kết nối đơn vị giao hàng ngay trong hệ thống (Pancake POS).</span></div>
+          <div class="feat"><b>Bán hàng livestream</b><span>Chốt đơn ngay trong lúc livestream bán hàng trên Facebook/TikTok.</span></div>
+          <div class="feat"><b>Thống kê bán hàng</b><span>Báo cáo doanh thu, đơn hàng theo kênh/thời gian để biết kênh nào đang bán chạy.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: cài chatbot tự động trả lời câu hỏi thường gặp</h3>
+        <ol class="steps">
+          <li>Vào mục <strong>"Botcake"</strong> trong Pancake, chọn fanpage/kênh muốn gắn chatbot.</li>
+          <li>Tạo kịch bản trả lời cho các câu hỏi khách hay hỏi nhất (VD: "giá bao nhiêu", "còn hàng không", "có ship COD không", "đổi trả thế nào").</li>
+          <li>Gõ sẵn câu trả lời mẫu cho từng tình huống — Botcake sẽ tự nhận diện từ khoá trong tin nhắn khách để trả lời đúng kịch bản.</li>
+          <li>Bật chế độ tự động, theo dõi vài ngày đầu để chỉnh lại câu trả lời nếu chatbot hiểu sai ý khách.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Dùng thử/Free giới hạn</td><td>Quản lý cơ bản, số lượng tin nhắn/đơn giới hạn</td></tr>
+          <tr><td>Các gói trả phí</td><td>Theo số kênh kết nối, số đơn hàng/tháng và có Botcake đầy đủ</td></tr>
+        </table>
+
+        <div class="tip">🏪 Cài sẵn kịch bản trả lời cho 4–5 câu hỏi khách hỏi nhiều nhất (giá, ship, còn hàng, đổi trả, giờ mở cửa) — riêng việc này đã xử lý được phần lớn tin nhắn ngoài giờ làm việc.</div>
+        <div class="tip">⚠️ Chatbot chỉ trả lời tốt trong phạm vi kịch bản đã cài — câu hỏi lạ/phức tạp vẫn cần bạn hoặc nhân viên xử lý trực tiếp, đừng để chatbot "tự bịa" trả lời khách.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-metaads" hidden>
+        <div class="tool-page-head">
+          <h2>Meta Advantage+ <span class="track-tag">Meta (Facebook/Instagram)</span></h2>
+          <p class="tagline">Tính năng AI trong quảng cáo Facebook/Instagram — tự tìm khách hàng tiềm năng và tối
+            ưu ngân sách, thay vì bạn tự chọn đối tượng/vị trí quảng cáo thủ công như trước.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>business.facebook.com</strong> (Meta Ads Manager) bằng tài khoản Facebook đang quản lý fanpage cửa hàng.</li>
+          <li>Bấm <strong>"Tạo"</strong> để mở chiến dịch quảng cáo mới, chọn mục tiêu (VD: "Doanh số" nếu muốn khách mua hàng trực tiếp).</li>
+          <li>Ở bước thiết lập, tìm và bật tuỳ chọn <strong>"Advantage+"</strong> thay vì tự chọn đối tượng thủ công.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Advantage+ audience</b><span>AI tự tìm nhóm khách hàng tiềm năng dựa trên dữ liệu thực tế, thay vì bạn tự đoán độ tuổi/sở thích để nhắm.</span></div>
+          <div class="feat"><b>Advantage+ creative</b><span>Tự tạo nhiều biến thể quảng cáo (ảnh/chữ khác nhau) và ưu tiên hiển thị bản đang hiệu quả nhất.</span></div>
+          <div class="feat"><b>Tự tối ưu ngân sách &amp; vị trí hiển thị</b><span>AI tự phân bổ tiền quảng cáo giữa Facebook/Instagram/Messenger sao cho ra kết quả tốt nhất.</span></div>
+          <div class="feat"><b>Tạo chiến dịch từ một ảnh sản phẩm</b><span>Xu hướng mới: chỉ cần đưa ảnh sản phẩm + ngân sách, AI tự dựng và tối ưu cả chiến dịch.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: chạy quảng cáo Advantage+ cho một sản phẩm</h3>
+        <ol class="steps">
+          <li>Chọn sản phẩm đang muốn đẩy bán (VD: sữa/bỉm đang khuyến mãi), chuẩn bị 3–5 ảnh chụp đẹp, rõ nét.</li>
+          <li>Tạo chiến dịch mới, chọn mục tiêu "Doanh số" hoặc "Tin nhắn" (nếu muốn khách nhắn hỏi mua qua Messenger/Zalo).</li>
+          <li>Bật Advantage+ audience, để trống hoặc chỉ giới hạn nhẹ (VD: khu vực địa lý cửa hàng đang giao hàng), không nên bó hẹp quá nhiều tiêu chí như cách chọn thủ công cũ.</li>
+          <li>Đặt ngân sách hàng ngày phù hợp, để chiến dịch chạy liên tục ít nhất 3–4 ngày đầu cho AI "học" trước khi đánh giá hiệu quả.</li>
+        </ol>
+
+        <h3>Chi phí</h3>
+        <table class="course-table">
+          <tr><th>Khoản mục</th><th>Chi phí</th></tr>
+          <tr><td>Dùng tính năng Advantage+</td><td>Miễn phí — chỉ trả tiền theo ngân sách quảng cáo bạn tự đặt</td></tr>
+          <tr><td>Ngân sách quảng cáo</td><td>Tự đặt mức hàng ngày/tổng, tính theo lượt hiển thị hoặc kết quả (tuỳ mục tiêu chọn)</td></tr>
+        </table>
+
+        <div class="tip">🏪 Để AI tự tìm đối tượng thường cho chi phí mỗi đơn hàng thấp hơn cách chọn thủ công theo kinh nghiệm cũ — đừng cố giới hạn đối tượng quá chặt như trước đây.</div>
+        <div class="tip">⚠️ Vài ngày đầu chiến dịch cần thời gian để AI "học" và tối ưu — tránh liên tục sửa/tắt bật chiến dịch trong giai đoạn này vì sẽ làm quá trình học bị reset, tốn ngân sách hơn.</div>
         <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
       </div>
 
@@ -2633,7 +2836,7 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   <div class="subwrap" id="sub-quiz" hidden>
   <div class="quiz-shell" id="quiz-root"></div>
   <footer>
-    Trang cá nhân · 23 câu hỏi tự chấm ngay trên trình duyệt, không lưu hay gửi kết quả đi đâu cả.
+    Trang cá nhân · 27 câu hỏi tự chấm ngay trên trình duyệt, không lưu hay gửi kết quả đi đâu cả.
   </footer>
   </div>
 
@@ -2764,7 +2967,8 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
 (function(){
   var CATS = {
     chat:{label:'💬 Trò chuyện',cls:'chat'}, image:{label:'🖼️ Tạo ảnh',cls:'image'},
-    video:{label:'🎬 Tạo video',cls:'video'}, voice:{label:'🎙️ Giọng nói',cls:'voice'}
+    video:{label:'🎬 Tạo video',cls:'video'}, voice:{label:'🎙️ Giọng nói',cls:'voice'},
+    business:{label:'💼 Kinh doanh',cls:'business'}
   };
   var TOOLS = [
     {id:'tool-chatgpt',name:'ChatGPT',cat:'chat'},{id:'tool-claude',name:'Claude',cat:'chat'},
@@ -2776,7 +2980,9 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     {id:'tool-sora',name:'Sora',cat:'video'},{id:'tool-veo',name:'Veo',cat:'video'},
     {id:'tool-runway',name:'Runway',cat:'video'},{id:'tool-pika',name:'Pika / Kling',cat:'video'},
     {id:'tool-elevenlabs',name:'ElevenLabs',cat:'voice'},{id:'tool-suno',name:'Suno / Udio',cat:'voice'},
-    {id:'tool-whisper',name:'Whisper',cat:'voice'}
+    {id:'tool-whisper',name:'Whisper',cat:'voice'},
+    {id:'tool-canva',name:'Canva',cat:'business'},{id:'tool-capcut',name:'CapCut',cat:'business'},
+    {id:'tool-pancake',name:'Pancake / Botcake',cat:'business'},{id:'tool-metaads',name:'Meta Advantage+',cat:'business'}
   ];
   var panel = document.getElementById('tools-menu-panel');
   var btn = document.getElementById('tools-menu-btn');
@@ -2869,7 +3075,8 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     claude: 'Claude & Claude Code',
     agentic: 'AI Agent (Agentic)',
     roadmap: 'Lộ trình học',
-    toolsdeep: 'Chi tiết từng AI'
+    toolsdeep: 'Chi tiết từng AI',
+    business: 'Kinh doanh & bán hàng'
   };
 
   var QUESTIONS = [
@@ -3033,6 +3240,34 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       options: ['Scene Builder ngay từ đầu mà không cần ảnh tham chiếu', 'Ingredients to Video — tải ảnh nhân vật/đồ vật làm "nguyên liệu" trước khi tạo cảnh', 'Chỉ cần mô tả chi tiết hơn bằng chữ', 'Tăng độ phân giải video lên 4K'],
       correct: 1,
       explain: 'Ingredients to Video là công cụ chính giữ đúng ngoại hình xuyên suốt — nên chuẩn bị 2–3 ảnh sạch trước khi viết prompt cảnh.'
+    },
+    {
+      tag: 'business',
+      q: 'Trên Canva, muốn xoá nền ảnh sản phẩm chỉ với 1 cú bấm, dùng tính năng nào?',
+      options: ['Magic Write', 'Background Remover', 'Magic Resize', 'Magic Expand'],
+      correct: 1,
+      explain: 'Background Remover xoá nền tự động — hợp để có ảnh sản phẩm nền trắng/trong suốt chuyên nghiệp, nhưng chỉ có ở gói Pro.'
+    },
+    {
+      tag: 'business',
+      q: 'Vì sao nên bật "Auto Captions" khi đăng video sản phẩm lên TikTok/Facebook bằng CapCut?',
+      options: ['Vì bắt buộc phải có mới đăng được video', 'Vì rất nhiều người xem ở chế độ tắt tiếng, phụ đề giúp khách hiểu nội dung dù không bật âm thanh', 'Vì phụ đề làm video nhẹ dung lượng hơn', 'Vì Auto Captions tự động tăng lượt theo dõi kênh'],
+      correct: 1,
+      explain: 'Phụ đề tự động giúp giữ chân người xem tắt tiếng — điều rất phổ biến khi lướt mạng xã hội nơi công cộng.'
+    },
+    {
+      tag: 'business',
+      q: 'Botcake (chatbot AI của Pancake) phù hợp nhất để làm gì cho một cửa hàng?',
+      options: ['Thay thế hoàn toàn nhân viên tư vấn cho mọi tình huống', 'Tự động trả lời các câu hỏi lặp lại thường gặp (giá, ship, còn hàng) ngoài giờ làm việc', 'Tự động giao hàng tới tận nhà khách', 'Chỉ dùng được trên website riêng, không dùng được với Facebook/Zalo'],
+      correct: 1,
+      explain: 'Chatbot chỉ trả lời tốt trong phạm vi kịch bản đã cài — câu hỏi phức tạp/lạ vẫn cần người thật xử lý.'
+    },
+    {
+      tag: 'business',
+      q: 'Khi chạy quảng cáo Meta Advantage+ cho một sản phẩm, nên làm gì trong vài ngày đầu?',
+      options: ['Liên tục sửa/tắt bật chiến dịch để tìm kết quả tốt nhất ngay lập tức', 'Giới hạn đối tượng thật chặt theo kinh nghiệm chọn thủ công cũ', 'Để chiến dịch chạy ổn định, không sửa liên tục, cho AI đủ thời gian "học" và tối ưu', 'Tắt Advantage+ vì tính năng này chỉ hợp cho doanh nghiệp lớn'],
+      correct: 2,
+      explain: 'Sửa/tắt liên tục làm quá trình học của AI bị reset, tốn ngân sách hơn — nên để chạy ổn định ít nhất 3–4 ngày đầu.'
     }
   ];
 
