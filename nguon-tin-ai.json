@@ -1,0 +1,19 @@
+{
+  "_ghi_chu": "Bảng nguồn tin AI cho tab 'Tin mới' của trang Học AI. Cột 'items_luc_do' là số item đo được lúc nghiệm thu 07/08/2026 bằng `quet-tin-ai.py --do-nguon`. Nguồn nào 0 item liên tục 3 ngày thì thay hoặc gỡ, ĐỪNG để im — bảng liệt kê 14 nguồn mà thật ra 10 nguồn sống là tưởng đang quét rộng hơn thực tế. ⛔ anthropic.com KHÔNG có RSS công khai (đo 07/08: /rss.xml, /news/rss.xml, /news.rss, /feed.xml đều 404) nên tin Anthropic lấy qua Google News, đừng dò lại 04 đường đã chết đó.",
+  "nguon": [
+    {"ten": "OpenAI News", "url": "https://openai.com/blog/rss.xml", "loai": "hang", "items_luc_do": 1113},
+    {"ten": "Google DeepMind", "url": "https://deepmind.google/blog/rss.xml", "loai": "hang", "items_luc_do": 100},
+    {"ten": "Google AI Blog", "url": "https://blog.google/technology/ai/rss/", "loai": "hang", "items_luc_do": 20},
+    {"ten": "Hugging Face Blog", "url": "https://huggingface.co/blog/feed.xml", "loai": "hang", "items_luc_do": 835},
+    {"ten": "Claude Code releases", "url": "https://github.com/anthropics/claude-code/releases.atom", "loai": "hang", "tran": 1, "items_luc_do": 10},
+    {"ten": "Google News — Anthropic Claude", "url": "https://news.google.com/rss/search?q=Anthropic+OR+%22Claude+AI%22+when:3d&hl=en-US&gl=US&ceid=US:en", "loai": "hang", "items_luc_do": 100},
+    {"ten": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "loai": "bao", "items_luc_do": 20},
+    {"ten": "VentureBeat AI", "url": "https://venturebeat.com/category/ai/feed/", "loai": "bao", "items_luc_do": 7},
+    {"ten": "The Verge AI", "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "loai": "bao", "items_luc_do": 10},
+    {"ten": "Ars Technica AI", "url": "https://arstechnica.com/ai/feed/", "loai": "bao", "items_luc_do": 20},
+    {"ten": "MIT Technology Review AI", "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed", "loai": "bao", "items_luc_do": 10},
+    {"ten": "Simon Willison", "url": "https://simonwillison.net/atom/everything/", "loai": "blog", "items_luc_do": 30},
+    {"ten": "Import AI", "url": "https://importai.substack.com/feed", "loai": "blog", "items_luc_do": 20},
+    {"ten": "Google News — AI tiếng Việt", "url": "https://news.google.com/rss/search?q=%22tr%C3%AD+tu%E1%BB%87+nh%C3%A2n+t%E1%BA%A1o%22+OR+ChatGPT+OR+Gemini+when:2d&hl=vi&gl=VN&ceid=VN:vi", "loai": "viet", "items_luc_do": 100}
+  ]
+}

@@ -1,0 +1,13 @@
+# Vùng làm việc của bộ quét tin: sổ đã-đọc và các lô tin thô. KHÔNG đưa lên repo — repo này
+# công khai, và lô thô chỉ có nghĩa với lượt chạy sinh ra nó. Riêng `tin-ai.json` (sản phẩm
+# hiển thị trên trang) thì PHẢI commit, nên không nằm ở đây.
+.quet/
+__pycache__/
+
+# Dấu vết bản hỏng của phép `--tu-kiem`. Tên mang PID + băm nội dung nên không bao giờ trùng,
+# nhưng tiến trình bị giết giữa chừng thì file còn lại — lọt vào commit là đưa mã cố tình
+# hỏng lên repo.
+_thu-hong-*
+_hong-*
+
+.DS_Store

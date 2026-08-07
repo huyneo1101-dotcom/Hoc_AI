@@ -1,0 +1,38 @@
+{
+  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
+  "cap_nhat": "2026-08-07",
+  "muc": [
+    {
+      "ngay": "07/08/2026",
+      "cat": "gia",
+      "tieu_de": "ChatGPT mở trò chuyện không giới hạn cho người dùng miễn phí",
+      "noi_dung": "OpenAI nâng cấp bản GPT-5.6 Sol trong ChatGPT theo hướng trả lời chính xác và nhất quán hơn, đồng thời mở rộng quyền dùng GPT-5.6 Luna cho tài khoản miễn phí, kèm trò chuyện thường ngày không giới hạn lượt.",
+      "voi_ban": "Nếu đang dùng ChatGPT bản miễn phí và hay bị chặn giữa chừng vì hết lượt, hãy thử lại — phần trò chuyện thường ngày nay không còn đếm lượt. Việc nặng như đọc file dài hay lập luận nhiều bước vẫn cần bản trả tiền.",
+      "nguon": [{"ten": "OpenAI — Improving GPT-5.6 Sol in ChatGPT", "url": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt"}]
+    },
+    {
+      "ngay": "07/08/2026",
+      "cat": "hatang",
+      "tieu_de": "Anthropic tự thiết kế chip riêng để chạy Claude",
+      "noi_dung": "Anthropic xác nhận lập đội làm chip trong nhà. Cùng lúc, cả Anthropic và OpenAI đều đang mở rộng quy mô tính toán theo hướng bớt phụ thuộc vào Nvidia.",
+      "voi_ban": "Chuyện phần cứng không đổi gì cho cách bạn dùng Claude hôm nay, nhưng nó là lý do khiến giá mỗi lượt gọi model có xu hướng rẻ dần qua từng năm.",
+      "nguon": [{"ten": "Ars Technica — Anthropic confirms plans to build an in-house silicon team", "url": "https://arstechnica.com/ai/2026/08/anthropic-confirms-plans-to-build-an-in-house-silicon-team/"}]
+    },
+    {
+      "ngay": "07/08/2026",
+      "cat": "agent",
+      "tieu_de": "Meta ra mắt trợ lý lập trình đầu tiên, cạnh tranh trực tiếp với Anthropic và OpenAI",
+      "noi_dung": "Meta công bố công cụ lập trình tự động đầu tiên của hãng, đứng cùng sân với Claude Code của Anthropic và các công cụ tương đương của OpenAI. Đây là nhóm công cụ nhận việc bằng lời rồi tự đọc mã, tự sửa và tự chạy thử.",
+      "voi_ban": "Thêm một lựa chọn nữa cho ai đang tập dùng AI để viết mã. Chưa cần đổi công cụ đang quen — nhóm này thay đổi nhanh, chờ vài tuần có người dùng thật đánh giá rồi chọn vẫn kịp.",
+      "nguon": [{"ten": "qz.com (qua Google News)", "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE8tUGFLamV2UFJQblVLZnU2dHNmSWFvcVhBS3drV0xLTTFubUlGMXp3SW5WUw"}]
+    },
+    {
+      "ngay": "07/08/2026",
+      "cat": "vn",
+      "tieu_de": "Hãng phát triển ChatGPT sắp ra loa tích hợp AI, giá từ 300 USD",
+      "noi_dung": "Báo trong nước đưa tin OpenAI chuẩn bị ra mắt thiết bị phần cứng đầu tiên dưới dạng loa thông minh có AI, mức giá khởi điểm khoảng 300 USD.",
+      "voi_ban": "Chưa có gì để làm ngay. Đáng để ý ở chỗ trợ lý AI đang bước ra khỏi màn hình điện thoại — cách hỏi bằng lời sẽ dần thay cho cách gõ.",
+      "nguon": [{"ten": "Mekong ASEAN (qua Google News)", "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNODBBNFlhUXlpTEtXTXFMVmR6d19mbWh0NmdqVXdieXdKcF9lMC1fb1E2cw"}]
+    }
+  ]
+}

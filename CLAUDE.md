@@ -40,5 +40,40 @@ Khuôn một tin, dán nguyên vào đầu `<div class="news-list" id="news-list
 - **GitHub Pages** qua Actions: `.github/workflows/deploy-pages.yml`.
 - **Netlify** qua `netlify.toml`: `publish = "."`, không có build command (`command = ""`), kèm security headers (X-Frame-Options, Referrer-Policy, X-Content-Type-Options).
 
+## Tin ở tab "Tin mới" — nay có routine, ĐỪNG sửa tay khối đó nữa (07/08/2026)
+
+Trước 07/08 tab này là điểm quét tin duy nhất trong hệ không routine nào đụng tới, trang tự
+ghi là *"cập nhật thủ công"*. Nay:
+
+| File | Vai |
+|---|---|
+| `nguon-tin-ai.json` | bảng 14 nguồn RSS/Atom. Đo lại: `quet-tin-ai.py --do-nguon` |
+| `quet-tin-ai.py` | quét, lọc, chống trùng → ghi lô vào `.quet/lo-<ngày>.json` |
+| `tin-ai.json` | **dữ liệu hiển thị**. Routine ghi vào đây, trang nạp bằng `fetch` |
+| `dang-tin.py` | cổng kiểm khuôn + commit + push. Đường DUY NHẤT được chạm git |
+| `test-quet-tin-ai.py` | 26 ca (18 PHẢI CHẶN) · `--tu-kiem` bắt 14/14 bản hỏng |
+
+**Chạy khi nào:** bước 5 của task `tin-kinh-doanh` (LaunchAgent 06:30). Cố ý ghép vào phiên có
+sẵn thay vì dựng mốc riêng — khoản đắt của routine là số PHIÊN Claude mở ra (~173k token nền
+mỗi phiên), không phải việc tải trang.
+
+- **Các mục viết tay trong `index.html` giữ nguyên.** Mục mới do routine chèn nằm TRÊN chúng,
+  bằng khối script cuối file. Đừng gộp hai nguồn này lại.
+- **Nhãn `cat` phải khớp bảng `NHAN`** trong khối script đó: `model · gia · agent · antoan ·
+  luat · hatang · sangtao · vn`. Lệch một chữ thì mục vẫn lên trang nhưng rơi hết về "Model
+  mới" và bộ lọc chủ đề không tìm ra nó — `dang-tin.py` chặn trước, đừng gỡ cổng ấy.
+- ⚠️ **`el.find('title') or el.find(atom_title)` là bug, không phải cách viết gọn.** Element
+  không có con là FALSY trong Python nên `or` nhảy sang vế sau và trả `None`. Đo thật lúc
+  dựng: 12/14 nguồn ra 0 tin, mà bảng vẫn in "14/14 nguồn sống" vì fetch không hề lỗi. Ca [01]
+  canh chỗ này.
+- ⚠️ **Loại trùng phải so TẬP TỪ, không so chuỗi tiêu đề.** Feed Google News gom nhiều toà
+  soạn, nên cùng một sự kiện về 04-05 bản với 04-05 tiêu đề khác nhau — lượt chạy đầu để lọt
+  cả 05 vào lô 10 tin. Ngưỡng giống nhau 0,5 chọn theo số đo, hạ tới 0,35 là nuốt tin thật.
+- **Nguồn tải được nhưng 0 mục cũng tính là TRƯỢT** (vào mã thoát). Fail-open ở đây là lối hỏng
+  câm: bảng khai đủ nguồn sống trong khi không tin nào về.
+- ⛔ **anthropic.com KHÔNG có RSS công khai** — đã dò và chết 04 đường (`/rss.xml`,
+  `/news/rss.xml`, `/news.rss`, `/feed.xml` đều 404). Tin Anthropic lấy qua Google News.
+  Đừng dò lại.
+
 ## Skills dùng chung
 Repo có `.claude/skills/` (11 skill từ plugin vibe-pwa-kit) — chủ yếu dành cho app React một-file; trang này đơn giản nên phần lớn skill không áp dụng, nhưng `deploy-static` và `pwa-healthcheck` vẫn hữu ích.

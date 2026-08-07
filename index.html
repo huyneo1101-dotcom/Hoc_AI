@@ -4353,5 +4353,55 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
 })();
 </script>
 
+<script>
+/* Nạp tin do routine 06:30 ghi vào `tin-ai.json` và chèn lên ĐẦU danh sách tin.
+ *
+ * Vì sao đọc từ file JSON chứ không để routine sửa thẳng HTML: một routine sửa HTML bằng
+ * máy thì mỗi sáng lại đụng vào cùng chỗ với người sửa tay, và một lần chèn lệch thẻ là
+ * trắng màn hình. Đọc JSON thì phần viết tay không bao giờ bị chạm tới.
+ *
+ * Hỏng thì IM: thiếu file, JSON vỡ, khoá lạ — tab tin vẫn hiện đủ các mục viết tay như
+ * trước khi có routine. Đây là chỗ chấp nhận fail-open có chủ đích, vì phía kêu đã có rồi:
+ * routine tự báo Telegram khi bước ghi tin trượt, nên trang không cần kêu hộ.
+ */
+(function(){
+  var ds = document.getElementById('news-list');
+  if (!ds) return;
+  var NHAN = {model:'Model mới', gia:'Giá & gói', agent:'Agent & công cụ', antoan:'An toàn AI',
+              luat:'Luật & chính sách', hatang:'Hạ tầng', sangtao:'Sáng tạo', vn:'Việt Nam'};
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+  fetch('tin-ai.json', {cache:'no-store'}).then(function(r){
+    return r.ok ? r.json() : null;
+  }).then(function(d){
+    var muc = d && Array.isArray(d.muc) ? d.muc : [];
+    if (!muc.length) return;
+    var html = muc.map(function(m){
+      var cat = NHAN[m.cat] ? m.cat : 'model';
+      var nguon = (m.nguon || []).map(function(n){
+        return '<a href="' + esc(n.url) + '" target="_blank" rel="noopener">' + esc(n.ten) + '</a>';
+      }).join(' · ');
+      return '<div class="news-item" data-cat="' + cat + '">' +
+        '<div class="news-item-head"><span class="news-date">' + esc(m.ngay) + '</span>' +
+        '<span class="news-cat">' + esc(NHAN[cat]) + '</span></div>' +
+        '<h3>' + esc(m.tieu_de) + '</h3>' +
+        '<p>' + esc(m.noi_dung) + '</p>' +
+        (m.voi_ban ? '<div class="news-impact"><b>👉 Với bạn:</b> ' + esc(m.voi_ban) + '</div>' : '') +
+        (nguon ? '<div class="source-note">Nguồn: ' + nguon + '</div>' : '') +
+        '</div>';
+    }).join('');
+    ds.insertAdjacentHTML('afterbegin', html);
+    /* Gọi lại bộ lọc để ô đếm tin khớp với số mục thật — `filterNews` truy vấn DOM mỗi lần
+     * chạy nên các mục vừa chèn được tính đúng. Không gọi thì dòng "Đang hiển thị N tin"
+     * vẫn giữ con số đếm lúc trang mới tải. */
+    var on = document.querySelector('#news-filter .news-fbtn.on');
+    if (typeof filterNews === 'function') filterNews(on ? on.dataset.cat : 'all');
+  }).catch(function(){ /* im lặng: xem chú thích đầu khối */ });
+})();
+</script>
+
 </body>
 </html>
