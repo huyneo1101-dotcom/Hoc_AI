@@ -172,6 +172,7 @@ def chay_bo_ca(m, duong_dang=None):
 
 def _muc(**doi):
     goc = {'ngay': '07/08/2026', 'cat': 'model', 'tieu_de': 'Có tin', 'noi_dung': 'Nội dung',
+           'voi_ban': 'Bạn dùng được ngay hôm nay.',
            'nguon': [{'ten': 'X', 'url': 'https://vd.test/a'}]}
     goc.update(doi)
     return goc
@@ -184,10 +185,52 @@ def ca_dang_tin(duong_dan=None):
     ca canh: khuôn sai, nhãn lạ, và quan trọng nhất là cây làm việc còn thay đổi của phiên khác.
     """
     d = nap(duong_dan or os.path.join(RA, 'dang-tin.py'))
+    # Bước đo địa chỉ nguồn là bước DUY NHẤT của cổng này chạm mạng. Tiêm nó ngay từ đây để
+    # mọi ca gọi `dang()` giữ được tính tất định; ca nào cần đo hành vi của chính bước đó thì
+    # tự thay `d.ma_http` bằng bản giả riêng bên dưới.
+    d.ma_http = lambda url, timeout=12: (200, '')
+    d.NGHI_GIUA_LINK = 0
     ra = []
 
     def ca(ma, mo_ta, dat):
         ra.append((ma, mo_ta, bool(dat)))
+
+    def dang_voi(ma_gia, muc=None, **kw):
+        """Chạy `dang()` trên một `tin-ai.json` dựng tay, với `ma_http` và git giả.
+
+        ⚠ Phải trỏ `d.TIN` sang file tạm, KHÔNG để ca đọc `tin-ai.json` thật trên đĩa: nội
+        dung file đó đổi mỗi sáng theo tin tức, nên ca nào dựa vào nó thì hôm nay xanh mai đỏ
+        mà chẳng ai sửa gì.
+
+        Trả (mã thoát, danh sách lệnh git đã gọi, số lần đo link).
+        """
+        import json as _json
+        dem = []
+
+        def gia(url, timeout=12):
+            dem.append(url)
+            return ma_gia
+
+        lenh = []
+
+        def git_sach(*args):
+            lenh.append(args)
+            if args[:2] == ('status', '--porcelain'):
+                return 0, ' M tin-ai.json\n'
+            return 0, ''
+
+        cu_ma, cu_git, cu_tin = d.ma_http, d.git, d.TIN
+        tmp = tempfile.mkdtemp()
+        duong = os.path.join(tmp, 'tin-ai.json')
+        with open(duong, 'w', encoding='utf-8') as f:
+            _json.dump({'muc': muc if muc is not None else [_muc()]}, f, ensure_ascii=False)
+        d.ma_http, d.git, d.TIN = gia, git_sach, duong
+        try:
+            with redirect_stdout(io.StringIO()):
+                ma = d.dang(**kw)
+        finally:
+            d.ma_http, d.git, d.TIN = cu_ma, cu_git, cu_tin
+        return ma, [a[0] for a in lenh], len(dem)
 
     ca('20', 'khuôn đúng ⇒ không lỗi (đối chứng)', d.kiem({'muc': [_muc()]}) == [])
     ca('21', 'nhãn cat lạ bị chặn', d.kiem({'muc': [_muc(cat='linh-tinh')]}) != [])
@@ -253,6 +296,39 @@ def ca_dang_tin(duong_dan=None):
     ca('30', 'chỉ tin-ai.json đổi ⇒ commit + push, KHÔNG dùng git add',
        ma == 0 and 'commit' in lenh and 'push' in lenh and 'add' not in lenh
        and any(a[0] == 'commit' and 'tin-ai.json' in a for a in goi2))
+
+    # ── [31] PHẢI CHẶN — mục thiếu dòng "👉 Với bạn" không được lên trang.
+    # `CLAUDE.md` của repo khai dòng này là BẮT BUỘC, SKILL routine 06:30 cũng dặn viết nó,
+    # nhưng cả hai đều là văn bản. Phía render để nó có điều kiện nên tin thiếu vẫn hiện đủ
+    # tiêu đề và nguồn — không lỗi nào phát ra, chỉ mất đúng phần người đọc cần.
+    ca('31', 'thiếu "voi_ban" bị chặn', d.kiem({'muc': [_muc(voi_ban='')]}) != [])
+
+    # ── [32] ĐỐI CHỨNG chống nới tay — có "voi_ban" thì không được chặn nhầm.
+    ca('32', 'có "voi_ban" vẫn qua khuôn', d.kiem({'muc': [_muc(voi_ban='Đổi X cho bạn.')]}) == [])
+
+    # ── [33] PHẢI CHẶN — địa chỉ nguồn trả 404 ⇒ mã 2 và KHÔNG commit.
+    ma, lenh, dem = dang_voi((404, 'Not Found'))
+    ca('33', 'nguồn HTTP 404 ⇒ mã 2, không commit',
+       ma == 2 and 'commit' not in lenh and dem >= 1)
+
+    # ── [34] ĐỐI CHỨNG chống CHẶN OAN — 403 là bị chặn bot, KHÔNG phải trang đã gỡ.
+    # Chiều hỏng ở đây đắt hơn chiều kia: coi 403 là chết thì routine kêu gần như mỗi sáng,
+    # và một bảng kêu oan vài lần là hết được đọc (mục 17 CLAUDE.md).
+    ma, lenh, dem = dang_voi((403, 'Forbidden'))
+    ca('34', 'nguồn HTTP 403 vẫn đăng được (không chặn oan)', ma == 0 and 'commit' in lenh)
+
+    # ── [35] ĐỐI CHỨNG — đo không kết luận được (mạng hỏng) cũng không được chặn.
+    ma, lenh, dem = dang_voi((None, 'mạng hỏng'))
+    ca('35', 'đo link không kết luận được ⇒ vẫn đăng', ma == 0 and 'commit' in lenh)
+
+    # ── [36] PHẢI CHẶN — cờ --bo-do-link phải THẬT SỰ bỏ bước đo, không chỉ in ra là bỏ.
+    # Cờ mở được quảng cáo mà không có thật còn tệ hơn không có cờ (mục 17 CLAUDE.md).
+    ma, lenh, dem = dang_voi((404, 'Not Found'), bo_do_link=True)
+    ca('36', '--bo-do-link ⇒ KHÔNG gọi phép đo nào', ma == 0 and dem == 0)
+
+    # ── [37] PHẢI CHẶN — mọi nguồn của MỌI mục đều phải được đo, không chỉ mục đầu.
+    ma, lenh, dem = dang_voi((200, ''), muc=[_muc(tieu_de='a'), _muc(tieu_de='b')])
+    ca('37', 'đo đủ nguồn của mọi mục', ma == 0 and dem == 2)
 
     return ra
 
@@ -430,6 +506,25 @@ BAN_HONG = [
      "    if ma != 0:\n        print('không đọc được trạng thái git: %s' % ra.strip(), file=sys.stderr)\n        return 2",
      "    if False:\n        print('không đọc được trạng thái git: %s' % ra.strip(), file=sys.stderr)\n        return 2",
      ['29'], 'dang'),
+    ('bỏ "voi_ban" khỏi danh sách bắt buộc',
+     "BAT_BUOC = ('ngay', 'cat', 'tieu_de', 'noi_dung', 'voi_ban')",
+     "BAT_BUOC = ('ngay', 'cat', 'tieu_de', 'noi_dung')",
+     ['31'], 'dang'),
+    ('bỏ hẳn bước đo địa chỉ nguồn',
+     "    if not bo_do_link:\n        chet = do_link(d)",
+     "    if False:\n        chet = do_link(d)",
+     ['33'], 'dang'),
+    # Bản hỏng theo chiều NỚI đã có ở trên; đây là chiều SIẾT — coi mọi mã khác 200 là chết.
+    # Không có bản hỏng này thì ca [34]/[35] chỉ là hai dòng xanh không ai chứng minh có răng,
+    # mà đúng chiều này mới là chiều làm routine kêu oan mỗi sáng.
+    ('coi mọi mã HTTP khác 200 là trang đã gỡ',
+     "MA_CHET = (404, 410)",
+     "MA_CHET = tuple(x for x in range(201, 600))",
+     ['34'], 'dang'),
+    ('chỉ đo nguồn của mục đầu tiên',
+     "    for i, m in enumerate(d.get('muc') or []):",
+     "    for i, m in enumerate((d.get('muc') or [])[:1]):",
+     ['37'], 'dang'),
 ]
 
 if __name__ == '__main__':

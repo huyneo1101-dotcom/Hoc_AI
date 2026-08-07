@@ -28,9 +28,9 @@ Khuôn một tin, dán nguyên vào đầu `<div class="news-list" id="news-list
 ```
 
 - **08 giá trị `data-cat` hợp lệ** (phải khớp `data-cat` của nút trong `#news-filter`, không được đặt giá trị mới nếu chưa thêm nút): `model` · `gia` · `agent` · `sangtao` · `vn` · `luat` · `antoan` · `hatang`.
-- **Dòng `news-impact` là bắt buộc** — đây là thứ phân biệt trang này với một trang tổng hợp tin thường. Không có nó thì tin chỉ là chuyện của hãng.
+- **Dòng `news-impact` là bắt buộc** — đây là thứ phân biệt trang này với một trang tổng hợp tin thường. Không có nó thì tin chỉ là chuyện của hãng. Với tin do routine bơm vào, khoá tương ứng là `voi_ban` trong `tin-ai.json`; `dang-tin.py` liệt nó vào `BAT_BUOC` từ 07/08/2026, vì trước đó lời dặn chỉ nằm trong SKILL và phía render để nó có điều kiện — tin thiếu vẫn lên trang mà không lỗi nào phát ra.
 - **Nguồn lấy từ trang thứ ba phải ghi chữ "tổng hợp qua"** trước tên nguồn; nguồn chính hãng thì dẫn thẳng. Trang tự khai quy ước này trong khối `.news-note`, nên bỏ chữ đó là làm trang nói sai về chính nó.
-- **Mọi `<a>` phải có `target="_blank" rel="noopener"`** và phải đo trả HTTP 200 trước khi ghi vào. Đo song song nhiều luồng hay dính 403/429 giả — link nào hỏng thì **đo lại tuần tự có `sleep`** rồi mới kết luận là chết.
+- **Mọi `<a>` phải có `target="_blank" rel="noopener"`** và phải đo trả HTTP 200 trước khi ghi vào. Đo song song nhiều luồng hay dính 403/429 giả — link nào hỏng thì **đo lại tuần tự có `sleep`** rồi mới kết luận là chết. Với tin routine, `dang-tin.py` tự đo (tuần tự, nghỉ 0,4 giây, thử lại một lần), và **chỉ 404/410 mới bị coi là chết**: 403/429/5xx là dấu hiệu chặn bot chứ không phải trang đã gỡ, coi chúng là chết thì routine kêu oan gần như mỗi sáng và bảng hết được đọc. Ca [33] canh chiều bắt hụt, ca [34] canh chiều chặn oan.
 - Nếu có routine tự bơm tin vào tab này, phần sinh HTML phải theo đúng khuôn trên; cập nhật luôn ngày trong dòng "Cập nhật lần gần nhất" của khối `.news-note`.
 - Ngoài danh sách tin, tab còn 02 mục cố định phải giữ đồng bộ khi thêm tin lớn: bảng **"Dòng thời gian model lớn năm 2026"** (`.news-tl`) và lưới **"Tự theo dõi tin AI ở đâu cho chắc"** (`.news-src`).
 - Nội dung meta: trang này có phần dạy cách tạo Agent Skills (`.claude/skills`) — trớ trêu là repo trước đây tự nó chưa có, nay đã có `.claude/skills/` từ plugin vibe-pwa-kit.
@@ -51,7 +51,7 @@ ghi là *"cập nhật thủ công"*. Nay:
 | `quet-tin-ai.py` | quét, lọc, chống trùng → ghi lô vào `.quet/lo-<ngày>.json` |
 | `tin-ai.json` | **dữ liệu hiển thị**. Routine ghi vào đây, trang nạp bằng `fetch` |
 | `dang-tin.py` | cổng kiểm khuôn + commit + push. Đường DUY NHẤT được chạm git |
-| `test-quet-tin-ai.py` | 26 ca (18 PHẢI CHẶN) · `--tu-kiem` bắt 14/14 bản hỏng |
+| `test-quet-tin-ai.py` | 33 ca (22 PHẢI CHẶN) · `--tu-kiem` bắt 18/18 bản hỏng |
 
 **Chạy khi nào:** bước 5 của task `tin-kinh-doanh` (LaunchAgent 06:30). Cố ý ghép vào phiên có
 sẵn thay vì dựng mốc riêng — khoản đắt của routine là số PHIÊN Claude mở ra (~173k token nền
