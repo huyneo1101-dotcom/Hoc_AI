@@ -2633,7 +2633,7 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   <div class="subwrap" id="sub-quiz" hidden>
   <div class="quiz-shell" id="quiz-root"></div>
   <footer>
-    Trang cá nhân · 15 câu hỏi tự chấm ngay trên trình duyệt, không lưu hay gửi kết quả đi đâu cả.
+    Trang cá nhân · 23 câu hỏi tự chấm ngay trên trình duyệt, không lưu hay gửi kết quả đi đâu cả.
   </footer>
   </div>
 
@@ -2865,9 +2865,11 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
 (function(){
   var QUIZ_TAG_LABEL = {
     general: 'Hướng dẫn chung',
+    overview: 'Khái niệm nền tảng',
     claude: 'Claude & Claude Code',
     agentic: 'AI Agent (Agentic)',
-    roadmap: 'Lộ trình học'
+    roadmap: 'Lộ trình học',
+    toolsdeep: 'Chi tiết từng AI'
   };
 
   var QUESTIONS = [
@@ -2975,6 +2977,62 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       options: ['Làm web tải nhanh hơn', 'Đảm bảo mỗi tài khoản chỉ đọc/sửa được dữ liệu của chính mình, dù khóa Supabase công khai', 'Mã hoá toàn bộ ảnh trên server', 'Ngăn đăng nhập sai mật khẩu quá 3 lần'],
       correct: 1,
       explain: 'Xem tab "Lộ trình học", giai đoạn 3.'
+    },
+    {
+      tag: 'overview',
+      q: 'Về bản chất, một AI trợ lý (LLM) trả lời bằng cách nào?',
+      options: ['Tra cứu trực tiếp trong một cơ sở dữ liệu câu trả lời có sẵn', 'Dự đoán từ/token tiếp theo hợp lý nhất dựa trên xác suất học được từ dữ liệu huấn luyện', 'Gọi điện hỏi một người thật đứng sau hệ thống', 'Chỉ lặp lại nguyên văn những gì tìm thấy trên web'],
+      correct: 1,
+      explain: 'AI không "hiểu" theo nghĩa con người — nó giỏi nhận diện khuôn mẫu ngôn ngữ để đoán chữ tiếp theo (tab "Kiến thức chung", mục con "Khái niệm nền tảng", mục 1).'
+    },
+    {
+      tag: 'overview',
+      q: '"Cửa sổ ngữ cảnh" (context window) của một AI là gì?',
+      options: ['Giao diện hiển thị của app', 'Số token AI có thể "nhớ" cùng lúc trong một cuộc trò chuyện', 'Thời gian chờ trước khi AI trả lời', 'Số lượt hỏi miễn phí mỗi ngày'],
+      correct: 1,
+      explain: 'Hội thoại càng dài, phần đầu càng dễ bị "trôi" khỏi bộ nhớ khi vượt quá cửa sổ ngữ cảnh (mục 2).'
+    },
+    {
+      tag: 'overview',
+      q: 'Vì sao AI hay "bịa" thông tin sai một cách tự tin (ảo giác)?',
+      options: ['Vì AI cố tình nói dối người dùng', 'Vì AI được huấn luyện để luôn đưa ra câu trả lời nghe hợp lý, không có cơ chế mặc định để nói "tôi không biết"', 'Vì máy chủ AI bị quá tải', 'Vì người dùng hỏi bằng tiếng Việt'],
+      correct: 1,
+      explain: 'Ảo giác hay gặp nhất với số liệu cụ thể, tên riêng ít phổ biến, trích dẫn nguồn — luôn kiểm tra lại (mục 3).'
+    },
+    {
+      tag: 'overview',
+      q: 'Cách nào KHÔNG hợp lý để kiểm chứng một câu trả lời AI quan trọng?',
+      options: ['Hỏi lại theo cách diễn đạt khác, xem có mâu thuẫn không', 'Yêu cầu AI nêu nguồn rồi tự kiểm tra nguồn đó', 'Tin ngay vì AI trả lời rất tự tin và trôi chảy', 'Đối chiếu với ít nhất một nguồn độc lập bên ngoài AI'],
+      correct: 2,
+      explain: 'Sự trôi chảy không đồng nghĩa với chính xác — luôn kiểm chứng số liệu/sự kiện quan trọng (mục 9).'
+    },
+    {
+      tag: 'toolsdeep',
+      q: 'Theo trang "Chi tiết từng AI", công cụ tạo video nào đang bị chính hãng khai tử?',
+      options: ['Veo (Google)', 'Runway', 'Sora (OpenAI)', 'Pika / Kling'],
+      correct: 2,
+      explain: 'App Sora cho người dùng thường đã đóng từ 4/2026, API sẽ ngừng hẳn 24/9/2026 — nên học Veo/Runway/Pika/Kling thay thế.'
+    },
+    {
+      tag: 'toolsdeep',
+      q: 'Muốn nhân bản giọng nói tức thì (Instant Voice Cloning) trên ElevenLabs, bạn cần gì?',
+      options: ['Một đoạn ghi âm ít nhất 1 giờ', 'Khoảng 1–2 phút ghi âm sạch, kèm xác nhận đồng ý bằng lời', 'Phải là giọng của người nổi tiếng', 'Không cần ghi âm, chỉ cần mô tả bằng chữ'],
+      correct: 1,
+      explain: 'ElevenLabs bắt buộc đọc câu xác nhận đồng ý để xác thực đây đúng là giọng của bạn hoặc người đã cho phép — chỉ nhân bản giọng của chính bạn hoặc người đã đồng ý rõ ràng.'
+    },
+    {
+      tag: 'toolsdeep',
+      q: 'Điểm khác biệt lớn nhất của Stable Diffusion so với Midjourney/DALL-E/Adobe Firefly là gì?',
+      options: ['Chỉ tạo được ảnh đen trắng', 'Là mã nguồn mở, có thể tự tải về chạy miễn phí trên máy riêng', 'Không cần viết prompt', 'Chỉ dùng được trên điện thoại'],
+      correct: 1,
+      explain: 'Ba công cụ còn lại đều là dịch vụ đóng của một hãng; Stable Diffusion là hệ sinh thái mã nguồn mở, tự host được.'
+    },
+    {
+      tag: 'toolsdeep',
+      q: 'Muốn giữ một nhân vật/đồ vật xuất hiện nhất quán xuyên suốt nhiều cảnh trong Veo, nên dùng tính năng nào?',
+      options: ['Scene Builder ngay từ đầu mà không cần ảnh tham chiếu', 'Ingredients to Video — tải ảnh nhân vật/đồ vật làm "nguyên liệu" trước khi tạo cảnh', 'Chỉ cần mô tả chi tiết hơn bằng chữ', 'Tăng độ phân giải video lên 4K'],
+      correct: 1,
+      explain: 'Ingredients to Video là công cụ chính giữ đúng ngoại hình xuyên suốt — nên chuẩn bị 2–3 ảnh sạch trước khi viết prompt cảnh.'
     }
   ];
 
