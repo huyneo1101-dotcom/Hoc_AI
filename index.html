@@ -341,6 +341,7 @@
 <div class="tabs" role="tablist">
   <button class="tab-btn" data-tab="concepts" role="tab" aria-selected="false" onclick="showTab('concepts')">Kiến thức chung</button>
   <button class="tab-btn" data-tab="news" role="tab" aria-selected="false" onclick="showTab('news')">Tin mới</button>
+  <button class="tab-btn" data-tab="analysis" role="tab" aria-selected="false" onclick="showTab('analysis')">Phân tích</button>
   <div class="tools-menu">
     <button class="tab-btn tools-menu-btn" id="tools-menu-btn" type="button" aria-haspopup="true"
       aria-expanded="false" onclick="toggleToolsMenu()">Công cụ AI (24) <span class="car">▾</span></button>
@@ -3072,12 +3073,150 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   </footer>
 </div>
 
+<div class="wrap" id="tab-analysis" hidden>
+
+  <nav class="toc" aria-label="Mục lục">
+    <h2>Mục lục</h2>
+    <ol>
+      <li><a href="#pt-tong-quan">Bức tranh tổng quan: bạn đang có gì trong tay</a></li>
+      <li><a href="#pt-huong-dien">Ảnh hưởng cụ thể tới Hương Diện</a></li>
+      <li><a href="#pt-vai-tro">Ảnh hưởng tới vai trò &amp; tương lai của bạn</a></li>
+      <li><a href="#pt-rui-ro">Rủi ro riêng cho ngành mẹ &amp; bé</a></li>
+      <li><a href="#pt-hanh-dong">Việc nên làm trong 30 ngày tới</a></li>
+    </ol>
+  </nav>
+
+  <section id="pt-tong-quan">
+    <h2><span class="num">1</span> Bức tranh tổng quan: bạn đang có gì trong tay</h2>
+    <p>Đây là góc nhìn cá nhân — tổng hợp lại toàn bộ nội dung trên trang và soi vào đúng bối cảnh cửa hàng
+      <strong>Hương Diện</strong> cùng công việc, tương lai của bạn. Không phải danh sách tính năng nữa, mà là:
+      "vậy thì sao?" — những thứ này thật sự thay đổi gì trong công việc hàng ngày của bạn.</p>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>24 công cụ AI</strong> đã học, chia 5 nhóm — trong đó nhóm "Kinh doanh &amp; bán hàng" (Canva,
+          CapCut, Pancake/Botcake, Meta Advantage+, PhotoRoom, Copy.ai) là bộ trực tiếp phục vụ việc bán hàng.</li>
+        <li><strong>9 khái niệm nền tảng</strong> — hiểu AI hoạt động thế nào, vì sao đôi khi sai, cách kiểm chứng —
+          để không tin AI một cách mù quáng khi giao việc quan trọng.</li>
+        <li><strong>Lộ trình học 5 giai đoạn</strong> — có sẵn đường đi nếu muốn học sâu hơn, kể cả việc tự động hoá
+          bằng agent sau này.</li>
+      </ul>
+    </div>
+    <div class="tip">💡 Trước đây, muốn dùng AI cho cửa hàng phải tự mày mò từng công cụ, dễ nản giữa chừng. Giờ bạn
+      đã có bản đồ đầy đủ — phần khó nhất còn lại là <em>thực sự bắt tay vào dùng đều đặn</em>, không phải học
+      thêm nữa.</div>
+  </section>
+
+  <section id="pt-huong-dien">
+    <h2><span class="num">2</span> Ảnh hưởng cụ thể tới Hương Diện</h2>
+    <p>So sánh cách làm cũ và cách làm có AI hỗ trợ cho từng việc cửa hàng vẫn làm hàng ngày:</p>
+    <table class="course-table">
+      <tr><th>Công việc</th><th>Trước đây</th><th>Với AI</th></tr>
+      <tr>
+        <td>Ảnh sản phẩm</td>
+        <td>Tự chụp, tự chỉnh sửa từng ảnh — tốn nhiều giờ mỗi đợt nhập hàng mới</td>
+        <td>Xoá nền + dựng bối cảnh hàng loạt bằng
+          <a href="#tool-canva" onclick="goToToolFull('tool-canva');return false;">Canva</a>/<a href="#tool-photoroom" onclick="goToToolFull('tool-photoroom');return false;">PhotoRoom</a>
+          — vài chục ảnh trong một buổi</td>
+      </tr>
+      <tr>
+        <td>Viết mô tả/caption sản phẩm</td>
+        <td>Tự nghĩ từng câu, dễ lặp ý, tốn thời gian cho sản phẩm mới</td>
+        <td><a href="#tool-chatgpt" onclick="goToToolFull('tool-chatgpt');return false;">ChatGPT</a>/<a href="#tool-copyai" onclick="goToToolFull('tool-copyai');return false;">Copy.ai</a>
+          viết nháp trong vài giây, bạn chỉ cần đọc lại và chỉnh cho đúng giọng riêng của shop</td>
+      </tr>
+      <tr>
+        <td>Trả lời khách ngoài giờ</td>
+        <td>Bỏ lỡ khách nhắn tin buổi tối/lúc bận trông con, khách chờ lâu dễ bỏ qua nơi khác</td>
+        <td><a href="#tool-pancake" onclick="goToToolFull('tool-pancake');return false;">Pancake/Botcake</a>
+          tự trả lời câu hỏi thường gặp (giá, ship, còn hàng) 24/7</td>
+      </tr>
+      <tr>
+        <td>Quảng cáo Facebook/Instagram</td>
+        <td>Tự đoán đối tượng theo kinh nghiệm, dễ tốn ngân sách vào sai nhóm khách</td>
+        <td><a href="#tool-metaads" onclick="goToToolFull('tool-metaads');return false;">Meta Advantage+</a>
+          tự tìm khách tiềm năng, tối ưu ngân sách theo dữ liệu thật</td>
+      </tr>
+      <tr>
+        <td>Video quảng cáo TikTok/Reels</td>
+        <td>Cần biết dựng phim hoặc phải thuê ngoài, chi phí lặp lại mỗi lần</td>
+        <td><a href="#tool-capcut" onclick="goToToolFull('tool-capcut');return false;">CapCut</a>
+          tự cắt dựng, thêm phụ đề/giọng đọc từ ảnh sản phẩm có sẵn</td>
+      </tr>
+    </table>
+    <div class="tip">🏪 Cộng dồn lại: đây chủ yếu là <strong>thời gian</strong> được trả lại cho bạn — thời gian
+      trước đây dồn vào việc lặp đi lặp lại (chỉnh ảnh, viết bài, canh tin nhắn) giờ có thể dồn sang việc AI chưa
+      làm thay được: chọn nguồn hàng tốt, chăm sóc khách quen, và nghỉ ngơi.</div>
+  </section>
+
+  <section id="pt-vai-tro">
+    <h2><span class="num">3</span> Ảnh hưởng tới vai trò &amp; tương lai của bạn</h2>
+    <p>Vai trò của bạn đang dịch chuyển từ <strong>"người tự tay làm mọi khâu"</strong> sang
+      <strong>"người điều phối và ra quyết định"</strong> — AI làm phần việc lặp lại, bạn làm phần việc cần con
+      mắt và sự tin tưởng thật.</p>
+    <div class="card">
+      <ul class="checklist">
+        <li>Kỹ năng <strong>quan trọng hơn</strong> theo thời gian: gu chọn lọc (AI tạo ra nhiều lựa chọn, bạn vẫn
+          là người quyết định cái nào đúng với shop), khả năng đọc số liệu cơ bản (biết quảng cáo/chatbot đang chạy
+          tốt hay không), và sự thấu hiểu khách hàng thật mà AI không thay được.</li>
+        <li>Kỹ năng <strong>AI có thể gánh bớt</strong>: viết lách lặp lại, chỉnh sửa ảnh cơ bản, trả lời câu hỏi
+          giống nhau nhiều lần, tính toán đối tượng quảng cáo thủ công.</li>
+        <li>Nên học dần: cách viết yêu cầu (prompt) rõ ràng — xem lại
+          <a href="#viet-prompt" onclick="showTab('concepts');showSubTab('general');return false;">mục "Cách viết yêu cầu hiệu quả"</a>
+          — vì chất lượng kết quả AI phụ thuộc rất nhiều vào cách bạn hỏi.</li>
+      </ul>
+    </div>
+    <div class="tip">⚠️ Một sự thật cần nói thẳng: các cửa hàng/chuỗi lớn cạnh tranh với Hương Diện cũng đang dùng
+      đúng những công cụ này. Vì vậy dùng AI không còn là "lợi thế thêm" nữa mà đang dần thành
+      <strong>điều kiện tối thiểu để không bị bỏ lại phía sau</strong> — tin tốt là bạn đã bắt đầu sớm hơn nhiều
+      chủ shop nhỏ khác.</div>
+  </section>
+
+  <section id="pt-rui-ro">
+    <h2><span class="num">4</span> Rủi ro riêng cho ngành mẹ &amp; bé</h2>
+    <p>Vì Hương Diện bán sản phẩm liên quan trực tiếp tới an toàn trẻ nhỏ, có vài rủi ro đáng cảnh giác hơn bình
+      thường:</p>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Không để AI tự "bịa" thông tin an toàn/công dụng sản phẩm.</strong> Đây chính là
+          <a href="#ao-giac" onclick="showTab('concepts');showSubTab('overview');return false;">hiện tượng ảo giác</a>
+          đã học ở mục Khái niệm nền tảng — với sản phẩm thường (quần áo, đồ chơi) sai sót ít nghiêm trọng, nhưng
+          với sữa/thực phẩm/thiết bị cho trẻ, thông tin sai có thể ảnh hưởng thật tới sức khoẻ con của khách. Luôn
+          tự kiểm tra lại số liệu, tiêu chuẩn kiểm định trước khi đăng nội dung AI viết.</li>
+        <li><strong>Dữ liệu khách hàng đi qua nền tảng thứ 3.</strong> Số điện thoại, địa chỉ, thậm chí tên/tuổi
+          con của khách đi qua Pancake/Zalo/Facebook — chỉ thu thập thông tin thật sự cần thiết, đọc kỹ điều khoản
+          của từng nền tảng.</li>
+        <li><strong>Đừng phụ thuộc 100% vào một kênh.</strong> Facebook/TikTok có thể đổi thuật toán hoặc chính
+          sách quảng cáo bất cứ lúc nào — duy trì ít nhất 2 kênh bán hàng song song để không bị động.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="pt-hanh-dong">
+    <h2><span class="num">5</span> Việc nên làm trong 30 ngày tới</h2>
+    <div class="loop">
+      <div class="loop-step"><span class="n">1</span><strong>Tuần 1</strong>Dùng Canva/PhotoRoom làm lại bộ ảnh cho 5 sản phẩm bán chạy nhất.</div>
+      <div class="loop-step"><span class="n">2</span><strong>Tuần 2</strong>Cài kịch bản Pancake/Botcake trả lời 5 câu khách hay hỏi nhất (giá, ship, còn hàng, đổi trả, giờ mở cửa).</div>
+      <div class="loop-step"><span class="n">3</span><strong>Tuần 3</strong>Chạy thử 1 chiến dịch Meta Advantage+ ngân sách thấp cho 1 sản phẩm, theo dõi kết quả.</div>
+      <div class="loop-step"><span class="n">4</span><strong>Tuần 4</strong>Dùng ChatGPT/Copy.ai viết lại mô tả cho 10 sản phẩm bán chậm nhất, xem có cải thiện không.</div>
+    </div>
+    <div class="tip">📌 Trước khi giao bất kỳ việc quan trọng nào cho AI, đọc lại mục
+      <a href="#kiem-chung" onclick="showTab('concepts');showSubTab('overview');return false;">"Cách kiểm chứng một câu trả lời"</a>
+      — thói quen này quan trọng hơn việc biết dùng bao nhiêu công cụ.</div>
+  </section>
+
+  <footer>
+    Trang cá nhân · Góc nhìn phân tích riêng cho Hương Diện, không phải lời khuyên tài chính/kinh doanh chuyên
+    nghiệp — chỉ là gợi ý dựa trên nội dung đã học trên trang này.
+  </footer>
+</div>
+
 
 <script>
   function showTab(name){
     var tabs = {
       concepts: document.getElementById('tab-concepts'),
-      news: document.getElementById('tab-news')
+      news: document.getElementById('tab-news'),
+      analysis: document.getElementById('tab-analysis')
     };
     if (!tabs[name]) name = 'concepts';
     var btns = document.querySelectorAll('.tabs > .tab-btn');
