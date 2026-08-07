@@ -337,7 +337,7 @@
   <button class="tab-btn" data-tab="news" role="tab" aria-selected="false" onclick="showTab('news')">Tin mới</button>
   <div class="tools-menu">
     <button class="tab-btn tools-menu-btn" id="tools-menu-btn" type="button" aria-haspopup="true"
-      aria-expanded="false" onclick="toggleToolsMenu()">Công cụ AI (22) <span class="car">▾</span></button>
+      aria-expanded="false" onclick="toggleToolsMenu()">Công cụ AI (24) <span class="car">▾</span></button>
     <div class="tools-menu-panel" id="tools-menu-panel" role="menu"></div>
   </div>
 </div>
@@ -515,9 +515,67 @@
         <p>Tính năng AI trong quảng cáo Facebook/Instagram, tự tìm đúng khách hàng tiềm năng và tối ưu ngân sách
           thay vì bạn tự chọn đối tượng thủ công.</p>
       </div>
+      <div class="tool">
+        <h3>PhotoRoom</h3>
+        <p>Chuyên chụp/dựng ảnh sản phẩm bằng AI trên điện thoại — xoá nền, đặt sản phẩm vào bối cảnh thật, làm
+          hàng loạt ảnh cùng lúc.</p>
+      </div>
+      <div class="tool">
+        <h3>Copy.ai</h3>
+        <p>Viết mô tả sản phẩm chuẩn SEO hàng loạt cho Shopee/Lazada/TikTok Shop — nhập danh sách sản phẩm, xuất
+          ra hàng loạt mô tả cùng lúc.</p>
+      </div>
     </div>
     <div class="tip">🏪 Chủ cửa hàng nhỏ: kết hợp Canva (ảnh đẹp) + CapCut (video ngắn) + ChatGPT/Gemini (viết caption)
       là đủ bộ công cụ cơ bản để tự làm marketing hàng ngày mà không cần thuê ngoài.</div>
+
+    <div class="card">
+      <h3 style="margin:0 0 10px;font-size:.98rem">🧭 Bộ công cụ theo việc cần làm (bấm tên để mở trang chi tiết)</h3>
+      <table class="course-table">
+        <tr><th>Việc cần làm</th><th>Công cụ gợi ý</th></tr>
+        <tr>
+          <td>Viết caption, mô tả sản phẩm, trả lời khách mẫu</td>
+          <td><a href="#tool-chatgpt" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-chatgpt');return false;">ChatGPT</a>,
+            <a href="#tool-claude" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-claude');return false;">Claude</a>,
+            <a href="#tool-gemini" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-gemini');return false;">Gemini</a></td>
+        </tr>
+        <tr>
+          <td>Ảnh sản phẩm sạch, xoá nền, làm hàng loạt</td>
+          <td><a href="#tool-canva" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-canva');return false;">Canva</a>,
+            <a href="#tool-photoroom" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-photoroom');return false;">PhotoRoom</a></td>
+        </tr>
+        <tr>
+          <td>Ảnh minh hoạ sáng tạo (không phải ảnh chụp thật)</td>
+          <td><a href="#tool-midjourney" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-midjourney');return false;">Midjourney</a>,
+            <a href="#tool-dalle" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-dalle');return false;">DALL-E</a>,
+            <a href="#tool-firefly" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-firefly');return false;">Adobe Firefly</a></td>
+        </tr>
+        <tr>
+          <td>Video ngắn TikTok/Reels quảng cáo sản phẩm</td>
+          <td><a href="#tool-capcut" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-capcut');return false;">CapCut</a></td>
+        </tr>
+        <tr>
+          <td>Giọng đọc AI cho video quảng cáo</td>
+          <td><a href="#tool-elevenlabs" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-elevenlabs');return false;">ElevenLabs</a></td>
+        </tr>
+        <tr>
+          <td>Nhạc nền cho video/quảng cáo</td>
+          <td><a href="#tool-suno" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-suno');return false;">Suno / Udio</a></td>
+        </tr>
+        <tr>
+          <td>Gộp tin nhắn nhiều kênh, chatbot tự trả lời khách</td>
+          <td><a href="#tool-pancake" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-pancake');return false;">Pancake / Botcake</a></td>
+        </tr>
+        <tr>
+          <td>Chạy quảng cáo Facebook/Instagram tự động tối ưu</td>
+          <td><a href="#tool-metaads" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-metaads');return false;">Meta Advantage+</a></td>
+        </tr>
+        <tr>
+          <td>Mô tả sản phẩm SEO hàng loạt cho sàn TMĐT</td>
+          <td><a href="#tool-copyai" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-copyai');return false;">Copy.ai</a></td>
+        </tr>
+      </table>
+    </div>
   </section>
 
   <section id="bat-dau">
@@ -1669,6 +1727,93 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
 
         <div class="tip">🏪 Để AI tự tìm đối tượng thường cho chi phí mỗi đơn hàng thấp hơn cách chọn thủ công theo kinh nghiệm cũ — đừng cố giới hạn đối tượng quá chặt như trước đây.</div>
         <div class="tip">⚠️ Vài ngày đầu chiến dịch cần thời gian để AI "học" và tối ưu — tránh liên tục sửa/tắt bật chiến dịch trong giai đoạn này vì sẽ làm quá trình học bị reset, tốn ngân sách hơn.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-photoroom" hidden>
+        <div class="tool-page-head">
+          <h2>PhotoRoom <span class="track-tag">Photoroom</span></h2>
+          <p class="tagline">Ứng dụng chuyên chụp/dựng ảnh sản phẩm bằng AI ngay trên điện thoại — làm hàng loạt
+            ảnh đẹp, đúng chuẩn sàn thương mại điện tử, nhanh hơn hẳn tự chụp/chỉnh tay từng ảnh.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Tải app <strong>PhotoRoom</strong> trên điện thoại (iOS/Android), hoặc vào <strong>photoroom.com</strong> để dùng bản web.</li>
+          <li>Chụp hoặc chọn ảnh sản phẩm từ thư viện máy, mở ảnh trong app.</li>
+          <li>Bấm nút xoá nền (thường tự động ngay khi mở ảnh) — nền được xoá trong vài giây, sẵn sàng để thêm nền mới.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Xoá nền tự động</b><span>Xử lý tốt cả các chi tiết khó như tóc, lông, vật trong suốt — chất lượng thuộc nhóm tốt nhất thị trường cho ảnh sản phẩm.</span></div>
+          <div class="feat"><b>Product Staging / Virtual Model</b><span>Đặt sản phẩm vào bối cảnh thật (bàn gỗ, phòng khách...) hoặc lên người mẫu ảo — không cần thuê chỗ chụp/người mẫu thật.</span></div>
+          <div class="feat"><b>Ghost Mannequin &amp; Flat Lay</b><span>Chuyên dựng ảnh quần áo/đồ sơ sinh kiểu "không người mặc" hoặc chụp phẳng từ trên xuống, đúng chuẩn ảnh thời trang trên sàn TMĐT.</span></div>
+          <div class="feat"><b>Xử lý hàng loạt (Batch)</b><span>Áp cùng một kiểu nền/chỉnh sửa cho tới 250 ảnh cùng lúc — tiết kiệm rất nhiều thời gian nếu có nhiều sản phẩm.</span></div>
+          <div class="feat"><b>"Describe a Change"</b><span>Mô tả bằng lời điều muốn chỉnh (VD: "làm nền sáng hơn"), AI tự áp dụng thay đổi.</span></div>
+          <div class="feat"><b>Kết nối Shopify</b><span>Quản lý ảnh cho cả danh sách sản phẩm trực tiếp từ PhotoRoom nếu bán trên Shopify.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: làm hàng loạt ảnh sản phẩm cùng phong cách</h3>
+        <ol class="steps">
+          <li>Chụp hoặc tải lên nhiều ảnh sản phẩm cùng loại (VD: cả dòng bình sữa) vào PhotoRoom.</li>
+          <li>Chỉnh 1 ảnh mẫu ưng ý trước: xoá nền, thêm nền/bối cảnh, chỉnh ánh sáng.</li>
+          <li>Dùng tính năng <strong>Batch</strong>, chọn áp đúng kiểu chỉnh đó cho toàn bộ ảnh còn lại trong lô.</li>
+          <li>Xuất toàn bộ ảnh cùng lúc — có ngay một bộ ảnh sản phẩm đồng bộ phong cách để đăng lên Shopee/Lazada/Facebook.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>Xoá nền cơ bản, dùng được cho nhu cầu nhỏ lẻ</td></tr>
+          <tr><td>Pro (trả phí theo tháng/năm)</td><td>Mở khoá Batch, Product Staging, Virtual Model, xuất ảnh không watermark</td></tr>
+        </table>
+
+        <div class="tip">🏪 Với cửa hàng mẹ và bé: dùng Ghost Mannequin cho ảnh quần áo/đồ sơ sinh và Product Staging cho đồ chơi/dụng cụ — ảnh trông chuyên nghiệp hơn hẳn ảnh chụp nền nhà thông thường mà không tốn tiền thuê studio.</div>
+        <div class="tip">⚠️ Product Fixer (sửa ảnh AI bị lỗi) miễn phí, nhưng phần lớn tính năng "dựng cảnh" chuyên sâu (Virtual Model, Batch số lượng lớn) cần gói Pro mới dùng thoải mái.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-copyai" hidden>
+        <div class="tool-page-head">
+          <h2>Copy.ai <span class="track-tag">Copy.ai</span></h2>
+          <p class="tagline">Viết nội dung bán hàng hàng loạt — mạnh nhất ở việc biến cả danh sách sản phẩm
+            (file Excel) thành hàng loạt mô tả sản phẩm chuẩn SEO trong một lần chạy.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>copy.ai</strong>, đăng ký free bằng email hoặc Google.</li>
+          <li>Vào mục <strong>"Chat"</strong>, gõ yêu cầu viết nội dung (VD: "viết mô tả sản phẩm cho bình sữa chống sặc 240ml, giọng thân thiện, tối đa 100 từ") — dùng được ngay không cần cấu hình gì thêm.</li>
+          <li>Copy trực tiếp kết quả để dùng, hoặc yêu cầu viết lại theo hướng khác nếu chưa ưng ý.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>AI Chat</b><span>Trò chuyện viết nội dung như ChatGPT/Claude — dùng cho việc viết từng bài một, không cần thiết lập gì.</span></div>
+          <div class="feat"><b>Bulk Product Descriptions (Workflow)</b><span>Nhập file Excel danh sách sản phẩm (tên, đặc điểm...), xuất ra hàng loạt mô tả — tới 2.000 mô tả cùng lúc.</span></div>
+          <div class="feat"><b>Brand Voice</b><span>Lưu sẵn "giọng văn" thương hiệu của bạn, mọi nội dung tạo ra sau đó tự động theo đúng phong cách đó.</span></div>
+          <div class="feat"><b>Đa ngôn ngữ</b><span>Viết/dịch nội dung sang nhiều ngôn ngữ khác nhau nếu cần mở rộng thị trường.</span></div>
+          <div class="feat"><b>Infobase</b><span>Kho lưu thông tin sản phẩm/thương hiệu cố định để AI luôn tham chiếu khi viết, không cần nhập lại mỗi lần.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: viết mô tả sản phẩm hàng loạt từ file Excel</h3>
+        <ol class="steps">
+          <li>Chuẩn bị file Excel/CSV danh sách sản phẩm: mỗi dòng là 1 sản phẩm, các cột ghi tên, chất liệu, kích thước, điểm nổi bật...</li>
+          <li>Vào mục <strong>"Workflows"</strong>, tìm mẫu <strong>"Bulk Product Descriptions"</strong>.</li>
+          <li>Tải file Excel đã chuẩn bị lên, chọn văn phong mong muốn (VD: thân thiện, ngắn gọn).</li>
+          <li>Chạy workflow — Copy.ai tự viết mô tả riêng cho từng dòng sản phẩm, xuất ra file kết quả để dán lên Shopee/Lazada/website.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free/Chat</td><td>Chat viết từng bài một, đủ dùng cho cửa hàng ít sản phẩm</td></tr>
+          <tr><td>Team (~$249/tháng)</td><td>Mở khoá Workflow tự động, viết mô tả hàng loạt từ Excel — đây là gói cần thiết nếu muốn dùng tính năng "hàng loạt"</td></tr>
+        </table>
+
+        <div class="tip">🏪 Nếu cửa hàng chỉ có vài chục sản phẩm, dùng bản Chat miễn phí viết từng mô tả là đủ — chỉ cần cân nhắc gói Team (khá đắt) khi danh mục sản phẩm đã lên tới hàng trăm/nghìn món cần viết mô tả hàng loạt.</div>
+        <div class="tip">⚠️ Tính năng "hàng loạt" (Workflow) chỉ mở ở gói Team giá khá cao — với cửa hàng nhỏ, ChatGPT/Claude/Gemini (đã có sẵn) vẫn là lựa chọn rẻ hơn để viết mô tả từng sản phẩm một.</div>
         <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
       </div>
 
@@ -2836,7 +2981,7 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   <div class="subwrap" id="sub-quiz" hidden>
   <div class="quiz-shell" id="quiz-root"></div>
   <footer>
-    Trang cá nhân · 27 câu hỏi tự chấm ngay trên trình duyệt, không lưu hay gửi kết quả đi đâu cả.
+    Trang cá nhân · 29 câu hỏi tự chấm ngay trên trình duyệt, không lưu hay gửi kết quả đi đâu cả.
   </footer>
   </div>
 
@@ -2982,7 +3127,8 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     {id:'tool-elevenlabs',name:'ElevenLabs',cat:'voice'},{id:'tool-suno',name:'Suno / Udio',cat:'voice'},
     {id:'tool-whisper',name:'Whisper',cat:'voice'},
     {id:'tool-canva',name:'Canva',cat:'business'},{id:'tool-capcut',name:'CapCut',cat:'business'},
-    {id:'tool-pancake',name:'Pancake / Botcake',cat:'business'},{id:'tool-metaads',name:'Meta Advantage+',cat:'business'}
+    {id:'tool-pancake',name:'Pancake / Botcake',cat:'business'},{id:'tool-metaads',name:'Meta Advantage+',cat:'business'},
+    {id:'tool-photoroom',name:'PhotoRoom',cat:'business'},{id:'tool-copyai',name:'Copy.ai',cat:'business'}
   ];
   var panel = document.getElementById('tools-menu-panel');
   var btn = document.getElementById('tools-menu-btn');
@@ -3268,6 +3414,20 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       options: ['Liên tục sửa/tắt bật chiến dịch để tìm kết quả tốt nhất ngay lập tức', 'Giới hạn đối tượng thật chặt theo kinh nghiệm chọn thủ công cũ', 'Để chiến dịch chạy ổn định, không sửa liên tục, cho AI đủ thời gian "học" và tối ưu', 'Tắt Advantage+ vì tính năng này chỉ hợp cho doanh nghiệp lớn'],
       correct: 2,
       explain: 'Sửa/tắt liên tục làm quá trình học của AI bị reset, tốn ngân sách hơn — nên để chạy ổn định ít nhất 3–4 ngày đầu.'
+    },
+    {
+      tag: 'business',
+      q: 'PhotoRoom khác Canva chủ yếu ở điểm nào?',
+      options: ['PhotoRoom chỉ dùng được trên máy tính, không có app điện thoại', 'PhotoRoom chuyên sâu cho ảnh sản phẩm (Product Staging, Ghost Mannequin, xử lý hàng loạt), còn Canva thiên về thiết kế đa dụng', 'PhotoRoom không xoá được nền ảnh', 'Hai công cụ hoàn toàn giống nhau'],
+      correct: 1,
+      explain: 'PhotoRoom tối ưu riêng cho quy trình chụp/dựng ảnh sản phẩm hàng loạt trên điện thoại, còn Canva là công cụ thiết kế tổng quát hơn (poster, banner, mạng xã hội).'
+    },
+    {
+      tag: 'business',
+      q: 'Với một cửa hàng nhỏ chỉ có vài chục sản phẩm, nên dùng gói nào của Copy.ai là hợp lý?',
+      options: ['Bắt buộc phải mua gói Team (~$249/tháng) mới dùng được', 'Gói Free/Chat — viết từng mô tả một là đủ, chưa cần tới tính năng hàng loạt', 'Không nên dùng Copy.ai cho cửa hàng nhỏ', 'Phải liên hệ mua gói Enterprise riêng'],
+      correct: 1,
+      explain: 'Tính năng viết hàng loạt (Workflow) chỉ thật sự cần thiết khi danh mục sản phẩm lớn — cửa hàng nhỏ dùng bản Chat miễn phí (hoặc ChatGPT/Claude/Gemini có sẵn) là đủ.'
     }
   ];
 
