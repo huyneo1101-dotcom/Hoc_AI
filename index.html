@@ -138,6 +138,38 @@
   .subtab-btn:hover{border-color:var(--pink-light)}
   .subtab-btn.active{background:var(--pink-light);color:#fff;border-color:var(--pink-light)}
   .subwrap{margin:0}
+
+  .toolpicker{
+    display:flex;gap:20px;overflow-x:auto;padding:4px 4px 16px;margin-bottom:24px;
+    border-bottom:1px solid var(--border);
+  }
+  .toolpicker-group{flex:none;display:flex;flex-direction:column;gap:6px}
+  .toolpicker-group h4{margin:0 0 2px;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--muted);display:flex;align-items:center;gap:5px;white-space:nowrap}
+  .toolpicker-row{display:flex;gap:6px}
+  .toolpicker-row button{
+    font:inherit;font-size:.78rem;font-weight:600;white-space:nowrap;
+    background:var(--card);color:var(--muted);border:1.5px solid var(--border);
+    border-radius:999px;padding:6px 13px;cursor:pointer;
+  }
+  .toolpicker-row button:hover{border-color:var(--pink-light)}
+  .toolpicker-row button.active{background:var(--pink);color:#fff;border-color:var(--pink)}
+  .tp-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex:none}
+  .tp-dot.chat{background:#4f6fac}.tp-dot.image{background:#b5791f}
+  .tp-dot.video{background:#7a5cc4}.tp-dot.voice{background:#2f8f80}
+
+  .tool-page-head{margin-bottom:18px}
+  .tool-page-head h2{margin:0 0 6px;font-size:1.4rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .tool-page-head .tagline{margin:0;color:var(--muted);font-size:.98rem;max-width:64ch}
+  .tool-page h3{font-size:1.05rem;margin:26px 0 10px}
+  .tool-page h3:first-of-type{margin-top:6px}
+  .feature-list{display:flex;flex-direction:column;gap:10px}
+  .feature-list .feat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 16px}
+  .feature-list .feat b{display:block;font-size:.94rem;margin-bottom:3px}
+  .feature-list .feat span{color:var(--muted);font-size:.88rem}
+  .steps{margin:0;padding-left:1.3rem}
+  .steps li{margin:6px 0;font-size:.94rem}
+  .tool-meta{font-size:.82rem;color:var(--muted);margin-top:22px;padding-top:14px;border-top:1px dashed var(--border)}
   .tools-menu{position:relative}
   .tools-menu-btn{display:flex;align-items:center;gap:6px}
   .tools-menu-btn .car{font-size:.7rem;color:var(--muted);transition:transform .15s}
@@ -312,6 +344,7 @@
 
   <div class="subtabs" role="tablist" aria-label="Mục con trong Kiến thức chung">
     <button class="subtab-btn active" data-subtab="general" role="tab" aria-selected="true" onclick="showSubTab('general')">Hướng dẫn chung</button>
+    <button class="subtab-btn" data-subtab="toolsdeep" role="tab" aria-selected="false" onclick="showSubTab('toolsdeep')">Chi tiết từng AI</button>
     <button class="subtab-btn" data-subtab="overview" role="tab" aria-selected="false" onclick="showSubTab('overview')">Khái niệm nền tảng</button>
     <button class="subtab-btn" data-subtab="claude" role="tab" aria-selected="false" onclick="showSubTab('claude')">Claude &amp; Claude Code</button>
     <button class="subtab-btn" data-subtab="agentic" role="tab" aria-selected="false" onclick="showSubTab('agentic')">AI Agent (Agentic)</button>
@@ -353,31 +386,31 @@
 
     <h3 style="margin:24px 0 6px;font-size:1.05rem">💬 Trò chuyện &amp; viết lách (text)</h3>
     <div class="tools-grid">
-      <div class="tool" id="tool-chatgpt">
+      <div class="tool">
         <h3>ChatGPT (OpenAI)</h3>
         <p>Phổ biến nhất, dễ dùng, có bản miễn phí. Mạnh về viết lách, tra cứu, brainstorm.</p>
       </div>
-      <div class="tool" id="tool-claude">
+      <div class="tool">
         <h3>Claude (Anthropic)</h3>
         <p>Trả lời cẩn thận, văn phong tự nhiên, xử lý tài liệu dài rất tốt, mạnh về lập trình.</p>
       </div>
-      <div class="tool" id="tool-gemini">
+      <div class="tool">
         <h3>Gemini (Google)</h3>
         <p>Tích hợp sẵn trong Gmail, Docs, Android; tra cứu thông tin thời gian thực tốt.</p>
       </div>
-      <div class="tool" id="tool-copilot">
+      <div class="tool">
         <h3>Copilot (Microsoft)</h3>
         <p>Tích hợp trong Word/Excel/Windows, tiện cho công việc văn phòng hàng ngày.</p>
       </div>
-      <div class="tool" id="tool-perplexity">
+      <div class="tool">
         <h3>Perplexity</h3>
         <p>Chuyên "tìm kiếm bằng AI" — trả lời kèm trích dẫn nguồn rõ ràng, hợp khi cần tra cứu có căn cứ.</p>
       </div>
-      <div class="tool" id="tool-grok">
+      <div class="tool">
         <h3>Grok (xAI)</h3>
         <p>Tích hợp trong X (Twitter), truy cập bài đăng thời gian thực, giọng điệu thẳng thắn/hài hước hơn.</p>
       </div>
-      <div class="tool" id="tool-deepseek">
+      <div class="tool">
         <h3>DeepSeek</h3>
         <p>Mô hình mã nguồn mở, chi phí rẻ, hiệu năng cạnh tranh — nhiều người dùng thử vì miễn phí/giá tốt.</p>
       </div>
@@ -389,20 +422,20 @@
     <p>Chỉ cần mô tả bằng lời (vd: "một chú mèo phi hành gia, phong cách tranh sơn dầu"), AI vẽ ra ảnh tương ứng
       trong vài giây — không cần biết vẽ hay dùng phần mềm thiết kế.</p>
     <div class="tools-grid">
-      <div class="tool" id="tool-midjourney">
+      <div class="tool">
         <h3>Midjourney</h3>
         <p>Nổi tiếng về chất lượng nghệ thuật, bố cục đẹp — dùng qua Discord hoặc web riêng, có phí.</p>
       </div>
-      <div class="tool" id="tool-dalle">
+      <div class="tool">
         <h3>DALL-E (trong ChatGPT)</h3>
         <p>Tạo ảnh ngay trong khung chat ChatGPT — tiện vì không cần công cụ riêng, hiểu mô tả chi tiết tốt.</p>
       </div>
-      <div class="tool" id="tool-firefly">
+      <div class="tool">
         <h3>Adobe Firefly</h3>
         <p>Tích hợp Photoshop/Illustrator, huấn luyện từ nguồn được cấp phép — an tâm hơn khi dùng cho việc thương
           mại.</p>
       </div>
-      <div class="tool" id="tool-stablediffusion">
+      <div class="tool">
         <h3>Stable Diffusion</h3>
         <p>Mã nguồn mở, có thể tự chạy trên máy riêng — tuỳ biến sâu, phù hợp người thích can thiệp kỹ thuật.</p>
       </div>
@@ -414,19 +447,19 @@
     <p>Từ một đoạn mô tả hoặc một tấm ảnh, AI tạo ra đoạn video ngắn (vài giây tới vài phút) có chuyển động, ánh
       sáng, góc quay hợp lý — công nghệ còn rất mới và thay đổi nhanh.</p>
     <div class="tools-grid">
-      <div class="tool" id="tool-sora">
+      <div class="tool">
         <h3>Sora (OpenAI)</h3>
         <p>Tạo video từ văn bản với chất lượng cao, chuyển động mượt — tích hợp trong hệ sinh thái OpenAI.</p>
       </div>
-      <div class="tool" id="tool-veo">
+      <div class="tool">
         <h3>Veo (Google)</h3>
         <p>Công cụ tạo video của Google, tích hợp trong Gemini — mạnh về hiểu ngữ cảnh mô tả dài.</p>
       </div>
-      <div class="tool" id="tool-runway">
+      <div class="tool">
         <h3>Runway</h3>
         <p>Bộ công cụ chỉnh sửa + tạo video AI hướng tới nhà làm phim/dựng phim chuyên nghiệp.</p>
       </div>
-      <div class="tool" id="tool-pika">
+      <div class="tool">
         <h3>Pika / Kling</h3>
         <p>Các công cụ tạo video ngắn phổ biến khác, thường dùng cho nội dung mạng xã hội nhanh gọn.</p>
       </div>
@@ -438,17 +471,17 @@
     <p>Nhóm này gồm AI chuyển chữ thành giọng nói tự nhiên, nhân bản giọng của một người, và cả AI sáng tác nhạc
       hoàn chỉnh có lời.</p>
     <div class="tools-grid">
-      <div class="tool" id="tool-elevenlabs">
+      <div class="tool">
         <h3>ElevenLabs</h3>
         <p>Tạo giọng đọc tự nhiên đa ngôn ngữ, nhân bản giọng nói (voice cloning) từ một mẫu ghi âm ngắn — hay dùng
           để lồng tiếng, đọc sách nói.</p>
       </div>
-      <div class="tool" id="tool-suno">
+      <div class="tool">
         <h3>Suno / Udio</h3>
         <p>Chỉ cần mô tả thể loại/tâm trạng bài hát, AI sáng tác cả nhạc nền lẫn lời và hát luôn — tạo một bài
           hoàn chỉnh trong vài phút.</p>
       </div>
-      <div class="tool" id="tool-whisper">
+      <div class="tool">
         <h3>Whisper (OpenAI)</h3>
         <p>Chuyển giọng nói thành văn bản (speech-to-text) độ chính xác cao, mã nguồn mở và miễn phí — hay dùng
           để phụ đề hoặc ghi chú cuộc họp.</p>
@@ -594,6 +627,849 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
   <footer>
     Trang cá nhân · Hướng dẫn tổng quan, không liên kết với bất kỳ hãng AI nào cụ thể.
   </footer>
+  </div>
+
+  <div class="subwrap" id="sub-toolsdeep" hidden>
+
+    <p>Mỗi AI dưới đây có một trang riêng: đủ tính năng để dùng thành thạo, không chỉ là giới thiệu sơ lược.
+      Chọn một công cụ bên dưới (hoặc bấm thẳng từ menu "Công cụ AI" trên đầu trang).</p>
+
+    <div class="toolpicker" id="toolpicker"></div>
+    <div id="toolpages">
+
+      <div class="tool-page" id="tool-chatgpt">
+        <div class="tool-page-head">
+          <h2>ChatGPT <span class="track-tag">OpenAI</span></h2>
+          <p class="tagline">Trợ lý đa năng có hệ sinh thái rộng nhất (Custom GPT, tạo ảnh/video, agent duyệt web) —
+            hợp nếu bạn muốn một công cụ làm được gần như mọi việc.</p>
+        </div>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Custom GPT</b><span>Tạo trợ lý riêng với hướng dẫn/kiến thức/công cụ cố định, dùng lại nhiều lần mà không cần lặp lại ngữ cảnh — có thể tạo chỉ bằng cách mô tả bằng lời, không cần vào bảng cấu hình.</span></div>
+          <div class="feat"><b>Canvas</b><span>Khung soạn thảo 2 cột, tự mở khi viết bài dài hoặc code — chỉnh sửa từng đoạn thay vì viết lại toàn bộ.</span></div>
+          <div class="feat"><b>Deep Research</b><span>AI tự nghiên cứu nhiều trang trong 5–30 phút, trả về báo cáo có trích dẫn nguồn — hợp khi cần tổng hợp thông tin sâu.</span></div>
+          <div class="feat"><b>Agent Mode</b><span>Tự thao tác nhiều bước trên web thay bạn: đặt chỗ, điền form, tìm kiếm liên tục.</span></div>
+          <div class="feat"><b>Voice Mode nâng cao</b><span>Trò chuyện bằng giọng nói tự nhiên, có thể tìm kiếm web ngay giữa cuộc nói chuyện mà không bị ngắt quãng.</span></div>
+          <div class="feat"><b>Bộ nhớ, tải file/ảnh, tạo ảnh</b><span>Nhớ thông tin giữa các cuộc trò chuyện, đọc PDF/ảnh, vẽ ảnh trực tiếp trong khung chat.</span></div>
+        </div>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>Model cơ bản (GPT-5.3 Instant), giới hạn lượt dùng các tính năng nâng cao</td></tr>
+          <tr><td>Go (~$8)</td><td>Nâng giới hạn cơ bản, giá rẻ cho người dùng vừa phải</td></tr>
+          <tr><td>Plus (~$20)</td><td>Đủ bộ model, Canvas, Agent Mode, Custom GPT, 10 lượt Deep Research/tháng</td></tr>
+          <tr><td>Pro (~$100–200)</td><td>Model mạnh nhất, gần như không giới hạn — nhưng chế độ suy luận cao nhất lại tắt Memory/Canvas/Apps</td></tr>
+        </table>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>chatgpt.com</strong>, bấm "Sign up" (Đăng ký), tạo tài khoản bằng email hoặc đăng nhập qua Google/Apple — không cần cài phần mềm gì.</li>
+          <li>Sau khi vào trang chính, bạn thấy một ô nhập chữ nằm ở dưới cùng màn hình — gõ câu hỏi hoặc yêu cầu vào đó rồi bấm nút mũi tên (hoặc phím Enter) để gửi.</li>
+          <li>Câu trả lời hiện ngay bên dưới; bạn hỏi tiếp trong cùng khung chat đó, ChatGPT vẫn nhớ những gì đã nói từ đầu cuộc trò chuyện.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: tạo một Custom GPT riêng</h3>
+        <ol class="steps">
+          <li>Bấm vào tên/ảnh đại diện của bạn ở góc trên bên trái màn hình → chọn <strong>"My GPTs"</strong>.</li>
+          <li>Bấm nút <strong>"Create a GPT"</strong> — một khung chat hiện ra, bạn chỉ cần mô tả bằng lời bạn muốn trợ lý này làm gì (VD: "sửa email tiếng Anh theo văn phong lịch sự, ngắn gọn").</li>
+          <li>ChatGPT tự đặt tên, viết hướng dẫn và tạo ảnh đại diện giúp bạn — nếu muốn chỉnh tay, chuyển sang tab <strong>"Configure"</strong> bên cạnh.</li>
+          <li>Bấm <strong>"Create"</strong> ở góc trên bên phải, chọn "Only me" nếu chỉ dùng riêng cho bạn. Lần sau chỉ cần mở lại từ mục "My GPTs", không phải tạo lại từ đầu.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: dùng Deep Research để tra cứu sâu</h3>
+        <ol class="steps">
+          <li>Ở ô nhập chữ, bấm icon công cụ (dấu "+" hoặc biểu tượng công cụ) rồi chọn <strong>"Deep Research"</strong>.</li>
+          <li>Gõ câu hỏi cần nghiên cứu kỹ, càng cụ thể càng tốt (VD: "so sánh ưu nhược điểm 3 nền tảng bán hàng online phổ biến ở Việt Nam").</li>
+          <li>ChatGPT có thể hỏi lại 1-2 câu để hiểu rõ yêu cầu — trả lời xong thì chờ (thường 5–30 phút, bạn có thể làm việc khác trong lúc chờ, kết quả sẽ báo khi xong).</li>
+          <li>Kết quả là một báo cáo dài, có trích dẫn nguồn — bấm vào từng chú thích số để mở nguồn gốc thông tin, kiểm tra lại trước khi tin.</li>
+        </ol>
+
+        <div class="tip">💡 Muốn AI làm việc nhiều bước tự động (đặt lịch, điền biểu mẫu, nghiên cứu liên tục) — thử Agent Mode thay vì tự làm từng bước qua chat.</div>
+        <div class="tip">⚠️ Bật "Pro mode" (suy luận cao nhất) sẽ tắt Memory, Canvas, Apps và tạo ảnh — đây là đánh đổi, không phải bản luôn tốt hơn cho mọi việc.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-claude" hidden>
+        <div class="tool-page-head">
+          <h2>Claude <span class="track-tag">Anthropic</span></h2>
+          <p class="tagline">Mạnh về xử lý ngữ cảnh dài, viết cẩn thận, và ngày càng mạnh về lập trình/agent qua
+            Claude Code — thiên về "chắc chắn, an toàn" hơn là chạy đua tính năng.</p>
+        </div>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Projects</b><span>Không gian làm việc riêng, giữ sẵn file/hướng dẫn cho một việc lặp lại — không cần dán lại ngữ cảnh mỗi lần.</span></div>
+          <div class="feat"><b>Artifacts</b><span>Khung riêng hiển thị code/tài liệu/giao diện được tạo ra, chỉnh sửa trực tiếp trong lúc trò chuyện.</span></div>
+          <div class="feat"><b>Adaptive Thinking</b><span>Chọn mức độ suy luận (standard/high/xhigh/max) tuỳ độ khó của việc.</span></div>
+          <div class="feat"><b>MCP (Model Context Protocol)</b><span>Chuẩn kết nối mở, cho Claude gọi tới hàng nghìn công cụ ngoài (GitHub, Slack, Drive...).</span></div>
+          <div class="feat"><b>Computer Use</b><span>Claude có thể tự điều khiển màn hình máy tính (bấm, gõ, cuộn) để hoàn thành thao tác.</span></div>
+          <div class="feat"><b>Claude Code</b><span>Công cụ dòng lệnh lập trình + tự động hoá tác vụ nhiều bước — xem chi tiết ở tab "Claude &amp; Claude Code".</span></div>
+        </div>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>Chỉ model Sonnet, giới hạn chặt, hết hạn mức nhanh nếu dùng nhiều</td></tr>
+          <tr><td>Pro (~$20)</td><td>Dùng Opus, Claude Code, Projects, Artifacts, hạn mức cao hơn</td></tr>
+          <tr><td>Max 5x (~$100) / Max 20x (~$200)</td><td>Hạn mức sử dụng cao hơn nhiều, hợp người dùng nặng/lập trình cả ngày</td></tr>
+          <tr><td>Team / Enterprise</td><td>Quản lý theo tổ chức, kiểm soát quyền truy cập</td></tr>
+        </table>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>claude.ai</strong>, bấm đăng ký bằng email hoặc Google, xác nhận email nếu được yêu cầu.</li>
+          <li>Ở màn hình chính, gõ câu hỏi vào ô chat rồi bấm Enter hoặc nút gửi — Claude trả lời ngay bên dưới trong cùng cuộc trò chuyện.</li>
+          <li>Muốn hỏi việc mới không liên quan, bấm "New chat" ở góc trên bên trái để bắt đầu cuộc trò chuyện sạch, tránh Claude bị nhầm ngữ cảnh cũ.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: tạo một Project</h3>
+        <ol class="steps">
+          <li>Ở thanh bên trái, bấm <strong>"Projects"</strong> → <strong>"Create project"</strong>.</li>
+          <li>Đặt tên Project theo việc bạn hay lặp lại (VD: "Báo cáo tuần công ty"), viết mô tả ngắn.</li>
+          <li>Trong mục "Project knowledge", tải lên các file bạn muốn Claude luôn nhớ (mẫu báo cáo cũ, quy chuẩn công ty...).</li>
+          <li>Từ nay, mọi cuộc trò chuyện mở từ bên trong Project này đều tự động có sẵn các file/hướng dẫn đó — không cần đính kèm lại mỗi lần.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: dùng Artifacts</h3>
+        <ol class="steps">
+          <li>Yêu cầu Claude tạo một thứ có thể hiển thị trực quan (VD: "vẽ giúp tôi một trang web đơn giản giới thiệu quán cà phê").</li>
+          <li>Claude tự mở một khung riêng bên phải màn hình (Artifact) hiển thị kết quả — code, tài liệu, hoặc bản xem trước trực tiếp.</li>
+          <li>Muốn sửa, chỉ cần nói tiếp trong khung chat bên trái (VD: "đổi màu nền sang xanh") — Artifact bên phải cập nhật ngay, không cần yêu cầu viết lại từ đầu.</li>
+          <li>Bấm icon tải xuống ở góc Artifact nếu muốn lưu kết quả về máy.</li>
+        </ol>
+
+        <div class="tip">💡 Artifacts rất hợp khi nhờ Claude dựng một trang web/biểu đồ nhỏ — bạn thấy kết quả trực quan ngay, sửa qua lại nhanh hơn đọc code trong khung chat.</div>
+        <div class="tip">⚠️ Bản Free chỉ dùng được Sonnet (không phải Opus) và hết hạn mức khá nhanh — nếu dùng hàng ngày, gói Pro đáng cân nhắc.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-gemini" hidden>
+        <div class="tool-page-head">
+          <h2>Gemini <span class="track-tag">Google</span></h2>
+          <p class="tagline">Hợp nhất nếu bạn đã dùng Gmail/Docs/Drive hàng ngày — AI được gắn thẳng vào công cụ
+            văn phòng quen thuộc thay vì phải mở app riêng.</p>
+        </div>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Gems</b><span>Trợ lý tuỳ chỉnh với hướng dẫn cố định — tương đương Custom GPT của ChatGPT.</span></div>
+          <div class="feat"><b>Deep Research</b><span>Tự nghiên cứu nhiều bước, trả báo cáo có trích dẫn (5–30 phút).</span></div>
+          <div class="feat"><b>Gemini Live</b><span>Trò chuyện giọng nói thời gian thực, chia sẻ được cả camera/màn hình.</span></div>
+          <div class="feat"><b>Canvas</b><span>Khung soạn thảo tài liệu/code cộng tác trực tiếp.</span></div>
+          <div class="feat"><b>Tích hợp Workspace</b><span>Dùng Gemini ngay trong Gmail/Docs/Sheets ("Giúp tôi viết") mà không cần chuyển sang cửa sổ chat riêng.</span></div>
+          <div class="feat"><b>Veo &amp; NotebookLM</b><span>Tạo video (Veo) và tóm tắt tài liệu thành audio (NotebookLM) đi kèm ở gói trả phí.</span></div>
+        </div>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>Gemini Flash + Pro giới hạn, vẫn có Gems/Deep Research/Live nhưng bị giới hạn lượt</td></tr>
+          <tr><td>Google AI Plus (~$10)</td><td>Nâng hạn mức cơ bản</td></tr>
+          <tr><td>Google AI Pro (~$20)</td><td>Gemini Pro đầy đủ, 1.000 credit AI/tháng, Veo, hạn mức Workspace cao hơn</td></tr>
+          <tr><td>Google AI Ultra (~$250)</td><td>Hạn mức cao nhất, vào sớm nhất các model mới</td></tr>
+        </table>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>gemini.google.com</strong> và đăng nhập bằng tài khoản Google có sẵn (Gmail) — không cần tạo tài khoản mới.</li>
+          <li>Gõ câu hỏi vào ô chat ở giữa màn hình, bấm Enter hoặc nút gửi để nhận câu trả lời.</li>
+          <li>Muốn dùng ngay trong Gmail/Docs: mở email hoặc tài liệu, tìm icon ngôi sao Gemini ở góc màn hình hoặc nút "Giúp tôi viết".</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: tạo một Gem riêng</h3>
+        <ol class="steps">
+          <li>Ở thanh bên trái trang Gemini, bấm <strong>"Explore Gems"</strong> → <strong>"New Gem"</strong>.</li>
+          <li>Đặt tên và viết hướng dẫn cố định cho Gem (VD: "luôn trả lời ngắn gọn, dùng ví dụ thực tế khi giải thích khái niệm mới").</li>
+          <li>Bấm <strong>"Save"</strong> — Gem xuất hiện ở danh sách bên trái, bấm vào để trò chuyện với đúng "nhân cách" đã cài đặt bất cứ lúc nào.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: dùng Gemini ngay trong Gmail</h3>
+        <ol class="steps">
+          <li>Mở một email đang soạn, tìm icon bút chì có ánh sao (Gemini) ở góc dưới khung soạn thư.</li>
+          <li>Bấm <strong>"Giúp tôi viết"</strong>, mô tả ngắn nội dung bạn muốn (VD: "viết email xin nghỉ phép 2 ngày, giọng lịch sự").</li>
+          <li>Gemini điền sẵn nội dung vào khung soạn — bạn có thể bấm "Tinh chỉnh" để yêu cầu viết lại ngắn hơn/trang trọng hơn trước khi gửi.</li>
+        </ol>
+
+        <div class="tip">💡 Nếu công ty/trường bạn dùng Google Workspace, ưu tiên học Gemini trước — lợi thế tích hợp sẵn khó công cụ khác bù được.</div>
+        <div class="tip">⚠️ Tên gói đã đổi nhiều lần (Gemini Advanced → Google AI Pro) — kiểm tra kỹ gói đang mua thực sự gồm những gì trước khi trả phí.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-copilot" hidden>
+        <div class="tool-page-head">
+          <h2>Copilot <span class="track-tag">Microsoft</span></h2>
+          <p class="tagline">Hợp nếu công việc hàng ngày của bạn xoay quanh Word/Excel/Outlook/Teams — AI gắn thẳng
+            vào các ứng dụng đó thay vì một app chat riêng.</p>
+        </div>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Copilot Vision</b><span>Chia sẻ màn hình hoặc camera điện thoại, hỏi trực tiếp về thứ đang hiện ra (lỗi phần mềm, biểu đồ, tài liệu).</span></div>
+          <div class="feat"><b>Think Deeper</b><span>Chế độ suy luận chậm hơn, hợp bài toán/logic phức tạp.</span></div>
+          <div class="feat"><b>Copilot Pages</b><span>Khung soạn thảo cộng tác lâu dài, AI gợi ý chỉnh sửa trực tiếp.</span></div>
+          <div class="feat"><b>Voice có trí nhớ</b><span>Trò chuyện giọng nói có thể dùng lại thông tin cá nhân đã lưu trước đó.</span></div>
+          <div class="feat"><b>Tích hợp Microsoft Graph</b><span>Trả lời dựa trên chính email/file/chat Teams/lịch của bạn (bản M365 Copilot).</span></div>
+          <div class="feat"><b>Copilot Studio</b><span>Công cụ không cần biết code để tự dựng agent riêng cho doanh nghiệp (sản phẩm trả phí riêng).</span></div>
+        </div>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>Chat cơ bản, voice/vision giới hạn</td></tr>
+          <tr><td>Microsoft 365 Premium (~$20)</td><td>Ưu tiên model mạnh hơn + AI ngay trong Word/Excel/PowerPoint/Outlook</td></tr>
+          <tr><td>M365 Copilot Business/Enterprise (~$25–30/người)</td><td>Cần license M365 doanh nghiệp — mở khoá trả lời dựa trên dữ liệu thật của tổ chức</td></tr>
+        </table>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>copilot.microsoft.com</strong> hoặc mở app Copilot trên Windows (icon cạnh thanh taskbar), đăng nhập bằng tài khoản Microsoft.</li>
+          <li>Gõ câu hỏi vào ô chat, bấm Enter — có thể gõ chữ hoặc bấm icon micro để nói bằng giọng nói.</li>
+          <li>Trên Word/Excel/PowerPoint, tìm icon Copilot ở góc phải thanh công cụ để dùng ngay trong tài liệu đang mở.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: dùng Copilot Vision</h3>
+        <ol class="steps">
+          <li>Trong khung chat Copilot, bấm icon chia sẻ màn hình (hoặc camera trên app điện thoại).</li>
+          <li>Chọn cửa sổ/màn hình muốn chia sẻ (VD: thông báo lỗi trên máy tính, hoặc hướng camera vào một thiết bị thật).</li>
+          <li>Hỏi trực tiếp bằng lời: "chỗ này bị lỗi gì, sửa sao?" — Copilot vừa "nhìn" vừa trả lời theo thời gian thực, không cần chụp ảnh gửi riêng.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: dùng Copilot trong Word</h3>
+        <ol class="steps">
+          <li>Mở một tài liệu Word, bấm icon Copilot ở góc trên bên phải màn hình.</li>
+          <li>Gõ yêu cầu (VD: "viết bản nháp báo cáo tổng kết quý dựa trên số liệu trong tài liệu này").</li>
+          <li>Copilot chèn nội dung nháp vào tài liệu — bạn bôi đen đoạn muốn sửa, bấm lại icon Copilot để yêu cầu viết lại riêng đoạn đó.</li>
+        </ol>
+
+        <div class="tip">💡 Bản Free/Premium cá nhân không đọc được dữ liệu công ty thật — muốn Copilot trả lời dựa trên email/file/chat thật, cần license M365 Copilot qua công ty.</div>
+        <div class="tip">⚠️ Các tính năng "hữu ích nhất" (đọc được email/Teams/lịch thật) đều khoá sau license doanh nghiệp — bản cá nhân miễn phí khá mỏng so với quảng cáo.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-perplexity" hidden>
+        <div class="tool-page-head">
+          <h2>Perplexity <span class="track-tag">Perplexity AI</span></h2>
+          <p class="tagline">Không phải chatbot mở, mà là "máy trả lời" dựa trên tìm kiếm web có trích dẫn — hợp
+            khi cần câu trả lời kiểm chứng được, không phải văn bản sáng tạo.</p>
+        </div>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Chọn model theo câu hỏi</b><span>Có thể chọn model nền (Sonar hoặc các model frontier khác) tuỳ nhu cầu từng câu hỏi.</span></div>
+          <div class="feat"><b>Spaces</b><span>Thư mục lưu các cuộc hỏi + file liên quan tới một chủ đề/dự án — file tải lên được tự động dùng lại cho các câu hỏi sau trong Space đó.</span></div>
+          <div class="feat"><b>Labs</b><span>Tạo hẳn sản phẩm hoàn chỉnh (báo cáo, app nhỏ, bảng tính) thay vì chỉ trả lời chat.</span></div>
+          <div class="feat"><b>Deep Research</b><span>Nghiên cứu nhiều trang, trả báo cáo có trích dẫn nguồn rõ ràng.</span></div>
+          <div class="feat"><b>Trình duyệt Comet</b><span>Trình duyệt riêng có AI hỗ trợ đọc trang và tự thao tác nhiều bước, hiện đã miễn phí.</span></div>
+          <div class="feat"><b>Perplexity Computer</b><span>Chạy tác vụ tự động theo credit ở các gói cao hơn.</span></div>
+        </div>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>Tìm kiếm Sonar cơ bản</td></tr>
+          <tr><td>Pro (~$20)</td><td>Đủ model, Spaces, Pages, Labs, credit cho Computer</td></tr>
+          <tr><td>Max (~$200)</td><td>Labs không giới hạn, credit Computer cao, ưu tiên truy cập model mới</td></tr>
+          <tr><td>Education / Enterprise</td><td>Giá ưu đãi cho học sinh-sinh viên / gói riêng cho tổ chức</td></tr>
+        </table>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>perplexity.ai</strong>, có thể dùng thử ngay không cần đăng ký, hoặc tạo tài khoản để lưu lịch sử.</li>
+          <li>Gõ câu hỏi vào ô tìm kiếm ở giữa trang, bấm Enter — kết quả trả về kèm số trích dẫn nhỏ [1] [2] ngay trong câu trả lời.</li>
+          <li>Bấm vào từng số trích dẫn để mở link nguồn gốc, kiểm tra lại thông tin trước khi dùng.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: tạo một Space cho dự án</h3>
+        <ol class="steps">
+          <li>Ở thanh bên trái, bấm <strong>"Spaces"</strong> → <strong>"Create Space"</strong>.</li>
+          <li>Đặt tên theo dự án/chủ đề (VD: "Nghiên cứu thị trường cà phê 2026"), tải lên các file liên quan (báo cáo, PDF, ghi chú).</li>
+          <li>Từ nay, mọi câu hỏi bạn đặt bên trong Space này đều tự động tham chiếu tới các file đã tải lên, không cần đính kèm lại.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: dùng Deep Research</h3>
+        <ol class="steps">
+          <li>Ở ô tìm kiếm, bấm chọn chế độ <strong>"Research"</strong> (thay vì "Search" mặc định) trước khi gõ câu hỏi.</li>
+          <li>Gõ câu hỏi cần tổng hợp sâu, càng cụ thể càng tốt.</li>
+          <li>Chờ vài phút để Perplexity tự đọc nhiều nguồn — kết quả là báo cáo dài có đầy đủ trích dẫn, có thể xuất ra file nếu cần lưu lại.</li>
+        </ol>
+
+        <div class="tip">💡 Dùng Labs khi cần cả một sản phẩm hoàn chỉnh (báo cáo có bảng biểu, app nhỏ) chứ không chỉ câu trả lời văn bản.</div>
+        <div class="tip">⚠️ Vì câu trả lời phụ thuộc vào nguồn tìm được trên web, Perplexity yếu hơn ở suy luận trừu tượng hoặc chủ đề ít tài liệu công khai.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-grok" hidden>
+        <div class="tool-page-head">
+          <h2>Grok <span class="track-tag">xAI</span></h2>
+          <p class="tagline">Gắn chặt với X (Twitter) — mạnh về dữ liệu thời gian thực trên mạng xã hội, giọng điệu
+            thẳng thắn hơn và ít giới hạn nội dung hơn các đối thủ.</p>
+        </div>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Big Brain mode</b><span>Chế độ suy luận sâu hơn cho bài toán khó.</span></div>
+          <div class="feat"><b>DeepSearch</b><span>Nghiên cứu nhiều bước tương tự Deep Research của các đối thủ.</span></div>
+          <div class="feat"><b>Expert mode</b><span>Chạy song song nhiều agent AI cùng lúc trên một tác vụ.</span></div>
+          <div class="feat"><b>Grok Imagine</b><span>Tạo ảnh và video ngắn (từ 480p trở lên).</span></div>
+          <div class="feat"><b>Grok Build (beta)</b><span>Chế độ agent tập trung vào lập trình.</span></div>
+          <div class="feat"><b>Dữ liệu X thời gian thực</b><span>Truy cập trực tiếp bài đăng/xu hướng đang diễn ra trên X, không chỉ dữ liệu web tĩnh.</span></div>
+        </div>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>Dùng Grok giới hạn qua X</td></tr>
+          <tr><td>SuperGrok Lite (~$10)</td><td>Model nhẹ hơn, Imagine, 1 agent</td></tr>
+          <tr><td>SuperGrok (~$30)</td><td>Đủ Grok bản đầy đủ, DeepSearch, Big Brain, Expert mode, Grok Build</td></tr>
+          <tr><td>SuperGrok Heavy (~$300)</td><td>Vào sớm nhất bản mạnh nhất, hạn mức cao nhất</td></tr>
+        </table>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>grok.com</strong>, hoặc mở app X (Twitter) → bấm icon Grok ở thanh bên.</li>
+          <li>Đăng nhập bằng tài khoản X có sẵn (hoặc tạo tài khoản X mới nếu chưa có).</li>
+          <li>Gõ câu hỏi vào ô chat, bấm Enter — có thể hỏi thẳng về xu hướng/bài đăng đang nổi trên X.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: tra cứu xu hướng thời gian thực</h3>
+        <ol class="steps">
+          <li>Gõ câu hỏi dạng "đang có gì hot về [chủ đề] trên X hôm nay?" thay vì hỏi chung chung.</li>
+          <li>Grok trả lời kèm tóm tắt các bài đăng/luồng thảo luận liên quan, thường có link tới bài gốc trên X.</li>
+          <li>Bấm vào link để xem bài đăng gốc, đối chiếu trước khi trích dẫn lại thông tin ở nơi khác.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: dùng Grok Imagine tạo ảnh/video</h3>
+        <ol class="steps">
+          <li>Trong khung chat, bấm icon hình ảnh/video cạnh ô nhập chữ, chọn <strong>"Imagine"</strong>.</li>
+          <li>Mô tả bằng lời thứ bạn muốn tạo (VD: "video ngắn con mèo phi hành gia bay trong vũ trụ, phong cách hoạt hình").</li>
+          <li>Chờ vài chục giây tới vài phút, kết quả hiện ngay trong khung chat — bấm tải xuống nếu muốn lưu về máy.</li>
+        </ol>
+
+        <div class="tip">💡 Grok Imagine tiện khi cần tạo ảnh/video ngắn nhanh ngay trong cùng cuộc trò chuyện, không cần mở công cụ ảnh/video riêng.</div>
+        <div class="tip">⚠️ Cách kiểm duyệt nội dung khá thoáng từng gây tranh cãi vài lần — nên cẩn trọng hơn khi hỏi các chủ đề nhạy cảm so với công cụ khác.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-deepseek" hidden>
+        <div class="tool-page-head">
+          <h2>DeepSeek <span class="track-tag">DeepSeek AI</span></h2>
+          <p class="tagline">Model mã nguồn mở từ Trung Quốc, rất rẻ hoặc miễn phí mà vẫn mạnh — hợp người muốn
+            tiết kiệm chi phí, lập trình viên cần API rẻ, hoặc ai muốn tự host.</p>
+        </div>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>DeepSeek-V4 Flash &amp; Pro</b><span>Flash nhanh/rẻ, Pro suy luận mạnh hơn — cả hai đều chọn được chế độ "có suy nghĩ" hoặc trả lời thẳng.</span></div>
+          <div class="feat"><b>Ngữ cảnh 1 triệu token</b><span>Cửa sổ ngữ cảnh rất lớn, không tính phí thêm.</span></div>
+          <div class="feat"><b>Chat web/app miễn phí</b><span>chat.deepseek.com và app chính thức dùng miễn phí hoàn toàn cho cá nhân.</span></div>
+          <div class="feat"><b>Mã nguồn mở</b><span>Có thể tải model về tự chạy trên máy/server riêng — khác biệt lớn so với 6 công cụ còn lại.</span></div>
+          <div class="feat"><b>API rất rẻ</b><span>Giá mỗi triệu token thấp hơn nhiều công cụ phương Tây, hợp cho lập trình viên xây ứng dụng.</span></div>
+          <div class="feat"><b>Mạnh về code &amp; toán</b><span>Hiệu năng cạnh tranh với các model đắt hơn nhiều ở tác vụ lập trình/suy luận toán.</span></div>
+        </div>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Web/App</td><td>Miễn phí hoàn toàn, không có gói trả phí cho cá nhân</td></tr>
+          <tr><td>API (trả theo token)</td><td>V4 Flash rất rẻ; V4 Pro cao hơn nhưng vẫn rẻ hơn nhiều đối thủ; tài khoản mới được tặng 5 triệu token dùng thử</td></tr>
+        </table>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>chat.deepseek.com</strong> hoặc tải app DeepSeek trên điện thoại, đăng ký bằng email hoặc số điện thoại.</li>
+          <li>Gõ câu hỏi vào ô chat, bấm Enter — mặc định trả lời nhanh; bấm nút <strong>"DeepThink"</strong> phía trên ô nhập nếu muốn model suy nghĩ kỹ hơn trước khi trả lời (chậm hơn nhưng chính xác hơn cho bài khó).</li>
+          <li>Toàn bộ chat cơ bản này miễn phí, không cần thẻ thanh toán.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: bật chế độ suy nghĩ sâu (DeepThink)</h3>
+        <ol class="steps">
+          <li>Trước khi gõ câu hỏi, bấm nút <strong>"DeepThink"</strong> ngay phía trên ô nhập chữ để bật chế độ này.</li>
+          <li>Gõ câu hỏi khó (toán, logic nhiều bước, phân tích code) — DeepSeek sẽ hiện luôn cả quá trình suy luận trước khi đưa câu trả lời cuối.</li>
+          <li>Đọc phần suy luận nếu muốn hiểu AI ra đáp án bằng cách nào, hữu ích khi cần kiểm tra lại logic.</li>
+        </ol>
+
+        <div class="tip">💡 Với việc cần ngữ cảnh cực dài (đọc cả một tài liệu lớn), cửa sổ 1 triệu token của DeepSeek rộng hơn hầu hết đối thủ mà không tính thêm phí.</div>
+        <div class="tip">⚠️ Dữ liệu trên bản web/API lưu ở server Trung Quốc, chịu luật có thể yêu cầu chia sẻ dữ liệu cho nhà nước mà không cần báo người dùng — một số quốc gia đã hạn chế dùng trên thiết bị công vụ. Từng có báo cáo lộ dữ liệu do cấu hình sai. Cân nhắc kỹ nếu xử lý thông tin nhạy cảm.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-midjourney" hidden>
+        <div class="tool-page-head">
+          <h2>Midjourney <span class="track-tag">Midjourney Inc.</span></h2>
+          <p class="tagline">Ảnh đẹp/nghệ thuật nhất trong nhóm tạo ảnh — hợp designer/hoạ sĩ muốn phong cách
+            riêng biệt, không phải chatbot nên cách dùng khác hẳn ChatGPT.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>midjourney.com</strong>, đăng ký tài khoản (không có gói dùng thử miễn phí, cần chọn gói trả phí ngay từ đầu).</li>
+          <li>Vào tab <strong>"Create"</strong>, gõ mô tả ảnh muốn tạo vào ô ở dưới cùng, bấm Enter.</li>
+          <li>Sau vài chục giây, 4 phiên bản ảnh hiện ra — bấm vào một ảnh để phóng to, hoặc bấm nút biến thể (Vary) để tạo thêm phiên bản tương tự.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Omni Reference</b><span>Tải ảnh nhân vật/chủ thể lên để giữ đúng ngoại hình đó xuyên suốt nhiều ảnh khác nhau.</span></div>
+          <div class="feat"><b>Style Reference (--sref)</b><span>Khoá một phong cách/bảng màu cố định cho cả loạt ảnh.</span></div>
+          <div class="feat"><b>Draft Mode</b><span>Tạo ảnh nháp nhanh gấp ~10 lần, rẻ hơn, để thử ý tưởng trước khi tạo bản đầy đủ.</span></div>
+          <div class="feat"><b>Tham số dòng lệnh</b><span><code>--ar</code> (tỉ lệ khung hình), <code>--no</code> (loại trừ chi tiết không muốn), <code>--stylize</code> (độ "nghệ thuật hoá"), <code>--chaos</code> (độ ngẫu nhiên).</span></div>
+          <div class="feat"><b>Vary Region / Pan / Zoom Out</b><span>Sửa một vùng nhỏ trong ảnh, hoặc mở rộng khung hình ra ngoài rìa ảnh gốc.</span></div>
+          <div class="feat"><b>V1 Video</b><span>Biến ảnh tĩnh đã tạo thành video chuyển động ngắn, ngay trong cùng quy trình.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: giữ nhân vật nhất quán bằng Omni Reference</h3>
+        <ol class="steps">
+          <li>Tạo hoặc tải lên một ảnh nhân vật bạn muốn dùng lại nhiều lần.</li>
+          <li>Ở ô nhập prompt, bấm icon ảnh nhỏ (Omni Reference), chọn ảnh nhân vật đó.</li>
+          <li>Gõ mô tả cảnh mới (VD: "nhân vật này đang đứng trên bãi biển lúc hoàng hôn"), Midjourney sẽ giữ đúng gương mặt/ngoại hình đã tham chiếu.</li>
+          <li>Kéo thanh độ mạnh tham chiếu nếu muốn nhân vật giống ảnh gốc nhiều hay ít hơn.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Basic (~$10)</td><td>Số lượt tạo ảnh giới hạn/tháng, có quyền dùng thương mại</td></tr>
+          <tr><td>Standard (~$30)</td><td>Nhiều lượt hơn, thêm chế độ tạo nhanh không giới hạn</td></tr>
+          <tr><td>Pro (~$60) / Mega (~$120)</td><td>Hạn mức cao nhất, ưu tiên xử lý, hợp người dùng nặng/agency</td></tr>
+        </table>
+
+        <div class="tip">💡 Kết hợp cả Style Reference lẫn Omni Reference trong một prompt để giữ vừa đúng nhân vật vừa đúng phong cách xuyên suốt một bộ ảnh — nhưng việc này tốn thời gian xử lý nhanh hơn ảnh thường khá nhiều.</div>
+        <div class="tip">⚠️ Không có bản dùng thử miễn phí và không có API cho cá nhân (chỉ dùng qua web) — cân nhắc kỹ trước khi mua gói vì ảnh dùng nhiều tham chiếu tiêu tốn hạn mức nhanh hơn ảnh thường.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-dalle" hidden>
+        <div class="tool-page-head">
+          <h2>DALL-E <span class="track-tag">OpenAI, trong ChatGPT</span></h2>
+          <p class="tagline">Cách dễ nhất để bắt đầu tạo ảnh AI — chỉ cần gõ mô tả bằng lời ngay trong khung chat
+            ChatGPT, không cần học cú pháp prompt riêng.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Mở ChatGPT (không cần công cụ riêng), gõ thẳng mô tả ảnh muốn tạo, VD: "vẽ một chú mèo phi hành gia phong cách tranh sơn dầu".</li>
+          <li>ChatGPT tự hiểu đây là yêu cầu tạo ảnh và trả về hình trực tiếp trong khung chat sau vài chục giây.</li>
+          <li>Bấm vào ảnh để xem cỡ lớn, hoặc bấm icon tải xuống để lưu về máy.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Sửa ảnh bằng hội thoại</b><span>Mô tả thay đổi bằng lời ("đổi nền thành màu xanh", "bỏ người bên trái") — ChatGPT sửa lại đúng ảnh đó, không cần tạo lại từ đầu.</span></div>
+          <div class="feat"><b>Tải ảnh tham chiếu</b><span>Tải ảnh của bạn lên để giữ đúng phong cách/nhân vật cho các ảnh tạo sau.</span></div>
+          <div class="feat"><b>Tự viết lại prompt</b><span>Mô tả sơ sài vẫn ra ảnh hợp lý vì ChatGPT tự mở rộng/làm rõ yêu cầu trước khi gửi cho model vẽ.</span></div>
+          <div class="feat"><b>Tạo nhiều phiên bản</b><span>Một yêu cầu có thể trả về tới 8 phiên bản khác nhau để chọn.</span></div>
+          <div class="feat"><b>Chữ trong ảnh rõ nét</b><span>Vẽ được chữ/typography dễ đọc trong hơn 50 ngôn ngữ — hợp làm poster, banner có chữ.</span></div>
+          <div class="feat"><b>Chọn tỉ lệ khung hình</b><span>Ngang (16:9), vuông (1:1), dọc (9:16), tới độ phân giải 2048px.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: sửa ảnh nhiều lần trong cùng cuộc trò chuyện</h3>
+        <ol class="steps">
+          <li>Sau khi có ảnh đầu tiên, đừng mở đoạn chat mới — gõ tiếp yêu cầu chỉnh sửa ngay trong cùng khung chat đó.</li>
+          <li>Mô tả cụ thể phần muốn đổi (VD: "giữ nguyên bố cục nhưng đổi thời tiết thành trời mưa").</li>
+          <li>Lặp lại nhiều lần tới khi ưng ý — ChatGPT dùng chính ảnh trước đó làm gốc để sửa, giữ được sự nhất quán tốt hơn tạo mới hoàn toàn.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>Tạo ảnh giới hạn số lượt, có thể bị chờ lâu hơn</td></tr>
+          <tr><td>Plus/Team (~$20)</td><td>Khoảng 50 ảnh/3 giờ, ổn định hơn cho dùng thường xuyên</td></tr>
+          <tr><td>API (lập trình viên)</td><td>Trả theo ảnh, tuỳ chất lượng/kích thước (khoảng vài xu Mỹ/ảnh)</td></tr>
+        </table>
+
+        <div class="tip">💡 Muốn giữ đúng một nhân vật/phong cách xuyên suốt nhiều ảnh — luôn sửa tiếp trong cùng đoạn chat thay vì mở đoạn mới mỗi lần.</div>
+        <div class="tip">⚠️ OpenAI đổi/ngừng model tạo ảnh khá thường xuyên (DALL-E 3 đã ngừng, model GPT Image 1 cũng sắp ngừng 10/2026) — cách dùng cơ bản (gõ mô tả trong chat) vẫn giữ nguyên dù model nền thay đổi.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-firefly" hidden>
+        <div class="tool-page-head">
+          <h2>Adobe Firefly <span class="track-tag">Adobe</span></h2>
+          <p class="tagline">Lựa chọn "an toàn cho công việc" — chỉ học từ ảnh Adobe Stock đã có bản quyền, tích
+            hợp thẳng vào Photoshop/Illustrator, hợp dùng cho mục đích thương mại.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>firefly.adobe.com</strong>, đăng nhập bằng Adobe ID (tạo miễn phí nếu chưa có).</li>
+          <li>Chọn <strong>"Text to Image"</strong>, gõ mô tả ảnh vào ô nhập, bấm Generate.</li>
+          <li>Kết quả hiện thành lưới 4 ảnh — bấm vào ảnh ưng ý để tải xuống hoặc chỉnh tiếp.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Generative Fill &amp; Expand</b><span>Tô vùng cần sửa trong Photoshop, mô tả bằng lời muốn thay gì vào đó, hoặc kéo rộng khung ảnh ra ngoài rìa gốc.</span></div>
+          <div class="feat"><b>Structure Reference</b><span>Giữ đúng bố cục/hình khối của một ảnh tham chiếu khi tạo ảnh mới.</span></div>
+          <div class="feat"><b>Style Reference</b><span>Khớp màu sắc, ánh sáng, kết cấu theo một ảnh mẫu.</span></div>
+          <div class="feat"><b>Text-to-Vector</b><span>Tạo trực tiếp file vector (path, gradient) chỉnh sửa được — không chỉ ảnh bitmap.</span></div>
+          <div class="feat"><b>Text Effects</b><span>Tạo chữ nghệ thuật/hiệu ứng chữ ngay trong thiết kế.</span></div>
+          <div class="feat"><b>Hệ thống credit chung</b><span>Một kho credit dùng chung cho cả ảnh, video, âm thanh — ảnh độ phân giải chuẩn trên gói trả phí thường không tốn credit.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: dùng Generative Fill trong Photoshop</h3>
+        <ol class="steps">
+          <li>Mở ảnh trong Photoshop, chọn công cụ Lasso hoặc Selection Brush, khoanh vùng muốn sửa/xoá.</li>
+          <li>Ở thanh công cụ ngữ cảnh hiện ra, gõ mô tả thứ bạn muốn xuất hiện ở vùng đó (để trống nếu chỉ muốn xoá/lấp đầy tự nhiên).</li>
+          <li>Bấm <strong>"Generate"</strong> — Photoshop tạo 3 phiên bản, chọn phiên bản ưng ý ở thanh Properties bên phải.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>25 credit/tháng</td></tr>
+          <tr><td>Standard (~$10) / Pro (~$20)</td><td>Nhiều credit hơn, phù hợp dùng cá nhân đều đặn</td></tr>
+          <tr><td>Pro Plus (~$50) / Premium (~$200)</td><td>Credit rất lớn, hợp agency/đội nhóm</td></tr>
+          <tr><td>Creative Cloud All Apps (~$60)</td><td>Kèm 1.000 credit, có luôn Photoshop/Illustrator đầy đủ</td></tr>
+        </table>
+
+        <div class="tip">💡 Sửa ảnh ở độ phân giải chuẩn trước (thường không tốn credit trên gói trả phí), chỉ nâng cấp độ phân giải cao cho bản cuối cùng đã chọn.</div>
+        <div class="tip">⚠️ Vì chỉ học từ ảnh có bản quyền của Adobe Stock, Firefly an toàn hơn về pháp lý nhưng cho ra ảnh "an toàn/trung tính" hơn — yếu hơn Midjourney/Stable Diffusion ở phong cách cá tính, phá cách.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-stablediffusion" hidden>
+        <div class="tool-page-head">
+          <h2>Stable Diffusion <span class="track-tag">Mã nguồn mở</span></h2>
+          <p class="tagline">Không phải một app duy nhất mà là cả một hệ sinh thái mã nguồn mở — tự chạy miễn phí
+            trên máy riêng, tuỳ biến sâu nhất nhưng cũng cần mày mò kỹ thuật nhiều nhất trong 4 công cụ.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu (2 cách)</h3>
+        <ol class="steps">
+          <li><strong>Cách dễ, không cần cài gì:</strong> dùng dịch vụ hosted như DreamStudio (dreamstudio.ai) — đăng ký, mua credit, gõ mô tả ảnh và tạo ngay trên trình duyệt, giống các công cụ khác.</li>
+          <li><strong>Cách tự chạy trên máy (miễn phí nhưng cần máy đủ mạnh, có card đồ hoạ VRAM 6–12GB+):</strong> tải giao diện <strong>Automatic1111</strong> hoặc <strong>Forge</strong> từ GitHub, làm theo hướng dẫn cài đặt trong README, rồi tải một bộ model (VD: SDXL) về dùng.</li>
+          <li>Sau khi cài xong, giao diện web hiện ra ngay trên máy bạn (thường ở địa chỉ localhost) — gõ mô tả ảnh vào ô prompt như các công cụ khác.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Nhiều phiên bản model</b><span>SD 1.5 (nhẹ, chạy máy yếu), SDXL (nhiều model cộng đồng nhất), SD 3.5 (ảnh thật/chữ đẹp nhất), Flux (được cộng đồng ưa chuộng).</span></div>
+          <div class="feat"><b>ControlNet</b><span>Điều khiển chính xác bố cục theo tư thế người mẫu, độ sâu, hoặc bản vẽ nét đơn giản.</span></div>
+          <div class="feat"><b>LoRA</b><span>File nhỏ "cắm thêm" vào model để tạo đúng một nhân vật/phong cách riêng, không cần huấn luyện lại cả model.</span></div>
+          <div class="feat"><b>Inpainting / Outpainting</b><span>Tô vùng cần sửa và tạo lại riêng vùng đó, hoặc mở rộng ảnh ra ngoài khung gốc.</span></div>
+          <div class="feat"><b>Negative prompt</b><span>Mô tả thứ KHÔNG muốn xuất hiện (VD: "tay dị dạng, mờ, watermark") — tính năng gốc, rất hiệu quả để giảm lỗi.</span></div>
+          <div class="feat"><b>Nhiều giao diện</b><span>Automatic1111 (dễ nhất cho người mới), ComfyUI (dạng node, linh hoạt nhất), Forge, InvokeAI.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: dùng negative prompt để giảm lỗi</h3>
+        <ol class="steps">
+          <li>Ở giao diện Automatic1111/Forge, tìm ô thứ hai bên dưới ô prompt chính, có nhãn <strong>"Negative prompt"</strong>.</li>
+          <li>Gõ vào đó các lỗi thường gặp muốn tránh, VD: "tay dị dạng, mờ, méo mặt, watermark, chữ ký".</li>
+          <li>Bấm Generate như bình thường — ảnh ra sẽ giảm đáng kể các lỗi đã liệt kê so với không dùng negative prompt.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Cách dùng</th><th>Chi phí</th></tr>
+          <tr><td>Tự chạy trên máy (SD 1.5/SDXL)</td><td>Miễn phí hoàn toàn, chỉ tốn điện/phần cứng</td></tr>
+          <tr><td>Dịch vụ hosted (DreamStudio, Stability API)</td><td>Trả theo credit/lượt tạo ảnh</td></tr>
+          <tr><td>SD 3.x cho doanh nghiệp lớn</td><td>Cần mua license riêng nếu doanh thu công ty trên 1 triệu USD/năm</td></tr>
+        </table>
+
+        <div class="tip">💡 Người mới nên bắt đầu với SDXL + giao diện Automatic1111 hoặc Forge (không phải ComfyUI) — ComfyUI mạnh nhưng phức tạp hơn nhiều cho người chưa quen.</div>
+        <div class="tip">⚠️ Giấy phép sử dụng khác nhau tuỳ phiên bản model, và các model cộng đồng thường không rõ nguồn dữ liệu huấn luyện — cân nhắc rủi ro bản quyền nếu dùng cho mục đích thương mại.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-sora" hidden>
+        <div class="tool-page-head">
+          <h2>Sora <span class="track-tag">OpenAI</span></h2>
+          <p class="tagline">Công cụ tạo video từng rất nổi nhờ tính năng Cameo (đưa gương mặt bạn vào video) —
+            nhưng đang bị OpenAI khai tử, nên không còn hợp để học như công cụ chính hiện tại.</p>
+        </div>
+
+        <div class="tip">⚠️ <strong>Sắp ngừng hoạt động:</strong> app Sora dành cho người dùng thường đã đóng từ
+          tháng 4/2026; API cho lập trình viên sẽ ngừng hẳn ngày 24/9/2026, toàn bộ dữ liệu tài khoản sẽ bị xoá sau
+          đó. Vì vậy trang này chỉ giữ lại để bạn hiểu Sora từng làm được gì — nếu muốn tạo video AI, nên học
+          <strong>Veo</strong>, <strong>Runway</strong> hoặc <strong>Pika/Kling</strong> ở các trang bên cạnh thay thế.</div>
+
+        <h3>Những gì Sora từng làm được (tham khảo)</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Cameo</b><span>Quay một đoạn xác nhận 3–10 giây để tạo "bản sao số" của chính bạn, sau đó chèn gương mặt/dáng người đó vào các video mới.</span></div>
+          <div class="feat"><b>Storyboard</b><span>Chia video thành từng cảnh trên dòng thời gian, ghim hành động chính cho từng cảnh.</span></div>
+          <div class="feat"><b>Remix</b><span>Tạo lại một video đã có với yêu cầu mới, giữ nguyên bố cục/khung hình gốc.</span></div>
+          <div class="feat"><b>Text-to-video &amp; Image-to-video</b><span>Tạo video từ mô tả chữ hoặc từ một ảnh có sẵn.</span></div>
+        </div>
+
+        <div class="tool-meta">Cập nhật 08/2026 — Sora đang trong quá trình ngừng hoạt động hoàn toàn, thông tin trên chỉ mang tính lưu trữ tham khảo.</div>
+      </div>
+
+      <div class="tool-page" id="tool-veo" hidden>
+        <div class="tool-page-head">
+          <h2>Veo <span class="track-tag">Google, qua Gemini/Flow</span></h2>
+          <p class="tagline">Công cụ tạo video của Google, đi kèm trình biên tập Flow — mạnh nhất trong nhóm về
+            giữ nhân vật/đồ vật nhất quán xuyên suốt nhiều cảnh nối tiếp nhau.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>labs.google/flow</strong>, đăng nhập bằng tài khoản Google — được tặng 50 credit miễn phí mỗi ngày dù chưa trả phí.</li>
+          <li>Bấm <strong>"New project"</strong>, gõ mô tả cảnh muốn tạo vào ô nhập, bấm Generate.</li>
+          <li>Video xuất hiện sau khoảng 1–2 phút — bấm tải xuống hoặc chỉnh tiếp ngay trong Flow.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Ingredients to Video</b><span>Đưa ảnh nhân vật/đồ vật/phong cách làm "nguyên liệu", Veo kết hợp chúng vào một cảnh nhất quán — cách chính để giữ đúng ngoại hình xuyên suốt.</span></div>
+          <div class="feat"><b>Scene Builder</b><span>Ghép nhiều video ngắn thành một cảnh liền mạch — công cụ tự đọc khung hình cuối của clip trước để tạo clip tiếp theo khớp cảnh.</span></div>
+          <div class="feat"><b>Camera Controls</b><span>Chọn sẵn các chuyển động máy quay (lia, nghiêng, phóng to, tiến/lùi) thay vì chỉ mô tả bằng chữ.</span></div>
+          <div class="feat"><b>Âm thanh/lời thoại đồng bộ</b><span>Tạo tiếng nói và âm thanh không gian cùng lúc với video, không cần lồng tiếng riêng sau đó.</span></div>
+          <div class="feat"><b>Nối dài / cắt clip</b><span>Kéo dài hoặc cắt gọn video ngay trong Scene Builder.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: tạo cảnh nhất quán bằng Ingredients to Video</h3>
+        <ol class="steps">
+          <li>Chuẩn bị trước 2–3 ảnh rõ nét của nhân vật/đồ vật muốn xuất hiện xuyên suốt video.</li>
+          <li>Trong Flow, chọn <strong>"Ingredients to Video"</strong>, tải các ảnh đó lên.</li>
+          <li>Mô tả cảnh muốn tạo, Veo sẽ giữ đúng ngoại hình đã tải lên khi dựng cảnh mới.</li>
+          <li>Dùng Scene Builder để nối thêm cảnh tiếp theo, cùng nhân vật đó xuất hiện nhất quán.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>50 credit/ngày, dùng model Fast</td></tr>
+          <tr><td>Google AI Plus (~$8)</td><td>Veo bản Fast, nhiều credit hơn</td></tr>
+          <tr><td>Google AI Pro (~$20)</td><td>1.000 credit/tháng, có cả Fast lẫn Quality (giới hạn)</td></tr>
+          <tr><td>Google AI Ultra (~$250)</td><td>25.000 credit/tháng, dùng Quality đầy đủ — chất lượng/độ nhất quán cao nhất</td></tr>
+        </table>
+
+        <div class="tip">💡 Chuẩn bị sẵn "thư viện nguyên liệu" (2–3 ảnh nhân vật/đồ vật sạch) trước khi viết prompt cảnh — đây là yếu tố quyết định độ nhất quán, không phải cách viết prompt hay dở.</div>
+        <div class="tip">⚠️ Chất lượng cao nhất (Quality, nhất quán tốt nhất) chỉ mở đầy đủ ở gói Ultra đắt tiền — gói free/thấp dùng model Fast/Lite, chất lượng thấy rõ kém hơn.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-runway" hidden>
+        <div class="tool-page-head">
+          <h2>Runway <span class="track-tag">Runway AI</span></h2>
+          <p class="tagline">Công cụ hướng tới nhà làm phim/agency chuyên nghiệp — kiểm soát camera, ánh sáng chi
+            tiết nhất, đồng thời là nơi có thể dùng chung cả Veo lẫn Kling trong một bảng điều khiển.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>runwayml.com</strong>, đăng ký free — được tặng 125 credit dùng một lần duy nhất.</li>
+          <li>Bấm <strong>"Generate video"</strong>, chọn tạo từ chữ hoặc từ ảnh có sẵn, gõ mô tả rồi bấm Generate.</li>
+          <li>Video hiện sau khoảng 1 phút — tải xuống hoặc chỉnh tiếp bằng các công cụ khác trong Runway.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Giữ nhân vật nhất quán</b><span>Tải ảnh tham chiếu để giữ đúng ngoại hình nhân vật dù đổi góc quay/ánh sáng khác hẳn.</span></div>
+          <div class="feat"><b>Motion Brush 2.0</b><span>Tô trực tiếp lên từng vùng của ảnh tĩnh để chỉ định vùng đó chuyển động ra sao (VD: mây trôi một hướng, nhân vật đi hướng khác).</span></div>
+          <div class="feat"><b>Director Mode</b><span>Điều khiển máy quay chính xác: lia, nghiêng, zoom, dolly, xoay — theo từng mức độ nhỏ.</span></div>
+          <div class="feat"><b>Act-Two</b><span>Quay biểu cảm/chuyển động của chính bạn qua webcam, AI ánh xạ lại lên nhân vật do AI tạo ra.</span></div>
+          <div class="feat"><b>Aleph</b><span>Chỉnh sửa video đã có sẵn (đổi ánh sáng, phong cách, không khí) mà không cần tạo lại từ đầu.</span></div>
+          <div class="feat"><b>Dùng chung nhiều model</b><span>Từ gói Standard trở lên, gọi được cả Veo 3.1, Kling 3.0 Pro ngay trong Runway, không cần mở app khác.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: dùng Aleph để chỉnh video có sẵn</h3>
+        <ol class="steps">
+          <li>Tải lên video bạn đã có (của bạn hoặc đã tạo trước đó trong Runway).</li>
+          <li>Chọn công cụ <strong>"Aleph"</strong>, mô tả thay đổi muốn thực hiện (VD: "đổi thành cảnh hoàng hôn, ánh sáng ấm hơn").</li>
+          <li>Runway chỉnh lại video theo mô tả, giữ nguyên chuyển động gốc — rẻ hơn nhiều so với tạo lại từ đầu.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>125 credit dùng một lần duy nhất</td></tr>
+          <tr><td>Standard (~$12)</td><td>625 credit/tháng, xuất 4K, không watermark</td></tr>
+          <tr><td>Pro (~$35)</td><td>2.250 credit/tháng</td></tr>
+          <tr><td>Unlimited (~$95)</td><td>Không giới hạn credit (ở chế độ xử lý chậm)</td></tr>
+        </table>
+
+        <div class="tip">💡 Video ưng ý nhưng còn sạn — dùng Aleph để sửa lại thay vì tạo mới từ đầu, tiết kiệm credit hơn nhiều.</div>
+        <div class="tip">⚠️ Chế độ 4K/Turbo tốn gấp 2–4 lần credit so với chế độ thường — người mới dễ hết hạn mức tháng rất nhanh nếu không tính trước số cảnh cần tạo.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-pika" hidden>
+        <div class="tool-page-head">
+          <h2>Pika / Kling <span class="track-tag">Pika Labs &amp; Kuaishou</span></h2>
+          <p class="tagline">Hai công cụ tạo video ngắn phổ biến khác: Pika thiên về hiệu ứng vui/độc lạ dễ dùng,
+            Kling thiên về video dài hơn, chất lượng cao, có âm thanh đồng bộ.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>pika.art</strong> hoặc <strong>klingai.com</strong>, đăng ký free (Pika 80 credit/tháng, Kling nhận credit qua đăng nhập hàng ngày).</li>
+          <li>Chọn tạo từ chữ hoặc từ ảnh có sẵn, gõ mô tả, bấm Generate.</li>
+          <li>Video ngắn hiện ra sau khoảng 30 giây tới vài phút tuỳ độ dài/chất lượng chọn.</li>
+        </ol>
+
+        <h3>Tính năng chính — Pika</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Pikaffects</b><span>Hiệu ứng phi vật lý vui mắt: tan chảy, nổ tung, phồng to, bóp méo chủ thể trong video.</span></div>
+          <div class="feat"><b>Pikadditions</b><span>Chèn thêm nhân vật/đồ vật mới vào một video có sẵn.</span></div>
+          <div class="feat"><b>Pikaswaps</b><span>Thay thế một chủ thể/đồ vật trong cảnh bằng thứ khác.</span></div>
+          <div class="feat"><b>Pikaframes</b><span>Chỉ định khung hình đầu và cuối, AI tự tạo chuyển động nối giữa hai khung đó.</span></div>
+        </div>
+
+        <h3>Tính năng chính — Kling</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Kể chuyện nhiều cảnh</b><span>Nối tới 6 cảnh liên tiếp thành một mạch chuyện liền lạc trong bản Kling 3.0.</span></div>
+          <div class="feat"><b>Video dài tới 3 phút</b><span>Dài hơn hẳn Runway (~40 giây) hay Sora (~35 giây) trước đây.</span></div>
+          <div class="feat"><b>Âm thanh đồng bộ</b><span>Tạo lời thoại, nhạc nền, hiệu ứng âm thanh cùng lúc với hình, không cần lồng ghép riêng.</span></div>
+          <div class="feat"><b>Chất lượng 4K/60fps</b><span>Từ kiến trúc "Omni One" ra mắt 4/2026.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: khoá điểm đầu/cuối bằng Pikaframes</h3>
+        <ol class="steps">
+          <li>Chọn hoặc tải lên ảnh làm khung hình đầu tiên của video.</li>
+          <li>Tải thêm ảnh làm khung hình cuối cùng bạn muốn video kết thúc ở đó.</li>
+          <li>Bấm Generate — Pika tự tạo chuyển động nối liền hai khung hình, giữ chủ thể không bị "trôi" lệch giữa chừng.</li>
+          <li>Muốn thêm hiệu ứng vui (tan chảy, nổ...) thì áp Pikaffects SAU khi đã khoá xong hai đầu, không làm ngược lại.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Công cụ</th><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Pika</td><td>Free / Standard (~$8–10) / Pro (~$28–35) / Fancy (~$76–95)</td><td>Càng lên cao càng nhiều credit, độ phân giải cao hơn</td></tr>
+          <tr><td>Kling</td><td>Free (không có quyền thương mại) / các gói $6.99–$64.99 / Ultra (~$180)</td><td>Video dài hơn, có âm thanh, chất lượng cao hơn ở gói cao</td></tr>
+        </table>
+
+        <div class="tip">💡 Với Kling, luôn tạo âm thanh và video cùng một lần thay vì thêm giọng/nhạc sau bằng phần mềm khác — vừa rẻ hơn vừa khớp nhịp tốt hơn.</div>
+        <div class="tip">⚠️ Gói free của Kling không có quyền dùng thương mại, còn Pika bản free/thấp giới hạn video 10 giây và độ phân giải — cần kiểm tra kỹ trước khi dùng cho công việc.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-elevenlabs" hidden>
+        <div class="tool-page-head">
+          <h2>ElevenLabs <span class="track-tag">ElevenLabs</span></h2>
+          <p class="tagline">Nền tảng giọng nói AI đầy đủ nhất: đọc văn bản thành giọng tự nhiên, nhân bản giọng
+            nói, lồng tiếng đa ngôn ngữ — hay dùng cho lồng tiếng, sách nói, video.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>elevenlabs.io</strong>, đăng ký free (khoảng 10.000 credit/tháng, đủ dùng thử).</li>
+          <li>Chọn <strong>"Text to Speech"</strong>, dán văn bản vào ô nhập, chọn một giọng có sẵn ở danh sách bên phải.</li>
+          <li>Bấm <strong>"Generate"</strong>, nghe thử rồi tải file âm thanh xuống nếu ưng ý.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Nhân bản giọng tức thì (Instant Voice Cloning)</b><span>Nhân bản một giọng nói chỉ từ 1–2 phút ghi âm sạch.</span></div>
+          <div class="feat"><b>Nhân bản giọng chuyên nghiệp (Professional Voice Cloning)</b><span>Cần nhiều mẫu ghi âm hơn nhưng cho giọng tự nhiên, ổn định hơn — hợp đọc sách nói dài.</span></div>
+          <div class="feat"><b>Dubbing (lồng tiếng)</b><span>Lồng tiếng video sang hơn 29 ngôn ngữ khác, vẫn giữ được chất giọng gốc của người nói.</span></div>
+          <div class="feat"><b>Voice Design</b><span>Tạo một giọng nói hoàn toàn mới chỉ từ mô tả bằng chữ, không cần bản ghi âm gốc.</span></div>
+          <div class="feat"><b>Sound Effects</b><span>Tạo hiệu ứng âm thanh hoặc đoạn nhạc ngắn (tới 22 giây) từ mô tả bằng lời.</span></div>
+          <div class="feat"><b>Projects/Studio</b><span>Công cụ làm sách nói/nội dung dài theo từng chương, sửa được riêng từng đoạn thay vì tạo lại cả file.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: nhân bản giọng nói của chính bạn</h3>
+        <ol class="steps">
+          <li>Vào mục <strong>"Voices"</strong> → <strong>"Add voice"</strong> → chọn <strong>"Instant Voice Cloning"</strong>.</li>
+          <li>Ghi âm hoặc tải lên 1–2 phút giọng nói rõ, ít tạp âm.</li>
+          <li>Đọc to câu xác nhận đồng ý mà hệ thống yêu cầu (bắt buộc, để xác thực đây đúng là giọng của bạn).</li>
+          <li>Đặt tên cho giọng vừa tạo — từ nay chọn giọng này ở "Text to Speech" như mọi giọng có sẵn khác.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>~10.000 credit/tháng</td></tr>
+          <tr><td>Starter (~$5) / Creator (~$11)</td><td>Nhân bản giọng, quyền dùng thương mại, chất lượng cao hơn</td></tr>
+          <tr><td>Pro (~$99)</td><td>500.000 credit, chất lượng âm thanh cao nhất qua API</td></tr>
+          <tr><td>Scale (~$330) / Business (~$1.320)</td><td>Dành cho đội nhóm/doanh nghiệp, độ trễ thấp</td></tr>
+        </table>
+
+        <div class="tip">💡 Làm sách nói/nội dung dài, dùng Projects/Studio thay vì ô Text to Speech thường — sửa được từng đoạn nhỏ khi có lỗi, không tốn credit tạo lại cả file.</div>
+        <div class="tip">⚠️ Chỉ nhân bản giọng của chính bạn hoặc người đã đồng ý rõ ràng — công nghệ nhân bản giọng từng bị lợi dụng cho lừa đảo/giả mạo; từ 2/8/2026 EU áp dụng luật bắt buộc gắn nhãn nội dung do AI tạo ra.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-suno" hidden>
+        <div class="tool-page-head">
+          <h2>Suno / Udio <span class="track-tag">Suno &amp; Udio</span></h2>
+          <p class="tagline">Chỉ cần mô tả thể loại/tâm trạng (hoặc dán lời có sẵn), AI sáng tác cả nhạc nền lẫn
+            giọng hát, ra một bài hoàn chỉnh trong khoảng một phút.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>suno.com</strong> hoặc <strong>udio.com</strong>, đăng ký free.</li>
+          <li>Ở ô nhập, mô tả bài hát muốn tạo (VD: "nhạc pop vui tươi về một buổi sáng mùa xuân") — hoặc bấm "Custom" để tự viết lời riêng.</li>
+          <li>Bấm <strong>"Create"</strong>, chờ khoảng 1 phút để nhận 2 phiên bản bài hát, nghe thử và tải xuống bản ưng ý.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Viết lời tuỳ chỉnh</b><span>Dán lời bài hát của riêng bạn thay vì để AI tự sáng tác lời.</span></div>
+          <div class="feat"><b>Giữ phong cách/giọng cố định</b><span>Suno dùng "Personas" để khoá một giọng/phong cách hát xuyên suốt nhiều bài; Udio dùng "Voice Control" để lấy và tái sử dụng chất giọng từ một bài có sẵn.</span></div>
+          <div class="feat"><b>Tách bè nhạc cụ (Stem split)</b><span>Tách bài hát thành từng lớp nhạc cụ riêng (trống, bass, giọng hát...) để chỉnh sửa hoặc phối lại trong phần mềm nhạc khác.</span></div>
+          <div class="feat"><b>Extend</b><span>Kéo dài một bài bị cắt ngang, hoặc đổi phong cách bài đó thành thể loại khác.</span></div>
+          <div class="feat"><b>Remix/Cover</b><span>Phối lại bài của chính bạn (hoặc bài cộng đồng cho phép) theo phong cách mới.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: tách bài hát thành từng nhạc cụ riêng</h3>
+        <ol class="steps">
+          <li>Mở bài hát đã tạo, tìm nút <strong>"Stems"</strong> hoặc <strong>"Split"</strong> ở menu tuỳ chọn của bài (cần gói trả phí).</li>
+          <li>Chọn kiểu tách: tách nhanh (Auto Split, ra ~12 lớp) hoặc chỉ tách một phần cụ thể (VD: chỉ tách riêng giọng hát).</li>
+          <li>Tải file WAV từng lớp về, mở trong phần mềm dựng nhạc (Ableton, Logic...) để chỉnh sửa/phối lại theo ý bạn.</li>
+        </ol>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Công cụ</th><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Suno</td><td>Free / Pro (~$8) / Premier (~$24)</td><td>Pro có ~500 bài/tháng + quyền thương mại + tách bè; Premier thêm studio phối nhạc trên trình duyệt</td></tr>
+          <tr><td>Udio</td><td>Free (100 credit) / Standard (~$10) / Pro (~$30)</td><td>Pro mở Style/Extend/Remix, âm thanh chất lượng cao hơn</td></tr>
+        </table>
+
+        <div class="tip">💡 Tạo vài bản ngắn, rẻ trước để chọn ý ưng nhất, chỉ dùng Extend/tách bè cho đúng bản đó — mỗi thao tác đều tốn credit riêng.</div>
+        <div class="tip">⚠️ Cả hai nền tảng từng bị các hãng thu âm lớn kiện vì huấn luyện trên nhạc có bản quyền chưa xin phép; một số vụ đã dàn xếp (trả tiền theo lượt tạo nhạc), một số vẫn đang kiện — quyền sở hữu bài hát bạn tạo ra vẫn còn một số điểm chưa rõ ràng về pháp lý.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-whisper" hidden>
+        <div class="tool-page-head">
+          <h2>Whisper <span class="track-tag">OpenAI</span></h2>
+          <p class="tagline">Công cụ chuyển giọng nói thành văn bản (speech-to-text), mã nguồn mở — khác các công
+            cụ còn lại ở chỗ đây là một "linh kiện" để dùng bên trong ứng dụng khác, không phải app mở lên là dùng
+            ngay.</p>
+        </div>
+
+        <h3>Bắt đầu lần đầu (cách dễ nhất cho người không biết code)</h3>
+        <ol class="steps">
+          <li>Không cần tự cài Whisper — tải một ứng dụng desktop miễn phí đã tích hợp sẵn Whisper (VD: MacWhisper trên Mac, hoặc các công cụ phiên âm online miễn phí có ghi "dùng Whisper").</li>
+          <li>Mở ứng dụng, kéo thả file ghi âm (mp3/m4a/wav...) vào cửa sổ chương trình.</li>
+          <li>Bấm nút phiên âm (Transcribe), chờ vài chục giây tới vài phút tuỳ độ dài file, rồi copy hoặc xuất văn bản kết quả.</li>
+        </ol>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Phiên âm đa ngôn ngữ</b><span>Nhận diện được hơn 99 ngôn ngữ, độ chính xác cao với audio rõ, ít nhiễu.</span></div>
+          <div class="feat"><b>Chế độ dịch</b><span>Có thể phiên âm trực tiếp giọng nói tiếng nước ngoài thành văn bản tiếng Anh (một chiều, không phải dịch qua lại nhiều ngôn ngữ).</span></div>
+          <div class="feat"><b>Mốc thời gian (timestamps)</b><span>Đánh dấu thời điểm từng đoạn/câu trong file gốc — hữu ích để làm phụ đề.</span></div>
+          <div class="feat"><b>Chạy offline hoàn toàn</b><span>Vì mã nguồn mở, có thể tự chạy trên máy riêng, dữ liệu không rời khỏi máy bạn.</span></div>
+          <div class="feat"><b>Dùng qua API</b><span>Lập trình viên có thể gọi trực tiếp để nhúng vào ứng dụng riêng, trả phí theo phút ghi âm.</span></div>
+        </div>
+
+        <h3>Hướng dẫn từng bước: phiên âm một cuộc họp đã ghi âm</h3>
+        <ol class="steps">
+          <li>Chuẩn bị file ghi âm cuộc họp (mp3/m4a/wav), kiểm tra dung lượng dưới 25MB nếu định dùng qua công cụ online/API — file lớn hơn cần cắt nhỏ trước.</li>
+          <li>Mở ứng dụng phiên âm đã cài (VD: MacWhisper), tải file lên.</li>
+          <li>Chọn ngôn ngữ gốc (hoặc để tự nhận diện), bấm phiên âm.</li>
+          <li>Xuất kết quả ra file văn bản (.txt hoặc .srt nếu cần kèm mốc thời gian làm phụ đề).</li>
+        </ol>
+
+        <h3>Chi phí</h3>
+        <table class="course-table">
+          <tr><th>Cách dùng</th><th>Chi phí</th></tr>
+          <tr><td>Tự chạy máy riêng (mã nguồn mở)</td><td>Miễn phí hoàn toàn</td></tr>
+          <tr><td>Qua API OpenAI</td><td>Khoảng $0.003–$0.006 mỗi phút ghi âm tuỳ model</td></tr>
+          <tr><td>Qua app desktop có sẵn (MacWhisper...)</td><td>Thường trả một lần hoặc miễn phí bản giới hạn</td></tr>
+        </table>
+
+        <div class="tip">💡 Cần mốc thời gian chính xác theo từng từ (VD: dựng phụ đề khớp khẩu hình) — bản Whisper gốc chỉ chia mốc theo cả câu/đoạn, cần công cụ nâng cao hơn như WhisperX mới ra được mốc theo từng từ.</div>
+        <div class="tip">⚠️ Độ chính xác giảm rõ rệt với giọng địa phương nặng, nhiều người nói chồng tiếng nhau, hoặc phòng ồn — văn bản quan trọng (pháp lý, y tế, biên bản chính thức) vẫn cần người đọc lại kiểm tra.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+    </div>
   </div>
 
   <div class="subwrap" id="sub-overview" hidden>
@@ -1862,6 +2738,7 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   function showSubTab(name){
     var subs = {
       general: document.getElementById('sub-general'),
+      toolsdeep: document.getElementById('sub-toolsdeep'),
       overview: document.getElementById('sub-overview'),
       claude: document.getElementById('sub-claude'),
       agentic: document.getElementById('sub-agentic'),
@@ -1912,6 +2789,31 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       }).join('') + '</ul></div>';
   }).join('');
 
+  var toolpicker = document.getElementById('toolpicker');
+  if (toolpicker) {
+    toolpicker.innerHTML = Object.keys(CATS).map(function(cat){
+      var tools = TOOLS.filter(function(t){ return t.cat === cat; });
+      return '<div class="toolpicker-group"><h4><span class="tp-dot ' + CATS[cat].cls + '"></span>' + CATS[cat].label + '</h4><div class="toolpicker-row">' +
+        tools.map(function(t, i){
+          return '<button data-tool="' + t.id + '" class="' + (cat === 'chat' && i === 0 ? 'active' : '') + '">' + t.name + '</button>';
+        }).join('') + '</div></div>';
+    }).join('');
+    toolpicker.addEventListener('click', function(e){
+      var b = e.target.closest('[data-tool]');
+      if(!b) return;
+      window.showToolPage(b.getAttribute('data-tool'));
+    });
+  }
+
+  window.showToolPage = function(id){
+    document.querySelectorAll('.tool-page').forEach(function(p){ p.hidden = (p.id !== id); });
+    document.querySelectorAll('.toolpicker-row button').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-tool') === id);
+    });
+    var host = document.getElementById('sub-toolsdeep');
+    if (host) host.scrollIntoView({behavior:'smooth', block:'start'});
+  };
+
   function closeMenu(){
     panel.classList.remove('open');
     btn.classList.remove('open');
@@ -1946,14 +2848,8 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     var id = a.getAttribute('data-tool');
     closeMenu();
     showTab('concepts');
-    showSubTab('general');
-    setTimeout(function(){
-      var el = document.getElementById(id);
-      if(!el) return;
-      el.scrollIntoView({behavior:'smooth', block:'center'});
-      el.classList.add('tool-flash');
-      setTimeout(function(){ el.classList.remove('tool-flash'); }, 1900);
-    }, 60);
+    showSubTab('toolsdeep');
+    setTimeout(function(){ window.showToolPage(id); }, 60);
   });
 
   document.addEventListener('click', function(e){
