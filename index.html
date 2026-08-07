@@ -139,14 +139,20 @@
   .subtab-btn.active{background:var(--pink-light);color:#fff;border-color:var(--pink-light)}
   .subwrap{margin:0}
 
+  .cat-tabs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+  .cat-tabs button{
+    font:inherit;font-size:.82rem;font-weight:700;white-space:nowrap;
+    background:var(--card);color:var(--muted);border:1.5px solid var(--border);
+    border-radius:999px;padding:7px 15px;cursor:pointer;
+  }
+  .cat-tabs button:hover{border-color:var(--accent2)}
+  .cat-tabs button.active{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .cat-desc{color:var(--muted);font-size:.9rem;margin:0 0 14px}
   .toolpicker{
-    display:flex;gap:20px;overflow-x:auto;padding:4px 4px 16px;margin-bottom:24px;
+    display:flex;flex-wrap:wrap;gap:6px;padding:4px 4px 16px;margin-bottom:24px;
     border-bottom:1px solid var(--border);
   }
-  .toolpicker-group{flex:none;display:flex;flex-direction:column;gap:6px}
-  .toolpicker-group h4{margin:0 0 2px;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;
-    color:var(--muted);display:flex;align-items:center;gap:5px;white-space:nowrap}
-  .toolpicker-row{display:flex;gap:6px}
+  .toolpicker-row{display:flex;flex-wrap:wrap;gap:6px}
   .toolpicker-row button{
     font:inherit;font-size:.78rem;font-weight:600;white-space:nowrap;
     background:var(--card);color:var(--muted);border:1.5px solid var(--border);
@@ -535,44 +541,44 @@
         <tr><th>Việc cần làm</th><th>Công cụ gợi ý</th></tr>
         <tr>
           <td>Viết caption, mô tả sản phẩm, trả lời khách mẫu</td>
-          <td><a href="#tool-chatgpt" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-chatgpt');return false;">ChatGPT</a>,
-            <a href="#tool-claude" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-claude');return false;">Claude</a>,
-            <a href="#tool-gemini" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-gemini');return false;">Gemini</a></td>
+          <td><a href="#tool-chatgpt" onclick="goToToolFull('tool-chatgpt');return false;">ChatGPT</a>,
+            <a href="#tool-claude" onclick="goToToolFull('tool-claude');return false;">Claude</a>,
+            <a href="#tool-gemini" onclick="goToToolFull('tool-gemini');return false;">Gemini</a></td>
         </tr>
         <tr>
           <td>Ảnh sản phẩm sạch, xoá nền, làm hàng loạt</td>
-          <td><a href="#tool-canva" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-canva');return false;">Canva</a>,
-            <a href="#tool-photoroom" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-photoroom');return false;">PhotoRoom</a></td>
+          <td><a href="#tool-canva" onclick="goToToolFull('tool-canva');return false;">Canva</a>,
+            <a href="#tool-photoroom" onclick="goToToolFull('tool-photoroom');return false;">PhotoRoom</a></td>
         </tr>
         <tr>
           <td>Ảnh minh hoạ sáng tạo (không phải ảnh chụp thật)</td>
-          <td><a href="#tool-midjourney" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-midjourney');return false;">Midjourney</a>,
-            <a href="#tool-dalle" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-dalle');return false;">DALL-E</a>,
-            <a href="#tool-firefly" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-firefly');return false;">Adobe Firefly</a></td>
+          <td><a href="#tool-midjourney" onclick="goToToolFull('tool-midjourney');return false;">Midjourney</a>,
+            <a href="#tool-dalle" onclick="goToToolFull('tool-dalle');return false;">DALL-E</a>,
+            <a href="#tool-firefly" onclick="goToToolFull('tool-firefly');return false;">Adobe Firefly</a></td>
         </tr>
         <tr>
           <td>Video ngắn TikTok/Reels quảng cáo sản phẩm</td>
-          <td><a href="#tool-capcut" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-capcut');return false;">CapCut</a></td>
+          <td><a href="#tool-capcut" onclick="goToToolFull('tool-capcut');return false;">CapCut</a></td>
         </tr>
         <tr>
           <td>Giọng đọc AI cho video quảng cáo</td>
-          <td><a href="#tool-elevenlabs" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-elevenlabs');return false;">ElevenLabs</a></td>
+          <td><a href="#tool-elevenlabs" onclick="goToToolFull('tool-elevenlabs');return false;">ElevenLabs</a></td>
         </tr>
         <tr>
           <td>Nhạc nền cho video/quảng cáo</td>
-          <td><a href="#tool-suno" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-suno');return false;">Suno / Udio</a></td>
+          <td><a href="#tool-suno" onclick="goToToolFull('tool-suno');return false;">Suno / Udio</a></td>
         </tr>
         <tr>
           <td>Gộp tin nhắn nhiều kênh, chatbot tự trả lời khách</td>
-          <td><a href="#tool-pancake" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-pancake');return false;">Pancake / Botcake</a></td>
+          <td><a href="#tool-pancake" onclick="goToToolFull('tool-pancake');return false;">Pancake / Botcake</a></td>
         </tr>
         <tr>
           <td>Chạy quảng cáo Facebook/Instagram tự động tối ưu</td>
-          <td><a href="#tool-metaads" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-metaads');return false;">Meta Advantage+</a></td>
+          <td><a href="#tool-metaads" onclick="goToToolFull('tool-metaads');return false;">Meta Advantage+</a></td>
         </tr>
         <tr>
           <td>Mô tả sản phẩm SEO hàng loạt cho sàn TMĐT</td>
-          <td><a href="#tool-copyai" onclick="showTab('concepts');showSubTab('toolsdeep');showToolPage('tool-copyai');return false;">Copy.ai</a></td>
+          <td><a href="#tool-copyai" onclick="goToToolFull('tool-copyai');return false;">Copy.ai</a></td>
         </tr>
       </table>
     </div>
@@ -718,9 +724,12 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
 
   <div class="subwrap" id="sub-toolsdeep" hidden>
 
-    <p>Mỗi AI dưới đây có một trang riêng: đủ tính năng để dùng thành thạo, không chỉ là giới thiệu sơ lược.
-      Chọn một công cụ bên dưới (hoặc bấm thẳng từ menu "Công cụ AI" trên đầu trang).</p>
+    <p>Mỗi nhóm công cụ có một trang riêng, mỗi AI trong đó cũng có trang riêng: đủ tính năng để dùng thành thạo,
+      không chỉ là giới thiệu sơ lược. Chọn một nhóm rồi chọn công cụ bên dưới (hoặc bấm thẳng từ menu "Công cụ AI"
+      trên đầu trang).</p>
 
+    <div class="cat-tabs" id="cat-tabs"></div>
+    <p class="cat-desc" id="cat-desc"></p>
     <div class="toolpicker" id="toolpicker"></div>
     <div id="toolpages">
 
@@ -3141,15 +3150,54 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       }).join('') + '</ul></div>';
   }).join('');
 
+  var CAT_DESC = {
+    chat: 'Trợ lý trò chuyện đa năng — viết lách, tra cứu, lập trình, brainstorm.',
+    image: 'Vẽ ảnh từ mô tả bằng lời — không cần biết thiết kế hay vẽ tay.',
+    video: 'Tạo video ngắn có chuyển động từ chữ hoặc ảnh có sẵn.',
+    voice: 'Chuyển chữ thành giọng nói, nhân bản giọng, sáng tác nhạc bằng AI.',
+    business: 'Thiết kế, dựng video, chăm sóc khách, quảng cáo — cho ai đang bán hàng.'
+  };
+
+  var catTabsEl = document.getElementById('cat-tabs');
+  var catDescEl = document.getElementById('cat-desc');
   var toolpicker = document.getElementById('toolpicker');
-  if (toolpicker) {
-    toolpicker.innerHTML = Object.keys(CATS).map(function(cat){
-      var tools = TOOLS.filter(function(t){ return t.cat === cat; });
-      return '<div class="toolpicker-group"><h4><span class="tp-dot ' + CATS[cat].cls + '"></span>' + CATS[cat].label + '</h4><div class="toolpicker-row">' +
-        tools.map(function(t, i){
-          return '<button data-tool="' + t.id + '" class="' + (cat === 'chat' && i === 0 ? 'active' : '') + '">' + t.name + '</button>';
-        }).join('') + '</div></div>';
+  var activeCat = 'chat';
+
+  if (catTabsEl) {
+    catTabsEl.innerHTML = Object.keys(CATS).map(function(cat){
+      return '<button data-cat="' + cat + '" class="' + (cat === activeCat ? 'active' : '') + '">' +
+        '<span class="tp-dot ' + CATS[cat].cls + '"></span> ' + CATS[cat].label + '</button>';
     }).join('');
+    catTabsEl.addEventListener('click', function(e){
+      var b = e.target.closest('[data-cat]');
+      if(!b) return;
+      window.showToolCat(b.getAttribute('data-cat'));
+    });
+  }
+
+  function renderToolpicker(cat){
+    if (!toolpicker) return;
+    var tools = TOOLS.filter(function(t){ return t.cat === cat; });
+    toolpicker.innerHTML = '<div class="toolpicker-row">' + tools.map(function(t, i){
+      return '<button data-tool="' + t.id + '" class="' + (i === 0 ? 'active' : '') + '">' + t.name + '</button>';
+    }).join('') + '</div>';
+  }
+
+  window.showToolCat = function(cat){
+    if (!CATS[cat]) cat = 'chat';
+    activeCat = cat;
+    if (catDescEl) catDescEl.textContent = CAT_DESC[cat] || '';
+    if (catTabsEl) {
+      catTabsEl.querySelectorAll('button').forEach(function(b){
+        b.classList.toggle('active', b.getAttribute('data-cat') === cat);
+      });
+    }
+    renderToolpicker(cat);
+    var first = TOOLS.filter(function(t){ return t.cat === cat; })[0];
+    if (first) window.showToolPage(first.id, true);
+  };
+
+  if (toolpicker) {
     toolpicker.addEventListener('click', function(e){
       var b = e.target.closest('[data-tool]');
       if(!b) return;
@@ -3157,14 +3205,26 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     });
   }
 
-  window.showToolPage = function(id){
+  window.showToolPage = function(id, skipScroll){
     document.querySelectorAll('.tool-page').forEach(function(p){ p.hidden = (p.id !== id); });
     document.querySelectorAll('.toolpicker-row button').forEach(function(b){
       b.classList.toggle('active', b.getAttribute('data-tool') === id);
     });
+    if (skipScroll) return;
     var host = document.getElementById('sub-toolsdeep');
     if (host) host.scrollIntoView({behavior:'smooth', block:'start'});
   };
+
+  window.goToToolFull = function(id){
+    var t = TOOLS.filter(function(x){ return x.id === id; })[0];
+    if (!t) return;
+    showTab('concepts');
+    showSubTab('toolsdeep');
+    window.showToolCat(t.cat);
+    setTimeout(function(){ window.showToolPage(id); }, 30);
+  };
+
+  window.showToolCat('chat');
 
   function closeMenu(){
     panel.classList.remove('open');
@@ -3199,9 +3259,7 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     e.preventDefault();
     var id = a.getAttribute('data-tool');
     closeMenu();
-    showTab('concepts');
-    showSubTab('toolsdeep');
-    setTimeout(function(){ window.showToolPage(id); }, 60);
+    window.goToToolFull(id);
   });
 
   document.addEventListener('click', function(e){
