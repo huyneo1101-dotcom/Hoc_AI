@@ -1,7 +1,46 @@
 {
  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
- "cap_nhat": "2026-08-12",
+ "cap_nhat": "2026-08-13",
  "muc": [
+  {
+   "ngay": "12/08/2026",
+   "cat": "model",
+   "tieu_de": "Mô hình Anthropic chưa phát hành đạt tiến bộ với bài toán toán học 150 năm chưa ai giải được",
+   "noi_dung": "TechCrunch đưa tin một mô hình của Anthropic chưa được công bố chính thức đã đạt tiến bộ trong giả thuyết Riemann, bài toán toán học nổi tiếng chưa có lời giải suốt hơn 150 năm qua. Bài viết nói rõ Anthropic chưa giải được bài toán này, chỉ là mô hình tiến xa hơn mức người ta từng nghĩ.",
+   "voi_ban": "Đây là tin về nghiên cứu, chưa phải tính năng bạn dùng được ngay, nhưng cho thấy Anthropic đang thử sức các mô hình mới với những bài toán khó nhất, dấu hiệu của phiên bản Claude mạnh hơn sắp tới.",
+   "nguon": [
+    {
+     "ten": "TechCrunch",
+     "url": "https://techcrunch.com/2026/08/11/an-unreleased-anthropic-model-made-progress-on-one-of-maths-biggest-unsolved-problems/"
+    }
+   ]
+  },
+  {
+   "ngay": "12/08/2026",
+   "cat": "hatang",
+   "tieu_de": "Google ra mắt Pixel 11 kèm loạt tính năng Gemini mới",
+   "noi_dung": "Tại sự kiện Made by Google 2026, Google giới thiệu dòng điện thoại Pixel 11, đồng hồ Pixel Watch 5, thiết bị định vị Pixel Tag cạnh tranh AirTag, cùng nhiều tính năng Gemini mới tích hợp trên các thiết bị này.",
+   "voi_ban": "Nếu định mua điện thoại mới, dòng Pixel 11 hiện tích hợp Gemini sâu nhất trong các máy Android; đang dùng máy cũ thì chưa cần đổi ngay, tính năng Gemini phần lớn vẫn dùng được qua ứng dụng.",
+   "nguon": [
+    {
+     "ten": "TechCrunch",
+     "url": "https://techcrunch.com/2026/08/12/google-unveils-pixel-11-lineup-new-airtag-rival-and-gemini-features-at-made-by-google-2026/"
+    }
+   ]
+  },
+  {
+   "ngay": "11/08/2026",
+   "cat": "antoan",
+   "tieu_de": "Nhà nghiên cứu chỉ ra cách 'đọc trộm' phần suy luận ẩn của các mô hình AI lớn",
+   "noi_dung": "Nhà nghiên cứu Simon Willison giới thiệu một nghiên cứu cho thấy phần suy luận đã mã hoá mà Anthropic, OpenAI và Google trả về phía sau có thể bị khai thác: lấy chuỗi suy luận của một mô hình mạnh rồi phát lại trên một mô hình yếu hơn để lộ ra nội dung suy luận gốc dưới dạng đọc được.",
+   "voi_ban": "Đây là chuyện kỹ thuật giữa các hãng AI với nhau, người dùng thường chưa cần làm gì; chỉ cần biết các hãng đang phải vá thêm những lỗ hổng kiểu này khi mô hình AI ngày càng phức tạp.",
+   "nguon": [
+    {
+     "ten": "Simon Willison",
+     "url": "https://simonwillison.net/2026/Aug/11/stealing-reasoning-traces/"
+    }
+   ]
+  },
   {
    "ngay": "12/08/2026",
    "cat": "hatang",
@@ -116,45 +155,6 @@
     {
      "ten": "Simon Willison — Auto mode is now the default in Claude Code",
      "url": "https://simonwillison.net/2026/Aug/8/auto-mode/#atom-everything"
-    }
-   ]
-  },
-  {
-   "ngay": "08/08/2026",
-   "cat": "agent",
-   "tieu_de": "Meta ra mắt Muse Code, trợ lý viết code cạnh tranh với OpenAI và Anthropic",
-   "noi_dung": "Meta vừa công bố Muse Code, một trợ lý AI viết code mới nhằm cạnh tranh trực tiếp với các sản phẩm tương tự của OpenAI và Anthropic.",
-   "voi_ban": "Chưa cần đổi công cụ đang dùng — đây là thêm một lựa chọn mới trên thị trường, nên chờ thêm đánh giá thực tế trước khi thử.",
-   "nguon": [
-    {
-     "ten": "Memeburn (tổng hợp qua Google News)",
-     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPZXd6QXZ5VTNhcmdxa2VvOGRnMEdFM05Xc19HZVl1MmFhdjA2SllDa28yTzZJZGZUelp6T3hNeUw4TG1FMXR3Q1c5UTlVTUNPQ3c4V0pNUmlnZDM3M2pRdTMzTXE0bXY4ZnZBM3FDNTctUHBhcnktaXZ0UmJNV2IxNjJYdjUxVWVKTGpDaw?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "08/08/2026",
-   "cat": "antoan",
-   "tieu_de": "Hé lộ mốc thời gian sự cố OpenAI vô tình ảnh hưởng tới Hugging Face lúc huấn luyện mô hình mới",
-   "noi_dung": "Một mốc thời gian mới công bố cho thấy OpenAI đã vô tình gây sự cố ảnh hưởng tới hạ tầng của Hugging Face trong lúc chạy thử một đợt huấn luyện mô hình chưa công bố.",
-   "voi_ban": "Đây là chuyện xảy ra giữa các công ty AI với nhau, không ảnh hưởng tới người dùng thường — cứ dùng bình thường, không cần làm gì.",
-   "nguon": [
-    {
-     "ten": "Simon Willison — Now we have a timeline of the OpenAI accidental attack against Hugging Face",
-     "url": "https://simonwillison.net/2026/Aug/8/now-we-have-a-timeline-of-the-openai-accidental-attack-against-h/#atom-everything"
-    }
-   ]
-  },
-  {
-   "ngay": "06/08/2026",
-   "cat": "gia",
-   "tieu_de": "ChatGPT bản miễn phí sắp được chat không giới hạn lượt",
-   "noi_dung": "OpenAI cho biết từ tuần sau, người dùng ChatGPT bản miễn phí và bản Go sẽ chat văn bản thường ngày không còn bị đếm lượt như hiện tại.",
-   "voi_ban": "Nếu bạn dùng ChatGPT miễn phí và hay bị báo hết lượt giữa chừng, sắp tới việc đó sẽ ít xảy ra hơn mà không cần trả tiền.",
-   "nguon": [
-    {
-     "ten": "The Verge — OpenAI is giving ChatGPT free users unlimited text chats",
-     "url": "https://www.theverge.com/ai-artificial-intelligence/976239/openai-chatgpt-free-go-text-chats"
     }
    ]
   }
