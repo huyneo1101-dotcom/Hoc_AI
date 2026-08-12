@@ -4,8 +4,15 @@
     {
       "name": "hoc-ai",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8899", "--directory", "/Users/Huy/Claude/App/Hoc_AI"],
-      "port": 8899
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8899",
+        "--directory",
+        "/Users/Huy/Claude/App/Hoc_AI"
+      ],
+      "port": 8899,
+      "autoPort": true
     }
   ]
 }
