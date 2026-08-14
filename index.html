@@ -238,6 +238,12 @@
     font-size:.88rem;overflow-x:auto;white-space:pre;
   }
   .source-note{font-size:.85rem;color:var(--muted);margin-top:10px}
+  .muted-inline{color:var(--muted);font-size:.82em;font-weight:400}
+  .lead-note{
+    background:var(--card);border:1px solid var(--border);border-left:4px solid var(--pink-light);
+    border-radius:12px;padding:14px 18px;margin:0 0 22px;font-size:.93rem;color:var(--muted);
+  }
+  .lead-note b,.lead-note strong{color:var(--text)}
   .news-note{
     background:#e5edf7;border:1px dashed var(--border);border-radius:12px;
     padding:14px 18px;margin:14px 0 24px;font-size:.9rem;color:var(--muted);
@@ -395,27 +401,32 @@
 <div class="wrap" id="tab-concepts">
 
   <div class="subtabs" role="tablist" aria-label="Mục con trong Kiến thức chung">
-    <button class="subtab-btn active" data-subtab="general" role="tab" aria-selected="true" onclick="showSubTab('general')">Hướng dẫn chung</button>
-    <button class="subtab-btn" data-subtab="toolsdeep" role="tab" aria-selected="false" onclick="showSubTab('toolsdeep')">Chi tiết từng AI</button>
-    <button class="subtab-btn" data-subtab="overview" role="tab" aria-selected="false" onclick="showSubTab('overview')">Khái niệm nền tảng</button>
-    <button class="subtab-btn" data-subtab="claude" role="tab" aria-selected="false" onclick="showSubTab('claude')">Claude &amp; Claude Code</button>
-    <button class="subtab-btn" data-subtab="agentic" role="tab" aria-selected="false" onclick="showSubTab('agentic')">AI Agent (Agentic)</button>
-    <button class="subtab-btn" data-subtab="roadmap" role="tab" aria-selected="false" onclick="showSubTab('roadmap')">Lộ trình học</button>
-    <button class="subtab-btn" data-subtab="quiz" role="tab" aria-selected="false" onclick="showSubTab('quiz')">Kiểm tra kiến thức</button>
+    <button class="subtab-btn active" data-subtab="general" role="tab" aria-selected="true" onclick="showSubTab('general')">1 · Bắt đầu dùng AI</button>
+    <button class="subtab-btn" data-subtab="overview" role="tab" aria-selected="false" onclick="showSubTab('overview')">2 · Khái niệm nền tảng</button>
+    <button class="subtab-btn" data-subtab="toolsdeep" role="tab" aria-selected="false" onclick="showSubTab('toolsdeep')">3 · Chi tiết từng AI</button>
+    <button class="subtab-btn" data-subtab="multiai" role="tab" aria-selected="false" onclick="showSubTab('multiai')">4 · Dùng nhiều AI</button>
+    <button class="subtab-btn" data-subtab="claude" role="tab" aria-selected="false" onclick="showSubTab('claude')">5 · Claude &amp; Claude Code</button>
+    <button class="subtab-btn" data-subtab="skills" role="tab" aria-selected="false" onclick="showSubTab('skills')">6 · Agent Skills</button>
+    <button class="subtab-btn" data-subtab="agentic" role="tab" aria-selected="false" onclick="showSubTab('agentic')">7 · AI Agent (Agentic)</button>
+    <button class="subtab-btn" data-subtab="roadmap" role="tab" aria-selected="false" onclick="showSubTab('roadmap')">8 · Lộ trình học</button>
+    <button class="subtab-btn" data-subtab="quiz" role="tab" aria-selected="false" onclick="showSubTab('quiz')">9 · Kiểm tra kiến thức</button>
   </div>
 
   <div class="subwrap" id="sub-general">
+
+  <p class="lead-note"><b>Tab này dành cho người mới bắt đầu</b> — đủ để tự dùng AI trong công việc hằng ngày:
+    AI là gì, có những công cụ nào, viết yêu cầu ra sao. Muốn hiểu <em>vì sao</em> AI trả lời như vậy thì sang tab
+    “Khái niệm nền tảng”; muốn dùng sâu một công cụ cụ thể thì sang tab “Chi tiết từng AI”.</p>
 
   <nav class="toc" aria-label="Mục lục">
     <h2>Mục lục</h2>
     <ol>
       <li><a href="#khai-niem">AI trợ lý (chatbot) là gì?</a></li>
-      <li><a href="#cong-cu">Các công cụ phổ biến</a></li>
+      <li><a href="#cong-cu">Bản đồ nhanh các công cụ phổ biến</a></li>
       <li><a href="#bat-dau">Bắt đầu trong 3 bước</a></li>
       <li><a href="#viet-prompt">Cách viết yêu cầu (prompt) hiệu quả</a></li>
       <li><a href="#vi-du">Ví dụ prompt theo tình huống</a></li>
-      <li><a href="#luu-y">Lưu ý & giới hạn</a></li>
-      <li><a href="#meo">Mẹo nâng cao</a></li>
+      <li><a href="#luu-y">Lưu ý an toàn tối thiểu</a></li>
     </ol>
   </nav>
 
@@ -432,152 +443,83 @@
   </section>
 
   <section id="cong-cu">
-    <h2><span class="num">2</span> Các công cụ phổ biến</h2>
-    <p>AI bây giờ không chỉ để trò chuyện — có cả AI chuyên tạo ảnh, tạo video, tạo giọng nói/âm nhạc. Dưới đây là
-      các công cụ phổ biến nhất theo từng nhóm, tính tới đầu năm 2026.</p>
+    <h2><span class="num">2</span> Bản đồ nhanh các công cụ phổ biến</h2>
+    <p>AI bây giờ không chỉ để trò chuyện — có cả AI chuyên tạo ảnh, tạo video, tạo giọng nói/âm nhạc. Bảng dưới
+      đây là bản đồ nhanh 24 công cụ phổ biến nhất tính tới đầu năm 2026, mỗi cái một dòng đủ để biết nó làm gì.
+      <strong>Cần dùng thật thì mở tab “Chi tiết từng AI”</strong> — mỗi công cụ có một trang riêng đủ giá tiền,
+      cách cài, mẹo dùng.</p>
 
-    <h3 style="margin:24px 0 6px;font-size:1.05rem">💬 Trò chuyện &amp; viết lách (text)</h3>
-    <div class="tools-grid">
-      <div class="tool">
-        <h3>ChatGPT (OpenAI)</h3>
-        <p>Phổ biến nhất, dễ dùng, có bản miễn phí. Mạnh về viết lách, tra cứu, brainstorm.</p>
-      </div>
-      <div class="tool">
-        <h3>Claude (Anthropic)</h3>
-        <p>Trả lời cẩn thận, văn phong tự nhiên, xử lý tài liệu dài rất tốt, mạnh về lập trình.</p>
-      </div>
-      <div class="tool">
-        <h3>Gemini (Google)</h3>
-        <p>Tích hợp sẵn trong Gmail, Docs, Android; tra cứu thông tin thời gian thực tốt.</p>
-      </div>
-      <div class="tool">
-        <h3>Copilot (Microsoft)</h3>
-        <p>Tích hợp trong Word/Excel/Windows, tiện cho công việc văn phòng hàng ngày.</p>
-      </div>
-      <div class="tool">
-        <h3>Perplexity</h3>
-        <p>Chuyên "tìm kiếm bằng AI" — trả lời kèm trích dẫn nguồn rõ ràng, hợp khi cần tra cứu có căn cứ.</p>
-      </div>
-      <div class="tool">
-        <h3>Grok (xAI)</h3>
-        <p>Tích hợp trong X (Twitter), truy cập bài đăng thời gian thực, giọng điệu thẳng thắn/hài hước hơn.</p>
-      </div>
-      <div class="tool">
-        <h3>DeepSeek</h3>
-        <p>Mô hình mã nguồn mở, chi phí rẻ, hiệu năng cạnh tranh — nhiều người dùng thử vì miễn phí/giá tốt.</p>
-      </div>
-    </div>
-    <div class="tip">Bạn không cần chọn "cái tốt nhất" — hãy thử 1–2 công cụ miễn phí trước, quen tay rồi mới cân
-      nhắc trả phí nếu cần dùng nhiều.</div>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:22%">Nhóm</th><th style="width:22%">Công cụ</th><th>Mạnh nhất ở</th></tr>
+        <tr><td rowspan="7"><strong>💬 Trò chuyện &amp; viết lách</strong></td>
+          <td><a href="#tool-chatgpt" onclick="goToToolFull('tool-chatgpt');return false;">ChatGPT</a> <span class="muted-inline">OpenAI</span></td>
+          <td>Phổ biến nhất, dễ dùng, có bản miễn phí — viết lách, tra cứu, nghĩ ý tưởng.</td></tr>
+        <tr><td><a href="#tool-claude" onclick="goToToolFull('tool-claude');return false;">Claude</a> <span class="muted-inline">Anthropic</span></td>
+          <td>Trả lời cẩn thận, văn phong tự nhiên, đọc tài liệu dài và lập trình rất tốt.</td></tr>
+        <tr><td><a href="#tool-gemini" onclick="goToToolFull('tool-gemini');return false;">Gemini</a> <span class="muted-inline">Google</span></td>
+          <td>Có sẵn trong Gmail, Docs, Android; tra thông tin mới theo thời gian thực tốt.</td></tr>
+        <tr><td><a href="#tool-copilot" onclick="goToToolFull('tool-copilot');return false;">Copilot</a> <span class="muted-inline">Microsoft</span></td>
+          <td>Nằm ngay trong Word/Excel/Windows — tiện cho việc văn phòng hằng ngày.</td></tr>
+        <tr><td><a href="#tool-perplexity" onclick="goToToolFull('tool-perplexity');return false;">Perplexity</a></td>
+          <td>Tìm kiếm bằng AI, trả lời kèm trích dẫn nguồn rõ ràng — hợp khi cần căn cứ.</td></tr>
+        <tr><td><a href="#tool-grok" onclick="goToToolFull('tool-grok');return false;">Grok</a> <span class="muted-inline">xAI</span></td>
+          <td>Nằm trong X (Twitter), đọc được bài đăng mới, giọng thẳng thắn hơn.</td></tr>
+        <tr><td><a href="#tool-deepseek" onclick="goToToolFull('tool-deepseek');return false;">DeepSeek</a></td>
+          <td>Mã nguồn mở, chi phí rẻ, chất lượng cạnh tranh — nhiều người thử vì giá tốt.</td></tr>
 
-    <h3 style="margin:28px 0 6px;font-size:1.05rem">🖼️ Tạo ảnh (image generation)</h3>
-    <p>Chỉ cần mô tả bằng lời (vd: "một chú mèo phi hành gia, phong cách tranh sơn dầu"), AI vẽ ra ảnh tương ứng
-      trong vài giây — không cần biết vẽ hay dùng phần mềm thiết kế.</p>
-    <div class="tools-grid">
-      <div class="tool">
-        <h3>Midjourney</h3>
-        <p>Nổi tiếng về chất lượng nghệ thuật, bố cục đẹp — dùng qua Discord hoặc web riêng, có phí.</p>
-      </div>
-      <div class="tool">
-        <h3>DALL-E (trong ChatGPT)</h3>
-        <p>Tạo ảnh ngay trong khung chat ChatGPT — tiện vì không cần công cụ riêng, hiểu mô tả chi tiết tốt.</p>
-      </div>
-      <div class="tool">
-        <h3>Adobe Firefly</h3>
-        <p>Tích hợp Photoshop/Illustrator, huấn luyện từ nguồn được cấp phép — an tâm hơn khi dùng cho việc thương
-          mại.</p>
-      </div>
-      <div class="tool">
-        <h3>Stable Diffusion</h3>
-        <p>Mã nguồn mở, có thể tự chạy trên máy riêng — tuỳ biến sâu, phù hợp người thích can thiệp kỹ thuật.</p>
-      </div>
-    </div>
-    <div class="tip">🎨 Muốn thử miễn phí trước: DALL-E qua ChatGPT (bản free có giới hạn lượt) hoặc Gemini (Google)
-      đều đã tích hợp sẵn tạo ảnh, không cần cài thêm gì.</div>
+        <tr><td rowspan="4"><strong>🖼️ Tạo ảnh</strong><br><span class="muted-inline">mô tả bằng lời, AI vẽ ra ảnh</span></td>
+          <td><a href="#tool-midjourney" onclick="goToToolFull('tool-midjourney');return false;">Midjourney</a></td>
+          <td>Chất lượng nghệ thuật và bố cục đẹp nhất nhóm — có phí.</td></tr>
+        <tr><td><a href="#tool-dalle" onclick="goToToolFull('tool-dalle');return false;">DALL-E</a> <span class="muted-inline">trong ChatGPT</span></td>
+          <td>Vẽ ngay trong khung chat, không cần mở công cụ riêng.</td></tr>
+        <tr><td><a href="#tool-firefly" onclick="goToToolFull('tool-firefly');return false;">Adobe Firefly</a></td>
+          <td>Gắn với Photoshop/Illustrator, huấn luyện từ nguồn có cấp phép — an tâm khi dùng thương mại.</td></tr>
+        <tr><td><a href="#tool-stablediffusion" onclick="goToToolFull('tool-stablediffusion');return false;">Stable Diffusion</a></td>
+          <td>Mã nguồn mở, chạy được trên máy riêng, tuỳ biến sâu.</td></tr>
 
-    <h3 style="margin:28px 0 6px;font-size:1.05rem">🎬 Tạo video (video generation)</h3>
-    <p>Từ một đoạn mô tả hoặc một tấm ảnh, AI tạo ra đoạn video ngắn (vài giây tới vài phút) có chuyển động, ánh
-      sáng, góc quay hợp lý — công nghệ còn rất mới và thay đổi nhanh.</p>
-    <div class="tools-grid">
-      <div class="tool">
-        <h3>Sora (OpenAI)</h3>
-        <p>Tạo video từ văn bản với chất lượng cao, chuyển động mượt — tích hợp trong hệ sinh thái OpenAI.</p>
-      </div>
-      <div class="tool">
-        <h3>Veo (Google)</h3>
-        <p>Công cụ tạo video của Google, tích hợp trong Gemini — mạnh về hiểu ngữ cảnh mô tả dài.</p>
-      </div>
-      <div class="tool">
-        <h3>Runway</h3>
-        <p>Bộ công cụ chỉnh sửa + tạo video AI hướng tới nhà làm phim/dựng phim chuyên nghiệp.</p>
-      </div>
-      <div class="tool">
-        <h3>Pika / Kling</h3>
-        <p>Các công cụ tạo video ngắn phổ biến khác, thường dùng cho nội dung mạng xã hội nhanh gọn.</p>
-      </div>
-    </div>
-    <div class="tip">⚠️ Video AI vẫn hay lỗi ở chi tiết nhỏ (tay, chữ, vật lý ánh sáng) — kiểm tra kỹ trước khi
-      dùng cho mục đích quan trọng/thương mại.</div>
+        <tr><td rowspan="4"><strong>🎬 Tạo video</strong><br><span class="muted-inline">từ chữ hoặc từ một tấm ảnh</span></td>
+          <td><a href="#tool-sora" onclick="goToToolFull('tool-sora');return false;">Sora</a> <span class="muted-inline">OpenAI</span></td>
+          <td>Video từ văn bản, chất lượng cao, chuyển động mượt.</td></tr>
+        <tr><td><a href="#tool-veo" onclick="goToToolFull('tool-veo');return false;">Veo</a> <span class="muted-inline">Google</span></td>
+          <td>Nằm trong Gemini, hiểu mô tả dài nhiều chi tiết tốt.</td></tr>
+        <tr><td><a href="#tool-runway" onclick="goToToolFull('tool-runway');return false;">Runway</a></td>
+          <td>Bộ công cụ dựng phim, hướng tới người làm video chuyên nghiệp.</td></tr>
+        <tr><td><a href="#tool-pika" onclick="goToToolFull('tool-pika');return false;">Pika / Kling</a></td>
+          <td>Video ngắn nhanh gọn cho mạng xã hội.</td></tr>
 
-    <h3 style="margin:28px 0 6px;font-size:1.05rem">🎙️ Giọng nói &amp; âm thanh (voice/audio)</h3>
-    <p>Nhóm này gồm AI chuyển chữ thành giọng nói tự nhiên, nhân bản giọng của một người, và cả AI sáng tác nhạc
-      hoàn chỉnh có lời.</p>
-    <div class="tools-grid">
-      <div class="tool">
-        <h3>ElevenLabs</h3>
-        <p>Tạo giọng đọc tự nhiên đa ngôn ngữ, nhân bản giọng nói (voice cloning) từ một mẫu ghi âm ngắn — hay dùng
-          để lồng tiếng, đọc sách nói.</p>
-      </div>
-      <div class="tool">
-        <h3>Suno / Udio</h3>
-        <p>Chỉ cần mô tả thể loại/tâm trạng bài hát, AI sáng tác cả nhạc nền lẫn lời và hát luôn — tạo một bài
-          hoàn chỉnh trong vài phút.</p>
-      </div>
-      <div class="tool">
-        <h3>Whisper (OpenAI)</h3>
-        <p>Chuyển giọng nói thành văn bản (speech-to-text) độ chính xác cao, mã nguồn mở và miễn phí — hay dùng
-          để phụ đề hoặc ghi chú cuộc họp.</p>
-      </div>
-    </div>
-    <div class="tip">🔊 Nhân bản giọng nói (voice cloning) cần cân nhắc đạo đức/pháp lý — chỉ nhân bản giọng của
-      chính bạn hoặc người đã đồng ý, không dùng để giả mạo người khác.</div>
+        <tr><td rowspan="3"><strong>🎙️ Giọng nói &amp; âm thanh</strong></td>
+          <td><a href="#tool-elevenlabs" onclick="goToToolFull('tool-elevenlabs');return false;">ElevenLabs</a></td>
+          <td>Giọng đọc tự nhiên đa ngôn ngữ, nhân bản giọng từ một mẫu ghi âm ngắn.</td></tr>
+        <tr><td><a href="#tool-suno" onclick="goToToolFull('tool-suno');return false;">Suno / Udio</a></td>
+          <td>Sáng tác cả nhạc lẫn lời và hát luôn, từ một câu mô tả thể loại.</td></tr>
+        <tr><td><a href="#tool-whisper" onclick="goToToolFull('tool-whisper');return false;">Whisper</a> <span class="muted-inline">OpenAI</span></td>
+          <td>Chuyển giọng nói thành chữ, miễn phí — làm phụ đề, ghi chú cuộc họp.</td></tr>
 
-    <h3 style="margin:28px 0 6px;font-size:1.05rem">💼 Kinh doanh &amp; bán hàng</h3>
-    <p>Nhóm này hợp cho ai đang bán hàng (cửa hàng, bán online, mạng xã hội) — thiết kế ảnh/quảng cáo, dựng video
-      ngắn, tự động trả lời khách, và tối ưu quảng cáo bằng AI.</p>
-    <div class="tools-grid">
-      <div class="tool">
-        <h3>Canva</h3>
-        <p>Thiết kế poster/banner/ảnh sản phẩm bằng AI: xoá nền, tạo layout từ mô tả, viết nội dung quảng cáo —
-          không cần biết thiết kế.</p>
-      </div>
-      <div class="tool">
-        <h3>CapCut</h3>
-        <p>Dựng video ngắn TikTok/Reels từ ảnh sản phẩm có sẵn, tự tạo phụ đề, giọng đọc AI, cắt dựng tự động.</p>
-      </div>
-      <div class="tool">
-        <h3>Pancake / Botcake</h3>
-        <p>Quản lý tin nhắn/đơn hàng nhiều kênh (Facebook, Zalo, TikTok Shop...) cùng lúc, có chatbot AI tự động
-          trả lời và chốt đơn khi bạn bận.</p>
-      </div>
-      <div class="tool">
-        <h3>Meta Advantage+</h3>
-        <p>Tính năng AI trong quảng cáo Facebook/Instagram, tự tìm đúng khách hàng tiềm năng và tối ưu ngân sách
-          thay vì bạn tự chọn đối tượng thủ công.</p>
-      </div>
-      <div class="tool">
-        <h3>PhotoRoom</h3>
-        <p>Chuyên chụp/dựng ảnh sản phẩm bằng AI trên điện thoại — xoá nền, đặt sản phẩm vào bối cảnh thật, làm
-          hàng loạt ảnh cùng lúc.</p>
-      </div>
-      <div class="tool">
-        <h3>Copy.ai</h3>
-        <p>Viết mô tả sản phẩm chuẩn SEO hàng loạt cho Shopee/Lazada/TikTok Shop — nhập danh sách sản phẩm, xuất
-          ra hàng loạt mô tả cùng lúc.</p>
-      </div>
+        <tr><td rowspan="6"><strong>💼 Kinh doanh &amp; bán hàng</strong></td>
+          <td><a href="#tool-canva" onclick="goToToolFull('tool-canva');return false;">Canva</a></td>
+          <td>Thiết kế poster/banner/ảnh sản phẩm, xoá nền, viết nội dung quảng cáo.</td></tr>
+        <tr><td><a href="#tool-capcut" onclick="goToToolFull('tool-capcut');return false;">CapCut</a></td>
+          <td>Dựng video ngắn TikTok/Reels, tự tạo phụ đề và giọng đọc.</td></tr>
+        <tr><td><a href="#tool-pancake" onclick="goToToolFull('tool-pancake');return false;">Pancake / Botcake</a></td>
+          <td>Gộp tin nhắn nhiều kênh, chatbot tự trả lời và chốt đơn khi bạn bận.</td></tr>
+        <tr><td><a href="#tool-metaads" onclick="goToToolFull('tool-metaads');return false;">Meta Advantage+</a></td>
+          <td>AI trong quảng cáo Facebook/Instagram, tự tìm khách và tối ưu ngân sách.</td></tr>
+        <tr><td><a href="#tool-photoroom" onclick="goToToolFull('tool-photoroom');return false;">PhotoRoom</a></td>
+          <td>Ảnh sản phẩm ngay trên điện thoại — xoá nền, ghép bối cảnh, làm hàng loạt.</td></tr>
+        <tr><td><a href="#tool-copyai" onclick="goToToolFull('tool-copyai');return false;">Copy.ai</a></td>
+          <td>Mô tả sản phẩm chuẩn SEO hàng loạt cho Shopee/Lazada/TikTok Shop.</td></tr>
+      </table>
     </div>
-    <div class="tip">🏪 Chủ cửa hàng nhỏ: kết hợp Canva (ảnh đẹp) + CapCut (video ngắn) + ChatGPT/Gemini (viết caption)
-      là đủ bộ công cụ cơ bản để tự làm marketing hàng ngày mà không cần thuê ngoài.</div>
+
+    <div class="tip">👉 Không cần chọn “cái tốt nhất”. Thử 1–2 công cụ miễn phí trước, quen tay rồi mới tính trả
+      phí. Khi đã quen, bước tiếp theo là <strong>dùng vài AI cùng lúc cho một việc</strong> — xem tab “Dùng nhiều
+      AI”.</div>
+    <div class="tip">⚠️ Ba điều cần nhớ trước khi dùng cho việc thật: video AI vẫn hay lỗi chi tiết nhỏ (bàn tay,
+      chữ, ánh sáng); nhân bản giọng nói chỉ được làm với giọng của chính bạn hoặc người đã đồng ý; ảnh/video định
+      dùng để bán hàng thì đọc điều khoản bản quyền của công cụ trước.</div>
+    <div class="tip">🏪 Chủ cửa hàng nhỏ: Canva (ảnh đẹp) + CapCut (video ngắn) + ChatGPT/Gemini (viết caption) là
+      đủ bộ cơ bản để tự làm marketing hằng ngày mà không cần thuê ngoài.</div>
 
     <div class="card">
       <h3 style="margin:0 0 10px;font-size:.98rem">🧭 Bộ công cụ theo việc cần làm (bấm tên để mở trang chi tiết)</h3>
@@ -742,23 +684,23 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
   </section>
 
   <section id="luu-y">
-    <h2><span class="num">6</span> Lưu ý & giới hạn</h2>
+    <h2><span class="num">6</span> Lưu ý an toàn tối thiểu</h2>
+    <p>Bốn điều dưới đây là mức tối thiểu, áp dụng cho mọi công cụ AI. Phần giải thích cặn kẽ <em>vì sao</em> AI hay
+      bịa, dữ liệu bạn nhập đi về đâu, ai sở hữu nội dung AI tạo ra — nằm ở tab <strong>“Khái niệm nền tảng”</strong>.</p>
     <div class="card">
       <ul class="checklist">
-        <li>AI có thể trả lời sai hoặc "bịa" thông tin (gọi là ảo giác) — luôn kiểm tra lại số liệu, tên riêng, trích dẫn quan trọng.</li>
-        <li>Không dán thông tin nhạy cảm (mật khẩu, số CCCD, dữ liệu công ty mật) vào chat AI.</li>
-        <li>AI không thay thế tư vấn y tế, pháp lý, tài chính chuyên sâu — chỉ nên dùng để tham khảo ban đầu.</li>
-        <li>Với bài tập/công việc cần tính trung thực, hãy dùng AI để hỗ trợ tư duy, không sao chép nguyên văn.</li>
+        <li><strong>Kiểm lại số liệu, tên riêng, trích dẫn</strong> — AI có thể bịa mà giọng vẫn rất tự tin.</li>
+        <li><strong>Không dán thông tin nhạy cảm</strong> (mật khẩu, số căn cước, dữ liệu khách hàng, hợp đồng mật)
+          vào bất kỳ khung chat nào.</li>
+        <li><strong>Không thay thế tư vấn y tế, pháp lý, tài chính chuyên sâu</strong> — chỉ dùng để tham khảo bước
+          đầu rồi hỏi người có chuyên môn.</li>
+        <li><strong>Việc cần tính trung thực</strong> (bài tập, báo cáo) thì dùng AI để hỗ trợ tư duy, không nộp
+          nguyên văn.</li>
       </ul>
     </div>
-  </section>
-
-  <section id="meo">
-    <h2><span class="num">7</span> Mẹo nâng cao</h2>
-    <div class="tip">🔁 Trò chuyện nhiều lượt: đừng cố nhồi mọi thứ vào 1 câu — hỏi từng bước, rồi yêu cầu AI chỉnh sửa dần theo phản hồi của bạn.</div>
-    <div class="tip">📎 Đính kèm file: hầu hết công cụ AI cho phép tải lên PDF, ảnh, file Word để hỏi trực tiếp về nội dung bên trong.</div>
-    <div class="tip">🗂️ Lưu prompt hay dùng: nếu có một mẫu câu lệnh hiệu quả, hãy lưu lại (ghi chú, Google Keep) để dùng lại về sau.</div>
-    <div class="tip">🌐 Kiểm tra nguồn: với thông tin thời sự hoặc số liệu, ưu tiên công cụ có tính năng "tìm kiếm web" và luôn đối chiếu nguồn gốc trước khi tin.</div>
+    <div class="tip">🗂️ Một thói quen nhỏ đáng có ngay từ đầu: <strong>lưu lại những prompt dùng tốt</strong> vào
+      ghi chú điện thoại. Khi một mẫu câu đã dùng đi dùng lại nhiều lần, nó chính là thứ nên đóng gói thành
+      <strong>Agent Skill</strong> — xem tab “Agent Skills”.</div>
   </section>
 
   <footer>
@@ -2214,6 +2156,261 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
   </footer>
   </div>
 
+  <div class="subwrap" id="sub-multiai" hidden>
+
+  <p class="lead-note"><b>Đa AI là gì:</b> dùng <strong>vài AI khác hãng cho cùng một việc</strong>, mỗi cái làm
+    đúng phần nó giỏi, rồi bắt chúng kiểm tra chéo lẫn nhau. Đây là bước nâng cấp tự nhiên sau khi đã quen một
+    công cụ — không cần trả thêm tiền, chỉ cần đổi cách làm.</p>
+
+  <nav class="toc" aria-label="Mục lục">
+    <h2>Mục lục</h2>
+    <ol>
+      <li><a href="#da-vi-sao">Vì sao không nên chỉ dùng một AI</a></li>
+      <li><a href="#da-phan-vai">Phân vai: AI nào hợp việc nào</a></li>
+      <li><a href="#da-cach">5 cách phối hợp nhiều AI</a></li>
+      <li><a href="#da-quy-trinh">Quy trình mẫu cho 3 việc thật</a></li>
+      <li><a href="#da-chuyen-ngu-canh">Chuyển ngữ cảnh giữa các AI</a></li>
+      <li><a href="#da-chi-phi">Dùng nhiều AI mà không tốn thêm tiền</a></li>
+      <li><a href="#da-khac-multiagent">Đa AI khác multi-agent thế nào</a></li>
+      <li><a href="#da-sai-lam">Sai lầm hay gặp &amp; checklist</a></li>
+    </ol>
+  </nav>
+
+  <section id="da-vi-sao">
+    <h2><span class="num">1</span> Vì sao không nên chỉ dùng một AI</h2>
+    <p>Mỗi AI được huấn luyện bằng dữ liệu khác nhau, chỉnh giọng khác nhau, và <strong>sai ở những chỗ khác
+      nhau</strong>. Dùng đúng một công cụ cho mọi việc nghĩa là bạn thừa hưởng trọn vẹn cả điểm mạnh lẫn điểm mù
+      của riêng nó — mà điểm mù thì không tự lộ ra, vì AI nào cũng trả lời trôi chảy như nhau.</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:34%">Vấn đề khi chỉ dùng 1 AI</th><th>Dùng nhiều AI giúp gì</th></tr>
+        <tr><td><strong>Bịa mà không biết</strong></td>
+          <td>Hỏi cùng một câu ở 2 AI: trùng nhau thì yên tâm hơn, lệch nhau là dấu hiệu phải tự kiểm chứng. Hai
+            AI khác hãng rất hiếm khi bịa <em>giống hệt nhau</em>.</td></tr>
+        <tr><td><strong>Một giọng văn duy nhất</strong></td>
+          <td>Mỗi AI có “gu” riêng — cái viết chặt, cái viết bay. Đổi AI ở bước viết lại thường ra bản mượt hơn là
+            bắt cùng một AI sửa đi sửa lại.</td></tr>
+        <tr><td><strong>Khen lấy lòng</strong></td>
+          <td>AI có xu hướng đồng tình với chính nội dung nó vừa viết. Đưa bản nháp sang một AI khác để chê thì
+            nhận được phản biện thật hơn nhiều.</td></tr>
+        <tr><td><strong>Hết lượt, hết hạn mức</strong></td>
+          <td>Bản miễn phí nào cũng có giới hạn lượt hỏi. Có sẵn 2–3 tài khoản là không bao giờ bị đứng việc giữa
+            chừng.</td></tr>
+        <tr><td><strong>Điểm mạnh lệch nhau</strong></td>
+          <td>Việc tra cứu có nguồn, việc đọc tài liệu dài, việc viết nội dung ngắn — ba việc này ba công cụ khác
+            nhau làm tốt nhất, không có cái nào đứng đầu cả ba.</td></tr>
+      </table>
+    </div>
+    <div class="tip">💡 Cách nhớ: <strong>một AI là một nhân viên; nhiều AI là một nhóm có người phản biện</strong>.
+      Bạn vẫn là người quyết định cuối cùng, nhưng quyết định trên nhiều góc nhìn thay vì một.</div>
+  </section>
+
+  <section id="da-phan-vai">
+    <h2><span class="num">2</span> Phân vai: AI nào hợp việc nào</h2>
+    <p>Bảng dưới là cách chia việc thường dùng, tính tới giữa năm 2026. Thứ hạng giữa các hãng thay đổi liên tục
+      sau mỗi bản model mới, nên đừng học thuộc — hãy nhớ <strong>nguyên tắc phân vai</strong>: giao việc theo thứ
+      công cụ đó được sinh ra để làm.</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:30%">Việc cần làm</th><th style="width:26%">Giao cho</th><th>Vì sao</th></tr>
+        <tr><td>Tra cứu có nguồn dẫn, kiểm chứng số liệu</td>
+          <td><a href="#tool-perplexity" onclick="goToToolFull('tool-perplexity');return false;">Perplexity</a>,
+            <a href="#tool-gemini" onclick="goToToolFull('tool-gemini');return false;">Gemini</a></td>
+          <td>Trả lời kèm link nguồn để bạn bấm vào đọc lại — thứ quan trọng nhất khi cần bằng chứng.</td></tr>
+        <tr><td>Đọc tài liệu dài, hợp đồng, nhiều file cùng lúc</td>
+          <td><a href="#tool-claude" onclick="goToToolFull('tool-claude');return false;">Claude</a></td>
+          <td>Giữ được mạch của văn bản dài và bám sát nội dung gốc, ít tự thêm thắt.</td></tr>
+        <tr><td>Viết nội dung ngắn, nghĩ ý tưởng, đặt tiêu đề</td>
+          <td><a href="#tool-chatgpt" onclick="goToToolFull('tool-chatgpt');return false;">ChatGPT</a></td>
+          <td>Ra nhiều phương án nhanh, giọng linh hoạt, dễ bảo đổi phong cách.</td></tr>
+        <tr><td>Việc dính tới Gmail, Google Docs, lịch, Android</td>
+          <td><a href="#tool-gemini" onclick="goToToolFull('tool-gemini');return false;">Gemini</a></td>
+          <td>Nằm sẵn trong các ứng dụng đó, không phải copy qua lại.</td></tr>
+        <tr><td>Việc trong Word, Excel, Outlook của công ty</td>
+          <td><a href="#tool-copilot" onclick="goToToolFull('tool-copilot');return false;">Copilot</a></td>
+          <td>Thao tác thẳng trên file đang mở, hợp môi trường văn phòng.</td></tr>
+        <tr><td>Sửa code, làm việc trên cả một dự án</td>
+          <td>Claude Code <span class="muted-inline">xem tab 5</span></td>
+          <td>Không chỉ trả lời mà tự đọc/sửa file, chạy lệnh, kiểm tra lại kết quả.</td></tr>
+        <tr><td>Bắt mạch tin nóng, dư luận mạng xã hội</td>
+          <td><a href="#tool-grok" onclick="goToToolFull('tool-grok');return false;">Grok</a></td>
+          <td>Đọc được bài đăng mới trên X theo thời gian thực.</td></tr>
+        <tr><td>Việc lặp lại nhiều, cần rẻ nhất</td>
+          <td><a href="#tool-deepseek" onclick="goToToolFull('tool-deepseek');return false;">DeepSeek</a></td>
+          <td>Chi phí thấp hẳn, đủ tốt cho việc đơn giản làm hàng loạt.</td></tr>
+      </table>
+    </div>
+    <div class="tip">🎯 Với người mới, <strong>hai công cụ là đủ</strong>: một cái để làm (viết, nghĩ, xử lý tài
+      liệu) và một cái để tra cứu có nguồn. Thêm cái thứ ba chỉ khi thấy thiếu thật.</div>
+  </section>
+
+  <section id="da-cach">
+    <h2><span class="num">3</span> 5 cách phối hợp nhiều AI</h2>
+    <p>Không phải cứ mở nhiều tab là “dùng đa AI”. Có 5 kiểu phối hợp rõ ràng, mỗi kiểu hợp một loại việc:</p>
+
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>1. Bắt chéo (một AI viết — một AI chê)</strong></p>
+      <p style="margin:0;color:var(--muted);font-size:.9rem">AI thứ nhất viết bản nháp. Copy nguyên bản đó sang AI
+        thứ hai kèm câu: “Đây là bài do một AI khác viết, hãy tìm chỗ sai, chỗ nói quá, chỗ thiếu căn cứ.” Đây là
+        cách hiệu quả nhất và dễ làm nhất trong 5 cách.</p>
+      <div class="example" style="margin-top:10px">Đây là bản nháp do một AI khác viết. Hãy đóng vai người phản biện khó tính:
+liệt kê từng chỗ sai sự thật, từng câu nói quá, từng chỗ thiếu dẫn chứng.
+Không cần khen, chỉ nêu vấn đề kèm cách sửa cụ thể.</div>
+    </div>
+
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>2. Chia theo công đoạn (dây chuyền)</strong></p>
+      <p style="margin:0;color:var(--muted);font-size:.9rem">Mỗi AI làm một khâu, đầu ra của khâu trước là đầu vào
+        của khâu sau: AI tra cứu gom tư liệu có nguồn → AI viết dựng bài từ tư liệu đó → AI thứ ba biên tập lại cho
+        gọn. Hợp với việc dài như viết báo cáo, bài phân tích.</p>
+    </div>
+
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>3. Hỏi song song rồi đối chiếu</strong></p>
+      <p style="margin:0;color:var(--muted);font-size:.9rem">Cùng một câu hỏi, dán vào 2–3 AI, so hai câu trả lời.
+        Chỗ nào cả hai nói giống nhau thì tin được hơn; chỗ nào lệch nhau chính là chỗ bạn phải tự kiểm chứng. Hợp
+        với câu hỏi có đáp án đúng/sai rõ ràng: số liệu, quy định, cách làm kỹ thuật.</p>
+    </div>
+
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>4. Đấu ý (mỗi AI một phương án, bạn chọn)</strong></p>
+      <p style="margin:0;color:var(--muted);font-size:.9rem">Giao cùng một đề cho 2 AI mà <em>không</em> cho xem bài
+        của nhau, rồi tự chọn bản tốt hơn hoặc ghép phần hay của cả hai. Hợp khi cần sáng tạo: đặt tên, viết
+        caption, nghĩ ý tưởng chiến dịch.</p>
+    </div>
+
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>5. Chuyển AI khi bị bí</strong></p>
+      <p style="margin:0;color:var(--muted);font-size:.9rem">Khi một AI đã sửa 3–4 lượt mà vẫn không ra ý bạn muốn,
+        thường nó đã “dính” vào hướng sai của chính nó. Đổi sang AI khác với cùng yêu cầu ban đầu — nhanh hơn nhiều
+        so với cố ép tiếp.</p>
+    </div>
+
+    <div class="tip">⏱️ Đừng làm cả 5 cách cho mọi việc. Việc nhỏ (viết một caption) thì một AI là xong. Chỉ mở
+      thêm AI thứ hai khi việc đó <strong>tốn tiền, tốn thời gian, hoặc gửi cho người khác đọc</strong> nếu sai.</div>
+  </section>
+
+  <section id="da-quy-trinh">
+    <h2><span class="num">4</span> Quy trình mẫu cho 3 việc thật</h2>
+
+    <div class="card">
+      <p style="margin:0 0 10px"><strong>📝 Viết một bài dài (báo cáo, bài phân tích, bài đăng bán hàng)</strong></p>
+      <div class="loop">
+        <div class="loop-step"><span class="n">1</span><strong>Gom tư liệu</strong>AI tra cứu có nguồn: “tìm 5 nguồn về…, mỗi nguồn kèm link và 2 câu tóm tắt”.</div>
+        <div class="loop-step"><span class="n">2</span><strong>Dựng bài</strong>AI viết: dán tư liệu vào, yêu cầu bám sát, không thêm số liệu ngoài.</div>
+        <div class="loop-step"><span class="n">3</span><strong>Phản biện</strong>AI khác chê: tìm chỗ sai, chỗ nói quá, chỗ thiếu căn cứ.</div>
+        <div class="loop-step"><span class="n">4</span><strong>Sửa &amp; chốt</strong>Quay lại AI viết, đưa danh sách chê, yêu cầu sửa từng điểm.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>🛒 Quyết định mua một món đắt tiền</strong></p>
+      <p style="margin:0 0 10px;color:var(--muted);font-size:.9rem">Hỏi AI tra cứu về giá và đánh giá thật kèm
+        nguồn; hỏi AI thứ hai đóng vai người can ngăn (“nêu 5 lý do KHÔNG nên mua”); tự đối chiếu hai bên rồi
+        quyết. Cách này chặn đúng thói quen nguy hiểm nhất: hỏi AI để tìm lý do ủng hộ điều mình đã muốn làm.</p>
+      <div class="example">Tôi đang định mua [món đồ] giá [số tiền] để [mục đích].
+Hãy đóng vai người can ngăn: nêu 5 lý do không nên mua, và 3 phương án rẻ hơn làm được việc tương tự.</div>
+    </div>
+
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>📚 Học một chủ đề mới</strong></p>
+      <p style="margin:0;color:var(--muted);font-size:.9rem">AI thứ nhất giảng khái niệm bằng ngôn ngữ đơn giản. AI
+        thứ hai ra đề kiểm tra bạn (“hỏi tôi 5 câu về chủ đề này, chấm và chỉ ra chỗ tôi hiểu sai”). Học kiểu bị
+        hỏi ngược nhớ lâu hơn hẳn đọc một chiều — chính là cách tab “Kiểm tra kiến thức” của trang này hoạt động.</p>
+    </div>
+  </section>
+
+  <section id="da-chuyen-ngu-canh">
+    <h2><span class="num">5</span> Chuyển ngữ cảnh giữa các AI</h2>
+    <p>Điểm vướng lớn nhất khi dùng nhiều AI: <strong>AI thứ hai không biết gì về cuộc trò chuyện ở AI thứ
+      nhất</strong>. Mỗi công cụ là một hộp riêng, không có đường thông nhau. Cách xử lý là tự tay mang theo một
+      “gói bàn giao” ngắn.</p>
+    <div class="card">
+      <p style="margin:0 0 8px"><strong>Gói bàn giao đủ 4 phần</strong></p>
+      <ul class="checklist">
+        <li><strong>Mục tiêu</strong>: đang làm gì, cho ai đọc.</li>
+        <li><strong>Dữ kiện</strong>: số liệu, tên riêng, mốc thời gian đã chốt — dán nguyên, đừng bắt AI mới đoán.</li>
+        <li><strong>Đã làm tới đâu</strong>: bản nháp hiện tại hoặc kết luận đã có.</li>
+        <li><strong>Việc cần AI mới làm</strong>: một câu, thật cụ thể.</li>
+      </ul>
+    </div>
+    <div class="tip">🧰 Mẹo tiết kiệm thời gian: nhờ chính AI đang chat <em>“tóm tắt toàn bộ cuộc trò chuyện này
+      thành một đoạn bàn giao để tôi dán sang một AI khác”</em> — nó tự viết gói bàn giao cho bạn.</div>
+    <div class="tip">⚠️ Mỗi lần dán sang AI mới là <strong>một lần dữ liệu rời khỏi tay bạn thêm một hãng
+      nữa</strong>. Thông tin nhạy cảm thì che tên, che số trước khi dán — nguyên tắc ở tab “Bắt đầu dùng AI”,
+      mục 6 vẫn giữ nguyên hiệu lực, và càng dùng nhiều AI thì càng phải giữ chặt.</div>
+  </section>
+
+  <section id="da-chi-phi">
+    <h2><span class="num">6</span> Dùng nhiều AI mà không tốn thêm tiền</h2>
+    <p>Sai lầm tốn kém nhất là trả phí cả 3–4 hãng cùng lúc. Gần như không ai cần thế.</p>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Trả phí đúng một cái</strong> — cái bạn dùng nhiều nhất trong ngày. Các cái còn lại để bản miễn
+          phí, vì vai trò của chúng chỉ là tra cứu và phản biện, vài lượt mỗi ngày là đủ.</li>
+        <li><strong>Bản miễn phí đủ cho việc kiểm chứng</strong>: hỏi lại một câu để đối chiếu không cần model mạnh
+          nhất.</li>
+        <li><strong>Công cụ gộp nhiều AI vào một chỗ</strong>: <strong>Poe</strong>, <strong>ChatHub</strong>,
+          <strong>OpenRouter</strong> (kèm giao diện như TypingMind) cho phép hỏi nhiều model trong cùng một khung
+          chat, có cả chế độ trả lời song song để so trực tiếp. Đổi lại: thêm một bên thứ ba giữ nội dung chat của
+          bạn, và một số tính năng riêng của từng hãng sẽ không có.</li>
+        <li><strong>Đo trước khi nâng cấp</strong>: một tuần dùng bản miễn phí, xem thật sự chạm giới hạn mấy lần
+          rồi mới quyết trả phí — thay vì trả trước cho cảm giác an tâm.</li>
+      </ul>
+    </div>
+    <div class="tip">💰 Ngân sách gọn nhất cho người dùng cá nhân: <strong>một gói trả phí + hai tài khoản miễn
+      phí</strong>. Đủ cho toàn bộ 5 cách phối hợp ở mục 3.</div>
+  </section>
+
+  <section id="da-khac-multiagent">
+    <h2><span class="num">7</span> Đa AI khác multi-agent thế nào</h2>
+    <p>Hai khái niệm nghe giống nhau nhưng khác hẳn — nhầm chỗ này dễ dẫn tới dựng hệ thống phức tạp cho một việc
+      chỉ cần mở thêm một tab trình duyệt:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>&nbsp;</th><th>Đa AI (tab này)</th><th>Multi-agent (tab 7)</th></tr>
+        <tr><td><strong>Là gì</strong></td>
+          <td>Bạn dùng nhiều công cụ <strong>khác hãng</strong> cho cùng một việc.</td>
+          <td>Một AI tự chia việc cho nhiều “agent con”, thường cùng một hãng.</td></tr>
+        <tr><td><strong>Ai điều phối</strong></td><td><strong>Bạn</strong> — tự copy qua lại giữa các tab.</td>
+          <td><strong>Máy</strong> — agent chính tự giao việc và gom kết quả.</td></tr>
+        <tr><td><strong>Được gì</strong></td>
+          <td>Nhiều góc nhìn khác nhau, chặn được điểm mù của một hãng.</td>
+          <td>Chạy song song nhanh hơn, mỗi agent con giữ ngữ cảnh gọn.</td></tr>
+        <tr><td><strong>Cần biết code không</strong></td><td>Không.</td>
+          <td>Không, nếu chỉ dùng Claude Code; có, nếu tự dựng bằng SDK.</td></tr>
+      </table>
+    </div>
+    <div class="tip">🔗 Hai thứ này ghép được với nhau: để Claude Code (nhiều agent con) làm phần dựng, rồi mang
+      kết quả sang một AI khác hãng để phản biện. Đây đúng là cách vận hành của các dự án trong trang này.</div>
+  </section>
+
+  <section id="da-sai-lam">
+    <h2><span class="num">8</span> Sai lầm hay gặp &amp; checklist</h2>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Hỏi 3 AI rồi lấy đáp án của cái nghe xuôi tai nhất</strong> — đó là chọn theo văn phong, không
+          phải theo bằng chứng. Lệch nhau thì phải tra nguồn thật, không bỏ phiếu.</li>
+        <li><strong>Cho AI thứ hai xem bài của AI thứ nhất khi cần ý mới</strong> — nó sẽ bám theo hướng đã có.
+          Muốn ý mới thì giấu bản cũ đi.</li>
+        <li><strong>Quên dán ngữ cảnh</strong> — AI mới trả lời chung chung, rồi kết luận “AI này dở hơn”, trong
+          khi lỗi nằm ở gói bàn giao thiếu.</li>
+        <li><strong>Chia vai quá vụn</strong> — mở 4 tab cho một việc 10 phút, thời gian copy qua lại còn tốn hơn
+          tự làm.</li>
+        <li><strong>Trả phí cả 4 hãng</strong> — xem mục 6.</li>
+        <li><strong>Dán dữ liệu nhạy cảm sang thêm vài hãng nữa</strong> — rủi ro nhân lên theo số nơi bạn gửi tới.</li>
+      </ul>
+    </div>
+    <div class="tip">✔️ Trước khi mở AI thứ hai, tự hỏi 3 câu: <strong>(1)</strong> Việc này sai thì có mất tiền,
+      mất mặt, mất thời gian không? <strong>(2)</strong> AI thứ hai vào để <em>làm</em> phần khác hay để
+      <em>kiểm</em> phần đã có? <strong>(3)</strong> Đã có gói bàn giao đủ 4 phần chưa?</div>
+  </section>
+
+  <footer>
+    Trang cá nhân · Cách phối hợp nhiều công cụ AI, không quảng cáo hay ưu ái hãng nào.
+  </footer>
+  </div>
+
   <div class="subwrap" id="sub-claude" hidden>
 
   <nav class="toc" aria-label="Mục lục">
@@ -2222,10 +2419,13 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
       <li><a href="#claude-vs-code">Claude và Claude Code khác nhau thế nào?</a></li>
       <li><a href="#claude-code-cai-dat">Cài đặt & bắt đầu với Claude Code</a></li>
       <li><a href="#claude-code-meo">Dùng Claude Code hiệu quả</a></li>
-      <li><a href="#agent-skills">Agent Skills — đóng gói kỹ năng tái sử dụng</a></li>
       <li><a href="#khoa-hoc">Tổng hợp khóa học Anthropic Academy</a></li>
     </ol>
   </nav>
+
+  <p class="lead-note">Phần <b>Agent Skills</b> trước đây nằm trong tab này, nay đã tách hẳn ra tab riêng
+    (<strong>“Agent Skills”</strong>) vì Skills không còn là chuyện riêng của Claude Code — chúng dùng được cả
+    trên claude.ai và qua API.</p>
 
   <section id="claude-vs-code">
     <h2><span class="num">1</span> Claude và Claude Code khác nhau thế nào?</h2>
@@ -2344,17 +2544,166 @@ claude</code>
       tính toán/thử nghiệm, không phải bản chính thức nộp lại, nên không cần giữ gìn cẩn thận như file dự án.</div>
   </section>
 
-  <section id="agent-skills">
-    <h2><span class="num">4</span> Agent Skills — đóng gói kỹ năng tái sử dụng</h2>
-    <p><strong>Agent Skill</strong> là một "gói kỹ năng" cho Claude Code: một thư mục chứa hướng dẫn (và có thể kèm
-      script, file mẫu) dạy Claude cách làm tốt một việc cụ thể — ví dụ viết báo cáo theo đúng mẫu công ty, thao tác
-      với một hệ thống nội bộ, hay tuân theo quy trình review code riêng của nhóm bạn. Thay vì phải giải thích lại
-      quy trình đó mỗi lần chat, bạn viết một lần rồi Claude tự dùng lại mỗi khi phù hợp.</p>
+  <section id="khoa-hoc">
+    <h2><span class="num">4</span> Tổng hợp khóa học Anthropic Academy</h2>
+    <p>Anthropic có nền tảng học chính thức, miễn phí — <strong>Anthropic Academy</strong>
+      (<a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener">anthropic.skilljar.com</a>),
+      chia thành 3 nhóm: <span class="track-tag">AI Fluency</span> cho người dùng phổ thông,
+      <span class="track-tag">Product Training</span> cho người dùng Claude nói chung, và
+      <span class="track-tag">Developer</span> cho lập trình viên xây dựng trên Claude API.
+      Mỗi khóa chỉ cần đăng ký bằng email, học xong được cấp chứng chỉ.</p>
 
-    <div class="tip">💡 Khác với custom slash command (bạn phải gõ lệnh để gọi), Skill có thể được <strong>Claude tự
-      nhận ra và kích hoạt</strong> khi thấy yêu cầu của bạn khớp với phần mô tả của Skill đó.</div>
+    <div class="card">
+      <table class="course-table">
+        <tr><th>Khóa học</th><th>Nhóm</th><th>Nội dung (tóm tắt)</th></tr>
+        <tr>
+          <td><strong>Claude 101</strong></td>
+          <td><span class="track-tag">Product</span></td>
+          <td>Làm quen các tính năng cốt lõi của Claude, quy trình sử dụng thực tế và các cách dùng hay trong công việc hàng ngày.</td>
+        </tr>
+        <tr>
+          <td><strong>AI Fluency: Framework &amp; Foundations</strong></td>
+          <td><span class="track-tag">AI Fluency</span></td>
+          <td>Xây dựng tư duy về cách AI hoạt động, AI làm được/không làm được gì, theo khung "4E": Hiệu quả — Hiệu suất — Đạo đức — An toàn.</td>
+        </tr>
+        <tr>
+          <td><strong>AI Fluency for Students</strong></td>
+          <td><span class="track-tag">AI Fluency</span></td>
+          <td>Phiên bản dành cho học sinh, sinh viên — dùng AI đúng cách trong học tập, tránh phụ thuộc và gian lận học thuật.</td>
+        </tr>
+        <tr>
+          <td><strong>AI Fluency for Nonprofits</strong></td>
+          <td><span class="track-tag">AI Fluency</span></td>
+          <td>Ứng dụng AI cho tổ chức phi lợi nhuận, tập trung vào mục tiêu sứ mệnh và hiệu quả thực tế với nguồn lực hạn chế.</td>
+        </tr>
+        <tr>
+          <td><strong>Building with the Claude API</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Toàn cảnh làm việc với Claude API: gọi model, streaming, tool use, cấu hình, đưa ứng dụng lên production.</td>
+        </tr>
+        <tr>
+          <td><strong>Claude Code in Action</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Khóa thực hành đưa Claude Code vào quy trình phát triển phần mềm thật để làm việc nhanh hơn.</td>
+        </tr>
+        <tr>
+          <td><strong>Introduction to Agent Skills</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Xây dựng, cấu hình và chia sẻ các "Skill" tái sử dụng được cho Claude Code — xem chi tiết ở
+            <a href="#sk-la-gi" onclick="showSubTab('skills');return true;">tab “Agent Skills”</a>.</td>
+        </tr>
+        <tr>
+          <td><strong>Intro to Model Context Protocol (MCP)</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Từ số 0 đến xây dựng MCP server/client bằng Python — nắm 3 thành phần cốt lõi: tools, resources, prompts.</td>
+        </tr>
+        <tr>
+          <td><strong>MCP: Advanced Topics</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Các mẫu triển khai MCP nâng cao ở mức sản xuất: sampling, notification, truy cập file hệ thống, cơ chế transport.</td>
+        </tr>
+        <tr>
+          <td><strong>Claude with Amazon Bedrock</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Tích hợp và triển khai Claude thông qua Amazon Bedrock cho hạ tầng AWS.</td>
+        </tr>
+        <tr>
+          <td><strong>Claude with Google Cloud Vertex AI</strong></td>
+          <td><span class="track-tag">Developer</span></td>
+          <td>Thiết lập và triển khai Claude trên Google Cloud Vertex AI, từ cấu hình đến production.</td>
+        </tr>
+      </table>
+    </div>
 
-    <h3 style="margin:20px 0 6px;font-size:1.05rem">Cấu trúc một Skill</h3>
+    <div class="tip">⚠️ Đây là bản <strong>tóm tắt tiếng Việt</strong> theo mô tả chính thức của từng khóa — nội dung
+      bài học đầy đủ (video, bài tập tương tác, quiz) nằm trên nền tảng Skilljar của Anthropic và cần đăng ký để xem trực tiếp,
+      nên không thể sao chép/dịch nguyên văn vào trang tĩnh này.</div>
+
+    <p class="source-note">Nguồn tham khảo: trang khóa học chính thức tại
+      <a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener">anthropic.skilljar.com</a> và
+      <a href="https://www.anthropic.com/learn" target="_blank" rel="noopener">anthropic.com/learn</a>.</p>
+  </section>
+
+  <footer>
+    Trang cá nhân · Tóm tắt phi chính thức, không thay thế nội dung gốc từ Anthropic Academy.
+  </footer>
+  </div>
+
+  <div class="subwrap" id="sub-skills" hidden>
+
+  <p class="lead-note"><b>Skill là gì trong một câu:</b> một thư mục chứa file hướng dẫn viết bằng lời thường, dạy
+    Claude cách làm tốt <strong>một việc cụ thể của riêng bạn</strong> — viết một lần, dùng lại mãi, không cần
+    giải thích lại quy trình ở mỗi cuộc trò chuyện. Không cần biết lập trình.</p>
+
+  <nav class="toc" aria-label="Mục lục">
+    <h2>Mục lục</h2>
+    <ol>
+      <li><a href="#sk-la-gi">Agent Skill là gì, giải quyết vấn đề gì</a></li>
+      <li><a href="#sk-nap">Skill được nạp thế nào (3 tầng)</a></li>
+      <li><a href="#sk-cau-truc">Cấu trúc một Skill</a></li>
+      <li><a href="#sk-o-dau">Skill dùng được ở đâu</a></li>
+      <li><a href="#sk-luu-chia-se">Nơi lưu &amp; cách chia sẻ</a></li>
+      <li><a href="#sk-nang-cao">Các trường cấu hình nâng cao</a></li>
+      <li><a href="#sk-file-kem">File kèm theo: script, tài liệu, mẫu</a></li>
+      <li><a href="#sk-so-sanh">Skill, Slash command, Subagent, CLAUDE.md hay MCP?</a></li>
+      <li><a href="#sk-tung-buoc">Hướng dẫn từng bước cho người chưa biết gì</a></li>
+      <li><a href="#sk-khong-chay">Skill không chạy — cách kiểm</a></li>
+      <li><a href="#sk-an-toan">An toàn khi dùng Skill của người khác</a></li>
+      <li><a href="#sk-meo">Mẹo tự viết &amp; sai lầm hay gặp</a></li>
+      <li><a href="#sk-goi-y">Gợi ý Skill theo lĩnh vực</a></li>
+      <li><a href="#sk-faq">Câu hỏi thường gặp</a></li>
+    </ol>
+  </nav>
+
+  <section id="sk-la-gi">
+    <h2><span class="num">1</span> Agent Skill là gì, giải quyết vấn đề gì</h2>
+    <p><strong>Agent Skill</strong> là một “gói kỹ năng”: một thư mục chứa hướng dẫn (và có thể kèm script, file
+      mẫu, tài liệu tra cứu) dạy Claude cách làm tốt một việc cụ thể — viết báo cáo theo đúng mẫu công ty, thao tác
+      với một hệ thống nội bộ, hay tuân theo quy trình kiểm tra riêng của nhóm bạn.</p>
+    <p>Vấn đề nó giải quyết rất đời thường: <strong>bạn phải giải thích lại cùng một quy trình ở mỗi cuộc trò
+      chuyện mới</strong>. Viết thành Skill một lần, Claude tự dùng lại mỗi khi gặp việc phù hợp.</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:34%">Không có Skill</th><th>Có Skill</th></tr>
+        <tr><td>Mỗi lần chat lại dán lại mẫu báo cáo, nhắc lại quy ước.</td>
+          <td>Chỉ cần nói “viết báo cáo tuần” — Claude tự mở Skill ra và làm đúng mẫu.</td></tr>
+        <tr><td>Mỗi người trong nhóm làm một kiểu.</td>
+          <td>Cả nhóm dùng chung một Skill trong dự án, kết quả đồng nhất.</td></tr>
+        <tr><td>Quy trình nằm trong đầu bạn, quên là mất.</td>
+          <td>Quy trình nằm trong một file văn bản, sửa được, chia sẻ được.</td></tr>
+      </table>
+    </div>
+    <div class="tip">💡 Khác với <strong>slash command</strong> (bạn phải gõ lệnh để gọi), Skill có thể được
+      <strong>Claude tự nhận ra và kích hoạt</strong> khi thấy yêu cầu của bạn khớp với phần mô tả của Skill đó.</div>
+  </section>
+
+  <section id="sk-nap">
+    <h2><span class="num">2</span> Skill được nạp thế nào (3 tầng)</h2>
+    <p>Đây là phần đáng hiểu nhất, vì nó giải thích luôn <em>vì sao mô tả (description) lại quan trọng đến thế</em>
+      và vì sao cài nhiều Skill không làm Claude chậm đi. Claude nạp Skill theo <strong>ba tầng, chỉ nạp khi
+      cần</strong>:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:22%">Tầng</th><th style="width:24%">Nạp lúc nào</th><th>Nội dung &amp; chi phí</th></tr>
+        <tr><td><strong>1 · Nhãn</strong></td><td>Luôn nạp, ngay từ đầu phiên</td>
+          <td>Chỉ <code>name</code> + <code>description</code>, khoảng 100 token mỗi Skill. Đây là thứ Claude đối
+            chiếu với yêu cầu của bạn để quyết định có dùng Skill hay không.</td></tr>
+        <tr><td><strong>2 · Hướng dẫn</strong></td><td>Khi Skill được kích hoạt</td>
+          <td>Toàn bộ phần thân <code>SKILL.md</code>. Nên giữ dưới khoảng 5.000 token — tức vài trang văn bản.</td></tr>
+        <tr><td><strong>3 · File kèm</strong></td><td>Chỉ khi được nhắc tới</td>
+          <td>Tài liệu tham khảo, script, file mẫu. Chưa đụng tới thì <strong>không tốn gì cả</strong>; script chạy
+            xong chỉ có kết quả đi vào, còn mã nguồn của script thì không.</td></tr>
+      </table>
+    </div>
+    <div class="tip">🎯 Hệ quả thực tế: <strong>cài 50 Skill cũng không nặng</strong> — chừng nào chưa dùng tới thì
+      mỗi cái chỉ tốn đúng một dòng nhãn. Nhưng cũng vì thế, <strong>mô tả viết dở là Skill không bao giờ được
+      gọi</strong> — Claude chỉ nhìn thấy đúng dòng mô tả đó khi cân nhắc.</div>
+    <div class="tip">📚 Ba tầng này cũng là cách chia nội dung khi Skill lớn dần: hướng dẫn thường xuyên cần thì để
+      trong <code>SKILL.md</code>; bảng tra cứu dài, tài liệu chi tiết thì tách ra file riêng để chỉ nạp khi cần.</div>
+  </section>
+
+  <section id="sk-cau-truc">
+    <h2><span class="num">3</span> Cấu trúc một Skill</h2>
     <p>Một Skill tối thiểu chỉ cần 1 file <code>SKILL.md</code> nằm trong thư mục riêng:</p>
     <code class="cmd">ten-skill/
 └── SKILL.md   (có thể kèm thêm script, template, tài liệu tham khảo...)</code>
@@ -2370,18 +2719,70 @@ description: Dùng khi cần viết báo cáo công việc hàng tuần theo m�
 2. Nhóm theo dự án, sắp theo mức ưu tiên.
 3. Viết theo mẫu: Mục tiêu tuần / Đã làm / Đang vướng / Kế hoạch tuần sau.
 ...</code>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:22%">Trường</th><th>Quy định</th></tr>
+        <tr><td><code>name</code> <span class="muted-inline">bắt buộc</span></td>
+          <td>Tối đa 64 ký tự, chỉ chữ thường không dấu, số và dấu gạch nối. Không được chứa chữ “claude” hay
+            “anthropic”.</td></tr>
+        <tr><td><code>description</code> <span class="muted-inline">bắt buộc</span></td>
+          <td>Tối đa 1.024 ký tự. Phải nói đủ <strong>hai vế</strong>: Skill này làm gì, <em>và</em> khi nào thì
+            nên dùng. Thiếu vế thứ hai là nguyên nhân số một khiến Skill không tự kích hoạt.</td></tr>
+      </table>
+    </div>
+    <div class="example"><span class="label">❌ Mô tả yếu</span>description: Giúp viết báo cáo.</div>
+    <div class="example" style="margin-top:10px"><span class="label">✅ Mô tả đủ hai vế</span>description: Viết báo cáo công việc hàng tuần theo mẫu 4 phần của phòng kinh doanh.
+Dùng khi người dùng đưa danh sách việc đã làm và yêu cầu tổng hợp thành báo cáo tuần,
+hoặc nhắc tới "báo cáo tuần", "tổng kết tuần".</div>
+  </section>
 
-    <h3 style="margin:20px 0 6px;font-size:1.05rem">Nơi lưu & cách chia sẻ</h3>
+  <section id="sk-o-dau">
+    <h2><span class="num">4</span> Skill dùng được ở đâu</h2>
+    <p>Skill không còn là chuyện riêng của Claude Code. Cùng một ý tưởng, nhưng cách nạp và phạm vi chia sẻ khác
+      nhau theo từng nơi:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:20%">Nơi dùng</th><th style="width:34%">Cách đưa Skill vào</th><th>Ai dùng được</th></tr>
+        <tr><td><strong>Claude Code</strong><br><span class="muted-inline">trên máy bạn</span></td>
+          <td>Đặt thư mục Skill vào <code>~/.claude/skills/</code> (dùng riêng) hoặc <code>.claude/skills/</code>
+            trong dự án. Không phải tải lên đâu cả.</td>
+          <td>Bạn, hoặc cả nhóm nếu thư mục dự án được commit lên git.</td></tr>
+        <tr><td><strong>claude.ai</strong><br><span class="muted-inline">bản web/app</span></td>
+          <td>Nén Skill thành file zip rồi tải lên trong phần cài đặt tính năng. Cần gói trả phí và bật tính năng
+            tạo/sửa file.</td>
+          <td>Riêng tài khoản của bạn — mỗi người trong nhóm phải tự tải lên bản của mình.</td></tr>
+        <tr><td><strong>Claude API</strong><br><span class="muted-inline">cho lập trình viên</span></td>
+          <td>Tải lên qua API rồi khai <code>skill_id</code> khi gọi, chạy kèm công cụ thực thi mã.</td>
+          <td>Cả workspace — mọi thành viên trong workspace đó đều gọi được.</td></tr>
+      </table>
+    </div>
+    <div class="tip">⚠️ <strong>Skill không tự đồng bộ giữa ba nơi này.</strong> Skill tải lên claude.ai không tự
+      xuất hiện ở API; Skill trong Claude Code nằm trên máy bạn và tách hẳn khỏi hai nơi kia. Muốn dùng ở đâu thì
+      phải đưa vào riêng ở đó.</div>
+    <div class="tip">🌐 Một khác biệt đáng nhớ: Skill chạy <strong>qua API không có mạng</strong> và không cài thêm
+      thư viện được, trong khi Skill chạy trong <strong>Claude Code có toàn quyền mạng</strong> như mọi chương
+      trình khác trên máy bạn. Cùng một Skill có thể chạy ở nơi này mà tắc ở nơi kia vì lý do đó.</div>
+    <div class="tip">📄 Ngoài Skill tự viết, Anthropic có sẵn vài Skill dựng sẵn cho việc tài liệu — tạo file
+      PowerPoint, Excel, Word, PDF — dùng được trên claude.ai và qua API (không có trong Claude Code). Không cần
+      cài gì, cứ yêu cầu tạo file là Claude tự dùng.</div>
+  </section>
+
+  <section id="sk-luu-chia-se">
+    <h2><span class="num">5</span> Nơi lưu &amp; cách chia sẻ</h2>
     <ul class="checklist">
       <li><strong>Cá nhân</strong>: lưu trong thư mục Skill của riêng bạn — dùng được ở mọi dự án trên máy bạn.</li>
-      <li><strong>Theo dự án</strong>: lưu trong thư mục <code>.claude/skills/</code> ngay trong repo — commit lên
-        git để cả nhóm cùng dùng chung một Skill.</li>
+      <li><strong>Theo dự án</strong>: lưu trong <code>.claude/skills/</code> ngay trong repo — commit lên git để
+        cả nhóm cùng dùng chung một Skill, ai kéo code về là có ngay.</li>
       <li><strong>Dạng plugin</strong>: đóng gói cùng các Skill/lệnh khác thành một plugin để chia sẻ rộng hơn,
         cài vào nhiều dự án/nhóm khác nhau chỉ bằng một lệnh cài đặt.</li>
     </ul>
+    <div class="tip">🗂️ Quy tắc chọn chỗ để: quy trình chỉ mình bạn cần → để cá nhân; quy ước của <em>dự án
+      này</em> → để trong dự án; bộ quy trình dùng cho nhiều nơi → đóng plugin.</div>
+  </section>
 
-    <h3 style="margin:20px 0 6px;font-size:1.05rem">Các trường cấu hình nâng cao (không bắt buộc)</h3>
-    <p>Ngoài <code>name</code> và <code>description</code>, frontmatter còn nhận thêm vài trường tuỳ chọn để kiểm
+  <section id="sk-nang-cao">
+    <h2><span class="num">6</span> Các trường cấu hình nâng cao (không bắt buộc)</h2>
+    <p>Ngoài <code>name</code> và <code>description</code>, Claude Code còn nhận thêm vài trường tuỳ chọn để kiểm
       soát Skill chặt hơn:</p>
     <div class="card">
       <table class="course-table">
@@ -2405,55 +2806,77 @@ description: Dùng khi cần viết báo cáo công việc hàng tuần theo m�
     </div>
     <div class="tip">👍 Người mới không cần quan tâm mấy trường này ngay — chỉ <code>name</code> + <code>description</code>
       là đã dùng được. Thêm vào sau khi Skill đã chạy ổn và muốn kiểm soát chặt hơn.</div>
+  </section>
 
-    <h3 style="margin:28px 0 6px;font-size:1.05rem">Skill, Slash Command hay Subagent?</h3>
-    <p>Claude Code có vài cách "mở rộng" khác nhau, dễ nhầm với nhau — bảng dưới đây so sánh nhanh:</p>
+  <section id="sk-file-kem">
+    <h2><span class="num">7</span> File kèm theo: script, tài liệu, mẫu</h2>
+    <p>Khi một Skill lớn dần, đừng nhồi hết vào <code>SKILL.md</code>. Tách ra file riêng và <em>nhắc tới</em>
+      chúng trong hướng dẫn — Claude chỉ mở khi thật sự cần (tầng 3 ở mục 2):</p>
+    <code class="cmd">viet-bao-cao-tuan/
+├── SKILL.md          (hướng dẫn chính, ngắn gọn)
+├── MAU-BAO-CAO.md    (mẫu đầy đủ, chỉ đọc khi cần)
+├── vi-du/
+│   └── bao-cao-thang-7.md
+└── scripts/
+    └── gom-so-lieu.py</code>
     <div class="card">
       <table class="course-table">
-        <tr><th>Cơ chế</th><th>Kích hoạt</th><th>Phù hợp khi</th></tr>
+        <tr><th style="width:24%">Loại file kèm</th><th>Dùng khi</th></tr>
+        <tr><td><strong>Tài liệu (.md)</strong></td>
+          <td>Bảng tra cứu dài, quy định chi tiết, mẫu đầy đủ — thứ chỉ cần trong một số trường hợp.</td></tr>
+        <tr><td><strong>Script</strong></td>
+          <td>Việc phải ra kết quả <strong>chính xác tuyệt đối và giống nhau mọi lần</strong> — tính toán, kiểm tra
+            định dạng, đổi dữ liệu. Chạy script chắc chắn hơn để Claude tự viết lại mã mỗi lần.</td></tr>
+        <tr><td><strong>File mẫu</strong></td>
+          <td>Ví dụ thật của kết quả mong muốn — cách nhanh nhất để Claude bắt đúng “gu”.</td></tr>
+      </table>
+    </div>
+    <div class="tip">💡 Trong <code>SKILL.md</code>, hãy viết rõ <em>khi nào</em> mở file kèm, ví dụ: “Trường hợp
+      báo cáo quý, đọc thêm <code>MAU-BAO-CAO.md</code>.” Không nhắc tới thì file đó nằm im mãi.</div>
+  </section>
+
+  <section id="sk-so-sanh">
+    <h2><span class="num">8</span> Skill, Slash command, Subagent, CLAUDE.md hay MCP?</h2>
+    <p>Năm cách “dạy thêm” cho Claude, rất dễ nhầm nhau — bảng dưới phân biệt theo đúng câu hỏi nên hỏi:
+      <em>thứ tôi cần thêm là kiến thức, là thao tác, hay là kết nối?</em></p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:20%">Cơ chế</th><th style="width:28%">Kích hoạt</th><th>Phù hợp khi</th></tr>
         <tr>
           <td><strong>Agent Skill</strong></td>
           <td>Claude tự nhận diện theo mô tả (hoặc gọi tay)</td>
-          <td>Một quy trình/kiến thức cụ thể, lặp lại nhiều lần</td>
+          <td>Một quy trình/kiến thức cụ thể, lặp lại nhiều lần.</td>
         </tr>
         <tr>
           <td><strong>Slash command</strong></td>
           <td>Phải gõ lệnh (vd. <code>/review</code>) để chạy</td>
-          <td>Thao tác bạn chủ động gọi, ít khi cần Claude tự đoán lúc nào nên dùng</td>
+          <td>Thao tác bạn chủ động gọi, ít khi cần Claude tự đoán lúc nào nên dùng.</td>
         </tr>
         <tr>
           <td><strong>Subagent</strong></td>
           <td>Được gọi trong lúc làm việc để xử lý một việc con riêng</td>
-          <td>Việc cần tách ngữ cảnh riêng (vd. tìm kiếm rộng trong code) mà không làm loãng cuộc trò chuyện chính</td>
+          <td>Việc cần tách ngữ cảnh riêng (vd. tìm kiếm rộng trong code) mà không làm loãng cuộc trò chuyện chính.</td>
+        </tr>
+        <tr>
+          <td><strong>CLAUDE.md</strong></td>
+          <td>Tự đọc ở <strong>mọi</strong> phiên, không cần kích hoạt</td>
+          <td>Quy ước áp dụng cho <em>tất cả</em> việc trong dự án (cấu trúc thư mục, cách chạy test). Thứ chỉ dùng
+            trong vài trường hợp thì để vào Skill, đừng nhét vào đây — nhét càng nhiều càng tốn ở mọi lượt.</td>
+        </tr>
+        <tr>
+          <td><strong>MCP</strong></td>
+          <td>Cắm thêm như một bộ công cụ</td>
+          <td>Cần <em>kết nối</em> tới hệ thống bên ngoài (GitHub, Google Drive, cơ sở dữ liệu). Skill dạy
+            <strong>cách làm</strong>, MCP mở <strong>đường vào</strong> — xem tab “AI Agent”, mục 4.</td>
         </tr>
       </table>
     </div>
     <div class="tip">🤔 Chưa chắc nên dùng cái nào? Cứ bắt đầu bằng <strong>Agent Skill</strong> — dễ viết nhất (chỉ
       cần văn bản thường), phù hợp với phần lớn nhu cầu cá nhân và nhóm nhỏ.</div>
+  </section>
 
-    <h3 style="margin:28px 0 6px;font-size:1.05rem">Mẹo khi tự viết Skill</h3>
-    <div class="tip">🎯 <strong>Mô tả (description) phải rõ "khi nào dùng"</strong> — Claude chọn Skill dựa vào phần
-      mô tả này, mô tả mơ hồ thì Claude khó biết lúc nào nên gọi tới.</div>
-    <div class="tip">✂️ <strong>Một Skill làm một việc</strong> — đừng nhồi nhiều quy trình không liên quan vào
-      chung một Skill, khó bảo trì và dễ bị gọi nhầm lúc.</div>
-    <div class="tip">🧪 <strong>Thử trước khi dùng thật</strong>: tạo Skill xong, thử vài yêu cầu khác nhau xem
-      Claude có kích hoạt đúng lúc và làm đúng ý không, rồi mới đưa cả nhóm dùng.</div>
-
-    <div class="card">
-      <p style="margin:0 0 10px"><strong>Sai lầm hay gặp</strong></p>
-      <ul class="checklist">
-        <li><strong>Mô tả chung chung</strong> (vd. "giúp viết văn bản") — Claude không biết khi nào nên/không nên
-          dùng, dễ kích hoạt sai lúc hoặc bỏ sót lúc cần.</li>
-        <li><strong>Nhồi quá nhiều việc vào 1 Skill</strong> — nên tách thành nhiều Skill nhỏ, mỗi cái một nhiệm vụ
-          rõ ràng, dễ sửa và dễ tái sử dụng hơn.</li>
-        <li><strong>Copy Skill người khác mà không đọc kỹ</strong> — nhất là Skill có kèm script, nên xem qua nội
-          dung trước khi dùng, giống như không chạy code lạ chưa rõ nguồn gốc.</li>
-        <li><strong>Quên cập nhật khi quy trình đổi</strong> — Skill là văn bản tĩnh, quy trình đổi mà không sửa
-          lại <code>SKILL.md</code> thì Claude vẫn làm theo cách cũ.</li>
-      </ul>
-    </div>
-
-    <h3 style="margin:28px 0 6px;font-size:1.05rem">🐣 Hướng dẫn từng bước cho người chưa biết gì</h3>
+  <section id="sk-tung-buoc">
+    <h2><span class="num">9</span> 🐣 Hướng dẫn từng bước cho người chưa biết gì</h2>
     <p>Phần dưới đây giả sử bạn <strong>chưa từng viết Skill lần nào</strong> — làm theo đúng thứ tự là có một
       Skill chạy được ngay. Ví dụ: tạo Skill giúp Claude Code luôn tóm tắt cuộc họp theo đúng 1 mẫu cố định.</p>
 
@@ -2515,7 +2938,7 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
     </div>
 
     <div class="card">
-      <p><strong>Bước 6 — Kiểm tra & chỉnh sửa</strong></p>
+      <p><strong>Bước 6 — Kiểm tra &amp; chỉnh sửa</strong></p>
       <ul class="checklist">
         <li>Nếu Claude <strong>không</strong> dùng đúng mẫu: mở lại <code>SKILL.md</code>, viết phần
           <code>description</code> cụ thể hơn (nêu rõ tình huống nên dùng), rồi thử lại.</li>
@@ -2524,8 +2947,89 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
         <li>Muốn xoá Skill: xoá cả thư mục <code>tom-tat-hop</code> là xong, không ảnh hưởng gì khác.</li>
       </ul>
     </div>
+  </section>
 
-    <h3 style="margin:28px 0 6px;font-size:1.05rem">💡 Gợi ý Skill theo lĩnh vực</h3>
+  <section id="sk-khong-chay">
+    <h2><span class="num">10</span> Skill không chạy — cách kiểm</h2>
+    <p>Skill viết xong mà Claude không dùng tới là chuyện rất hay gặp, và nó <strong>không báo lỗi gì cả</strong> —
+      Claude vẫn trả lời bình thường, chỉ là trả lời theo cách của nó chứ không theo Skill của bạn. Kiểm theo đúng
+      thứ tự sau:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:34%">Kiểm cái gì</th><th>Cách làm</th></tr>
+        <tr><td><strong>1. Claude có thấy Skill không</strong></td>
+          <td>Hỏi thẳng bằng lời: <em>“Bạn đang thấy những Skill nào?”</em> Không có tên Skill của bạn trong danh
+            sách nghĩa là nó chưa được nạp — thường do đặt sai thư mục, hoặc phiên đang mở từ trước lúc tạo Skill
+            (mở phiên mới là xong).</td></tr>
+        <tr><td><strong>2. Mô tả có nói rõ “khi nào dùng” không</strong></td>
+          <td>Đây là nguyên nhân phổ biến nhất. Thêm vào <code>description</code> chính những chữ bạn hay gõ khi
+            cần việc đó, rồi thử lại.</td></tr>
+        <tr><td><strong>3. Gọi thẳng xem có chạy không</strong></td>
+          <td>Nhắc đích danh trong yêu cầu: <em>“Dùng Skill tom-tat-hop để làm việc này.”</em> Gọi thẳng mà chạy
+            đúng thì lỗi nằm ở mô tả (bước 2), không phải ở nội dung Skill.</td></tr>
+        <tr><td><strong>4. Nội dung hướng dẫn có mâu thuẫn không</strong></td>
+          <td>Skill chạy nhưng kết quả sai mẫu: đọc lại phần thân, bỏ câu chung chung, viết thành các bước đánh số
+            rõ ràng.</td></tr>
+        <tr><td><strong>5. Có nhiều Skill giẫm chân nhau không</strong></td>
+          <td>Hai Skill mô tả na ná nhau thì Claude dễ chọn nhầm cái. Tách rõ phạm vi từng cái trong mô tả.</td></tr>
+      </table>
+    </div>
+    <div class="tip">🧪 Cách thử chắc chắn nhất: viết sẵn <strong>3 câu yêu cầu khác nhau</strong> mà bạn mong Skill
+      kích hoạt, thử cả 3 trong phiên mới. Đúng cả 3 mới coi là xong — thử đúng một câu rất dễ ngộ nhận.</div>
+  </section>
+
+  <section id="sk-an-toan">
+    <h2><span class="num">11</span> An toàn khi dùng Skill của người khác</h2>
+    <p>Skill không chỉ là văn bản gợi ý: nó có thể kèm script và có thể bảo Claude gọi công cụ. Vì vậy
+      <strong>cài một Skill lạ giống như cài một phần mềm lạ</strong> — không phải như đọc một bài viết.</p>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Chỉ dùng Skill do bạn tự viết hoặc từ nguồn tin cậy</strong> (chính hãng, đồng nghiệp bạn
+          biết).</li>
+        <li><strong>Mở ra đọc trước khi dùng</strong>: đọc cả <code>SKILL.md</code> lẫn mọi file script đi kèm.
+          Thấy chỗ nào gửi dữ liệu ra ngoài, đọc file ngoài phạm vi dự án, hay chạy lệnh không liên quan tới việc
+          nó khai — dừng lại.</li>
+        <li><strong>Cảnh giác với Skill tải nội dung từ internet</strong>: nội dung tải về có thể chứa hướng dẫn
+          cài vào, và nội dung đó thay đổi lúc nào không hay.</li>
+        <li><strong>Giới hạn công cụ</strong> bằng <code>allowed-tools</code> (mục 6) khi Skill không cần chạy lệnh
+          hệ thống.</li>
+        <li><strong>Cẩn thận gấp đôi với môi trường có dữ liệu thật</strong> — tài khoản khách hàng, dữ liệu công
+          ty, hệ thống đang chạy.</li>
+      </ul>
+    </div>
+    <div class="tip">🔍 Một câu hỏi lọc rất nhanh: <em>Skill này khai là làm việc A, vậy nó cần đọc/ghi/gửi những
+      gì để làm A?</em> Thấy nó đụng tới thứ ngoài danh sách đó thì không dùng.</div>
+  </section>
+
+  <section id="sk-meo">
+    <h2><span class="num">12</span> Mẹo tự viết &amp; sai lầm hay gặp</h2>
+    <div class="tip">🎯 <strong>Mô tả (description) phải rõ "khi nào dùng"</strong> — Claude chọn Skill dựa vào phần
+      mô tả này, mô tả mơ hồ thì Claude khó biết lúc nào nên gọi tới.</div>
+    <div class="tip">✂️ <strong>Một Skill làm một việc</strong> — đừng nhồi nhiều quy trình không liên quan vào
+      chung một Skill, khó bảo trì và dễ bị gọi nhầm lúc.</div>
+    <div class="tip">🧪 <strong>Thử trước khi dùng thật</strong>: tạo Skill xong, thử vài yêu cầu khác nhau xem
+      Claude có kích hoạt đúng lúc và làm đúng ý không, rồi mới đưa cả nhóm dùng.</div>
+    <div class="tip">📏 <strong>Giữ phần thân ngắn</strong> — vài trang là đủ. Nội dung tra cứu dài thì tách ra file
+      riêng (mục 7) để chỉ nạp khi cần.</div>
+
+    <div class="card">
+      <p style="margin:0 0 10px"><strong>Sai lầm hay gặp</strong></p>
+      <ul class="checklist">
+        <li><strong>Mô tả chung chung</strong> (vd. "giúp viết văn bản") — Claude không biết khi nào nên/không nên
+          dùng, dễ kích hoạt sai lúc hoặc bỏ sót lúc cần.</li>
+        <li><strong>Nhồi quá nhiều việc vào 1 Skill</strong> — nên tách thành nhiều Skill nhỏ, mỗi cái một nhiệm vụ
+          rõ ràng, dễ sửa và dễ tái sử dụng hơn.</li>
+        <li><strong>Copy Skill người khác mà không đọc kỹ</strong> — nhất là Skill có kèm script, xem mục 11.</li>
+        <li><strong>Quên cập nhật khi quy trình đổi</strong> — Skill là văn bản tĩnh, quy trình đổi mà không sửa
+          lại <code>SKILL.md</code> thì Claude vẫn làm theo cách cũ.</li>
+        <li><strong>Viết Skill cho việc chỉ làm một lần</strong> — việc một lần thì cứ nói thẳng trong chat, nhanh
+          hơn nhiều.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="sk-goi-y">
+    <h2><span class="num">13</span> 💡 Gợi ý Skill theo lĩnh vực</h2>
     <p>Chưa biết nên viết Skill gì trước? Vài ý tưởng theo từng nhu cầu — chỉ mang tính gợi mở, đổi lại cho đúng
       quy trình thật của bạn:</p>
     <div class="tools-grid">
@@ -2557,8 +3061,12 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
         <p>Phân loại chi tiêu theo danh mục cố định, tóm tắt sao kê hàng tháng theo mẫu quen thuộc.</p>
       </div>
     </div>
+    <div class="tip">🔎 Cách tìm ý nhanh nhất: xem lại 10 cuộc trò chuyện gần nhất của bạn với AI, việc nào lặp lại
+      từ 3 lần trở lên thì việc đó xứng đáng thành một Skill.</div>
+  </section>
 
-    <h3 style="margin:28px 0 6px;font-size:1.05rem">❓ Câu hỏi thường gặp</h3>
+  <section id="sk-faq">
+    <h2><span class="num">14</span> ❓ Câu hỏi thường gặp</h2>
     <div class="card">
       <table class="course-table">
         <tr><td style="width:38%"><strong>Có cần biết lập trình không?</strong></td>
@@ -2566,101 +3074,29 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
             hướng dẫn một người mới vào làm.</td></tr>
         <tr><td><strong>Skill tự chạy hay phải gọi?</strong></td>
           <td>Mặc định Claude tự nhận diện khi thấy yêu cầu khớp mô tả. Không thấy kích hoạt thì có thể nhắc thẳng
-            tên Skill trong câu yêu cầu.</td></tr>
+            tên Skill trong câu yêu cầu — xem mục 10.</td></tr>
         <tr><td><strong>Có cần internet hay cài thêm gì không?</strong></td>
-          <td>Không — chỉ cần Claude Code đã cài sẵn (xem mục 2) và một file văn bản đặt đúng thư mục.</td></tr>
+          <td>Không — chỉ cần Claude Code đã cài sẵn (xem tab “Claude &amp; Claude Code”, mục 2) và một file văn bản
+            đặt đúng thư mục.</td></tr>
         <tr><td><strong>Skill có dùng được cho cả nhóm không?</strong></td>
-          <td>Có — nếu để trong <code>.claude/skills/</code> của repo và commit lên git, ai kéo code về cũng dùng
-            được ngay.</td></tr>
+          <td>Có — để trong <code>.claude/skills/</code> của repo và commit lên git thì ai kéo code về cũng dùng
+            được ngay. Trên claude.ai thì không: mỗi người phải tự tải lên bản của mình.</td></tr>
+        <tr><td><strong>Cài nhiều Skill có làm Claude chậm không?</strong></td>
+          <td>Gần như không. Skill chưa dùng tới chỉ tốn một dòng nhãn khoảng 100 token — xem mục 2.</td></tr>
         <tr><td><strong>Viết sai thì có hỏng gì không?</strong></td>
           <td>Không — Skill chỉ là hướng dẫn thêm cho Claude, viết sai nhiều lắm là Claude làm chưa đúng ý, sửa lại
-            file rồi thử lại là được, không ảnh hưởng tới code hay dữ liệu dự án.</td></tr>
+            file rồi thử lại là được. Ngoại lệ: Skill kèm script <em>của người khác</em> thì phải đọc trước
+            (mục 11).</td></tr>
+        <tr><td><strong>Skill khác gì multi-agent?</strong></td>
+          <td>Skill là gói hướng dẫn dạy <em>một</em> agent làm tốt một việc; multi-agent là <em>nhiều agent</em>
+            phối hợp (tab “AI Agent”, mục 6). Một subagent hoàn toàn có thể dùng Skill trong lúc làm việc — hai thứ
+            bổ trợ nhau.</td></tr>
       </table>
     </div>
-  </section>
-
-  <section id="khoa-hoc">
-    <h2><span class="num">5</span> Tổng hợp khóa học Anthropic Academy</h2>
-    <p>Anthropic có nền tảng học chính thức, miễn phí — <strong>Anthropic Academy</strong>
-      (<a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener">anthropic.skilljar.com</a>),
-      chia thành 3 nhóm: <span class="track-tag">AI Fluency</span> cho người dùng phổ thông,
-      <span class="track-tag">Product Training</span> cho người dùng Claude nói chung, và
-      <span class="track-tag">Developer</span> cho lập trình viên xây dựng trên Claude API.
-      Mỗi khóa chỉ cần đăng ký bằng email, học xong được cấp chứng chỉ.</p>
-
-    <div class="card">
-      <table class="course-table">
-        <tr><th>Khóa học</th><th>Nhóm</th><th>Nội dung (tóm tắt)</th></tr>
-        <tr>
-          <td><strong>Claude 101</strong></td>
-          <td><span class="track-tag">Product</span></td>
-          <td>Làm quen các tính năng cốt lõi của Claude, quy trình sử dụng thực tế và các cách dùng hay trong công việc hàng ngày.</td>
-        </tr>
-        <tr>
-          <td><strong>AI Fluency: Framework &amp; Foundations</strong></td>
-          <td><span class="track-tag">AI Fluency</span></td>
-          <td>Xây dựng tư duy về cách AI hoạt động, AI làm được/không làm được gì, theo khung "4E": Hiệu quả — Hiệu suất — Đạo đức — An toàn.</td>
-        </tr>
-        <tr>
-          <td><strong>AI Fluency for Students</strong></td>
-          <td><span class="track-tag">AI Fluency</span></td>
-          <td>Phiên bản dành cho học sinh, sinh viên — dùng AI đúng cách trong học tập, tránh phụ thuộc và gian lận học thuật.</td>
-        </tr>
-        <tr>
-          <td><strong>AI Fluency for Nonprofits</strong></td>
-          <td><span class="track-tag">AI Fluency</span></td>
-          <td>Ứng dụng AI cho tổ chức phi lợi nhuận, tập trung vào mục tiêu sứ mệnh và hiệu quả thực tế với nguồn lực hạn chế.</td>
-        </tr>
-        <tr>
-          <td><strong>Building with the Claude API</strong></td>
-          <td><span class="track-tag">Developer</span></td>
-          <td>Toàn cảnh làm việc với Claude API: gọi model, streaming, tool use, cấu hình, đưa ứng dụng lên production.</td>
-        </tr>
-        <tr>
-          <td><strong>Claude Code in Action</strong></td>
-          <td><span class="track-tag">Developer</span></td>
-          <td>Khóa thực hành đưa Claude Code vào quy trình phát triển phần mềm thật để làm việc nhanh hơn.</td>
-        </tr>
-        <tr>
-          <td><strong>Introduction to Agent Skills</strong></td>
-          <td><span class="track-tag">Developer</span></td>
-          <td>Xây dựng, cấu hình và chia sẻ các "Skill" tái sử dụng được cho Claude Code — xem chi tiết ở
-            <a href="#agent-skills">mục 4</a> phía trên.</td>
-        </tr>
-        <tr>
-          <td><strong>Intro to Model Context Protocol (MCP)</strong></td>
-          <td><span class="track-tag">Developer</span></td>
-          <td>Từ số 0 đến xây dựng MCP server/client bằng Python — nắm 3 thành phần cốt lõi: tools, resources, prompts.</td>
-        </tr>
-        <tr>
-          <td><strong>MCP: Advanced Topics</strong></td>
-          <td><span class="track-tag">Developer</span></td>
-          <td>Các mẫu triển khai MCP nâng cao ở mức sản xuất: sampling, notification, truy cập file hệ thống, cơ chế transport.</td>
-        </tr>
-        <tr>
-          <td><strong>Claude with Amazon Bedrock</strong></td>
-          <td><span class="track-tag">Developer</span></td>
-          <td>Tích hợp và triển khai Claude thông qua Amazon Bedrock cho hạ tầng AWS.</td>
-        </tr>
-        <tr>
-          <td><strong>Claude with Google Cloud Vertex AI</strong></td>
-          <td><span class="track-tag">Developer</span></td>
-          <td>Thiết lập và triển khai Claude trên Google Cloud Vertex AI, từ cấu hình đến production.</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="tip">⚠️ Đây là bản <strong>tóm tắt tiếng Việt</strong> theo mô tả chính thức của từng khóa — nội dung
-      bài học đầy đủ (video, bài tập tương tác, quiz) nằm trên nền tảng Skilljar của Anthropic và cần đăng ký để xem trực tiếp,
-      nên không thể sao chép/dịch nguyên văn vào trang tĩnh này.</div>
-
-    <p class="source-note">Nguồn tham khảo: trang khóa học chính thức tại
-      <a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener">anthropic.skilljar.com</a> và
-      <a href="https://www.anthropic.com/learn" target="_blank" rel="noopener">anthropic.com/learn</a>.</p>
   </section>
 
   <footer>
-    Trang cá nhân · Tóm tắt phi chính thức, không thay thế nội dung gốc từ Anthropic Academy.
+    Trang cá nhân · Tóm tắt theo tài liệu công khai của Anthropic, có thể thay đổi khi sản phẩm cập nhật.
   </footer>
   </div>
 
@@ -2709,7 +3145,7 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
       </table>
     </div>
     <div class="tip">Claude vừa dùng được như chatbot (tại claude.ai), vừa là "bộ não" cho agent. <strong>Claude Code</strong>
-      (xem tab trước) chính là một agent thực thụ: nó tự đọc code, chạy lệnh, sửa file trong dự án của bạn.</div>
+      (xem tab "Claude &amp; Claude Code") chính là một agent thực thụ: nó tự đọc code, chạy lệnh, sửa file trong dự án của bạn.</div>
   </section>
 
   <section id="vong-lap">
@@ -2938,9 +3374,10 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
           <td>Không — bạn chỉ cần mô tả việc đủ rõ, Claude Code tự quyết định có cần tách việc cho subagent hay
             không.</td></tr>
         <tr><td><strong>Multi-agent khác gì Agent Skills?</strong></td>
-          <td>Skill là "gói hướng dẫn" dạy <em>một</em> agent làm tốt một việc cụ thể (xem tab "Claude &amp; Claude
-            Code", mục 4); multi-agent là <em>nhiều agent</em> chạy cùng lúc phối hợp với nhau. Một subagent hoàn
-            toàn có thể tự dùng Skill trong lúc làm việc — hai khái niệm bổ trợ nhau, không thay thế nhau.</td></tr>
+          <td>Skill là "gói hướng dẫn" dạy <em>một</em> agent làm tốt một việc cụ thể (xem tab "Agent Skills");
+            multi-agent là <em>nhiều agent</em> chạy cùng lúc phối hợp với nhau. Một subagent hoàn toàn có thể tự
+            dùng Skill trong lúc làm việc — hai khái niệm bổ trợ nhau, không thay thế nhau. Còn dùng
+            <strong>nhiều AI khác hãng</strong> cho một việc lại là chuyện thứ ba — xem tab "Dùng nhiều AI".</td></tr>
       </table>
     </div>
 
@@ -2992,10 +3429,10 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     <ul class="checklist">
       <li><strong>Trải nghiệm một agent thật</strong>: cài <strong>Claude Code</strong> và giao cho nó một việc nhỏ trong
         dự án — xem tab "Claude &amp; Claude Code", mục 2.</li>
-      <li><strong>Đóng gói kỹ năng tái dùng</strong>: học viết <strong>Agent Skill</strong> — tab "Claude &amp; Claude
-        Code", mục 4 (có hướng dẫn từng bước cho người chưa biết gì).</li>
+      <li><strong>Đóng gói kỹ năng tái dùng</strong>: học viết <strong>Agent Skill</strong> — tab "Agent Skills"
+        (có hướng dẫn từng bước cho người chưa biết gì ở mục 9).</li>
       <li><strong>Học nền tảng</strong>: các khóa miễn phí ở <strong>Anthropic Academy</strong> — tab "Claude &amp; Claude
-        Code", mục 5.</li>
+        Code", mục 4.</li>
     </ul>
     <div class="tip">🌱 Cách học nhanh nhất là <strong>tự tay giao cho một agent một việc thật nho nhỏ</strong> và quan sát
       nó chạy qua từng vòng lặp — bạn sẽ "thấm" khái niệm agentic nhanh hơn nhiều so với chỉ đọc.</div>
@@ -3055,11 +3492,11 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     <p>Nền tảng bắt buộc, áp dụng cho mọi công cụ AI (ChatGPT, Claude, Gemini...), không riêng Claude Code:</p>
     <ul class="checklist">
       <li><strong>Viết yêu cầu (prompt) rõ ràng</strong>: nêu rõ vai trò, bối cảnh, việc cần làm, định dạng mong
-        muốn — xem tab "Hướng dẫn chung", mục 4.</li>
-      <li><strong>Luyện với ví dụ thật</strong>: thử các mẫu prompt theo tình huống ở tab "Hướng dẫn chung", mục 5,
+        muốn — xem tab "Bắt đầu dùng AI", mục 4.</li>
+      <li><strong>Luyện với ví dụ thật</strong>: thử các mẫu prompt theo tình huống ở tab "Bắt đầu dùng AI", mục 5,
         rồi áp dụng vào việc của chính bạn.</li>
       <li><strong>Hiểu giới hạn của AI</strong>: AI có thể trả lời sai/"bịa" (ảo giác), không nên tin tuyệt đối —
-        xem tab "Hướng dẫn chung", mục 6.</li>
+        xem tab "Bắt đầu dùng AI", mục 6.</li>
     </ul>
     <div class="tip">✅ Xong giai đoạn này khi: bạn tự viết được một yêu cầu đủ 4 phần (vai trò – bối cảnh – yêu cầu –
       định dạng) mà không cần nhìn mẫu.</div>
@@ -3076,7 +3513,7 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       <li><strong>Ghi lại ngữ cảnh dự án vào CLAUDE.md</strong>: giúp Claude Code nhớ quy ước, cấu trúc dự án của
         bạn ở mỗi phiên làm việc mới — xem tab "Claude &amp; Claude Code", mục 2.</li>
       <li><strong>Viết Agent Skill đầu tiên</strong>: đóng gói một việc bạn hay nhờ AI làm lặp đi lặp lại thành một
-        Skill dùng lại được — có hướng dẫn từng bước cho người chưa biết gì ở tab "Claude &amp; Claude Code", mục 4.</li>
+        Skill dùng lại được — có hướng dẫn từng bước cho người chưa biết gì ở tab "Agent Skills", mục 9.</li>
     </ul>
     <div class="tip">✅ Xong "vòng đầu" của giai đoạn này khi: bạn tự viết và dùng thử được ít nhất 1 Skill của
       riêng mình.</div>
@@ -3310,7 +3747,7 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   <div class="subwrap" id="sub-quiz" hidden>
   <div class="quiz-shell" id="quiz-root"></div>
   <footer>
-    Trang cá nhân · 29 câu hỏi tự chấm ngay trên trình duyệt, không lưu hay gửi kết quả đi đâu cả.
+    Trang cá nhân · 40 câu hỏi tự chấm ngay trên trình duyệt, không lưu hay gửi kết quả đi đâu cả.
   </footer>
   </div>
 
@@ -3836,9 +4273,11 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   function showSubTab(name){
     var subs = {
       general: document.getElementById('sub-general'),
-      toolsdeep: document.getElementById('sub-toolsdeep'),
       overview: document.getElementById('sub-overview'),
+      toolsdeep: document.getElementById('sub-toolsdeep'),
+      multiai: document.getElementById('sub-multiai'),
       claude: document.getElementById('sub-claude'),
+      skills: document.getElementById('sub-skills'),
       agentic: document.getElementById('sub-agentic'),
       roadmap: document.getElementById('sub-roadmap'),
       quiz: document.getElementById('sub-quiz')
@@ -4016,9 +4455,11 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
 <script>
 (function(){
   var QUIZ_TAG_LABEL = {
-    general: 'Hướng dẫn chung',
+    general: 'Bắt đầu dùng AI',
     overview: 'Khái niệm nền tảng',
+    multiai: 'Dùng nhiều AI',
     claude: 'Claude & Claude Code',
+    skills: 'Agent Skills',
     agentic: 'AI Agent (Agentic)',
     roadmap: 'Lộ trình học',
     toolsdeep: 'Chi tiết từng AI',
@@ -4031,21 +4472,56 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       q: 'Một prompt (yêu cầu) tốt theo hướng dẫn trên trang này thường gồm mấy phần?',
       options: ['2 phần: câu hỏi và câu trả lời', '3 phần: ai, làm gì, khi nào', '4 phần: vai trò, bối cảnh, yêu cầu, định dạng', 'Không cần theo phần nào cả'],
       correct: 2,
-      explain: 'Prompt tốt nên có đủ Vai trò – Bối cảnh – Yêu cầu – Định dạng (tab "Hướng dẫn chung", mục 4).'
+      explain: 'Prompt tốt nên có đủ Vai trò – Bối cảnh – Yêu cầu – Định dạng (tab "Bắt đầu dùng AI", mục 4).'
     },
     {
       tag: 'general',
       q: '"AI ảo giác" (hallucination) nghĩa là gì?',
       options: ['AI từ chối trả lời', 'AI trả lời sai hoặc bịa thông tin nhưng nghe vẫn có vẻ đúng', 'AI bị lỗi không chạy được', 'AI luôn hỏi lại người dùng'],
       correct: 1,
-      explain: 'AI có thể tự "bịa" số liệu, tên riêng, trích dẫn — luôn kiểm tra lại thông tin quan trọng (tab "Hướng dẫn chung", mục 6).'
+      explain: 'AI có thể tự "bịa" số liệu, tên riêng, trích dẫn — luôn kiểm tra lại thông tin quan trọng (tab "Bắt đầu dùng AI", mục 6).'
     },
     {
       tag: 'general',
       q: 'Theo trang này, nên làm gì khi mới dùng AI lần đầu?',
       options: ['Trả phí công cụ tốt nhất ngay từ đầu', 'Thử 1–2 công cụ miễn phí trước, quen tay rồi mới cân nhắc trả phí', 'Phải học lập trình trước khi dùng AI', 'Chỉ dùng được nếu biết tiếng Anh'],
       correct: 1,
-      explain: 'Không cần chọn "cái tốt nhất" ngay — thử công cụ miễn phí trước (tab "Hướng dẫn chung", mục 2).'
+      explain: 'Không cần chọn "cái tốt nhất" ngay — thử công cụ miễn phí trước (tab "Bắt đầu dùng AI", mục 2).'
+    },
+    {
+      tag: 'multiai',
+      q: 'Cách phối hợp nhiều AI hiệu quả và dễ làm nhất theo trang này là gì?',
+      options: ['Mở càng nhiều tab AI càng tốt', 'Bắt chéo: một AI viết bản nháp, một AI khác đóng vai người phản biện tìm lỗi', 'Hỏi cùng lúc 5 AI rồi lấy câu dài nhất', 'Chỉ dùng AI đắt tiền nhất'],
+      correct: 1,
+      explain: 'AI có xu hướng đồng tình với chính nội dung nó vừa viết, nên đưa sang AI khác hãng để chê thì nhận phản biện thật hơn (tab "Dùng nhiều AI", mục 3).'
+    },
+    {
+      tag: 'multiai',
+      q: 'Hai AI trả lời lệch nhau về một số liệu thì nên làm gì?',
+      options: ['Chọn câu nghe xuôi tai hơn', 'Hỏi thêm AI thứ ba rồi lấy đáp án đa số', 'Coi đó là dấu hiệu phải tự tra nguồn gốc để kiểm chứng', 'Bỏ qua, số liệu nào cũng được'],
+      correct: 2,
+      explain: 'Bỏ phiếu theo số đông hay chọn theo văn phong đều không phải bằng chứng — chỗ lệch chính là chỗ phải tự kiểm (tab "Dùng nhiều AI", mục 8).'
+    },
+    {
+      tag: 'multiai',
+      q: 'Khi chuyển việc từ AI này sang AI khác, "gói bàn giao" cần đủ mấy phần?',
+      options: ['Chỉ cần dán lại câu hỏi cũ', '4 phần: mục tiêu, dữ kiện, đã làm tới đâu, việc cần làm tiếp', 'Không cần gì, AI tự biết', '2 phần: tên dự án và deadline'],
+      correct: 1,
+      explain: 'Mỗi công cụ là một hộp riêng, không thông nhau — thiếu gói bàn giao thì AI mới trả lời chung chung (tab "Dùng nhiều AI", mục 5).'
+    },
+    {
+      tag: 'multiai',
+      q: 'Ngân sách hợp lý nhất cho người dùng cá nhân muốn dùng nhiều AI?',
+      options: ['Trả phí cả 3-4 hãng cho đủ bộ', 'Một gói trả phí cho công cụ dùng nhiều nhất, còn lại dùng bản miễn phí', 'Không trả phí gì cả, chỉ dùng bản dùng thử', 'Trả phí hãng đắt nhất là đủ'],
+      correct: 1,
+      explain: 'Vai trò của các công cụ phụ chỉ là tra cứu và phản biện vài lượt mỗi ngày — bản miễn phí đủ dùng (tab "Dùng nhiều AI", mục 6).'
+    },
+    {
+      tag: 'multiai',
+      q: '"Dùng nhiều AI" khác "multi-agent" ở chỗ nào?',
+      options: ['Không khác, chỉ là hai tên gọi', 'Đa AI là bạn tự điều phối nhiều công cụ khác hãng; multi-agent là một AI tự chia việc cho các agent con', 'Multi-agent chỉ dành cho người biết lập trình', 'Đa AI luôn tốn kém hơn'],
+      correct: 1,
+      explain: 'Khác nhau ở chỗ ai điều phối: người hay máy (tab "Dùng nhiều AI", mục 7).'
     },
     {
       tag: 'claude',
@@ -4069,32 +4545,74 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       explain: 'Tạo bằng lệnh /init — giúp Claude Code nhớ cấu trúc, quy ước dự án của bạn (mục 2).'
     },
     {
-      tag: 'claude',
+      tag: 'skills',
       q: 'Agent Skill được Claude Code kích hoạt dựa vào đâu?',
       options: ['Ngày tạo file', 'Tên thư mục chứa Skill', 'Phần description trong SKILL.md — Claude so khớp với yêu cầu của bạn', 'Người dùng phải chọn thủ công mỗi lần'],
       correct: 2,
-      explain: 'Mô tả càng rõ "khi nào dùng" thì Claude càng kích hoạt đúng lúc (mục 4).'
+      explain: 'Mô tả càng rõ "khi nào dùng" thì Claude càng kích hoạt đúng lúc (tab "Agent Skills", mục 3).'
     },
     {
-      tag: 'claude',
+      tag: 'skills',
       q: 'Muốn cả nhóm cùng dùng chung một Skill, nên lưu ở đâu?',
       options: ['Gửi qua email cho từng người', 'Thư mục .claude/skills/ trong repo, commit lên git', 'Lưu trong Google Drive cá nhân', 'Không thể chia sẻ Skill cho người khác'],
       correct: 1,
-      explain: 'Lưu trong .claude/skills/ và commit lên git để cả nhóm cùng dùng (mục 4, "Nơi lưu & cách chia sẻ").'
+      explain: 'Lưu trong .claude/skills/ và commit lên git để cả nhóm cùng dùng (tab "Agent Skills", mục 5).'
     },
     {
-      tag: 'claude',
+      tag: 'skills',
       q: 'Khi nào nên dùng Slash command thay vì để Claude tự nhận diện bằng Skill?',
       options: ['Khi muốn Claude tự đoán lúc nào nên chạy', 'Khi bạn muốn chủ động gõ lệnh để chạy, không cần Claude tự nhận diện', 'Slash command và Skill là một, không khác nhau', 'Slash command chỉ dùng được cho subagent'],
       correct: 1,
-      explain: 'Slash command phải gõ lệnh (vd. /review) mới chạy — hợp với thao tác bạn chủ động gọi (bảng so sánh, mục 4).'
+      explain: 'Slash command phải gõ lệnh (vd. /review) mới chạy — hợp với thao tác bạn chủ động gọi (tab "Agent Skills", mục 8).'
     },
     {
       tag: 'claude',
       q: 'Anthropic Academy là gì?',
       options: ['Nền tảng học chính thức, miễn phí, có cấp chứng chỉ', 'Một hội nghị thường niên', 'Chương trình trả phí bắt buộc để dùng Claude', 'Một cuộc thi lập trình'],
       correct: 0,
-      explain: 'anthropic.skilljar.com — 3 nhóm: AI Fluency, Product Training, Developer (mục 5).'
+      explain: 'anthropic.skilljar.com — 3 nhóm: AI Fluency, Product Training, Developer (tab "Claude & Claude Code", mục 4).'
+    },
+    {
+      tag: 'skills',
+      q: 'Cài 30 Skill vào máy thì Claude có bị chậm/nặng hơn không?',
+      options: ['Có, mỗi Skill đều được nạp đầy đủ ngay từ đầu', 'Gần như không — Skill chưa dùng tới chỉ tốn phần nhãn tên và mô tả, khoảng 100 token', 'Có, phải xoá bớt Skill thường xuyên', 'Chỉ nạp được tối đa 5 Skill cùng lúc'],
+      correct: 1,
+      explain: 'Skill nạp theo 3 tầng: nhãn luôn nạp, phần hướng dẫn chỉ nạp khi kích hoạt, file kèm chỉ đọc khi cần (tab "Agent Skills", mục 2).'
+    },
+    {
+      tag: 'skills',
+      q: 'Skill tải lên claude.ai có tự dùng được trong Claude Code không?',
+      options: ['Có, mọi Skill tự đồng bộ giữa các nền tảng', 'Không — mỗi nơi phải đưa Skill vào riêng', 'Có, nếu đăng nhập cùng tài khoản', 'Chỉ đồng bộ khi trả phí gói cao nhất'],
+      correct: 1,
+      explain: 'Skill không đồng bộ chéo: claude.ai tải lên dạng zip, Claude Code đọc từ thư mục trên máy, API tải lên riêng (tab "Agent Skills", mục 4).'
+    },
+    {
+      tag: 'skills',
+      q: 'Skill viết xong nhưng Claude không bao giờ dùng tới — chỗ nên kiểm đầu tiên là gì?',
+      options: ['Đổi tên thư mục cho ngắn hơn', 'Phần mô tả (description) đã nói rõ "khi nào dùng" chưa', 'Cài lại Claude Code', 'Chuyển Skill sang định dạng khác'],
+      correct: 1,
+      explain: 'Claude chỉ nhìn thấy tên và mô tả khi cân nhắc gọi Skill — mô tả thiếu vế "khi nào dùng" là nguyên nhân phổ biến nhất (tab "Agent Skills", mục 10).'
+    },
+    {
+      tag: 'skills',
+      q: 'Nên đưa nội dung nào vào file kèm theo thay vì viết hết trong SKILL.md?',
+      options: ['Mọi thứ, SKILL.md nên để trống', 'Bảng tra cứu dài, tài liệu chi tiết, script tính toán — thứ chỉ cần trong một số trường hợp', 'Chỉ phần tên và mô tả', 'Không nên có file kèm'],
+      correct: 1,
+      explain: 'File kèm chỉ được đọc khi hướng dẫn nhắc tới, nên không tốn gì lúc chưa dùng (tab "Agent Skills", mục 7).'
+    },
+    {
+      tag: 'skills',
+      q: 'Nhận được một Skill lạ từ trên mạng, việc bắt buộc phải làm trước khi dùng là gì?',
+      options: ['Cứ cài, Skill chỉ là văn bản nên vô hại', 'Mở đọc cả SKILL.md lẫn script đi kèm, xem có thao tác nào ngoài việc nó khai không', 'Đổi tên Skill cho khỏi trùng', 'Chạy thử trên dữ liệu thật để xem có lỗi không'],
+      correct: 1,
+      explain: 'Skill có thể kèm script và bảo Claude gọi công cụ — cài Skill lạ giống cài phần mềm lạ (tab "Agent Skills", mục 11).'
+    },
+    {
+      tag: 'skills',
+      q: 'Quy ước áp dụng cho MỌI việc trong dự án thì nên để vào đâu?',
+      options: ['Một Skill riêng', 'File CLAUDE.md — Claude tự đọc ở mọi phiên', 'Một MCP server', 'Dán lại vào mỗi cuộc trò chuyện'],
+      correct: 1,
+      explain: 'CLAUDE.md cho thứ luôn cần; Skill cho quy trình chỉ dùng trong một số trường hợp (tab "Agent Skills", mục 8).'
     },
     {
       tag: 'agentic',

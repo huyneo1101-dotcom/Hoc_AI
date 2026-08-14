@@ -10,7 +10,13 @@ Trang tĩnh 1 file: `index.html` (~4.070 dòng, đo 07/08/2026), HTML + CSS + va
 ## Cấu trúc
 - **2 tab chính**: "Kiến thức chung" (`concepts`) và "Tin mới" (`news`), cộng menu xổ "Công cụ AI (24)". Chuyển bằng `showTab(name)`; tab mặc định đọc từ `location.hash`, hash lạ thì rơi về `concepts`.
   - Tab **"Phân tích"** (`analysis`) đã bị **gỡ ngày 07/08/2026** theo yêu cầu của Huy — gỡ trọn 03 chỗ: nút trong `.tabs`, khối `<div id="tab-analysis">`, và khoá `analysis` trong bảng `tabs` của `showTab()`. Thêm/gỡ tab thì phải sờ đủ 03 chỗ này, thiếu chỗ thứ ba thì `showTab` ném lỗi trên `.hidden` của `null`.
-- 7 tab con trong `concepts` (`showSubTab`): `general` · `toolsdeep` · `overview` · `claude` · `agentic` · `roadmap` · `quiz`.
+- **09 tab con** trong `concepts` (`showSubTab`), sắp theo trình tự học từ dễ tới khó, nhãn nút mang số thứ tự:
+  `general` (1 · Bắt đầu dùng AI) · `overview` (2) · `toolsdeep` (3) · `multiai` (4 · Dùng nhiều AI) ·
+  `claude` (5) · `skills` (6 · Agent Skills) · `agentic` (7) · `roadmap` (8) · `quiz` (9).
+  - ⚠️ Thêm/gỡ tab con phải sờ đủ **03 chỗ**: nút trong `.subtabs`, khối `<div class="subwrap" id="sub-<tên>">`, và khoá trong bảng `subs` của `showSubTab()`. Thiếu chỗ thứ ba thì tab câm — bấm nút không có gì xảy ra, **không lỗi nào phát ra**.
+  - **Sắp xếp lại toàn trang 14/08/2026**: tách `skills` khỏi tab `claude` thành tab riêng (Skills nay dùng được cả trên claude.ai và API, không còn là chuyện riêng của Claude Code); thêm tab `multiai`; gộp mục 7 "Mẹo nâng cao" của `general` vào mục 4 và 6 vì trùng với `overview`; đổi lưới 24 thẻ công cụ ở `general` mục 2 thành **một bảng gọn có link** sang trang chi tiết, vì phần mô tả sâu đã nằm ở `toolsdeep`.
+- **Tham chiếu chéo giữa các tab viết bằng TÊN TAB, không viết "tab trước"** — thứ tự tab đã đổi một lần và sẽ còn đổi. Đổi tên hay đổi số mục thì `grep` cả file các chuỗi dạng `tab "<tên>", mục N` rồi sửa hết trong cùng lượt; các chuỗi này còn nằm trong `explain` của bộ câu hỏi quiz.
+- **Quiz**: 40 câu, nhãn nhóm trong `QUIZ_TAG_LABEL` phải khớp `tag` của từng câu — thêm nhóm mới mà quên khai nhãn thì bảng điểm cuối bài thiếu dòng đó trong im lặng. Số câu ghi trong `<footer>` của `sub-quiz` là **viết tay**, sửa bộ câu hỏi thì sửa luôn số đó.
 
 ### Tab "Tin mới" — khuôn bắt buộc khi thêm tin (nâng cấp 07/08/2026)
 Tab này nay có **bộ lọc theo chủ đề** (`filterNews(cat)`), nên **mỗi tin PHẢI mang `data-cat`** — thiếu thuộc tính đó thì tin biến mất khỏi mọi bộ lọc trừ "Tất cả", và **không có lỗi nào phát ra**: trang vẫn render, nút vẫn bấm được, chỉ là tin đó không bao giờ hiện khi lọc.
