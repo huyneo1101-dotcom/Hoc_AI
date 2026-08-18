@@ -1,7 +1,59 @@
 {
  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
- "cap_nhat": "2026-08-17",
+ "cap_nhat": "2026-08-18",
  "muc": [
+  {
+   "ngay": "17/08/2026",
+   "cat": "hatang",
+   "tieu_de": "Doanh thu Anthropic tăng vọt lên 65 tỷ đô một năm, vượt qua OpenAI",
+   "noi_dung": "Anthropic, công ty làm ra Claude, vừa báo với nhà đầu tư rằng doanh thu quy đổi theo năm đã đạt 65 tỷ đô la vào cuối tháng 7/2026, tăng gấp 7 lần so với một năm trước khi đó chỉ 9 tỷ đô. Con số này đã vượt qua mức 40 tỷ đô la mà OpenAI từng công bố. Anthropic đang chuẩn bị các bước để có thể lên sàn chứng khoán ngay trong mùa thu năm nay.",
+   "voi_ban": "Không đổi gì ngay lập tức cho người dùng Claude, nhưng cho thấy công ty đang có nguồn lực tài chính mạnh để tiếp tục phát triển và giữ Claude cạnh tranh lâu dài.",
+   "nguon": [
+    {
+     "ten": "TechCrunch",
+     "url": "https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/"
+    }
+   ]
+  },
+  {
+   "ngay": "17/08/2026",
+   "cat": "agent",
+   "tieu_de": "Claude Code cập nhật: tự nối lại phiên làm việc khi hết giới hạn sử dụng",
+   "noi_dung": "Anthropic vừa phát hành Claude Code bản 2.1.234 với vài thay đổi nhỏ: thêm huy hiệu hiển thị yêu cầu gộp mã (merge request) của GitLab ngay trên thanh trạng thái, thêm phím tắt xoá vùng bôi đen chữ, và quan trọng nhất — Claude Code giờ tự động chạy tiếp phiên làm việc ngay khi giới hạn sử dụng của tài khoản claude.ai được làm mới, thay vì phải tự mở lại.",
+   "voi_ban": "Đang dùng Claude Code mà hay bị dừng giữa chừng vì hết giới hạn sử dụng trong ngày thì từ bản này không cần tự quay lại bấm tiếp — công cụ tự chạy lại khi giới hạn được cấp lại; muốn tắt tính năng này thì có tuỳ chọn tắt trong phần cài đặt.",
+   "nguon": [
+    {
+     "ten": "Claude Code releases (GitHub)",
+     "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.234"
+    }
+   ]
+  },
+  {
+   "ngay": "17/08/2026",
+   "cat": "model",
+   "tieu_de": "Mô hình mã nguồn mở Qwen 3.8 27B nhỏ mà mạnh ngang các model khổng lồ",
+   "noi_dung": "Mô hình Qwen 3.8 27B, chỉ 27 tỷ tham số tức nhỏ hơn nhiều so với mặt bằng chung, vừa đạt điểm 52 trên bảng xếp hạng Artificial Analysis Intelligence Index — ngang điểm với GPT-5.6 Luna và chỉ kém một điểm so với các mô hình lớn hơn rất nhiều lần như GLM-5.2. Đây là mô hình mã nguồn mở, ai cũng tải về tự chạy được.",
+   "voi_ban": "Muốn tự chạy AI miễn phí trên máy riêng mà không cần máy quá mạnh, Qwen 3.8 27B là một lựa chọn đáng thử vì hiệu năng cao so với kích thước nhỏ.",
+   "nguon": [
+    {
+     "ten": "Simon Willison",
+     "url": "https://simonwillison.net/2026/Aug/17/qwen-38-27b-scores-52/"
+    }
+   ]
+  },
+  {
+   "ngay": "17/08/2026",
+   "cat": "antoan",
+   "tieu_de": "Điều tra: một lô sách hiếm bị mua gom rồi chuyển thẳng tới cơ sở huấn luyện AI của Amazon",
+   "noi_dung": "Trang tin điều tra 404 Media gắn thiết bị định vị AirTag vào một lô khoảng 1.000 cuốn sách hiếm được một người mua ẩn danh đặt với giá không quan tâm mặc cả, rồi lần theo và phát hiện lô sách được chuyển tới một cơ sở huấn luyện AI của Amazon. Nhiều người bán sách trước đó cũng kể lại việc nhận được các đơn đặt hàng lớn bất thường tương tự.",
+   "voi_ban": "Đây là ví dụ cho thấy các hãng công nghệ lớn đang âm thầm gom dữ liệu, kể cả sách giấy, để huấn luyện AI mà không công khai rõ ràng — người dùng bình thường chưa cần làm gì, nhưng đáng biết để hiểu dữ liệu huấn luyện AI đến từ đâu.",
+   "nguon": [
+    {
+     "ten": "Simon Willison",
+     "url": "https://simonwillison.net/2026/Aug/17/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-tra/"
+    }
+   ]
+  },
   {
    "ngay": "17/08/2026",
    "cat": "antoan",
@@ -103,58 +155,6 @@
     {
      "ten": "TechCrunch",
      "url": "https://techcrunch.com/2026/08/13/anthropic-set-ai-agents-loose-on-the-same-task-they-started-a-turf-war/"
-    }
-   ]
-  },
-  {
-   "ngay": "15/08/2026",
-   "cat": "model",
-   "tieu_de": "Nghiên cứu mới: AI chưa thể tự làm nghiên cứu khoa học độc lập như Anthropic và OpenAI từng nói",
-   "noi_dung": "Một nghiên cứu vừa công bố cho thấy tuyên bố của Anthropic và OpenAI rằng AI sắp tự thực hiện được nghiên cứu khoa học một cách độc lập là chưa chính xác — khoảng cách giữa khả năng hiện tại và mục tiêu đó vẫn còn lớn.",
-   "voi_ban": "Đừng vội tin các tuyên bố kiểu \"AI sắp tự nghiên cứu được\" — hiện tại AI vẫn cần con người giám sát và kiểm tra kỹ kết quả, kể cả trong việc thường ngày.",
-   "nguon": [
-    {
-     "ten": "the-decoder.com (qua Google News)",
-     "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNemdiU0ZiWXFsVHZLbGp0NHV0el83MVcwSGlyenJZN01TNXA1TzJLY19KcDV6RVdwTFBsRHRmdnhiazUtY3phT044UElNSk9lUGJvTGNjNFZjYnJJeGJaRzAwai1Fb28yT3lUR3I1U2djZDVlM0h3b3U4ZjdSNnF0MU5RSmZuX19NVy1TZnpZWVZ4RXFQVV9RQnY0Q1dIZy1vb0tybnRqa0lsOGtiYzQ1eXU2ZE8?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "12/08/2026",
-   "cat": "model",
-   "tieu_de": "Mô hình Anthropic chưa phát hành đạt tiến bộ với bài toán toán học 150 năm chưa ai giải được",
-   "noi_dung": "TechCrunch đưa tin một mô hình của Anthropic chưa được công bố chính thức đã đạt tiến bộ trong giả thuyết Riemann, bài toán toán học nổi tiếng chưa có lời giải suốt hơn 150 năm qua. Bài viết nói rõ Anthropic chưa giải được bài toán này, chỉ là mô hình tiến xa hơn mức người ta từng nghĩ.",
-   "voi_ban": "Đây là tin về nghiên cứu, chưa phải tính năng bạn dùng được ngay, nhưng cho thấy Anthropic đang thử sức các mô hình mới với những bài toán khó nhất, dấu hiệu của phiên bản Claude mạnh hơn sắp tới.",
-   "nguon": [
-    {
-     "ten": "TechCrunch",
-     "url": "https://techcrunch.com/2026/08/11/an-unreleased-anthropic-model-made-progress-on-one-of-maths-biggest-unsolved-problems/"
-    }
-   ]
-  },
-  {
-   "ngay": "12/08/2026",
-   "cat": "hatang",
-   "tieu_de": "Google ra mắt Pixel 11 kèm loạt tính năng Gemini mới",
-   "noi_dung": "Tại sự kiện Made by Google 2026, Google giới thiệu dòng điện thoại Pixel 11, đồng hồ Pixel Watch 5, thiết bị định vị Pixel Tag cạnh tranh AirTag, cùng nhiều tính năng Gemini mới tích hợp trên các thiết bị này.",
-   "voi_ban": "Nếu định mua điện thoại mới, dòng Pixel 11 hiện tích hợp Gemini sâu nhất trong các máy Android; đang dùng máy cũ thì chưa cần đổi ngay, tính năng Gemini phần lớn vẫn dùng được qua ứng dụng.",
-   "nguon": [
-    {
-     "ten": "TechCrunch",
-     "url": "https://techcrunch.com/2026/08/12/google-unveils-pixel-11-lineup-new-airtag-rival-and-gemini-features-at-made-by-google-2026/"
-    }
-   ]
-  },
-  {
-   "ngay": "11/08/2026",
-   "cat": "antoan",
-   "tieu_de": "Nhà nghiên cứu chỉ ra cách 'đọc trộm' phần suy luận ẩn của các mô hình AI lớn",
-   "noi_dung": "Nhà nghiên cứu Simon Willison giới thiệu một nghiên cứu cho thấy phần suy luận đã mã hoá mà Anthropic, OpenAI và Google trả về phía sau có thể bị khai thác: lấy chuỗi suy luận của một mô hình mạnh rồi phát lại trên một mô hình yếu hơn để lộ ra nội dung suy luận gốc dưới dạng đọc được.",
-   "voi_ban": "Đây là chuyện kỹ thuật giữa các hãng AI với nhau, người dùng thường chưa cần làm gì; chỉ cần biết các hãng đang phải vá thêm những lỗ hổng kiểu này khi mô hình AI ngày càng phức tạp.",
-   "nguon": [
-    {
-     "ten": "Simon Willison",
-     "url": "https://simonwillison.net/2026/Aug/11/stealing-reasoning-traces/"
     }
    ]
   }
