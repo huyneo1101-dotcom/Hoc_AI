@@ -1,7 +1,59 @@
 {
  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
- "cap_nhat": "2026-08-19",
+ "cap_nhat": "2026-08-20",
  "muc": [
+  {
+   "ngay": "19/08/2026",
+   "cat": "antoan",
+   "tieu_de": "OpenAI cam kết không giữ dữ liệu khách hàng, cạnh tranh trực tiếp với Anthropic",
+   "noi_dung": "OpenAI vừa công bố chính sách \"Zero Data Retention\" (không lưu lại dữ liệu) cho khách hàng API đủ điều kiện, đồng thời giới thiệu trước công nghệ \"Private Safety Processing\" để kiểm tra an toàn AI mà không cần đọc nội dung riêng tư của người dùng. Báo chí Mỹ gọi đây là bước đi nhằm cạnh tranh trực tiếp với cam kết bảo mật dữ liệu mà Anthropic, công ty làm ra Claude, đang quảng bá.",
+   "voi_ban": "Nếu bạn dùng ChatGPT hoặc Claude cho công việc có dữ liệu nhạy cảm, có thể tìm mục cài đặt về lưu trữ dữ liệu (data retention) trong tài khoản để xem chính sách áp dụng cho gói mình đang dùng.",
+   "nguon": [
+    {
+     "ten": "OpenAI",
+     "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models"
+    }
+   ]
+  },
+  {
+   "ngay": "19/08/2026",
+   "cat": "agent",
+   "tieu_de": "Gemini có thêm khu học tập riêng cho học sinh, sinh viên",
+   "noi_dung": "Google vừa ra mắt \"student hub\", một khu riêng trong Gemini gom việc lưu bài nghiên cứu vào sổ tay học tập, tạo thẻ ghi nhớ, làm bài kiểm tra thử, đúng dịp mùa tựu trường. Sổ tay học tập cũng vừa được thêm khả năng hiển thị biểu đồ và hình ảnh.",
+   "voi_ban": "Nếu bạn hoặc con em đang đi học và có dùng Gemini, thử tìm mục học tập mới này để hệ thống lại bài vở thay vì hỏi AI từng câu rời rạc.",
+   "nguon": [
+    {
+     "ten": "The Verge",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/982425/google-gemini-student-hub"
+    }
+   ]
+  },
+  {
+   "ngay": "19/08/2026",
+   "cat": "gia",
+   "tieu_de": "Alexa+ dùng AI được mở miễn phí trên mọi Fire TV, không cần gói Prime",
+   "noi_dung": "Amazon vừa mở miễn phí trợ lý AI Alexa+ cho toàn bộ thiết bị Fire TV tương thích tại Mỹ, tự động nâng cấp cho người dùng dù có đăng ký gói Prime hay không.",
+   "voi_ban": "Đây là tín hiệu các hãng lớn đang đẩy trợ lý AI giọng nói ra miễn phí để cạnh tranh nhau, nhưng tính năng này hiện chỉ áp dụng tại Mỹ nên người dùng Việt Nam chưa dùng được ngay.",
+   "nguon": [
+    {
+     "ten": "TechCrunch",
+     "url": "https://techcrunch.com/2026/08/19/amazon-makes-its-ai-powered-alexa-free-on-fire-tv-no-prime-required/"
+    }
+   ]
+  },
+  {
+   "ngay": "19/08/2026",
+   "cat": "agent",
+   "tieu_de": "Claude Code bản 2.1.236: đặt sẵn model mặc định, báo khi phiên khác rảnh việc",
+   "noi_dung": "Bản cập nhật mới của Claude Code (công cụ lập trình bằng AI của Anthropic) thêm biến môi trường để đặt sẵn model cho mọi phiên làm việc mới, thêm tính năng báo khi một phiên Claude Code khác trên cùng máy vừa rảnh việc, và siết thêm quy tắc chặn đọc file nhạy cảm như file chứa mật khẩu (.env) trên macOS.",
+   "voi_ban": "Tính năng này dành cho người đang lập trình bằng Claude Code trên máy tính; người chỉ dùng Claude qua web hoặc ứng dụng thông thường chưa cần quan tâm.",
+   "nguon": [
+    {
+     "ten": "Claude Code releases (GitHub)",
+     "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.236"
+    }
+   ]
+  },
   {
    "ngay": "19/08/2026",
    "cat": "antoan",
@@ -103,58 +155,6 @@
     {
      "ten": "tổng hợp qua CafeF",
      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWTkyZDN2bFl5NVBlS2FqLVBJdTg4RXVKdEpVczJFMmxremJQMnNqUDhtZk9XZWJ1ZkVqRDlQYVNicjhMVXUwVEVfUEZxdFNmRGtOT0dGYmFWWXVaQVFESVdxTWd4aFg0Unl2RHR3ckZIWko5dTdNODV4bjFqLUZFRFBTSzJDbmE1MDNwZ1pEa1pQTnhSU2xIa3gxNC1zWDMzd1RqU0ZMelRTbExzQ2ZJQmJXRmtsMWFQVGc?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "15/08/2026",
-   "cat": "agent",
-   "tieu_de": "Claude Code có bản cập nhật mới: hỗ trợ GitLab, giới hạn bộ nhớ khi chạy lệnh",
-   "noi_dung": "Anthropic vừa phát hành Claude Code phiên bản 2.1.233, thêm hỗ trợ liên kết yêu cầu gộp mã (merge request) của GitLab ngay trong công cụ, và thêm tùy chọn giới hạn bộ nhớ máy khi chạy lệnh dòng lệnh để một lệnh build bị lỗi không làm treo cả phiên làm việc.",
-   "voi_ban": "Tin này dành cho người dùng Claude Code để lập trình; người dùng ChatGPT/Claude thông thường không cần làm gì.",
-   "nguon": [
-    {
-     "ten": "Claude Code releases (GitHub)",
-     "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.233"
-    }
-   ]
-  },
-  {
-   "ngay": "14/08/2026",
-   "cat": "model",
-   "tieu_de": "Meta ra mô hình AI mã nguồn mở Glimmer, ai cũng tải về chạy miễn phí",
-   "noi_dung": "Meta vừa phát hành Glimmer, mô hình AI mã nguồn mở mà ai cũng có thể tải về và tự chạy trên máy riêng, khác với mô hình mạnh hơn Muse Spark của hãng chỉ dùng qua API riêng. Cùng lúc, Mark Zuckerberg gửi thư nói AI nên \"dành cho tất cả mọi người\" thay vì chỉ nằm trong tay vài công ty lớn.",
-   "voi_ban": "Đây là tin dành cho người có kỹ thuật muốn tự chạy AI miễn phí trên máy mình; người dùng ứng dụng Meta AI bình thường chưa cần đổi gì.",
-   "nguon": [
-    {
-     "ten": "TechCrunch",
-     "url": "https://techcrunch.com/video/does-mark-zuckerberg-really-believe-ai-is-for-everyone/"
-    }
-   ]
-  },
-  {
-   "ngay": "14/08/2026",
-   "cat": "hatang",
-   "tieu_de": "Apple hợp tác Alibaba làm mô hình AI riêng cho thị trường Trung Quốc",
-   "noi_dung": "Theo Reuters, Apple đã huấn luyện một mô hình AI riêng cho thị trường Trung Quốc cùng với Alibaba, một hợp tác xuyên biên giới hiếm thấy giữa lúc căng thẳng công nghệ Mỹ-Trung vẫn còn.",
-   "voi_ban": "Tin này không đổi gì cho người dùng ở Việt Nam ngay lúc này — Apple Intelligence bản dùng ở Việt Nam vẫn dựa trên các mô hình khác, không phải bản dành riêng cho Trung Quốc.",
-   "nguon": [
-    {
-     "ten": "The Verge",
-     "url": "https://www.theverge.com/ai-artificial-intelligence/980160/apple-intelligence-china-custom-ai-model-alibaba"
-    }
-   ]
-  },
-  {
-   "ngay": "15/08/2026",
-   "cat": "gia",
-   "tieu_de": "OpenAI và Anthropic hạ giá mô hình để giữ khách trước sức ép AI Trung Quốc",
-   "noi_dung": "OpenAI và Anthropic vừa tung ra các mô hình rẻ hơn sau khi AI Trung Quốc bắt đầu cạnh tranh mạnh về giá. Một bài phân tích khác cùng ngày lại tính rằng nếu so đúng chi phí sử dụng thực tế chứ không chỉ giá niêm yết, mô hình Mỹ vẫn có thể rẻ hơn AI Trung Quốc.",
-   "voi_ban": "Đang trả phí dùng ChatGPT hay Claude thì để ý các gói/model rẻ hơn sắp ra — có cơ hội tiết kiệm tiền mà chất lượng không giảm nhiều.",
-   "nguon": [
-    {
-     "ten": "Ars Technica",
-     "url": "https://arstechnica.com/ai/2026/08/openai-and-anthropic-in-price-war-as-chinese-ai-rivals-gain-ground/"
     }
    ]
   }
