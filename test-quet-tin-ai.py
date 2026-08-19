@@ -377,6 +377,11 @@ def in_bang(ket_qua, tieu_de):
 
 def tu_kiem():
     sys.path.insert(0, '/Users/Huy/Claude/HeThong')
+    from khung_tu_kiem import don_mo_coi_mot_lan
+    _don = don_mo_coi_mot_lan(os.path.dirname(os.path.abspath(__file__)))
+    if _don:
+        print('\u00b7 d\u1ecdn %d b\u1ea3n h\u1ecfng m\u1ed3 c\u00f4i c\u1ee7a l\u01b0\u1ee3t ki\u1ec3m ch\u1ebft gi\u1eefa ch\u1eebng' % _don)
+    sys.path.insert(0, '/Users/Huy/Claude/HeThong')
     from khung_tu_kiem import LoiNeo, neo_hai_dong
 
     print('— chạy bộ ca trên BẢN ĐÚNG trước —')
