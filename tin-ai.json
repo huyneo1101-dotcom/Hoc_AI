@@ -1,7 +1,46 @@
 {
  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
- "cap_nhat": "2026-08-20",
+ "cap_nhat": "2026-08-21",
  "muc": [
+  {
+   "ngay": "21/08/2026",
+   "cat": "gia",
+   "tieu_de": "Google tặng sinh viên một năm dùng Gemini cao cấp miễn phí, kèm 5TB lưu trữ",
+   "noi_dung": "Google đang tặng sinh viên gói Gemini cao cấp (bản trả phí) miễn phí trong một năm, đi kèm 5TB dung lượng lưu trữ trên Google Drive. Đây là cách Google cho người dùng trẻ làm quen với AI cao cấp của hãng trước khi ra trường.",
+   "voi_ban": "Nếu bạn hoặc người thân đang là sinh viên, đây là cách dùng thử công cụ AI trả phí mà không tốn tiền — nên tận dụng ngay vì các gói tặng kiểu này thường có hạn đăng ký.",
+   "nguon": [
+    {
+     "ten": "Báo Thanh Niên (tổng hợp qua Google News)",
+     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPSXp0WFlWcHVaTDlGODFZTl8xUWVEeXg4WHlfT1dlU1hjN29MWEFOUF9jRTdaNnJqb1NmYU5yNmJadlF3Sm1zOGtRTFhpdXNraU4tbWk1V0dhVXhLU0ROc0M1bXZPZklEZ0lVNWUwaU5qcjI3akF3MFhRYWZvc19OYlZQZmI3a3FRRU5OaUlzNnQzZjJFdVNGbjZUbkNGZ1N6dVF1aWxsREtzazNVUm9md2puSzhuaEdHOUpr?oc=5"
+    }
+   ]
+  },
+  {
+   "ngay": "21/08/2026",
+   "cat": "antoan",
+   "tieu_de": "Một phần ba trang web mới từ khi ChatGPT ra mắt có dấu hiệu do AI viết",
+   "noi_dung": "Một nghiên cứu mới cho thấy khoảng một phần ba số trang web được đăng kể từ khi ChatGPT ra mắt mang dấu hiệu do AI viết hoặc chỉnh sửa. Các mô hình AI như ChatGPT hiện đang trực tiếp tạo ra và biên tập một phần lớn nội dung mới trên internet.",
+   "voi_ban": "Khi đọc tin tức hay bài viết trên mạng, nên cẩn trọng hơn với độ tin cậy của nguồn — nội dung do AI viết không tự động sai, nhưng cũng không tự động đúng, nên vẫn cần kiểm tra nguồn gốc thông tin.",
+   "nguon": [
+    {
+     "ten": "TechCrunch",
+     "url": "https://techcrunch.com/2026/08/20/a-third-of-webpages-published-since-chatgpts-launch-show-signs-of-ai-authorship-study-finds/"
+    }
+   ]
+  },
+  {
+   "ngay": "21/08/2026",
+   "cat": "agent",
+   "tieu_de": "Sàn Binance cho phép AI tự động giao dịch tiền số, việc kiểm soát rủi ro chủ yếu do người dùng tự lo",
+   "noi_dung": "Binance ra mắt Agent OS, cho phép các công cụ AI như ChatGPT, Claude Code và Cursor tự động thực hiện giao dịch tiền số thay người dùng. Hãng để phần lớn việc kiểm soát rủi ro, như đặt giới hạn số tiền hay dừng giao dịch khi cần, cho chính người dùng tự cấu hình.",
+   "voi_ban": "Nếu định dùng AI để tự động giao dịch tài chính, nhớ luôn tự đặt giới hạn số tiền tối đa rõ ràng trước khi bật quyền tự động, đừng để AI tự do quyết định với tiền thật của mình.",
+   "nguon": [
+    {
+     "ten": "TechCrunch",
+     "url": "https://techcrunch.com/2026/08/20/binance-now-lets-ai-agents-trade-but-keeping-them-in-check-is-largely-up-to-users/"
+    }
+   ]
+  },
   {
    "ngay": "19/08/2026",
    "cat": "antoan",
@@ -116,45 +155,6 @@
     {
      "ten": "Simon Willison",
      "url": "https://simonwillison.net/2026/Aug/17/qwen-38-27b-scores-52/"
-    }
-   ]
-  },
-  {
-   "ngay": "17/08/2026",
-   "cat": "antoan",
-   "tieu_de": "Điều tra: một lô sách hiếm bị mua gom rồi chuyển thẳng tới cơ sở huấn luyện AI của Amazon",
-   "noi_dung": "Trang tin điều tra 404 Media gắn thiết bị định vị AirTag vào một lô khoảng 1.000 cuốn sách hiếm được một người mua ẩn danh đặt với giá không quan tâm mặc cả, rồi lần theo và phát hiện lô sách được chuyển tới một cơ sở huấn luyện AI của Amazon. Nhiều người bán sách trước đó cũng kể lại việc nhận được các đơn đặt hàng lớn bất thường tương tự.",
-   "voi_ban": "Đây là ví dụ cho thấy các hãng công nghệ lớn đang âm thầm gom dữ liệu, kể cả sách giấy, để huấn luyện AI mà không công khai rõ ràng — người dùng bình thường chưa cần làm gì, nhưng đáng biết để hiểu dữ liệu huấn luyện AI đến từ đâu.",
-   "nguon": [
-    {
-     "ten": "Simon Willison",
-     "url": "https://simonwillison.net/2026/Aug/17/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-tra/"
-    }
-   ]
-  },
-  {
-   "ngay": "17/08/2026",
-   "cat": "antoan",
-   "tieu_de": "ChatGPT trên máy tính giờ tự ghi lại thao tác chuột và bàn phím của bạn",
-   "noi_dung": "Ứng dụng ChatGPT bản máy tính (macOS) vừa thêm tính năng \"Computer History\": nó theo dõi các thao tác bạn làm trên máy để biến thành dữ liệu huấn luyện, học cách bạn làm việc, gợi ý tự động hoá, và thậm chí tiếp tục làm nốt việc bạn đang làm dở. ChatGPT và Codex sẽ dùng lịch sử này để trả lời sát với việc bạn vừa thao tác.",
-   "voi_ban": "Đang dùng ChatGPT bản máy tính thì nên vào phần cài đặt kiểm xem tính năng này đang bật hay tắt, vì mặc định nó theo dõi cả những gì bạn gõ và bấm ngoài ChatGPT.",
-   "nguon": [
-    {
-     "ten": "The Verge",
-     "url": "https://www.theverge.com/ai-artificial-intelligence/980742/chatgpts-computer-history-tracks-your-clicks-and-keystrokes"
-    }
-   ]
-  },
-  {
-   "ngay": "16/08/2026",
-   "cat": "gia",
-   "tieu_de": "Google ra mắt Gemini 3.7 Flash, giá giảm một nửa nhưng bản mạnh nhất vẫn chưa ra",
-   "noi_dung": "Google vừa phát hành Gemini 3.7 Flash, bản rẻ và nhanh trong dòng Gemini, với giá dùng qua API giảm khoảng một nửa so với bản trước. Đây chưa phải model hàng đầu (flagship) của Google trong thế hệ 3.7 — bản mạnh nhất vẫn chưa được công bố.",
-   "voi_ban": "Người dùng Gemini miễn phí hoặc trả phí trên web/app chưa cần làm gì; đây chủ yếu là tin cho người lập trình gọi Gemini qua API, giá rẻ hơn cho các tác vụ đơn giản, tốc độ nhanh.",
-   "nguon": [
-    {
-     "ten": "tổng hợp qua CafeF",
-     "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWTkyZDN2bFl5NVBlS2FqLVBJdTg4RXVKdEpVczJFMmxremJQMnNqUDhtZk9XZWJ1ZkVqRDlQYVNicjhMVXUwVEVfUEZxdFNmRGtOT0dGYmFWWXVaQVFESVdxTWd4aFg0Unl2RHR3ckZIWko5dTdNODV4bjFqLUZFRFBTSzJDbmE1MDNwZ1pEa1pQTnhSU2xIa3gxNC1zWDMzd1RqU0ZMelRTbExzQ2ZJQmJXRmtsMWFQVGc?oc=5"
     }
    ]
   }
