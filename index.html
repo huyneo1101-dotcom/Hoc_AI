@@ -77,6 +77,12 @@
     padding:18px 20px;
     margin:14px 0;
   }
+  /* Bảng ba cột trong thẻ không co xuống vừa màn hình điện thoại: đo ở khổ 375px
+     thì bảng bản đồ công cụ rộng 430px trong khung 318px, tức chữ bị đẩy ra ngoài
+     mép phải và không có cách nào đọc tiếp. Cho chính thẻ cuộn ngang thay vì ép
+     bảng co lại — ép co thì cột "Mạnh nhất ở" vỡ thành từng chữ một dòng. */
+  .card:has(> table){overflow-x:auto}
+  .card > table{min-width:320px}
   .tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:14px}
   .tool{
     background:var(--card);
@@ -393,7 +399,7 @@
   <button class="tab-btn" data-tab="news" role="tab" aria-selected="false" onclick="showTab('news')">Tin mới</button>
   <div class="tools-menu">
     <button class="tab-btn tools-menu-btn" id="tools-menu-btn" type="button" aria-haspopup="true"
-      aria-expanded="false" onclick="toggleToolsMenu()">Công cụ AI (24) <span class="car">▾</span></button>
+      aria-expanded="false" onclick="toggleToolsMenu()">Công cụ AI (25) <span class="car">▾</span></button>
     <div class="tools-menu-panel" id="tools-menu-panel" role="menu"></div>
   </div>
 </div>
@@ -427,6 +433,7 @@
       <li><a href="#viet-prompt">Cách viết yêu cầu (prompt) hiệu quả</a></li>
       <li><a href="#vi-du">Ví dụ prompt theo tình huống</a></li>
       <li><a href="#luu-y">Lưu ý an toàn tối thiểu</a></li>
+      <li><a href="#lua-dao-ai">Lừa đảo bằng AI — nhận ra và tự bảo vệ</a></li>
     </ol>
   </nav>
 
@@ -445,14 +452,14 @@
   <section id="cong-cu">
     <h2><span class="num">2</span> Bản đồ nhanh các công cụ phổ biến</h2>
     <p>AI bây giờ không chỉ để trò chuyện — có cả AI chuyên tạo ảnh, tạo video, tạo giọng nói/âm nhạc. Bảng dưới
-      đây là bản đồ nhanh 24 công cụ phổ biến nhất tính tới đầu năm 2026, mỗi cái một dòng đủ để biết nó làm gì.
+      đây là bản đồ nhanh 25 công cụ phổ biến nhất tính tới giữa năm 2026, mỗi cái một dòng đủ để biết nó làm gì.
       <strong>Cần dùng thật thì mở tab “Chi tiết từng AI”</strong> — mỗi công cụ có một trang riêng đủ giá tiền,
       cách cài, mẹo dùng.</p>
 
     <div class="card">
       <table class="course-table">
         <tr><th style="width:22%">Nhóm</th><th style="width:22%">Công cụ</th><th>Mạnh nhất ở</th></tr>
-        <tr><td rowspan="7"><strong>💬 Trò chuyện &amp; viết lách</strong></td>
+        <tr><td rowspan="8"><strong>💬 Trò chuyện &amp; viết lách</strong></td>
           <td><a href="#tool-chatgpt" onclick="goToToolFull('tool-chatgpt');return false;">ChatGPT</a> <span class="muted-inline">OpenAI</span></td>
           <td>Phổ biến nhất, dễ dùng, có bản miễn phí — viết lách, tra cứu, nghĩ ý tưởng.</td></tr>
         <tr><td><a href="#tool-claude" onclick="goToToolFull('tool-claude');return false;">Claude</a> <span class="muted-inline">Anthropic</span></td>
@@ -463,6 +470,8 @@
           <td>Nằm ngay trong Word/Excel/Windows — tiện cho việc văn phòng hằng ngày.</td></tr>
         <tr><td><a href="#tool-perplexity" onclick="goToToolFull('tool-perplexity');return false;">Perplexity</a></td>
           <td>Tìm kiếm bằng AI, trả lời kèm trích dẫn nguồn rõ ràng — hợp khi cần căn cứ.</td></tr>
+        <tr><td><a href="#tool-notebooklm" onclick="goToToolFull('tool-notebooklm');return false;">NotebookLM</a> <span class="muted-inline">Google</span></td>
+          <td>Chỉ đọc tài liệu bạn đưa vào và trả lời kèm trích dẫn về đúng đoạn — hợp cho học và đọc nhiều.</td></tr>
         <tr><td><a href="#tool-grok" onclick="goToToolFull('tool-grok');return false;">Grok</a> <span class="muted-inline">xAI</span></td>
           <td>Nằm trong X (Twitter), đọc được bài đăng mới, giọng thẳng thắn hơn.</td></tr>
         <tr><td><a href="#tool-deepseek" onclick="goToToolFull('tool-deepseek');return false;">DeepSeek</a></td>
@@ -703,6 +712,82 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
       <strong>Agent Skill</strong> — xem tab “Agent Skills”.</div>
   </section>
 
+  <section id="lua-dao-ai">
+    <h2><span class="num">7</span> Lừa đảo bằng AI — nhận ra và tự bảo vệ</h2>
+    <p>Mục trên nói về việc dùng AI cho an toàn. Mục này nói về chiều ngược lại: <strong>người khác dùng AI để lừa
+      bạn</strong>. Đây không còn là chuyện tương lai — chính những công cụ được hướng dẫn ở trang này (nhân bản
+      giọng nói, tạo video từ ảnh, viết văn bản trôi chảy) là thứ đang bị dùng để lừa tiền, và chúng rẻ tới mức ai
+      cũng mua được.</p>
+    <div class="tip">⚠️ Điều đáng nói nhất: <strong>những dấu hiệu nhận biết cũ đã hết tác dụng</strong>. Tin nhắn
+      lừa đảo trước đây lộ ra vì sai chính tả và câu lủng củng; nay AI viết trôi chảy hơn phần lớn người thật. Cuộc
+      gọi giả trước đây lộ ra vì giọng máy; nay chỉ cần khoảng 30 giây giọng thật lấy từ một clip đăng công khai là
+      nhân bản được.</div>
+
+    <h3>Bốn kiểu đang gặp nhiều nhất</h3>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:26%">Kiểu</th><th>Diễn ra thế nào</th></tr>
+        <tr><td><strong>Gọi giả giọng người quen</strong></td>
+          <td>Một cuộc gọi bằng đúng giọng người thân, sếp hoặc đồng nghiệp, nói đang gấp và cần chuyển tiền ngay.
+            Giọng lấy từ clip đăng công khai của chính người đó.</td></tr>
+        <tr><td><strong>Video giả người nổi tiếng</strong></td>
+          <td>Video người có tiếng đang giới thiệu sàn đầu tư, thuốc chữa bệnh hoặc chương trình tặng quà. Mặt và
+            giọng đều là thật của họ, lời nói thì không.</td></tr>
+        <tr><td><strong>Tin nhắn và email do AI viết</strong></td>
+          <td>Thư giả ngân hàng, giả sàn thương mại điện tử, giả cơ quan thuế — viết chuẩn tiếng Việt, đúng giọng
+            văn hành chính, gắn đúng tên và thông tin lấy được từ mạng xã hội của bạn.</td></tr>
+        <tr><td><strong>Trang web và ứng dụng giả</strong></td>
+          <td>Bản sao gần như hoàn chỉnh của một trang thật, dựng trong vài phút bằng AI, chỉ khác ở địa chỉ web.</td></tr>
+      </table>
+    </div>
+
+    <h3>Quy tắc một câu, dùng được cho cả bốn kiểu</h3>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Gác máy và gọi lại bằng số mình tự lưu.</strong> Không bấm gọi lại theo số vừa gọi tới, không
+          nhắn lại vào chính cuộc trò chuyện đó. Đây là một hành động duy nhất và nó chặn được gần hết các kiểu
+          giả giọng, vì kẻ lừa không giữ được số thật của người bị mạo danh.</li>
+        <li><strong>Thống nhất trước một câu hỏi mật trong nhà.</strong> Một câu chỉ người trong nhà biết đáp án,
+          không liên quan gì tới thông tin có trên mạng xã hội. Khi có cuộc gọi xin tiền gấp thì hỏi câu đó.</li>
+        <li><strong>Chuyện tiền thì không quyết trong một cuộc gọi.</strong> Mọi kịch bản lừa đều dựa vào việc ép
+          gấp. Hoãn 15 phút gần như không mất gì thật, nhưng phá hỏng toàn bộ kịch bản giả.</li>
+        <li><strong>Gõ tay địa chỉ trang web thay vì bấm vào link trong tin nhắn.</strong> Trang giả giống trang
+          thật tới từng chi tiết, chỗ duy nhất khác là địa chỉ.</li>
+        <li><strong>Bật xác thực hai lớp</strong> cho tài khoản ngân hàng, email và mạng xã hội. Giọng nói giả
+          không vượt được lớp thứ hai.</li>
+      </ul>
+    </div>
+
+    <h3>Dấu hiệu còn nhận ra được ở video và giọng giả</h3>
+    <p>Những dấu hiệu dưới đây <em>đang mất dần</em> theo từng đời công cụ, nên hãy coi chúng là phần bổ trợ chứ
+      không phải chỗ dựa chính:</p>
+    <div class="card">
+      <ul class="checklist">
+        <li>Miệng và lời nói lệch nhau ở những âm bật như "b", "p", "m".</li>
+        <li>Ánh sáng trên mặt không khớp với nền phía sau; viền tóc hoặc gọng kính nhòe bất thường.</li>
+        <li>Giọng đều đều một nhịp, không có tiếng thở, không có tiếng ồn nền của nơi người đó đang đứng.</li>
+        <li>Người trong video không quay ngang mặt, không đưa tay ngang mặt — hai động tác này còn hay làm lộ.</li>
+        <li>Yêu cầu nói một câu bất kỳ do bạn nghĩ ra tại chỗ. Bản giả dựng sẵn thì không đáp lại được.</li>
+      </ul>
+    </div>
+
+    <h3>Việc nên làm trước khi bị nhắm tới</h3>
+    <div class="card">
+      <ul class="checklist">
+        <li>Xem lại các clip đang để công khai trên mạng xã hội của mình và của con — đó chính là kho giọng và kho
+          khuôn mặt để người khác lấy về.</li>
+        <li>Nói trước với người lớn tuổi trong nhà về kiểu gọi giả giọng, kèm quy tắc gọi lại bằng số tự lưu. Người
+          lớn tuổi là nhóm bị nhắm nhiều nhất.</li>
+        <li>Không đọc mã xác thực gửi qua tin nhắn cho bất kỳ ai, kể cả người xưng là nhân viên ngân hàng.</li>
+        <li>Nếu đã lỡ chuyển tiền: gọi ngay tổng đài ngân hàng để yêu cầu tra soát, rồi báo cơ quan công an. Thời
+          gian là thứ quyết định có chặn được lệnh chuyển hay không.</li>
+      </ul>
+    </div>
+    <div class="tip">📌 Về phía pháp luật, Việt Nam đã buộc gắn nhãn với nội dung do AI tạo ra khi nội dung đó mô
+      phỏng người thật và được đưa ra công cộng — chi tiết ở tab <strong>“Khái niệm nền tảng”</strong>, mục 10.
+      Nhưng người đi lừa thì không tuân thủ quy định nào cả, nên phần tự bảo vệ ở trên vẫn là lớp chắn thật.</div>
+  </section>
+
   <footer>
     Trang cá nhân · Hướng dẫn tổng quan, không liên kết với bất kỳ hãng AI nào cụ thể.
   </footer>
@@ -713,6 +798,10 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
     <p>Mỗi nhóm công cụ có một trang riêng, mỗi AI trong đó cũng có trang riêng: đủ tính năng để dùng thành thạo,
       không chỉ là giới thiệu sơ lược. Chọn một nhóm rồi chọn công cụ bên dưới (hoặc bấm thẳng từ menu "Công cụ AI"
       trên đầu trang).</p>
+    <div class="tip">💱 Giá của mọi công cụ ở đây đều niêm yết bằng đô la Mỹ, nên trang tự quy đổi sang tiền Việt
+      đặt ngay sau mỗi con số, theo tỷ giá bán ra <strong id="ty-gia-hien"></strong> tra ngày
+      <strong id="ty-gia-ngay"></strong>. Đây là số để ước lượng — thẻ quốc tế còn cộng thêm phí chuyển đổi ngoại
+      tệ của ngân hàng, thường khoảng 2–4%, và một số dịch vụ tính thêm thuế giá trị gia tăng.</div>
 
     <div class="cat-tabs" id="cat-tabs"></div>
     <p class="cat-desc" id="cat-desc"></p>
@@ -1026,6 +1115,72 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
 
         <div class="tip">💡 Dùng Labs khi cần cả một sản phẩm hoàn chỉnh (báo cáo có bảng biểu, app nhỏ) chứ không chỉ câu trả lời văn bản.</div>
         <div class="tip">⚠️ Vì câu trả lời phụ thuộc vào nguồn tìm được trên web, Perplexity yếu hơn ở suy luận trừu tượng hoặc chủ đề ít tài liệu công khai.</div>
+        <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
+      </div>
+
+      <div class="tool-page" id="tool-notebooklm" hidden>
+        <div class="tool-page-head">
+          <h2>NotebookLM <span class="track-tag">Google — nay gọi là Gemini Notebook</span></h2>
+          <p class="tagline">Không phải chatbot mở: nó chỉ đọc đúng những tài liệu bạn đưa vào và trả lời trong
+            phạm vi đó, kèm chỉ dẫn về đúng câu trong tài liệu. Hợp nhất cho việc học và việc phải đọc nhiều.</p>
+        </div>
+        <div class="applinks" aria-label="Nơi dùng và link tải app">
+          <div class="applinks-row">
+            <a class="applink web" href="https://notebooklm.google.com" target="_blank" rel="noopener">🌐 Dùng trên web</a>
+          </div>
+        </div>
+
+        <div class="tip">📛 Google đổi tên sản phẩm này thành <strong>Gemini Notebook</strong> từ tháng 7/2026 và
+          gộp nó vào các gói thuê bao AI của mình. Địa chỉ cũ vẫn vào được, nên nhiều bài hướng dẫn còn gọi tên
+          NotebookLM.</div>
+
+        <h3>Tính năng chính</h3>
+        <div class="feature-list">
+          <div class="feat"><b>Chỉ trả lời trong phạm vi tài liệu đã đưa vào</b><span>Đây là khác biệt lớn nhất so với ChatGPT hay Gemini thường: nó không lôi kiến thức chung ra trả lời, nên khả năng bịa thấp hơn hẳn.</span></div>
+          <div class="feat"><b>Trích dẫn ngược về đúng chỗ</b><span>Mỗi ý trong câu trả lời có số dẫn về đúng đoạn trong tài liệu gốc — bấm vào là nhảy tới nơi lấy ý đó.</span></div>
+          <div class="feat"><b>Audio Overview</b><span>Biến cả tập tài liệu thành một cuộc trò chuyện hai người nói, nghe được như podcast. Hợp cho lúc đi đường.</span></div>
+          <div class="feat"><b>Video Overview và Slide Decks</b><span>Dựng bản trình bày hoặc video tóm tắt từ chính tài liệu đã nạp.</span></div>
+          <div class="feat"><b>Deep Research</b><span>Tự đi tìm thêm nguồn trên web rồi nạp vào sổ tay, thay vì chỉ đọc thứ bạn đưa.</span></div>
+          <div class="feat"><b>Nhiều dạng nguồn</b><span>PDF, tài liệu Google Docs, trang web, video YouTube, tệp âm thanh, chữ dán thẳng vào.</span></div>
+        </div>
+
+        <h3>Gói sử dụng</h3>
+        <table class="course-table">
+          <tr><th>Gói</th><th>Có gì</th></tr>
+          <tr><td>Free</td><td>100 sổ tay, 50 nguồn mỗi sổ, khoảng 50 lượt hỏi mỗi ngày, 03 bản Audio Overview và 03 bản Video Overview mỗi ngày, 10 báo cáo mỗi ngày, 10 lượt Deep Research mỗi tháng</td></tr>
+          <tr><td>Các gói trả phí (đi kèm thuê bao AI của Google)</td><td>Cùng bộ tính năng, chỉ nâng hạn mức mỗi ngày và độ dài bản đọc</td></tr>
+        </table>
+        <div class="tip">💡 Điểm đáng chú ý về giá: <strong>bản miễn phí không bị khoá tính năng nào</strong>, kể cả
+          Audio Overview và Deep Research. Thứ bị giới hạn là <em>số lượt mỗi ngày</em>. Nghĩa là cứ dùng bản miễn
+          phí cho tới lúc thấy chạm trần thật rồi mới tính chuyện trả tiền.</div>
+
+        <h3>Bắt đầu lần đầu</h3>
+        <ol class="steps">
+          <li>Vào <strong>notebooklm.google.com</strong>, đăng nhập bằng tài khoản Google sẵn có.</li>
+          <li>Bấm <strong>"Create new"</strong> để tạo một sổ tay, đặt tên theo chủ đề đang cần đọc.</li>
+          <li>Bấm <strong>"Add source"</strong> rồi tải lên PDF, dán đường dẫn trang web, hoặc dán đường dẫn video YouTube.</li>
+          <li>Gõ câu hỏi vào khung chat bên phải. Mỗi câu trả lời có số trích dẫn nhỏ — bấm vào để nhảy tới đúng đoạn trong tài liệu.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: biến tài liệu dài thành bản đọc nghe được</h3>
+        <ol class="steps">
+          <li>Nạp đủ các nguồn muốn gộp vào một sổ tay — ví dụ 05 báo cáo về cùng một ngành.</li>
+          <li>Ở khung Studio bên phải, chọn <strong>Audio Overview</strong>.</li>
+          <li>Trước khi bấm tạo, mở phần tuỳ chỉnh và ghi rõ muốn tập trung vào phần nào, ví dụ "chỉ nói về phần số liệu thị trường và bỏ qua phần giới thiệu công ty".</li>
+          <li>Chờ vài phút, rồi tải bản âm thanh về nghe. Đây là cách rẻ nhất để "đọc" tài liệu trong lúc đi đường.</li>
+        </ol>
+
+        <h3>Hướng dẫn từng bước: dùng cho việc học</h3>
+        <ol class="steps">
+          <li>Tạo một sổ tay cho mỗi môn hoặc mỗi chủ đề, nạp giáo trình cùng ghi chép của mình vào.</li>
+          <li>Hỏi thẳng: <em>"Liệt kê 10 câu hỏi kiểm tra bám sát nội dung trong tài liệu, kèm đáp án và ghi rõ đáp án nằm ở trang nào."</em></li>
+          <li>Trả lời từng câu bằng trí nhớ trước, rồi bấm số trích dẫn để tự chấm.</li>
+          <li>Chỗ nào sai thì hỏi tiếp: <em>"Giải thích lại phần này cho người chưa biết gì, dùng ví dụ trong chính tài liệu."</em></li>
+        </ol>
+
+        <div class="tip">⚠️ Vì nó chỉ đọc thứ bạn đưa vào nên chất lượng câu trả lời phụ thuộc hoàn toàn vào chất
+          lượng nguồn. Nạp một bài viết sai thì nó trả lời sai một cách rất tự tin và vẫn dẫn nguồn đầy đủ — dẫn
+          nguồn ở đây chứng minh "câu này lấy từ đâu", không chứng minh "câu này đúng".</div>
         <div class="tool-meta">Cập nhật 08/2026 — tính năng/giá có thể thay đổi, xem thêm ở tab "Tin mới".</div>
       </div>
 
@@ -2062,6 +2217,7 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
       <li><a href="#ban-quyen">Ai sở hữu nội dung AI tạo ra?</a></li>
       <li><a href="#thien-vi">Thiên vị &amp; giới hạn suy luận</a></li>
       <li><a href="#kiem-chung">Cách kiểm chứng một câu trả lời</a></li>
+      <li><a href="#luat-ai-vn">Luật AI ở Việt Nam — người dùng thường cần biết gì</a></li>
     </ol>
   </nav>
 
@@ -2149,6 +2305,61 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
         <li>Bật tính năng "tìm kiếm web" nếu có, thay vì chỉ dựa vào kiến thức có sẵn của model.</li>
       </ul>
     </div>
+  </section>
+
+  <section id="luat-ai-vn">
+    <h2><span class="num">10</span> Luật AI ở Việt Nam — người dùng thường cần biết gì</h2>
+    <p>Việt Nam đã có <strong>Luật Trí tuệ nhân tạo</strong>, Quốc hội thông qua ngày 10/12/2025 và
+      <strong>có hiệu lực từ 01/3/2026</strong>, áp dụng cho mọi tổ chức và cá nhân có liên quan tới AI tại Việt
+      Nam. Phần hướng dẫn thi hành nằm ở <strong>Nghị định 142/2026/NĐ-CP</strong>, ban hành 30/4/2026 và hiệu lực
+      từ 01/5/2026. Phần lớn nghĩa vụ nặng đặt lên bên phát triển và bên cung cấp hệ thống AI, nhưng có một nghĩa
+      vụ chạm thẳng tới người dùng bình thường.</p>
+
+    <h3>Nghĩa vụ gắn nhãn nội dung do AI tạo ra</h3>
+    <p>Nội dung <strong>âm thanh, hình ảnh, video</strong> được tạo hoặc chỉnh sửa bằng AI nhằm <strong>mô phỏng
+      người thật hoặc tái hiện sự kiện có thật</strong> thì phải được gắn nhãn dễ nhận biết. Nguyên tắc phân định
+      rất gọn: nghĩa vụ chỉ đặt ra khi nội dung <strong>được đưa ra công cộng</strong> và có khả năng khiến người
+      xem hiểu nhầm đó là người thật hoặc việc thật.</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:50%">Phải gắn nhãn</th><th>Không phải gắn nhãn</th></tr>
+        <tr>
+          <td>Video hoặc ảnh dựng mặt một người có thật rồi đăng công khai</td>
+          <td>Chỉnh sửa kỹ thuật để nội dung đẹp hơn, rõ hơn mà không đổi bản chất</td>
+        </tr>
+        <tr>
+          <td>Giọng nói nhân bản của một người có thật, phát ra công chúng</td>
+          <td>Văn bản được AI sửa lỗi, tóm tắt, diễn giải hoặc dịch</td>
+        </tr>
+        <tr>
+          <td>Ảnh dựng lại một sự kiện có thật theo cách gây hiểu nhầm là ảnh chụp</td>
+          <td>Nội dung chỉ dùng trong nội bộ, không đưa ra công cộng</td>
+        </tr>
+        <tr>
+          <td>Clip quảng cáo có người nổi tiếng do AI dựng</td>
+          <td>Nội dung tạo ra trong nghiên cứu, phát triển, thử nghiệm và không phát hành</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tip">💡 Dịch một bài viết bằng AI rồi đăng lên trang cá nhân thì không phải gắn nhãn. Nhưng dựng
+      một clip có mặt và giọng của một người có thật rồi đăng lên mạng xã hội thì phải — kể cả khi làm cho vui.</div>
+
+    <h3>Bốn điều người dùng thường nên nhớ</h3>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Nhãn là nghĩa vụ của bên đăng, không phải của công cụ.</strong> Công cụ có gắn dấu chìm hay
+          không thì người đưa nội dung ra công chúng vẫn là bên chịu trách nhiệm.</li>
+        <li><strong>Mô phỏng người có thật là ranh giới rõ nhất.</strong> Ảnh minh hoạ một nhân vật tưởng tượng
+          khác hẳn ảnh dựng mặt một người có thật.</li>
+        <li><strong>Không thấy nhãn không có nghĩa là nội dung thật.</strong> Người đi lừa không tuân thủ quy định
+          nào cả — cách tự bảo vệ nằm ở tab “Bắt đầu dùng AI”, mục 7.</li>
+        <li><strong>Ở châu Âu cũng đang siết theo hướng tương tự</strong>, với nghĩa vụ dành cho AI xếp nhóm rủi ro
+          cao áp dụng từ 02/8/2026. Ai làm nội dung hoặc sản phẩm cho người dùng nước ngoài thì phải xét cả hai
+          bộ quy định.</li>
+      </ul>
+    </div>
+    <div class="tip">📌 Mục này là hiểu biết chung để biết mình đang đứng ở đâu, không phải tư vấn pháp lý. Việc
+      thật có dính tới trách nhiệm hoặc tiền thì đọc thẳng văn bản gốc hoặc hỏi người có chuyên môn.</div>
   </section>
 
   <footer>
@@ -4308,7 +4519,8 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   var TOOLS = [
     {id:'tool-chatgpt',name:'ChatGPT',cat:'chat'},{id:'tool-claude',name:'Claude',cat:'chat'},
     {id:'tool-gemini',name:'Gemini',cat:'chat'},{id:'tool-copilot',name:'Copilot',cat:'chat'},
-    {id:'tool-perplexity',name:'Perplexity',cat:'chat'},{id:'tool-grok',name:'Grok',cat:'chat'},
+    {id:'tool-perplexity',name:'Perplexity',cat:'chat'},{id:'tool-notebooklm',name:'NotebookLM',cat:'chat'},
+    {id:'tool-grok',name:'Grok',cat:'chat'},
     {id:'tool-deepseek',name:'DeepSeek',cat:'chat'},
     {id:'tool-midjourney',name:'Midjourney',cat:'image'},{id:'tool-dalle',name:'DALL-E',cat:'image'},
     {id:'tool-firefly',name:'Adobe Firefly',cat:'image'},{id:'tool-stablediffusion',name:'Stable Diffusion',cat:'image'},
@@ -4921,5 +5133,97 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
 })();
 </script>
 
+<script>
+/* Quy đổi giá đô la sang tiền Việt ngay cạnh mỗi con số.
+   Đổi tỷ giá thì sửa ĐÚNG MỘT CHỖ là hằng dưới đây — hai chỗ hiển thị trong phần
+   ghi chú cũng lấy từ chính nó, nên không có đường nào để hai nơi nói hai số khác nhau. */
+(function(){
+  var TY_GIA_USD = 26400;              /* Vietcombank bán ra, tra 20/08/2026 */
+  var NGAY_TRA_TY_GIA = '20/08/2026';
+
+  var hienTyGia = document.getElementById('ty-gia-hien');
+  if (hienTyGia) hienTyGia.textContent = TY_GIA_USD.toLocaleString('vi-VN') + 'đ mỗi đô la';
+  var hienNgay = document.getElementById('ty-gia-ngay');
+  if (hienNgay) hienNgay.textContent = NGAY_TRA_TY_GIA;
+
+  /* Cùng một dấu chấm hoặc phẩy mang hai nghĩa khác nhau trong trang này:
+     "$1.320" là một nghìn ba trăm hai mươi, còn "$0.003" và "$64.99" là số lẻ;
+     tin viết theo lối Việt thì "0,14 USD" lại là số lẻ. Đọc nhầm chiều nào cũng
+     lệch cả trăm lần mà trang vẫn hiện ra bình thường, nên phân định bằng HÌNH
+     DẠNG chuỗi chứ không bằng ký tự: chỉ coi là dấu phân cách nghìn khi phần đầu
+     khác 0 và MỌI nhóm phía sau đủ đúng 3 chữ số. */
+  function docSo(chuoi){
+    if (/^[1-9]\d{0,2}(\.\d{3})+$/.test(chuoi)) return parseFloat(chuoi.replace(/\./g, ''));
+    if (/^[1-9]\d{0,2}(,\d{3})+$/.test(chuoi)) return parseFloat(chuoi.replace(/,/g, ''));
+    if (/^\d+,\d+$/.test(chuoi)) return parseFloat(chuoi.replace(',', '.'));
+    if (/^\d+\.\d+$/.test(chuoi)) return parseFloat(chuoi);
+    return parseFloat(chuoi.replace(/[.,]/g, ''));
+  }
+  function tienViet(usd){
+    var v = usd * TY_GIA_USD;
+    if (v >= 1000000) return '~' + (Math.round(v / 100000) / 10).toString().replace('.', ',') + ' triệu đ';
+    return '~' + Math.round(v).toLocaleString('vi-VN') + 'đ';
+  }
+
+  /* Nhánh khoảng giá ("$100–200") phải đứng TRƯỚC nhánh một số, nếu không nhánh
+     một số ăn mất vế đầu và phần quy đổi rơi vào giữa khoảng: "$100 · ~2,6 triệu
+     đ–200" — đúng số nhưng đọc ra một nghĩa khác hẳn. Đã hiện ra ở 05 chỗ lúc dựng. */
+  var MAU = /\$\s?(\d[\d.,]*)\s?[–-]\s?(\d[\d.,]*)|\$\s?(\d[\d.,]*)|(\d[\d.,]*)\s?USD\b/g;
+  /* Nhớ nút ĐÃ xử lý bằng WeakSet, đừng dò dấu vết trong chính chuỗi chữ: bảng giá
+     sẵn có viết "Pro (~$99)" nên phép dò theo chuỗi "(~" bỏ qua đúng những ô cần
+     quy đổi nhất — đã vấp thật, 48 trong 50 con số bị bỏ sót mà trang vẫn hiện
+     bình thường và không lỗi nào phát ra. Chỉ theo dõi childList nên việc tự sửa
+     nodeValue ở đây không kích lại vòng lặp. */
+  var daXuLy = new WeakSet();
+  function quyDoiTrong(goc){
+    if (!goc) return 0;
+    var di = document.createTreeWalker(goc, NodeFilter.SHOW_TEXT, null);
+    var nut = [], n, dem = 0;
+    while ((n = di.nextNode())) {
+      MAU.lastIndex = 0;
+      if (MAU.test(n.nodeValue) && !daXuLy.has(n)) { nut.push(n); daXuLy.add(n); }
+    }
+    nut.forEach(function(node){
+      node.nodeValue = node.nodeValue.replace(MAU, function(khop, k1, k2, a, b, viTri, cauGoc){
+        var quyDoi;
+        if (k1 !== undefined) {
+          var s1 = docSo(k1), s2 = docSo(k2);
+          if (!isFinite(s1) || !isFinite(s2) || s1 <= 0 || s2 <= 0) return khop;
+          quyDoi = tienViet(s1) + '–' + tienViet(s2).replace('~', '');
+        } else {
+          var so = docSo(a || b);
+          if (!isFinite(so) || so <= 0) return khop;
+          quyDoi = tienViet(so);
+        }
+        dem++;
+        /* Bảng giá sẵn có viết "Pro (~$99)", tức con số ĐANG nằm trong ngoặc. Thêm
+           một cặp ngoặc nữa là ra "(~$99 (~2,6 triệu đ))" — đúng số nhưng đọc rất
+           tệ, và đã hiện ra ở 46 chỗ lúc dựng. Ở trong ngoặc thì nối bằng dấu chấm
+           giữa, ngoài ngoặc mới mở ngoặc mới. */
+        var truoc = cauGoc.slice(Math.max(0, viTri - 2), viTri);
+        var trongNgoac = /[(~]$/.test(truoc);
+        return khop + (trongNgoac ? ' · ' + quyDoi : ' (' + quyDoi + ')');
+      });
+    });
+    return dem;
+  }
+
+  quyDoiTrong(document.getElementById('tab-concepts'));
+
+  /* Tab Tin mới có phần nạp thêm bằng fetch nên nội dung tới SAU lúc trang tải xong.
+     Chạy một lần rồi thôi là mục do routine bơm vào không bao giờ được quy đổi, mà
+     không có dấu hiệu nào lộ ra — vì thế theo dõi luôn mọi thay đổi bên trong nó. */
+  var oTin = document.getElementById('tab-news');
+  if (oTin) {
+    quyDoiTrong(oTin);
+    if (window.MutationObserver) {
+      new MutationObserver(function(){ quyDoiTrong(oTin); })
+        .observe(oTin, { childList: true, subtree: true });
+    }
+  }
+
+  window.quyDoiGiaUSD = quyDoiTrong;   /* để soi lại bằng tay khi cần */
+})();
+</script>
 </body>
 </html>
