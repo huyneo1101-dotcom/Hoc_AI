@@ -42,6 +42,37 @@ có phần tiền Việt, 0 ngoặc lồng ngoặc, 0 chỗ tràn ngang trên c�
 khung 318px ở khổ điện thoại, chữ bị đẩy ra ngoài mép phải và không có cách nào đọc tiếp. Ép bảng co lại
 thì cột mô tả vỡ thành từng chữ một dòng, nên cho thẻ cuộn thay vì cho bảng co.
 
+### Chữ tra được — nối 09 tab kiến thức sang tab từ điển (thêm 21/08/2026)
+
+Khối script cuối `index.html` tự bọc **lần xuất hiện đầu tiên của mỗi thuật ngữ trong mỗi tab con**
+thành liên kết gạch chân chấm dẫn tới đúng mục từ ở tab 10. Bảng chữ được bọc nằm ở hằng `TU`; mỗi
+mục từ nay mang neo `id="tu-<slug>"`, nên địa chỉ dạng `.../#tu-token` dán cho người khác mở thẳng
+được. Đo 21/08 ở khổ 375px và 1280px: 58 liên kết trên 09 tab, 104 neo, 0 neo hỏng, 0 tràn ngang,
+50/50 con số quy đổi tiền Việt còn nguyên.
+
+- **Bọc mọi lần xuất hiện là hỏng**, không phải cẩn thận hơn: chữ `agent` có 185 lần và `skill` 158
+  lần trong 09 tab, bọc hết thì đoạn văn thành rừng liên kết. Một chữ một tab, giữ trong `conLai`.
+- **Tab quiz cố ý còn 0 liên kết** — tra nghĩa giữa bài kiểm tra là mách đáp án. Điều này tự đến từ
+  luật chặn tên riêng `Agent Skills`, nên **đừng nới luật đó mà không đo lại tab quiz**.
+- ⚠️ **`\b` của JavaScript chỉ biết chữ ASCII** nên không dùng được cho `phiên`, `hạn mức`, `mã nguồn`.
+  Ranh giới từ tự viết bằng `CHUCAI`; bỏ nó thì `phiên` khớp vào giữa một chữ Việt dài hơn.
+- ⚠️ **Cùng mặt chữ mà khác nghĩa**: `phiên âm`, `phiên bản`, `phiên dịch` — chặn bằng trường `cam`.
+  Cùng họ, `Model Context Protocol` và `Agent Skills` là **tên riêng**, cắt đôi ra hai liên kết dính
+  nhau thì đọc rất tệ; chữ `MCP` và `Skill` gánh phần tra nghĩa.
+- ⚠️ **`showTab()` ghi đè địa chỉ thành `#concepts` ngay lúc trang tải** (dòng `history.replaceState`),
+  nên mọi khối phía dưới đọc `location.hash` sẽ không còn thấy `#tu-...`. Bản gốc được giữ ở
+  `window.hashLucMoTrang` **trước** lời gọi đó. Bỏ dòng ấy thì link dán vẫn mở trang, chỉ rơi về đầu
+  tab, và không lỗi nào phát ra.
+- ⚠️ **Cuộn mượt quãng dài thì trình duyệt bỏ qua**: tab từ điển cao hơn 21.000px ở khổ điện thoại và
+  hơn 100.000px ở khung hẹp, nên `behavior:'smooth'` để trang đứng nguyên tại chỗ. Quãng trên 3.000px
+  thì nhảy thẳng.
+- Người đọc đang lọc theo nhóm hoặc đang gõ dở trong ô tra thì mục cần tới **đang bị ẩn** — `goLoc()`
+  gỡ bộ lọc trước khi cuộn, nếu không trang cuộn về một chỗ trống.
+- Thanh «Quay lại chỗ đang đọc» chỉ hiện khi tới từ điển bằng một chữ bấm được, và **tự tắt khi người
+  đọc tự bấm sang tab con khác** — để nguyên thì nút ném người ta về một chỗ họ không còn định về.
+- Khối này chạy **sau** khối quy đổi tiền Việt, cố ý: khối kia nhớ text node bằng `WeakSet`, mà việc
+  bọc liên kết cắt text node ra làm nhiều mảnh. Đảo thứ tự hai khối thì phần quy đổi mất dấu.
+
 - **Quiz**: 40 câu, nhãn nhóm trong `QUIZ_TAG_LABEL` phải khớp `tag` của từng câu — thêm nhóm mới mà quên khai nhãn thì bảng điểm cuối bài thiếu dòng đó trong im lặng. Số câu ghi trong `<footer>` của `sub-quiz` là **viết tay**, sửa bộ câu hỏi thì sửa luôn số đó.
 
 ### Tab "Tin mới" — khuôn bắt buộc khi thêm tin (nâng cấp 07/08/2026)
