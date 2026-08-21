@@ -145,6 +145,45 @@
   .subtab-btn.active{background:var(--pink-light);color:#fff;border-color:var(--pink-light)}
   .subwrap{margin:0}
 
+  /* Tab 10 — từ điển thuật ngữ */
+  .gloss-tools{margin:0 0 26px}
+  .gloss-search{
+    width:100%;font:inherit;font-size:1rem;
+    background:var(--card);color:var(--text);
+    border:1.5px solid var(--border);border-radius:12px;
+    padding:12px 16px;
+  }
+  .gloss-search:focus{outline:none;border-color:var(--pink)}
+  .gloss-hint{margin:8px 2px 12px;font-size:.84rem;color:var(--muted)}
+  .gloss-cats{display:flex;flex-wrap:wrap;gap:7px}
+  .gloss-cbtn{
+    font:inherit;font-size:.82rem;font-weight:600;white-space:nowrap;
+    background:var(--card);color:var(--muted);border:1.5px solid var(--border);
+    border-radius:999px;padding:7px 14px;cursor:pointer;
+  }
+  .gloss-cbtn:hover{border-color:var(--pink-light)}
+  .gloss-cbtn.on{background:var(--pink);color:#fff;border-color:var(--pink)}
+  .gloss-count{margin:12px 2px 0;font-size:.85rem;color:var(--muted)}
+  .glosslist{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+  .term{
+    background:var(--card);border:1px solid var(--border);
+    border-left:3px solid var(--pink-light);border-radius:0 12px 12px 0;
+    padding:13px 18px;
+  }
+  .term > b{font-size:1rem;color:var(--text)}
+  .term .say{
+    display:inline-block;font-size:.76rem;color:var(--muted);
+    background:#e5edf7;border-radius:6px;padding:2px 8px;margin-left:8px;
+    vertical-align:middle;
+  }
+  .term p{margin:6px 0 0;font-size:.93rem;color:var(--muted)}
+  .term p b{color:var(--text)}
+  .term[hidden]{display:none}
+  .gloss-empty{
+    background:#e5edf7;border:1px dashed var(--border);border-radius:12px;
+    padding:16px 18px;color:var(--muted);font-size:.93rem;
+  }
+
   .cat-tabs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
   .cat-tabs button{
     font:inherit;font-size:.82rem;font-weight:700;white-space:nowrap;
@@ -416,6 +455,7 @@
     <button class="subtab-btn" data-subtab="agentic" role="tab" aria-selected="false" onclick="showSubTab('agentic')">7 · AI Agent (Agentic)</button>
     <button class="subtab-btn" data-subtab="roadmap" role="tab" aria-selected="false" onclick="showSubTab('roadmap')">8 · Lộ trình học</button>
     <button class="subtab-btn" data-subtab="quiz" role="tab" aria-selected="false" onclick="showSubTab('quiz')">9 · Kiểm tra kiến thức</button>
+    <button class="subtab-btn" data-subtab="thuatngu" role="tab" aria-selected="false" onclick="showSubTab('thuatngu')">10 · Từ điển thuật ngữ</button>
   </div>
 
   <div class="subwrap" id="sub-general">
@@ -3962,6 +4002,496 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   </footer>
   </div>
 
+  <div class="subwrap" id="sub-thuatngu" hidden>
+
+  <p class="lead-note"><b>Tab này là cuốn từ điển bỏ túi.</b> Khi trợ lý AI (hoặc người viết code) báo cáo công
+    việc, họ dùng một mớ chữ mà người ngoài nghề không có cách nào đoán ra nghĩa. Tra ở đây để hiểu <em>chính xác</em>
+    câu vừa đọc nói gì — không cần biết lập trình, mỗi mục đều giải nghĩa bằng chuyện đời thường.</p>
+
+  <div class="gloss-tools">
+    <input type="search" id="gloss-q" class="gloss-search" placeholder="Gõ chữ cần tra: commit, token, hook…"
+      autocomplete="off" aria-label="Tìm thuật ngữ">
+    <p class="gloss-hint">Gõ không dấu vẫn tìm được. Bấm nhóm bên dưới để xem theo chủ đề.</p>
+    <div class="gloss-cats" id="gloss-cats">
+      <button class="gloss-cbtn on" data-gcat="all">Tất cả</button>
+      <button class="gloss-cbtn" data-gcat="doc">Đọc báo cáo</button>
+      <button class="gloss-cbtn" data-gcat="git">Lưu &amp; giữ mã</button>
+      <button class="gloss-cbtn" data-gcat="mang">Đưa lên mạng</button>
+      <button class="gloss-cbtn" data-gcat="auto">Chạy tự động</button>
+      <button class="gloss-cbtn" data-gcat="web">Bên trong trang</button>
+      <button class="gloss-cbtn" data-gcat="data">Dữ liệu</button>
+      <button class="gloss-cbtn" data-gcat="ai">AI &amp; chi phí</button>
+      <button class="gloss-cbtn" data-gcat="antoan">Bí mật &amp; an toàn</button>
+      <button class="gloss-cbtn" data-gcat="loi">Lỗi &amp; cách sửa</button>
+    </div>
+    <p class="gloss-count" id="gloss-count"></p>
+  </div>
+
+  <section id="gloss-doc" data-gsec="doc">
+    <h2><span class="num">🗣️</span> Đọc một câu báo cáo</h2>
+    <p>Trước khi tra từng chữ, đây là những câu nguyên mẫu hay gặp nhất và nghĩa thật của chúng. Cột bên phải là thứ
+      bạn cần rút ra: việc đã xong tới đâu, còn hở chỗ nào.</p>
+
+    <div class="card">
+      <table>
+        <thead><tr><th style="width:44%">Câu hay đọc được</th><th>Nghĩa thật</th></tr></thead>
+        <tbody>
+          <tr><td><em>“Đã commit và push lên repo.”</em></td><td>Bản sửa đã được đóng dấu vào sổ lịch sử ở máy, <b>và</b> đã gửi lên bản sổ trên mạng. Máy hỏng cũng không mất.</td></tr>
+          <tr><td><em>“Đã commit nhưng chưa push.”</em></td><td>Mới ghi ở máy. Trên mạng chưa có gì. Máy hỏng là mất phần đó.</td></tr>
+          <tr><td><em>“Đã deploy, chưa push.”</em></td><td>Người dùng đã thấy bản mới trên mạng, nhưng <b>mã nguồn</b> chưa được lưu vào kho. Đây là trạng thái nguy: bản chạy còn, bản gốc để sửa tiếp thì không.</td></tr>
+          <tr><td><em>“Mã thoát 0.”</em></td><td>Lệnh chạy trót lọt, máy không báo lỗi nào. Khác 0 là có trục trặc.</td></tr>
+          <tr><td><em>“Chạy tự kiểm: 24/24 ca đạt, 17/17 bản hỏng đều bị bắt.”</em></td><td>Đã chạy đủ bài thử. Các bản <b>cố tình làm sai</b> đều bị chốt chặn phát hiện — tức chốt chặn còn hiệu lực thật, không phải chỉ chạy cho có.</td></tr>
+          <tr><td><em>“Hook chặn trước khi thao tác diễn ra.”</em></td><td>Có một mẩu chương trình tự chen vào <b>trước</b> hành động và không cho làm. Nó chặn bằng máy, không phải bằng lời hứa.</td></tr>
+          <tr><td><em>“Chỗ này fail-open.”</em></td><td>Khi bộ phận kiểm tra bị hỏng, việc vẫn được cho qua. Nguy ở chỗ không ai biết là nó đã ngừng canh.</td></tr>
+          <tr><td><em>“Routine 22:30 qua LaunchAgent.”</em></td><td>Máy tự chạy việc đó lúc 22:30 hằng ngày, không ai phải bấm. Nhưng máy phải đang bật.</td></tr>
+          <tr><td><em>“Đang làm trong worktree, chưa merge.”</em></td><td>Đang làm ở một thư mục phụ tách riêng. Bản chính <b>chưa</b> có gì thay đổi cho tới khi được nhập về.</td></tr>
+          <tr><td><em>“Context sắp bị nén.”</em></td><td>Trí nhớ của cuộc trò chuyện gần đầy, sắp phải tóm tắt lại. Chi tiết cũ có thể rơi mất.</td></tr>
+          <tr><td><em>“Link trả 403 chứ không phải 404.”</em></td><td>Trang vẫn còn sống, chỉ là chủ trang chặn máy tự động lấy. Khác hẳn 404 — trang đã bị gỡ thật.</td></tr>
+          <tr><td><em>“Lỗi câm.”</em></td><td>Hỏng mà không phát ra tiếng nào: không báo đỏ, không dừng, chỉ là kết quả sai lặng lẽ. Loại lỗi tốn kém nhất.</td></tr>
+          <tr><td><em>“Chặn oan.”</em></td><td>Bộ kiểm bắt nhầm cái đúng, tưởng là sai. Ngược lại là <b>bắt hụt</b>: cái sai lọt qua.</td></tr>
+          <tr><td><em>“Đã nghiệm thu bằng lời gọi thật.”</em></td><td>Không đọc code bằng mắt rồi đoán, mà chạy thật một lần rồi đọc kết quả trả về.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip">💡 Ba câu đáng để ý nhất khi đọc báo cáo: <b>“chưa push”</b> (bản gốc chưa an toàn),
+      <b>“fail-open”</b> (chốt chặn có thể đang ngủ), <b>“lỗi câm”</b> (sai mà không báo). Gặp ba chữ này thì hỏi lại
+      cho rõ, đừng bỏ qua.</div>
+  </section>
+
+  <section id="gloss-git" data-gsec="git">
+    <h2><span class="num">📚</span> Lưu và giữ mã — git, GitHub</h2>
+    <p>Hình dung một cuốn sổ cái: mỗi lần sửa gì đó thì đóng một con dấu vào sổ, ghi rõ sửa cái gì. Sổ đó gọi là
+      <b>git</b>. Nhờ nó mà lúc nào cũng quay lại được bản cũ, và hai máy sửa cùng một thứ vẫn nhập lại được với nhau.</p>
+
+    <div class="glosslist">
+      <div class="term" data-cat="git" data-k="ma nguon source code"><b>mã nguồn</b> <span class="say">source code</span>
+        <p>Bản chữ gốc mà người (hoặc AI) viết ra để tạo nên app. Thứ bạn bấm trên điện thoại là bản đã được máy dịch lại;
+          mất mã nguồn thì app vẫn chạy nhưng không sửa được nữa.</p></div>
+
+      <div class="term" data-cat="git" data-k="repo repository kho ma"><b>repo</b> <span class="say">kho mã</span>
+        <p>Thư mục chứa toàn bộ một dự án, kèm cuốn sổ lịch sử của nó. Mỗi app là một repo.</p></div>
+
+      <div class="term" data-cat="git" data-k="commit dong dau luu ban sua"><b>commit</b> <span class="say">“đã commit”</span>
+        <p>Đóng dấu một lần sửa vào sổ, kèm dòng ghi chú sửa cái gì. Chưa commit thì lần sửa đó chưa vào sổ — sửa tiếp
+          hoặc đóng máy là mất dấu, không lần lại được.</p></div>
+
+      <div class="term" data-cat="git" data-k="push day len"><b>push</b> <span class="say">đẩy lên</span>
+        <p>Gửi các con dấu ở máy mình lên bản sổ đặt trên mạng. <b>Commit là ghi ở nhà, push là gửi đi.</b> Chưa push thì
+          chỉ máy này có.</p></div>
+
+      <div class="term" data-cat="git" data-k="pull fetch lay ve"><b>pull</b> / <b>fetch</b> <span class="say">lấy về</span>
+        <p>Chiều ngược của push: kéo phần người khác (hoặc máy khác) đã đẩy lên về máy mình. <em>fetch</em> chỉ nhìn xem
+          có gì mới, <em>pull</em> là lấy về và nhập luôn.</p></div>
+
+      <div class="term" data-cat="git" data-k="branch nhanh"><b>branch</b> <span class="say">nhánh</span>
+        <p>Một bản chép song song để sửa thử mà không đụng vào bản đang chạy. Sửa hỏng thì bỏ nhánh đi, bản chính vẫn nguyên.</p></div>
+
+      <div class="term" data-cat="git" data-k="main master ban chinh"><b>main</b> <span class="say">nhánh chính</span>
+        <p>Nhánh gốc, coi là bản thật. Thứ gì chưa vào <em>main</em> thì coi như chưa có.</p></div>
+
+      <div class="term" data-cat="git" data-k="merge gop nhap"><b>merge</b> <span class="say">gộp</span>
+        <p>Nhập phần đã sửa ở nhánh phụ vào bản chính. Câu “<em>chưa merge</em>” nghĩa là công đã làm nhưng bản chính chưa
+          hưởng gì.</p></div>
+
+      <div class="term" data-cat="git" data-k="worktree thu muc phu"><b>worktree</b> <span class="say">thư mục làm việc phụ</span>
+        <p>Một thư mục tách riêng để làm việc song song trên cùng một kho, tránh giẫm chân nhau. Làm xong <b>bắt buộc phải
+          gộp về</b>, không thì như để bản thảo trong ngăn kéo phụ rồi quên.</p></div>
+
+      <div class="term" data-cat="git" data-k="conflict dung do xung dot"><b>conflict</b> <span class="say">đụng độ</span>
+        <p>Hai bên sửa cùng một dòng theo hai kiểu khác nhau, máy không tự chọn được nên dừng lại hỏi.</p></div>
+
+      <div class="term" data-cat="git" data-k="diff khac nhau so sanh"><b>diff</b> <span class="say">chỗ khác nhau</span>
+        <p>Bảng đối chiếu bản cũ với bản mới, chỉ hiện đúng những dòng đã đổi.</p></div>
+
+      <div class="term" data-cat="git" data-k="rebase sap lai lich su"><b>rebase</b>
+        <p>Sắp xếp lại thứ tự các con dấu trong sổ cho gọn. Việc nội bộ, không đổi kết quả cuối.</p></div>
+
+      <div class="term" data-cat="git" data-k="stash cat tam"><b>stash</b> <span class="say">cất tạm</span>
+        <p>Nhét phần đang sửa dở vào ngăn tạm để làm việc khác trước, lát lấy ra dùng tiếp.</p></div>
+
+      <div class="term" data-cat="git" data-k="clone chep kho ve may"><b>clone</b> <span class="say">chép kho về</span>
+        <p>Tải nguyên một kho mã từ mạng về máy, kèm cả lịch sử.</p></div>
+
+      <div class="term" data-cat="git" data-k="github gitlab"><b>GitHub</b>
+        <p>Nhà cung cấp chỗ đặt kho mã trên mạng, phổ biến nhất hiện nay. Kho để <b>riêng tư</b> thì chỉ mình đọc được;
+          để <b>công khai</b> thì cả thế giới đọc được — nên không bao giờ đưa dữ liệu khách hàng hay mật khẩu vào kho.</p></div>
+
+      <div class="term" data-cat="git" data-k="ci github actions workflow runner may cua github"><b>CI</b> / <b>GitHub Actions</b> <span class="say">máy kiểm tự động</span>
+        <p>Mỗi lần đẩy mã lên, máy của GitHub tự chạy một loạt bài kiểm rồi báo đạt hay không. <em>workflow</em> là tờ khai
+          các bước phải chạy, <em>runner</em> là cỗ máy chạy chúng.</p></div>
+
+      <div class="term" data-cat="git" data-k="patch ban va fix"><b>patch</b> <span class="say">bản vá</span>
+        <p>Đoạn sửa nhỏ chữa đúng một lỗi, không làm lại cả phần.</p></div>
+
+      <div class="term" data-cat="git" data-k="rollback lui ban revert"><b>rollback</b> <span class="say">lùi bản</span>
+        <p>Quay ngược về bản trước khi sửa, dùng khi bản mới hỏng. Có sổ lịch sử thì việc này mất vài giây.</p></div>
+    </div>
+  </section>
+
+  <section id="gloss-mang" data-gsec="mang">
+    <h2><span class="num">🌐</span> Đưa app lên mạng</h2>
+    <p>Mã nguồn nằm ở máy thì chưa ai vào được. Phải <b>dựng</b> nó thành bản chạy, rồi <b>đưa</b> lên một máy chủ luôn
+      bật, rồi trỏ một cái tên cho người ta gõ vào.</p>
+
+    <div class="glosslist">
+      <div class="term" data-cat="mang" data-k="build dung bien dich"><b>build</b> <span class="say">dựng</span>
+        <p>Dịch mã nguồn thành bản mà trình duyệt chạy được. Trang đơn giản thì không cần bước này.</p></div>
+
+      <div class="term" data-cat="mang" data-k="deploy trien khai dua len"><b>deploy</b> <span class="say">đưa lên / triển khai</span>
+        <p>Đẩy bản mới ra đúng địa chỉ người dùng đang vào. Sau deploy vài chục giây là mọi người thấy bản mới.</p></div>
+
+      <div class="term" data-cat="mang" data-k="hosting may chu server"><b>máy chủ</b> <span class="say">server / hosting</span>
+        <p>Một cái máy tính luôn bật, có nối mạng, giữ sẵn trang để ai gõ địa chỉ vào là gửi trả về.</p></div>
+
+      <div class="term" data-cat="mang" data-k="cloudflare workers netlify github pages"><b>Cloudflare</b> · <b>Netlify</b> · <b>GitHub Pages</b>
+        <p>Ba nhà cho đặt trang miễn phí ở mức dùng cá nhân. <em>Cloudflare Workers</em> là loại chạy được cả phần xử lý
+          chứ không chỉ trang tĩnh.</p></div>
+
+      <div class="term" data-cat="mang" data-k="wrangler cli cloudflare"><b>wrangler</b>
+        <p>Bộ lệnh gõ ở máy để đẩy app lên Cloudflare. Nghe tên này thì hiểu là đang nói chuyện đưa app lên mạng.</p></div>
+
+      <div class="term" data-cat="mang" data-k="domain ten mien dns"><b>tên miền</b> · <b>DNS</b>
+        <p>Tên miền là cái tên gõ vào thanh địa chỉ. DNS là cuốn danh bạ đổi cái tên đó ra số máy thật. Đổi DNS xong
+          phải chờ vài phút tới vài giờ mới lan khắp nơi.</p></div>
+
+      <div class="term" data-cat="mang" data-k="url link duong dan dia chi"><b>URL</b> <span class="say">địa chỉ trang</span>
+        <p>Chuỗi bắt đầu bằng <em>https://</em> trỏ tới đúng một trang.</p></div>
+
+      <div class="term" data-cat="mang" data-k="http ma 200 403 404 429 500 loi"><b>mã HTTP: 200 · 403 · 404 · 429 · 5xx</b>
+        <p>Số máy chủ trả về mỗi lần có người hỏi trang. <b>200</b> = lấy được. <b>301/302</b> = trang đã chuyển chỗ.
+          <b>403</b> = trang còn nhưng bị chặn không cho lấy tự động. <b>404</b> = không có trang này. <b>429</b> = hỏi
+          nhiều quá, bị bắt chờ. <b>500 trở lên</b> = máy chủ bên kia hỏng.</p></div>
+
+      <div class="term" data-cat="mang" data-k="cache bo nho dem tai lai"><b>cache</b> <span class="say">bộ nhớ đệm</span>
+        <p>Bản lưu tạm để lần sau mở cho nhanh. Đây là lý do sửa xong mà vào vẫn thấy bản cũ — phải tải lại kiểu bỏ đệm
+          (giữ Shift rồi bấm nút tải lại) hoặc chờ đệm hết hạn.</p></div>
+
+      <div class="term" data-cat="mang" data-k="cdn phan phoi noi dung"><b>CDN</b>
+        <p>Mạng lưới máy chủ đặt rải khắp thế giới, ai ở đâu thì lấy từ máy gần đó cho nhanh.</p></div>
+
+      <div class="term" data-cat="mang" data-k="https ssl chung chi bao mat"><b>HTTPS</b> · <b>chứng chỉ</b>
+        <p>Đường truyền được mã hoá, ổ khoá nhỏ hiện cạnh địa chỉ. Không có nó thì người ngồi cùng mạng wifi đọc lén được.</p></div>
+
+      <div class="term" data-cat="mang" data-k="localhost port cong may minh"><b>localhost</b> · <b>port</b>
+        <p><em>localhost</em> là chính máy mình, người ngoài không vào được. <em>port</em> là số cổng, giống số phòng trong
+          một toà nhà — hai app cùng máy phải ở hai cổng khác nhau.</p></div>
+
+      <div class="term" data-cat="mang" data-k="static tinh dong"><b>trang tĩnh</b> / <b>trang động</b>
+        <p>Tĩnh = nội dung nằm sẵn trong file, ai vào cũng thấy như nhau, rẻ và nhanh. Động = mỗi lần vào máy chủ mới dựng
+          nội dung riêng, cần máy chủ mạnh hơn.</p></div>
+    </div>
+  </section>
+
+  <section id="gloss-auto" data-gsec="auto">
+    <h2><span class="num">⏰</span> Việc chạy tự động và các chốt chặn</h2>
+    <p>Phần lớn thứ chạy nền — quét tin, gửi báo cáo, kiểm tra sức khoẻ hệ thống — đều là một chương trình nhỏ được hẹn
+      giờ, cộng với vài cái chốt để nó sai thì có người biết.</p>
+
+    <div class="glosslist">
+      <div class="term" data-cat="auto" data-k="routine viec chay theo gio tu dong"><b>routine</b> <span class="say">việc chạy theo giờ</span>
+        <p>Một việc đặt sẵn, tới giờ máy tự làm, không cần ai bấm. Ví dụ: 22 giờ quét tin, 6 giờ 30 gửi bản tin.</p></div>
+
+      <div class="term" data-cat="auto" data-k="cron crontab lich chay expression"><b>cron</b>
+        <p>Cách viết lịch cho máy hiểu: phút, giờ, ngày, tháng, thứ. <code>30 22 * * *</code> nghĩa là 22 giờ 30 mỗi ngày.</p></div>
+
+      <div class="term" data-cat="auto" data-k="launchagent plist daemon macos"><b>LaunchAgent</b> · <b>plist</b>
+        <p>Cách macOS chạy việc theo giờ. <em>plist</em> là tờ khai ghi chạy cái gì, lúc mấy giờ. Máy tắt thì việc không
+          chạy — đó là hạn chế lớn nhất của kiểu này.</p></div>
+
+      <div class="term" data-cat="auto" data-k="hook moc chan tu chen"><b>hook</b> <span class="say">móc chặn</span>
+        <p>Mẩu chương trình tự chen vào ngay trước hoặc ngay sau một thao tác, để chặn lại hoặc nhắc một câu. Ưu điểm:
+          nó chặn bằng máy nên không quên, khác hẳn một dòng ghi chú trong tài liệu.</p></div>
+
+      <div class="term" data-cat="auto" data-k="cong kiem checker gate chot chan"><b>cổng kiểm</b> <span class="say">chốt chặn</span>
+        <p>Bộ kiểm đứng chắn ở cuối một quy trình, không đạt thì không cho đi tiếp. Ví dụ: bài viết thiếu nguồn thì không
+          cho xuất ra file.</p></div>
+
+      <div class="term" data-cat="auto" data-k="ca phai chan test kiem thu"><b>ca “PHẢI CHẶN”</b>
+        <p>Bài thử cố tình làm sai để xem chốt chặn có bắt được không. Chốt nào chỉ được thử bằng bài đúng thì <b>chưa
+          được kiểm</b> — nó có thể đã ngừng canh mà không ai biết.</p></div>
+
+      <div class="term" data-cat="auto" data-k="ban hong tu kiem test"><b>bản hỏng</b> · <b>tự kiểm</b>
+        <p>Cố tình gỡ đúng chỗ đã vá để tạo ra một bản sai, rồi chạy lại bộ kiểm. Bộ kiểm phải báo không đạt ở bản đó thì
+          mới chứng minh được là nó còn răng.</p></div>
+
+      <div class="term" data-cat="auto" data-k="ma thoat exit code 0"><b>mã thoát</b> <span class="say">exit code</span>
+        <p>Con số máy trả về khi chạy xong một lệnh. <b>0 là trót lọt</b>, khác 0 là có lỗi. Câu “mã 0” trong báo cáo
+          nghĩa là chạy sạch.</p></div>
+
+      <div class="term" data-cat="auto" data-k="log nhat ky ghi lai"><b>log</b> <span class="say">nhật ký</span>
+        <p>Sổ máy tự ghi nó vừa làm gì, lúc mấy giờ, có lỗi gì. Đây là chỗ đầu tiên phải mở khi một việc tự động im lặng
+          không chạy.</p></div>
+
+      <div class="term" data-cat="auto" data-k="timeout het gio cho"><b>timeout</b> <span class="say">hết giờ chờ</span>
+        <p>Đợi quá lâu không thấy trả lời thì bỏ, để khỏi treo mãi.</p></div>
+
+      <div class="term" data-cat="auto" data-k="retry thu lai polling hoi lai"><b>retry</b> · <b>polling</b>
+        <p><em>retry</em> = hỏng thì thử lại vài lần rồi mới chịu thua. <em>polling</em> = cứ vài giây hỏi lại một lần
+          xem xong chưa.</p></div>
+
+      <div class="term" data-cat="auto" data-k="fail open fail closed hong cho qua"><b>fail-open</b> / <b>fail-closed</b>
+        <p>Khi chính bộ kiểm bị hỏng: <em>fail-open</em> là vẫn cho việc chạy tiếp (tiện nhưng nguy, vì nó ngừng canh mà
+          không ai hay), <em>fail-closed</em> là chặn lại và kêu lên.</p></div>
+
+      <div class="term" data-cat="auto" data-k="idempotent chay nhieu lan"><b>idempotent</b> <span class="say">chạy mấy lần cũng vậy</span>
+        <p>Lệnh chạy lại lần hai, lần ba vẫn ra đúng một kết quả, không nhân đôi dữ liệu. Tính chất bắt buộc với việc
+          chạy tự động, vì nó sẽ chạy lại nhiều lần.</p></div>
+
+      <div class="term" data-cat="auto" data-k="race condition giam chan nhau"><b>race condition</b> <span class="say">giẫm chân nhau</span>
+        <p>Hai việc chạy cùng lúc động vào cùng một thứ, kết quả tuỳ ai nhanh hơn — nên hôm chạy đúng hôm chạy sai.</p></div>
+
+      <div class="term" data-cat="auto" data-k="canary chim canh bao"><b>canary</b>
+        <p>Một phép thử nhỏ chạy đều đặn, chỉ để phát hiện sớm khi có gì đó vừa hỏng.</p></div>
+    </div>
+  </section>
+
+  <section id="gloss-web" data-gsec="web">
+    <h2><span class="num">🧱</span> Bên trong một trang web hay app</h2>
+    <p>Mọi trang web đều gồm ba lớp: phần khung (nội dung), phần trang trí (màu, cỡ chữ), và phần biết cử động (bấm nút
+      thì có chuyện gì xảy ra).</p>
+
+    <div class="glosslist">
+      <div class="term" data-cat="web" data-k="html css javascript js"><b>HTML</b> · <b>CSS</b> · <b>JavaScript</b>
+        <p>HTML là khung nhà và nội dung. CSS là sơn, gạch, cách bày. JavaScript là phần biết cử động: bấm nút, lọc danh
+          sách, tính toán. Ba thứ này chạy ngay trong trình duyệt.</p></div>
+
+      <div class="term" data-cat="web" data-k="dom cay phan tu"><b>DOM</b>
+        <p>Cây các phần tử của trang khi đã nằm trong bộ nhớ trình duyệt. Muốn đổi chữ trên màn hình thì chương trình
+          đi sửa cây này.</p></div>
+
+      <div class="term" data-cat="web" data-k="render ve ra man hinh"><b>render</b> <span class="say">vẽ ra màn hình</span>
+        <p>Việc trình duyệt biến mã thành hình ảnh nhìn thấy được.</p></div>
+
+      <div class="term" data-cat="web" data-k="react framework thu vien giao dien"><b>React</b>
+        <p>Bộ khung dựng giao diện phổ biến, hợp cho app nhiều màn nhiều nút. Trang chỉ để đọc thì không cần.</p></div>
+
+      <div class="term" data-cat="web" data-k="jsx babel transpile dich ma"><b>JSX</b> · <b>Babel</b> · <b>transpile</b>
+        <p>JSX là lối viết gọn cho React; máy không hiểu thẳng nên phải có bản dịch. <b>Dịch sẵn trước khi đưa lên</b> thì
+          app mở nhanh; để máy người dùng dịch tại chỗ thì mỗi lần mở phải tải thêm vài megabyte và đợi màn trắng.</p></div>
+
+      <div class="term" data-cat="web" data-k="vanilla js thuan"><b>vanilla JS</b> <span class="say">JavaScript thuần</span>
+        <p>Viết trực tiếp, không mượn bộ khung nào. Nhẹ nhất, hợp trang nhỏ.</p></div>
+
+      <div class="term" data-cat="web" data-k="localstorage luu tren may nguoi dung"><b>localStorage</b>
+        <p>Ngăn nhớ nhỏ nằm ngay trong trình duyệt của người dùng. Dữ liệu app ghi ở đây <b>chỉ có trên máy đó</b> — đổi
+          máy là không thấy, xoá dữ liệu duyệt web là mất sạch.</p></div>
+
+      <div class="term" data-cat="web" data-k="pwa manifest cai app service worker offline"><b>PWA</b> · <b>manifest</b> · <b>service worker</b>
+        <p>Cách biến một trang web thành thứ cài được lên màn hình chính như app thật. <em>manifest</em> khai tên và icon;
+          <em>service worker</em> là phần cho phép mở được cả khi mất mạng — không có nó thì mất mạng là trắng trang.</p></div>
+
+      <div class="term" data-cat="web" data-k="responsive viewport breakpoint man hinh dien thoai"><b>responsive</b> · <b>viewport</b>
+        <p>Trang tự co giãn theo khổ màn hình. <em>viewport</em> là vùng nhìn thấy. Lỗi hay gặp: bảng rộng hơn màn hình
+          điện thoại nên chữ bị đẩy ra ngoài mép phải.</p></div>
+
+      <div class="term" data-cat="web" data-k="console loi trinh duyet"><b>console</b>
+        <p>Cửa sổ ẩn trong trình duyệt, nơi máy in ra lỗi cho người viết code đọc. Người dùng thường không thấy — nên một
+          app hỏng vẫn có thể trông như bình thường.</p></div>
+
+      <div class="term" data-cat="web" data-k="minify bundle nen gop file"><b>minify</b> · <b>bundle</b>
+        <p>Nén mã cho nhỏ lại và gộp nhiều file thành một, để trang tải nhanh hơn.</p></div>
+
+      <div class="term" data-cat="web" data-k="favicon icon tab"><b>favicon</b>
+        <p>Icon nhỏ hiện trên tab trình duyệt và khi lưu vào màn hình chính.</p></div>
+    </div>
+  </section>
+
+  <section id="gloss-data" data-gsec="data">
+    <h2><span class="num">🗂️</span> Dữ liệu và cách hai chương trình nói chuyện</h2>
+
+    <div class="glosslist">
+      <div class="term" data-cat="data" data-k="json du lieu dinh dang"><b>JSON</b>
+        <p>Kiểu ghi dữ liệu bằng chữ, có dấu ngoặc nhọn, cả người lẫn máy đọc được. Gần như mọi thứ trao đổi giữa hai
+          chương trình ngày nay đều ở dạng này.</p></div>
+
+      <div class="term" data-cat="data" data-k="api cua giao dich noi chuong trinh"><b>API</b> <span class="say">cửa giao dịch</span>
+        <p>Cái cửa để chương trình này hỏi chương trình kia, giống ô cửa giao dịch ở ngân hàng: đưa phiếu yêu cầu đúng
+          mẫu thì nhận lại kết quả đúng mẫu. Không cần biết bên trong họ làm gì.</p></div>
+
+      <div class="term" data-cat="data" data-k="endpoint dau moi dia chi api"><b>endpoint</b> <span class="say">đầu mối</span>
+        <p>Một địa chỉ cụ thể trong API, ứng với một việc: lấy danh sách, thêm một dòng, xoá một dòng.</p></div>
+
+      <div class="term" data-cat="data" data-k="fetch request response goi lay du lieu"><b>fetch</b> · <b>request</b> · <b>response</b>
+        <p>Gửi câu hỏi đi và nhận câu trả lời về. Trang nạp nội dung “sau khi mở xong” là đang fetch thêm.</p></div>
+
+      <div class="term" data-cat="data" data-k="rss feed kenh tin"><b>RSS</b>
+        <p>Kênh phát tin tự động của một trang báo: máy đọc được thẳng danh sách bài mới mà không cần mở trang.</p></div>
+
+      <div class="term" data-cat="data" data-k="webhook goi nguoc bao"><b>webhook</b>
+        <p>Ngược với hỏi: có chuyện gì xảy ra thì bên kia <b>tự gọi sang</b> báo ngay, khỏi phải ngồi hỏi liên tục.</p></div>
+
+      <div class="term" data-cat="data" data-k="database co so du lieu bang"><b>cơ sở dữ liệu</b> <span class="say">database</span>
+        <p>Kho chứa dữ liệu có tổ chức: bảng, mỗi bảng nhiều dòng, mỗi dòng nhiều cột — giống một file Excel nhưng chịu
+          được hàng triệu dòng và nhiều người dùng cùng lúc.</p></div>
+
+      <div class="term" data-cat="data" data-k="sql query cau truy van"><b>SQL</b> · <b>query</b>
+        <p>Ngôn ngữ đặt câu hỏi cho kho dữ liệu: “lấy các đơn tháng 8 có tiền trên 500 nghìn”.</p></div>
+
+      <div class="term" data-cat="data" data-k="schema migration thiet ke bang"><b>schema</b> · <b>migration</b>
+        <p><em>schema</em> là bản thiết kế các bảng có cột gì. <em>migration</em> là một lần đổi thiết kế đó, ghi lại
+          thành bước để chạy được trên mọi bản sao.</p></div>
+
+      <div class="term" data-cat="data" data-k="supabase dich vu kho du lieu"><b>Supabase</b>
+        <p>Dịch vụ cho thuê kho dữ liệu sẵn trên mạng, có mức miễn phí. Dùng khi app cần nhớ dữ liệu chung cho nhiều máy.</p></div>
+
+      <div class="term" data-cat="data" data-k="rls khoa tung dong quyen doc"><b>RLS</b> <span class="say">khoá từng dòng</span>
+        <p>Luật chặn ngay trong kho dữ liệu: mặc định cấm đọc, ai đúng quyền mới thấy dòng của mình. Nếu không bật, bất kỳ
+          ai có địa chỉ kho đều đọc được toàn bộ.</p></div>
+
+      <div class="term" data-cat="data" data-k="parse boc du lieu"><b>parse</b> <span class="say">bóc dữ liệu</span>
+        <p>Đọc một đống chữ rồi tách ra thành thông tin có nghĩa: đây là ngày, đây là số tiền, đây là tên.</p></div>
+
+      <div class="term" data-cat="data" data-k="utf8 encode ma hoa ky tu nfc nfd dau tieng viet"><b>UTF-8</b> · <b>NFC / NFD</b>
+        <p>Cách máy ghi chữ thành số. Chữ tiếng Việt có dấu ghi được theo <b>hai lối</b>: một ký tự liền (NFC) hoặc chữ
+          cái rồi dấu rời (NFD). Nhìn trên màn hình y hệt nhau, nhưng máy coi là hai chuỗi khác nhau — nên tìm kiếm hay
+          so khớp bị trượt mà không báo lỗi. Máy Mac hay sinh ra lối NFD.</p></div>
+
+      <div class="term" data-cat="data" data-k="regex mau tim chuoi"><b>regex</b> <span class="say">mẫu dò chữ</span>
+        <p>Cách mô tả một dạng chuỗi để máy tìm: “số điện thoại bắt đầu bằng 0, dài 10 chữ số”.</p></div>
+
+      <div class="term" data-cat="data" data-k="hash sha1 checksum van tay file"><b>hash</b> · <b>sha1</b> <span class="say">vân tay file</span>
+        <p>Chuỗi ký tự tính ra từ nội dung, dùng để so hai file có giống nhau thật không — chắc chắn hơn so tên file.</p></div>
+    </div>
+  </section>
+
+  <section id="gloss-ai" data-gsec="ai">
+    <h2><span class="num">🤖</span> AI: cách đếm, cách tính tiền, cách nó quên</h2>
+
+    <div class="glosslist">
+      <div class="term" data-cat="ai" data-k="model bo nao ban ai"><b>model</b> <span class="say">bản “bộ não”</span>
+        <p>Một phiên bản cụ thể của AI, có tên và số đời. Bản mạnh thì đắt và chậm hơn, bản nhẹ thì rẻ và nhanh. Cùng
+          một câu hỏi, hai model trả lời khác nhau.</p></div>
+
+      <div class="term" data-cat="ai" data-k="token don vi dem chu tinh tien"><b>token</b> <span class="say">đơn vị đếm chữ</span>
+        <p>AI không đếm từ, nó đếm những mẩu chữ nhỏ gọi là token — một từ tiếng Anh thường là một token, tiếng Việt có
+          dấu thì một từ thường tốn hai tới ba. <b>Mọi thứ tính tiền và mọi giới hạn đều đo bằng token</b>: cả câu bạn
+          gửi lẫn câu AI trả lời.</p></div>
+
+      <div class="term" data-cat="ai" data-k="context cua so ngu canh tri nho"><b>context</b> <span class="say">cửa sổ ngữ cảnh</span>
+        <p>Trí nhớ ngắn hạn của một cuộc trò chuyện: toàn bộ những gì đã nói từ đầu đoạn chat, cộng các file đã đọc. Nó
+          có trần. Càng dài thì mỗi câu trả lời càng tốn, và càng dễ nhớ nhầm.</p></div>
+
+      <div class="term" data-cat="ai" data-k="nen context tom tat compact"><b>nén context</b>
+        <p>Khi trí nhớ đầy, máy tóm tắt lại đoạn cũ cho gọn rồi bỏ bản đầy đủ. Chi tiết có thể rơi. Đây là lý do một đoạn
+          chat quá dài hay bắt đầu quên chuyện đã bàn ở đầu — cách chữa là mở đoạn chat mới.</p></div>
+
+      <div class="term" data-cat="ai" data-k="phien session doan chat"><b>phiên</b> <span class="say">session</span>
+        <p>Một đoạn trò chuyện, tính từ lúc mở tới lúc đóng. Mỗi phiên có trí nhớ riêng, không tự biết chuyện của phiên khác.</p></div>
+
+      <div class="term" data-cat="ai" data-k="han muc rate limit gioi han"><b>hạn mức</b> <span class="say">rate limit</span>
+        <p>Trần được dùng trong một khoảng thời gian. Chạm trần thì phải chờ hết chu kỳ mới dùng tiếp — không phải hỏng,
+          chỉ là hết lượt.</p></div>
+
+      <div class="term" data-cat="ai" data-k="prompt cau yeu cau"><b>prompt</b> <span class="say">câu yêu cầu</span>
+        <p>Thứ bạn gõ cho AI. Viết rõ bối cảnh, việc cần làm, khuôn kết quả mong muốn thì chất lượng khác hẳn.</p></div>
+
+      <div class="term" data-cat="ai" data-k="agent tu lam nhieu buoc"><b>agent</b> <span class="say">AI tự làm nhiều bước</span>
+        <p>AI không chỉ trả lời mà tự gọi công cụ, tự đọc file, tự chạy lệnh, làm liên tiếp nhiều bước tới khi xong việc.</p></div>
+
+      <div class="term" data-cat="ai" data-k="subagent agent nen phu"><b>subagent</b> <span class="say">AI phụ</span>
+        <p>Một AI con được giao riêng một việc, chạy song song rồi báo kết quả về. Dùng khi việc chia được thành nhiều
+          phần độc lập. Nó có trí nhớ riêng, không thấy đoạn chat chính.</p></div>
+
+      <div class="term" data-cat="ai" data-k="mcp noi cong cu ngoai chuan"><b>MCP</b>
+        <p>Chuẩn chung để nối AI với công cụ bên ngoài (lịch, thư, kho dữ liệu). Nhờ nó AI làm được việc thật chứ không
+          chỉ nói chuyện.</p></div>
+
+      <div class="term" data-cat="ai" data-k="cli terminal cua so go lenh"><b>CLI</b> · <b>terminal</b> <span class="say">cửa sổ gõ lệnh</span>
+        <p>Cửa sổ nền đen chỉ có chữ, gõ lệnh vào rồi máy chạy. Không có nút bấm, nhưng làm được nhiều thứ giao diện
+          không có.</p></div>
+
+      <div class="term" data-cat="ai" data-k="headless chay khong giao dien"><b>headless</b> <span class="say">chạy không màn hình</span>
+        <p>Chạy tự động, không ai ngồi xem, không hỏi han gì. Việc hẹn giờ ban đêm chạy kiểu này.</p></div>
+
+      <div class="term" data-cat="ai" data-k="artifact trang ket qua link"><b>artifact</b>
+        <p>Một trang kết quả được xuất bản riêng, mở bằng đường link — tiện để xem trên điện thoại. Mặc định là riêng tư,
+          chỉ chủ tài khoản mở được.</p></div>
+
+      <div class="term" data-cat="ai" data-k="skill bo huong dan dong goi"><b>skill</b>
+        <p>Bộ hướng dẫn đóng gói sẵn cho một loại việc, để AI làm đúng quy trình mà không phải dặn lại từ đầu mỗi lần.</p></div>
+
+      <div class="term" data-cat="ai" data-k="hallucination bia dat sai su that"><b>bịa</b> <span class="say">hallucination</span>
+        <p>AI nói chắc nịch một điều không có thật: trích dẫn không tồn tại, số liệu tự nghĩ ra. Càng hỏi thứ hiếm thì
+          càng dễ gặp — nên số nào quan trọng phải bắt nó dẫn nguồn kiểm được.</p></div>
+    </div>
+  </section>
+
+  <section id="gloss-antoan" data-gsec="antoan">
+    <h2><span class="num">🔐</span> Bí mật và an toàn</h2>
+
+    <div class="glosslist">
+      <div class="term" data-cat="antoan" data-k="secret api key token chia khoa"><b>secret</b> · <b>API key</b> <span class="say">chìa khoá</span>
+        <p>Chuỗi ký tự thay cho mật khẩu, để chương trình tự đăng nhập vào một dịch vụ. Ai cầm được chuỗi đó thì dùng
+          được tài khoản đó — kể cả để tiêu tiền. Lộ ra một lần là phải đổi cái mới, không có cách thu hồi khác.</p></div>
+
+      <div class="term" data-cat="antoan" data-k="keychain ket mat khau macos"><b>keychain</b>
+        <p>Két giữ mật khẩu có sẵn trong macOS. Chìa khoá cất ở đây thì không nằm lẫn trong file mã nguồn.</p></div>
+
+      <div class="term" data-cat="antoan" data-k="bien moi truong env cau hinh"><b>biến môi trường</b> <span class="say">env</span>
+        <p>Chỗ đặt các giá trị cấu hình và chìa khoá <b>bên ngoài</b> mã nguồn, để lỡ chia sẻ mã đi thì không lộ chìa.</p></div>
+
+      <div class="term" data-cat="antoan" data-k="ma hoa encryption aes khoa"><b>mã hoá</b>
+        <p>Biến nội dung thành chuỗi vô nghĩa, chỉ ai có khoá mới đọc lại được. Mã hoá <b>ngay trên máy mình</b> trước khi
+          gửi đi thì nơi giữ dữ liệu cũng không đọc được — đổi lại, quên khoá là mất sạch, không ai khôi phục hộ được.</p></div>
+
+      <div class="term" data-cat="antoan" data-k="oauth dang nhap bang google"><b>OAuth</b> <span class="say">đăng nhập nhờ</span>
+        <p>Kiểu “đăng nhập bằng Google/Facebook”: mình không đưa mật khẩu cho bên thứ ba, chỉ cấp cho họ một tấm vé có
+          hạn và có giới hạn quyền. Thu hồi được bất cứ lúc nào.</p></div>
+
+      <div class="term" data-cat="antoan" data-k="permission quyen allowlist deny cho phep"><b>permission</b> · <b>allowlist</b> / <b>deny</b>
+        <p>Danh sách việc được phép làm và việc bị cấm. Cấm ghi ở tầng ngoài cùng thì mọi đường đi vòng đều bị chặn.</p></div>
+
+      <div class="term" data-cat="antoan" data-k="sandbox cach ly khoanh vung"><b>sandbox</b> <span class="say">vùng cách ly</span>
+        <p>Khoanh một vùng cho chương trình chạy thử, hỏng thì hỏng trong đó, không lan ra phần còn lại của máy.</p></div>
+
+      <div class="term" data-cat="antoan" data-k="2fa xac thuc hai lop"><b>2FA</b> <span class="say">xác thực hai lớp</span>
+        <p>Ngoài mật khẩu còn phải nhập mã gửi về điện thoại. Kể cả lộ mật khẩu, người khác vẫn chưa vào được.</p></div>
+    </div>
+  </section>
+
+  <section id="gloss-loi" data-gsec="loi">
+    <h2><span class="num">🐞</span> Nói về lỗi và cách sửa</h2>
+
+    <div class="glosslist">
+      <div class="term" data-cat="loi" data-k="bug loi"><b>bug</b> <span class="say">lỗi</span>
+        <p>Chỗ chương trình làm sai với ý định. Khác với “hỏng”: bug thường vẫn chạy được, chỉ ra kết quả sai.</p></div>
+
+      <div class="term" data-cat="loi" data-k="loi cam khong bao"><b>lỗi câm</b>
+        <p>Sai mà không báo gì hết: không dừng, không hiện chữ đỏ, kết quả trông vẫn bình thường. Loại này tốn kém nhất
+          vì có thể chạy sai hàng tháng trước khi ai đó tình cờ phát hiện.</p></div>
+
+      <div class="term" data-cat="loi" data-k="chan oan bat hut false positive negative"><b>chặn oan</b> / <b>bắt hụt</b>
+        <p>Bộ kiểm bắt nhầm cái đúng (chặn oan) hoặc để lọt cái sai (bắt hụt). Siết chặt quá thì chặn oan nhiều, nới lỏng
+          quá thì bắt hụt — mọi bộ kiểm đều phải cân giữa hai chiều này.</p></div>
+
+      <div class="term" data-cat="loi" data-k="edge case truong hop hiem"><b>edge case</b> <span class="say">trường hợp hiếm</span>
+        <p>Tình huống ít gặp mà chương trình không tính tới: tên có dấu lạ, ngày 29/2, danh sách rỗng, số âm.</p></div>
+
+      <div class="term" data-cat="loi" data-k="refactor sap xep lai ma"><b>refactor</b> <span class="say">sắp lại mã</span>
+        <p>Viết lại cho gọn và dễ sửa mà <b>không đổi công dụng</b>. Nhìn từ ngoài không thấy gì khác.</p></div>
+
+      <div class="term" data-cat="loi" data-k="dependency package thu vien do muon"><b>dependency</b> · <b>package</b> <span class="say">đồ mượn</span>
+        <p>Phần việc dùng lại của người khác thay vì tự viết. Tiện, nhưng mỗi món mượn là một thứ phải cập nhật và một
+          chỗ có thể hỏng ngoài tầm kiểm soát.</p></div>
+
+      <div class="term" data-cat="loi" data-k="staging production ban thu ban that"><b>staging</b> / <b>production</b>
+        <p>Bản thử để nghịch và bản thật đang có người dùng. Không bao giờ thử nghiệm thẳng trên bản thật.</p></div>
+
+      <div class="term" data-cat="loi" data-k="nghiem thu do bang chung"><b>nghiệm thu</b> · <b>đo</b>
+        <p>Chạy thật một lần rồi đọc kết quả trả về, thay vì nhìn mã bằng mắt rồi kết luận. Câu “đã đo” đáng tin hơn hẳn
+          câu “chắc là chạy được”.</p></div>
+    </div>
+  </section>
+
+  <p class="gloss-empty" id="gloss-empty" hidden>Không có mục nào khớp. Thử gõ ngắn hơn, hoặc bấm “Tất cả”.</p>
+
+  <footer>
+    Trang cá nhân · Từ điển giải nghĩa cho người không làm kỹ thuật, ưu tiên dễ hiểu hơn là chính xác tuyệt đối về
+    học thuật.
+  </footer>
+  </div>
+
 </div>
 
 <div class="wrap" id="tab-news" hidden>
@@ -4491,7 +5021,8 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       skills: document.getElementById('sub-skills'),
       agentic: document.getElementById('sub-agentic'),
       roadmap: document.getElementById('sub-roadmap'),
-      quiz: document.getElementById('sub-quiz')
+      quiz: document.getElementById('sub-quiz'),
+      thuatngu: document.getElementById('sub-thuatngu')
     };
     if (!subs[name]) name = 'general';
     var btns = document.querySelectorAll('.subtab-btn');
@@ -5223,6 +5754,79 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   }
 
   window.quyDoiGiaUSD = quyDoiTrong;   /* để soi lại bằng tay khi cần */
+})();
+</script>
+<script>
+/* Tab 10 — lọc từ điển. Gõ không dấu vẫn khớp: bỏ dấu cả hai vế trước khi so.
+   Mỗi mục mang data-k là chuỗi khoá KHÔNG DẤU viết sẵn, vì bỏ dấu tại chỗ trên
+   toàn bộ nội dung mỗi lần gõ một phím thì tốn hơn hẳn mà không thêm được gì. */
+(function(){
+  var q = document.getElementById('gloss-q');
+  if (!q) return;
+  var terms = Array.prototype.slice.call(document.querySelectorAll('#sub-thuatngu .term'));
+  var secs  = Array.prototype.slice.call(document.querySelectorAll('#sub-thuatngu section[data-gsec]'));
+  var btns  = Array.prototype.slice.call(document.querySelectorAll('#gloss-cats .gloss-cbtn'));
+  var dem   = document.getElementById('gloss-count');
+  var rong  = document.getElementById('gloss-empty');
+  var cat   = 'all';
+
+  function boDau(t){
+    return t.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .replace(/\u0111/g, 'd').replace(/\u0110/g, 'D').toLowerCase();
+  }
+
+  function loc(){
+    var tu = boDau(q.value.trim());
+    var hien = 0;
+    terms.forEach(function(el){
+      var hopCat = (cat === 'all') || (el.dataset.cat === cat);
+      var hopTu  = !tu || boDau(el.textContent).indexOf(tu) > -1
+                       || (el.dataset.k || '').indexOf(tu) > -1;
+      var on = hopCat && hopTu;
+      el.hidden = !on;
+      if (on) hien++;
+    });
+    /* Mục "Đọc báo cáo" là bảng chứ không phải danh sách thẻ, nên nó không có .term nào.
+       Ẩn theo số thẻ còn lại sẽ ẩn oan nó ngay khi gõ chữ đầu tiên — xét riêng bằng chính
+       nội dung bảng. */
+    secs.forEach(function(sec){
+      var co = sec.querySelector('.term');
+      var on;
+      if (co) {
+        on = sec.querySelectorAll('.term:not([hidden])').length > 0;
+      } else {
+        on = (cat === 'all' || sec.dataset.gsec === cat)
+             && (!tu || boDau(sec.textContent).indexOf(tu) > -1);
+      }
+      sec.hidden = !on;
+    });
+    var conSection = secs.filter(function(s){ return !s.hidden; }).length;
+    if (rong) rong.hidden = conSection > 0;
+    /* Nhóm "Đọc báo cáo" không có thẻ .term nào — nó là một cái bảng. Đếm theo số thẻ
+       thì dòng này báo "0 mục" ngay khi bấm vào nhóm đó, đọc ra thành trống rỗng trong
+       khi bảng vẫn nằm ngay dưới. Tách riêng ba trường hợp. */
+    if (dem) {
+      if (!tu && cat === 'all') {
+        dem.textContent = 'Có ' + terms.length + ' mục từ, kèm bảng dịch câu ở đầu. Gõ vào ô trên để tra nhanh.';
+      } else if (cat === 'doc' && !tu) {
+        dem.textContent = 'Nhóm này là bảng dịch các câu báo cáo hay gặp.';
+      } else if (hien === 0 && conSection > 0) {
+        dem.textContent = 'Không mục từ nào khớp, nhưng bảng dịch câu ở dưới có chỗ nhắc tới.';
+      } else {
+        dem.textContent = 'Đang hiện ' + hien + '/' + terms.length + ' mục từ.';
+      }
+    }
+  }
+
+  q.addEventListener('input', loc);
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      cat = b.dataset.gcat;
+      btns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      loc();
+    });
+  });
+  loc();
 })();
 </script>
 </body>
