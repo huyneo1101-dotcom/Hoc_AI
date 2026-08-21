@@ -135,14 +135,21 @@
      theo độ dài chữ nên ba hàng so le, đọc ra là lộn xộn chứ không phải gọn. Nay là
      lưới ô đều nhau — số thứ tự tách ra một ô vuông riêng, tên mục đứng thành cột
      thẳng hàng. Ô cao tối thiểu 52px để bấm được bằng ngón tay. */
+  /* 10 mục xếp thành một dãy phẳng thì người mới không biết đâu là phần phải đọc,
+     đâu là phần tra cứu — đánh số tới 10 chỉ nói thứ tự, không nói vai trò. Nay chia
+     04 chặng có nhãn: nhập môn · chọn và dùng công cụ · tự động hoá · tra cứu.
+     Mọi chặng dùng chung số cột nên các ô thẳng hàng dọc suốt cả menu. */
   .subtabs{
-    display:grid;grid-template-columns:repeat(2,1fr);
-    grid-auto-rows:1fr;gap:8px;margin:0 0 30px;padding-bottom:24px;
+    display:flex;flex-direction:column;gap:15px;margin:0 0 30px;padding-bottom:24px;
     border-bottom:1px solid var(--border);
   }
-  /* Cột đặt cứng chứ không auto-fill: 10 mục chia hết cho 5 và cho 2, nên hai mốc này
-     luôn lấp đầy hàng cuối. Auto-fill ở khổ trung gian để lại 2 ô trống trơ ra bên phải. */
-  @media (min-width:700px){.subtabs{grid-template-columns:repeat(5,1fr)}}
+  .st-group{display:flex;flex-direction:column;gap:7px}
+  .st-glabel{
+    font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;
+    color:var(--muted);padding-left:3px;
+  }
+  .st-row{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;gap:8px}
+  @media (min-width:700px){.st-row{grid-template-columns:repeat(3,1fr)}}
   .subtab-btn{
     display:flex;align-items:center;gap:9px;text-align:left;
     font:inherit;font-weight:600;font-size:.85rem;line-height:1.3;
@@ -501,16 +508,36 @@
 <div class="wrap" id="tab-concepts">
 
   <div class="subtabs" role="tablist" aria-label="Mục con trong Kiến thức chung">
-    <button class="subtab-btn active" data-subtab="general" role="tab" aria-selected="true" onclick="showSubTab('general')"><span class="st-num">01</span><span class="st-name">Bắt đầu dùng AI</span></button>
-    <button class="subtab-btn" data-subtab="overview" role="tab" aria-selected="false" onclick="showSubTab('overview')"><span class="st-num">02</span><span class="st-name">Khái niệm nền tảng</span></button>
-    <button class="subtab-btn" data-subtab="toolsdeep" role="tab" aria-selected="false" onclick="showSubTab('toolsdeep')"><span class="st-num">03</span><span class="st-name">Chi tiết từng AI</span></button>
-    <button class="subtab-btn" data-subtab="multiai" role="tab" aria-selected="false" onclick="showSubTab('multiai')"><span class="st-num">04</span><span class="st-name">Dùng nhiều AI</span></button>
-    <button class="subtab-btn" data-subtab="claude" role="tab" aria-selected="false" onclick="showSubTab('claude')"><span class="st-num">05</span><span class="st-name">Claude &amp; Claude Code</span></button>
-    <button class="subtab-btn" data-subtab="skills" role="tab" aria-selected="false" onclick="showSubTab('skills')"><span class="st-num">06</span><span class="st-name">Agent Skills</span></button>
-    <button class="subtab-btn" data-subtab="agentic" role="tab" aria-selected="false" onclick="showSubTab('agentic')"><span class="st-num">07</span><span class="st-name">AI Agent (Agentic)</span></button>
-    <button class="subtab-btn" data-subtab="roadmap" role="tab" aria-selected="false" onclick="showSubTab('roadmap')"><span class="st-num">08</span><span class="st-name">Lộ trình học</span></button>
-    <button class="subtab-btn" data-subtab="quiz" role="tab" aria-selected="false" onclick="showSubTab('quiz')"><span class="st-num">09</span><span class="st-name">Kiểm tra kiến thức</span></button>
-    <button class="subtab-btn" data-subtab="thuatngu" role="tab" aria-selected="false" onclick="showSubTab('thuatngu')"><span class="st-num">10</span><span class="st-name">Từ điển thuật ngữ</span></button>
+    <div class="st-group" role="presentation">
+      <span class="st-glabel">Nhập môn</span>
+      <div class="st-row" role="presentation">
+        <button class="subtab-btn active" data-subtab="general" role="tab" aria-selected="true" onclick="showSubTab('general')"><span class="st-num">01</span><span class="st-name">Bắt đầu dùng AI</span></button>
+        <button class="subtab-btn" data-subtab="overview" role="tab" aria-selected="false" onclick="showSubTab('overview')"><span class="st-num">02</span><span class="st-name">Khái niệm nền tảng</span></button>
+        <button class="subtab-btn" data-subtab="roadmap" role="tab" aria-selected="false" onclick="showSubTab('roadmap')"><span class="st-num">03</span><span class="st-name">Lộ trình học</span></button>
+      </div>
+    </div>
+    <div class="st-group" role="presentation">
+      <span class="st-glabel">Chọn và dùng công cụ</span>
+      <div class="st-row" role="presentation">
+        <button class="subtab-btn" data-subtab="toolsdeep" role="tab" aria-selected="false" onclick="showSubTab('toolsdeep')"><span class="st-num">04</span><span class="st-name">Chi tiết từng AI</span></button>
+        <button class="subtab-btn" data-subtab="multiai" role="tab" aria-selected="false" onclick="showSubTab('multiai')"><span class="st-num">05</span><span class="st-name">Dùng nhiều AI</span></button>
+        <button class="subtab-btn" data-subtab="claude" role="tab" aria-selected="false" onclick="showSubTab('claude')"><span class="st-num">06</span><span class="st-name">Claude &amp; Claude Code</span></button>
+      </div>
+    </div>
+    <div class="st-group" role="presentation">
+      <span class="st-glabel">Tự động hoá</span>
+      <div class="st-row" role="presentation">
+        <button class="subtab-btn" data-subtab="skills" role="tab" aria-selected="false" onclick="showSubTab('skills')"><span class="st-num">07</span><span class="st-name">Agent Skills</span></button>
+        <button class="subtab-btn" data-subtab="agentic" role="tab" aria-selected="false" onclick="showSubTab('agentic')"><span class="st-num">08</span><span class="st-name">AI Agent (Agentic)</span></button>
+      </div>
+    </div>
+    <div class="st-group" role="presentation">
+      <span class="st-glabel">Tra cứu và luyện</span>
+      <div class="st-row" role="presentation">
+        <button class="subtab-btn" data-subtab="thuatngu" role="tab" aria-selected="false" onclick="showSubTab('thuatngu')"><span class="st-num">09</span><span class="st-name">Từ điển thuật ngữ</span></button>
+        <button class="subtab-btn" data-subtab="quiz" role="tab" aria-selected="false" onclick="showSubTab('quiz')"><span class="st-num">10</span><span class="st-name">Kiểm tra kiến thức</span></button>
+      </div>
+    </div>
   </div>
 
   <div class="subwrap" id="sub-general">
