@@ -4611,7 +4611,7 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       công khai, không phải thông cáo chính thức của các hãng — luôn bấm vào nguồn ở cuối mỗi tin để xem chi tiết
       chính xác nhất, vì tin tức AI thay đổi rất nhanh và thông số (giá, benchmark) có thể đã cập nhật thêm sau ngày
       đăng ở đây. Những tin ghi <i>"tổng hợp qua"</i> là tin lấy từ trang thứ ba, độ chắc chắn thấp hơn tin dẫn
-      thẳng trang chủ của hãng. Cập nhật lần gần nhất: <b>07/08/2026</b>.</div>
+      thẳng trang chủ của hãng. Cập nhật lần gần nhất: <b id="tin-cap-nhat">07/08/2026</b>.</div>
 
     <div class="news-filter" id="news-filter">
       <button class="news-fbtn on" data-cat="all" onclick="filterNews('all')">Tất cả</button>
@@ -5730,6 +5730,11 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
   fetch('tin-ai.json', {cache:'no-store'}).then(function(r){
     return r.ok ? r.json() : null;
   }).then(function(d){
+    var capNhatEl = document.getElementById('tin-cap-nhat');
+    if (capNhatEl && d && /^\d{4}-\d{2}-\d{2}$/.test(d.cap_nhat || '')) {
+      var p = d.cap_nhat.split('-');
+      capNhatEl.textContent = p[2] + '/' + p[1] + '/' + p[0];
+    }
     var muc = d && Array.isArray(d.muc) ? d.muc : [];
     if (!muc.length) return;
     var html = muc.map(function(m){
