@@ -1,7 +1,46 @@
 {
  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
- "cap_nhat": "2026-08-23",
+ "cap_nhat": "2026-08-24",
  "muc": [
+  {
+   "ngay": "23/08/2026",
+   "cat": "vn",
+   "tieu_de": "So sánh Claude và ChatGPT cho giáo viên soạn giáo án",
+   "noi_dung": "Trang Vietnam.vn đăng bài so sánh chuyên sâu giữa Claude và ChatGPT, tìm hiểu xem trợ lý AI nào phù hợp hơn để giáo viên soạn giáo án. Bài đăng ngày 23/8.",
+   "voi_ban": "Nếu công việc của bạn liên quan tới soạn giáo án hay tài liệu giảng dạy, đây là một góc so sánh thực tế giữa hai công cụ đáng đọc trước khi chọn dùng cái nào.",
+   "nguon": [
+    {
+     "ten": "Vietnam.vn (tổng hợp qua Google News)",
+     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQRHhBMmlXWHZtZTVZbV9rQy1rMzg3b3RfcUxGbE5PS1loMjhIbndHMWpVb2RZQlBubmd6Nlh0ZGJFd2E3QTdlVFU4NXlSZG5KSTVRWFAxV29CRFNRUEh0Z3BRT2l6YzlNVEE5dU1yTnpYcFlwOFppR2QyMU9pSnFSa1g0UTlrUldtdTY5WnY4LWVzWWZCSjI0SzNEeVFCUG9xVTlqcnpFc3EzTVpkT0hUZA?oc=5"
+    }
+   ]
+  },
+  {
+   "ngay": "23/08/2026",
+   "cat": "gia",
+   "tieu_de": "Model đắt nhất của Anthropic khó hút người dùng khi công cụ AI rẻ hơn phát triển mạnh",
+   "noi_dung": "Theo blog Simon Willison dẫn số liệu từ Financial Times, doanh thu quy năm của Anthropic tăng từ 47 tỷ đô la hồi tháng 5 lên 65 tỷ đô la vào tháng 7, và hãng có 6.000 khách hàng chi từ 100.000 đô la một năm trở lên. Dù doanh thu tăng mạnh, model tốt nhất của Anthropic vẫn đang gặp khó trong thu hút thêm người dùng khi các công cụ AI rẻ hơn ngày càng phát triển.",
+   "voi_ban": "Không nhất thiết phải chọn model đắt tiền nhất mới hiệu quả — các lựa chọn rẻ hơn đang ngày càng đáng cân nhắc, nhất là với người mới bắt đầu dùng AI.",
+   "nguon": [
+    {
+     "ten": "Simon Willison (dẫn Financial Times)",
+     "url": "https://simonwillison.net/2026/Aug/23/anthropics-best-ai-model-struggles-to-attract-users-as-cheaper-t/"
+    }
+   ]
+  },
+  {
+   "ngay": "23/08/2026",
+   "cat": "gia",
+   "tieu_de": "Giới lập trình viên AI bắt đầu cân nhắc kỹ giữa model mạnh giá cao và model rẻ hơn",
+   "noi_dung": "Theo lời trích dẫn của Drew Breunig trên blog Simon Willison, trước khi model Fable ra mắt, việc cải thiện cách phối hợp với AI khi lập trình ít quan trọng vì model mới rẻ hơn liên tục xuất hiện thay thế. Nhưng Fable có chi phí cao, trong khi Opus và một số model khác vẫn đủ tốt cho phần lớn công việc, nên giới lập trình viên giờ phải tính toán kỹ việc nào nên giao cho model đắt, việc nào dùng model rẻ vẫn ổn.",
+   "voi_ban": "Nếu bạn dùng AI để hỗ trợ viết code, không phải lúc nào cũng cần model mạnh nhất và đắt nhất — biết việc nào cần dùng model xịn, việc nào model rẻ vẫn đủ sẽ giúp tiết kiệm chi phí.",
+   "nguon": [
+    {
+     "ten": "Simon Willison (trích lời Drew Breunig)",
+     "url": "https://simonwillison.net/2026/Aug/23/drew-breunig/"
+    }
+   ]
+  },
   {
    "ngay": "23/08/2026",
    "cat": "agent",
@@ -116,45 +155,6 @@
     {
      "ten": "Báo Thanh Niên (tổng hợp qua Google News)",
      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPSXp0WFlWcHVaTDlGODFZTl8xUWVEeXg4WHlfT1dlU1hjN29MWEFOUF9jRTdaNnJqb1NmYU5yNmJadlF3Sm1zOGtRTFhpdXNraU4tbWk1V0dhVXhLU0ROc0M1bXZPZklEZ0lVNWUwaU5qcjI3akF3MFhRYWZvc19OYlZQZmI3a3FRRU5OaUlzNnQzZjJFdVNGbjZUbkNGZ1N6dVF1aWxsREtzazNVUm9md2puSzhuaEdHOUpr?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "21/08/2026",
-   "cat": "antoan",
-   "tieu_de": "Một phần ba trang web mới từ khi ChatGPT ra mắt có dấu hiệu do AI viết",
-   "noi_dung": "Một nghiên cứu mới cho thấy khoảng một phần ba số trang web được đăng kể từ khi ChatGPT ra mắt mang dấu hiệu do AI viết hoặc chỉnh sửa. Các mô hình AI như ChatGPT hiện đang trực tiếp tạo ra và biên tập một phần lớn nội dung mới trên internet.",
-   "voi_ban": "Khi đọc tin tức hay bài viết trên mạng, nên cẩn trọng hơn với độ tin cậy của nguồn — nội dung do AI viết không tự động sai, nhưng cũng không tự động đúng, nên vẫn cần kiểm tra nguồn gốc thông tin.",
-   "nguon": [
-    {
-     "ten": "TechCrunch",
-     "url": "https://techcrunch.com/2026/08/20/a-third-of-webpages-published-since-chatgpts-launch-show-signs-of-ai-authorship-study-finds/"
-    }
-   ]
-  },
-  {
-   "ngay": "21/08/2026",
-   "cat": "agent",
-   "tieu_de": "Sàn Binance cho phép AI tự động giao dịch tiền số, việc kiểm soát rủi ro chủ yếu do người dùng tự lo",
-   "noi_dung": "Binance ra mắt Agent OS, cho phép các công cụ AI như ChatGPT, Claude Code và Cursor tự động thực hiện giao dịch tiền số thay người dùng. Hãng để phần lớn việc kiểm soát rủi ro, như đặt giới hạn số tiền hay dừng giao dịch khi cần, cho chính người dùng tự cấu hình.",
-   "voi_ban": "Nếu định dùng AI để tự động giao dịch tài chính, nhớ luôn tự đặt giới hạn số tiền tối đa rõ ràng trước khi bật quyền tự động, đừng để AI tự do quyết định với tiền thật của mình.",
-   "nguon": [
-    {
-     "ten": "TechCrunch",
-     "url": "https://techcrunch.com/2026/08/20/binance-now-lets-ai-agents-trade-but-keeping-them-in-check-is-largely-up-to-users/"
-    }
-   ]
-  },
-  {
-   "ngay": "19/08/2026",
-   "cat": "antoan",
-   "tieu_de": "OpenAI cam kết không giữ dữ liệu khách hàng, cạnh tranh trực tiếp với Anthropic",
-   "noi_dung": "OpenAI vừa công bố chính sách \"Zero Data Retention\" (không lưu lại dữ liệu) cho khách hàng API đủ điều kiện, đồng thời giới thiệu trước công nghệ \"Private Safety Processing\" để kiểm tra an toàn AI mà không cần đọc nội dung riêng tư của người dùng. Báo chí Mỹ gọi đây là bước đi nhằm cạnh tranh trực tiếp với cam kết bảo mật dữ liệu mà Anthropic, công ty làm ra Claude, đang quảng bá.",
-   "voi_ban": "Nếu bạn dùng ChatGPT hoặc Claude cho công việc có dữ liệu nhạy cảm, có thể tìm mục cài đặt về lưu trữ dữ liệu (data retention) trong tài khoản để xem chính sách áp dụng cho gói mình đang dùng.",
-   "nguon": [
-    {
-     "ten": "OpenAI",
-     "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models"
     }
    ]
   }
