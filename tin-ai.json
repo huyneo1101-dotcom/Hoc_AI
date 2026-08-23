@@ -1,7 +1,59 @@
 {
  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
- "cap_nhat": "2026-08-22",
+ "cap_nhat": "2026-08-23",
  "muc": [
+  {
+   "ngay": "23/08/2026",
+   "cat": "agent",
+   "tieu_de": "Một startup Anh do cựu nhân viên DeepMind lập ra nói AI của họ vượt qua Anthropic và OpenAI khi lặp lại nghiên cứu khoa học",
+   "noi_dung": "Startup Inherent, do các cựu nhân viên DeepMind sáng lập, vừa ra mắt một AI \"đồng đội\" tên Faraday. Theo TechCrunch, Faraday được nói là lặp lại (tái tạo) các nghiên cứu khoa học tốt hơn cả AI của Anthropic và OpenAI, và có thể là một bước đệm cho đổi mới khoa học.",
+   "voi_ban": "Đây là công cụ dành cho nghiên cứu khoa học chuyên sâu, không phải công cụ AI dùng hằng ngày, nên chưa cần làm gì thay đổi trong cách bạn đang dùng AI.",
+   "nguon": [
+    {
+     "ten": "TechCrunch",
+     "url": "https://techcrunch.com/2026/08/22/inherent-founded-by-deepmind-alumni-says-its-ai-teammate-just-outperformed-anthropic-and-openai-at-replicating-research/"
+    }
+   ]
+  },
+  {
+   "ngay": "23/08/2026",
+   "cat": "antoan",
+   "tieu_de": "Các hãng AI hàng đầu vẫn chưa công bố rõ cách xử lý khi một mô hình AI hoạt động ngoài tầm kiểm soát",
+   "noi_dung": "Theo TechCrunch, một nghiên cứu mới cho thấy các phòng thí nghiệm AI hàng đầu có rất ít kế hoạch được công bố công khai về cách ngăn chặn một mô hình AI \"nổi loạn\", trong khi các hệ thống AI ngày càng cho thấy hành vi bất thường và tiềm ẩn rủi ro.",
+   "voi_ban": "Bạn chưa cần làm gì khác khi dùng AI hằng ngày; đây là tin về mức độ chuẩn bị của các hãng lớn, không phải một thay đổi ảnh hưởng trực tiếp tới cách bạn đang dùng công cụ.",
+   "nguon": [
+    {
+     "ten": "TechCrunch",
+     "url": "https://techcrunch.com/2026/08/22/frontier-ai-labs-still-wont-say-how-theyd-contain-a-rogue-model/"
+    }
+   ]
+  },
+  {
+   "ngay": "23/08/2026",
+   "cat": "agent",
+   "tieu_de": "Kỹ năng quan trọng nhất khi dùng AI viết code không phải là đọc từng dòng code",
+   "noi_dung": "Theo Simon Willison, kỹ năng quan trọng nhất khi dùng các công cụ AI viết code (coding agents) không phải là đọc từng dòng code AI viết ra, mà là biết ra lệnh rõ ràng cho AI và biết cách xác minh chắc chắn rằng thay đổi đã được làm đúng. Đọc từng dòng code chưa bao giờ là cách hiệu quả nhất để kiểm tra một thay đổi phần mềm.",
+   "voi_ban": "Nếu bạn dùng AI để hỗ trợ viết code, bài học là tập trung vào cách ra lệnh rõ ràng và cách tự kiểm tra kết quả, thay vì cố đọc hết mọi dòng code AI viết ra.",
+   "nguon": [
+    {
+     "ten": "Simon Willison",
+     "url": "https://simonwillison.net/2026/Aug/22/more-than-just-code-review/"
+    }
+   ]
+  },
+  {
+   "ngay": "23/08/2026",
+   "cat": "agent",
+   "tieu_de": "Hướng dẫn khai thác hiệu quả một số tính năng đáng chú ý của Gemini",
+   "noi_dung": "Một bài hướng dẫn tiếng Việt trên Baolangson.vn giới thiệu cách dùng hiệu quả hơn một số tính năng của Gemini, trợ lý AI của Google.",
+   "voi_ban": "Nếu bạn đang dùng Gemini, đáng đọc qua để biết thêm tính năng có sẵn nhưng có thể chưa dùng tới; bài quét được chỉ có tiêu đề nên cần tự mở bài gốc để xem chi tiết trước khi áp dụng.",
+   "nguon": [
+    {
+     "ten": "Baolangson.vn (tổng hợp qua Google News)",
+     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQYU8tblVoSTNucFgxSkxQenpfa0xTeVFsVnczSFhqZWdoYWNxc3gyMXdNdzQ1WFowZjFyYkxxT1JiWFVIcnJKWmZfVmhDZVBIdE94TGJNeUc1aFZzbGx4VkNIRGRpNEJ5TVdxNkNGVUpoUldhTUR1Y3VpTHBLa0dPaEdfMy0xV3g4eXh1U19EZnFweEhCLVE?oc=5"
+    }
+   ]
+  },
   {
    "ngay": "22/08/2026",
    "cat": "hatang",
@@ -103,58 +155,6 @@
     {
      "ten": "OpenAI",
      "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models"
-    }
-   ]
-  },
-  {
-   "ngay": "19/08/2026",
-   "cat": "agent",
-   "tieu_de": "Gemini có thêm khu học tập riêng cho học sinh, sinh viên",
-   "noi_dung": "Google vừa ra mắt \"student hub\", một khu riêng trong Gemini gom việc lưu bài nghiên cứu vào sổ tay học tập, tạo thẻ ghi nhớ, làm bài kiểm tra thử, đúng dịp mùa tựu trường. Sổ tay học tập cũng vừa được thêm khả năng hiển thị biểu đồ và hình ảnh.",
-   "voi_ban": "Nếu bạn hoặc con em đang đi học và có dùng Gemini, thử tìm mục học tập mới này để hệ thống lại bài vở thay vì hỏi AI từng câu rời rạc.",
-   "nguon": [
-    {
-     "ten": "The Verge",
-     "url": "https://www.theverge.com/ai-artificial-intelligence/982425/google-gemini-student-hub"
-    }
-   ]
-  },
-  {
-   "ngay": "19/08/2026",
-   "cat": "gia",
-   "tieu_de": "Alexa+ dùng AI được mở miễn phí trên mọi Fire TV, không cần gói Prime",
-   "noi_dung": "Amazon vừa mở miễn phí trợ lý AI Alexa+ cho toàn bộ thiết bị Fire TV tương thích tại Mỹ, tự động nâng cấp cho người dùng dù có đăng ký gói Prime hay không.",
-   "voi_ban": "Đây là tín hiệu các hãng lớn đang đẩy trợ lý AI giọng nói ra miễn phí để cạnh tranh nhau, nhưng tính năng này hiện chỉ áp dụng tại Mỹ nên người dùng Việt Nam chưa dùng được ngay.",
-   "nguon": [
-    {
-     "ten": "TechCrunch",
-     "url": "https://techcrunch.com/2026/08/19/amazon-makes-its-ai-powered-alexa-free-on-fire-tv-no-prime-required/"
-    }
-   ]
-  },
-  {
-   "ngay": "19/08/2026",
-   "cat": "agent",
-   "tieu_de": "Claude Code bản 2.1.236: đặt sẵn model mặc định, báo khi phiên khác rảnh việc",
-   "noi_dung": "Bản cập nhật mới của Claude Code (công cụ lập trình bằng AI của Anthropic) thêm biến môi trường để đặt sẵn model cho mọi phiên làm việc mới, thêm tính năng báo khi một phiên Claude Code khác trên cùng máy vừa rảnh việc, và siết thêm quy tắc chặn đọc file nhạy cảm như file chứa mật khẩu (.env) trên macOS.",
-   "voi_ban": "Tính năng này dành cho người đang lập trình bằng Claude Code trên máy tính; người chỉ dùng Claude qua web hoặc ứng dụng thông thường chưa cần quan tâm.",
-   "nguon": [
-    {
-     "ten": "Claude Code releases (GitHub)",
-     "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.236"
-    }
-   ]
-  },
-  {
-   "ngay": "19/08/2026",
-   "cat": "antoan",
-   "tieu_de": "ChatGPT ra chế độ riêng cho tuổi teen",
-   "noi_dung": "OpenAI vừa ra mắt một chế độ dùng riêng cho thanh thiếu niên trong ChatGPT, gộp các biện pháp bảo vệ đã có từ trước với một số tính năng an toàn mới vào một nơi. Việc ra mắt diễn ra giữa lúc dư luận đang để ý nhiều tới ảnh hưởng của AI với người trẻ tuổi, và các nền tảng khác cũng đang thêm bước kiểm tra độ tuổi riêng.",
-   "voi_ban": "Nhà có con hoặc em ở tuổi teen đang dùng ChatGPT thì có thể tìm bật chế độ này trong phần cài đặt tài khoản để có thêm một lớp bảo vệ.",
-   "nguon": [
-    {
-     "ten": "The Verge",
-     "url": "https://www.theverge.com/ai-artificial-intelligence/981333/openai-chatgpt-teen-mode"
     }
    ]
   }
