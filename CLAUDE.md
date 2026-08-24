@@ -147,5 +147,36 @@ mỗi phiên), không phải việc tải trang.
   `/news/rss.xml`, `/news.rss`, `/feed.xml` đều 404). Tin Anthropic lấy qua Google News.
   Đừng dò lại.
 
+## Thêm mục từ vào «Từ điển thuật ngữ» — chỉ qua `them-tu.py` (Huy chốt 24/08/2026)
+
+Huy chốt: mỗi khái niệm kỹ thuật mới xuất hiện trong câu trả lời mà Huy có thể chưa gặp thì
+phải được ghi vào tab từ điển **ngay lượt đó**, không đợi Huy nhắc. Quy tắc gốc nằm ở mục 8c
+của `~/.claude/CLAUDE.md`; đường thi hành nằm ở đây.
+
+```
+python3 /Users/Huy/Claude/App/Hoc_AI/them-tu.py --co-chua "webhook"        # đã có chưa
+python3 /Users/Huy/Claude/App/Hoc_AI/them-tu.py --nhom ai --tu "..." \
+        --nghia "nghĩa Việt ngắn" --giai "giải nghĩa bằng chuyện đời thường"
+python3 /Users/Huy/Claude/App/Hoc_AI/them-tu.py --json <file.json>          # thêm nhiều mục
+python3 /Users/Huy/Claude/App/Hoc_AI/them-tu.py --tu-kiem                   # 12 ca
+python3 /Users/Huy/Claude/App/Hoc_AI/them-tu.py --ban-hong                  # 03 bản hỏng
+```
+
+- ⛔ **CẤM sửa tay khối `.glosslist` trong `index.html`.** Ba lối hỏng câm mà script chặn sẵn:
+  thiếu `data-cat` thì mục biến khỏi mọi bộ lọc trừ "Tất cả"; trùng `id="tu-..."` thì liên kết
+  `#tu-...` nhảy sang mục khác; thiếu `data-k` thì gõ không dấu không tra ra. Cả ba đều **không
+  phát ra lỗi nào** — trang vẫn hiện bình thường.
+- **08 nhóm nhận mục từ**: `git · mang · auto · web · data · ai · antoan · loi`. Nhóm `doc` cố ý
+  đứng ngoài, nó là **bảng dịch câu** chứ không phải danh sách thẻ; nhét thẻ `.term` vào đó thì
+  bộ đếm và bộ lọc xét nhầm nhánh. Script chặn thẳng nhóm này.
+- **Dòng đếm `gloss-count` tự tính**, không phải số viết tay — thêm mục xong không phải sửa số.
+- **Bảng `TU`** (bọc chữ trong 09 tab kiến thức thành liên kết sang từ điển) là **việc riêng**,
+  script không đụng tới. Chỉ thêm chữ vào `TU` khi chữ đó thật sự xuất hiện trong 09 tab kia,
+  và phải đọc lại 05 cái bẫy đã ghi ở mục «Chữ tra được» phía trên trước khi thêm.
+- **Giải nghĩa viết cho người không làm kỹ thuật**: một câu nói bằng chuyện đời thường, một câu
+  nói hệ quả khi bỏ qua nó. Ngưỡng cứng 25 ký tự chỉ chặn mục cụt, không thay được việc viết tử tế.
+- **Phát hành sau khi thêm**: `python3 /Users/Huy/Claude/HeThong/khoa-app.py Hoc_AI --phat-hanh`.
+  Chưa đẩy thì bản Huy mở trên điện thoại vẫn là bản cũ.
+
 ## Skills dùng chung
 Repo có `.claude/skills/` (11 skill từ plugin vibe-pwa-kit) — chủ yếu dành cho app React một-file; trang này đơn giản nên phần lớn skill không áp dụng, nhưng `deploy-static` và `pwa-healthcheck` vẫn hữu ích.
