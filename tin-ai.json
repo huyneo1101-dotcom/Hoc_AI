@@ -1,7 +1,33 @@
 {
  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
- "cap_nhat": "2026-08-24",
+ "cap_nhat": "2026-08-25",
  "muc": [
+  {
+   "ngay": "25/08/2026",
+   "cat": "agent",
+   "tieu_de": "Claude Code ra bản cập nhật, xem được từng tác vụ lặp đang tốn bao nhiêu token",
+   "noi_dung": "Anthropic vừa phát hành Claude Code bản 2.1.243. Điểm mới đáng chú ý: lệnh /usage nay có thêm bảng liệt kê riêng cho từng tác vụ lặp (/loop) — số lần chạy, tổng số token, token mỗi lần chạy — để dễ phát hiện tác vụ nào đang chạy tốn kém hoặc chạy quá nhiều lần. Bản này cũng cho phép tự sắp xếp lại danh sách model hiện ra khi chọn model.",
+   "voi_ban": "Nếu bạn dùng Claude Code, cập nhật lên bản mới sẽ giúp nhìn rõ hơn tác vụ lặp nào đang ăn nhiều token nhất, dễ cắt giảm chi phí hơn; người chỉ dùng Claude qua web hoặc app thường thì chưa cần quan tâm tin này.",
+   "nguon": [
+    {
+     "ten": "Claude Code releases (GitHub, chính hãng)",
+     "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.243"
+    }
+   ]
+  },
+  {
+   "ngay": "24/08/2026",
+   "cat": "model",
+   "tieu_de": "Một bảng xếp hạng ở Anh cho thấy Claude đứng đầu về mức hài lòng người dùng, vượt Gemini và ChatGPT",
+   "noi_dung": "Một bài báo tổng hợp qua Google News dẫn kết quả một bảng xếp hạng mức độ hài lòng của người dùng AI tại Anh, trong đó Claude đứng đầu, vượt qua Gemini và ChatGPT. Bài quét được chỉ có tiêu đề, chưa rõ đơn vị khảo sát hay số người tham gia.",
+   "voi_ban": "Đây là một tín hiệu tham khảo chứ chưa đủ chi tiết để kết luận chắc chắn — nếu đang phân vân chọn AI nào, vẫn nên tự dùng thử Claude, Gemini và ChatGPT một thời gian rồi so sánh theo nhu cầu thật của mình.",
+   "nguon": [
+    {
+     "ten": "디지털투데이 (tổng hợp qua Google News)",
+     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNbWNFMDlNRWc5R2ZFR2x5M05PZEVkT3loWHFvQ1FOUWh1eWlxeGRhWkVWeUVEa1BMamloZ0l0d3FPek55bWlyYmhuQjkwYXZCMUxxYnJ5V1F4bDd5b2k3S0YtakhHOFZrcFR1aGVPY0hRODVKSThUd2lQMm1ucjB2eEEtbVItTXM0U1N3STFka3U5aTBjOHppT1EwLTZyWlVaczc0cDJoTHd1YXdkeWVHVFY4TTI4UlZLSTJIcUd0ZmwxenFnbDdR?oc=5"
+    }
+   ]
+  },
   {
    "ngay": "23/08/2026",
    "cat": "vn",
@@ -129,32 +155,6 @@
     {
      "ten": "Yahoo Finance (tổng hợp qua Google News)",
      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPM3lJZHhnbnh1QzJvVHFncFJOWk1rOXh4Mk9PQXdZLVEtS0JkVE9vMnpMZEp5TVB3emlNc3VTUFJSNkFzdjVqYVdnNzdOdUJNLUozTVhoNERGSVZkbVFRVmJvTGwyeUFZYjAtMEdpdEkyWWJ4ckFtNHVjdmExQ0hlSXVTZEFFMnJua0hVajJkWC1xejZRWWZuNEFIeWZuWTJScFB2RzN3?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "22/08/2026",
-   "cat": "agent",
-   "tieu_de": "ChatGPT giờ có thể tự nhắn tin thay bạn trên iPhone",
-   "noi_dung": "TechCrunch đưa tin ChatGPT vừa có thêm tiện ích kết nối với ứng dụng Messages của Apple, cho phép ChatGPT gửi tin nhắn thay người dùng.",
-   "voi_ban": "Đây là ví dụ AI đang được cấp thêm quyền hành động thay con người, không chỉ trả lời câu hỏi — muốn thử thì cần cài tiện ích trên iPhone, và nên cân nhắc kỹ trước khi cho AI quyền tự gửi tin nhắn.",
-   "nguon": [
-    {
-     "ten": "TechCrunch",
-     "url": "https://techcrunch.com/2026/08/20/chatgpt-can-now-send-texts-for-you-with-new-apple-messages-plugin/"
-    }
-   ]
-  },
-  {
-   "ngay": "21/08/2026",
-   "cat": "gia",
-   "tieu_de": "Google tặng sinh viên một năm dùng Gemini cao cấp miễn phí, kèm 5TB lưu trữ",
-   "noi_dung": "Google đang tặng sinh viên gói Gemini cao cấp (bản trả phí) miễn phí trong một năm, đi kèm 5TB dung lượng lưu trữ trên Google Drive. Đây là cách Google cho người dùng trẻ làm quen với AI cao cấp của hãng trước khi ra trường.",
-   "voi_ban": "Nếu bạn hoặc người thân đang là sinh viên, đây là cách dùng thử công cụ AI trả phí mà không tốn tiền — nên tận dụng ngay vì các gói tặng kiểu này thường có hạn đăng ký.",
-   "nguon": [
-    {
-     "ten": "Báo Thanh Niên (tổng hợp qua Google News)",
-     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPSXp0WFlWcHVaTDlGODFZTl8xUWVEeXg4WHlfT1dlU1hjN29MWEFOUF9jRTdaNnJqb1NmYU5yNmJadlF3Sm1zOGtRTFhpdXNraU4tbWk1V0dhVXhLU0ROc0M1bXZPZklEZ0lVNWUwaU5qcjI3akF3MFhRYWZvc19OYlZQZmI3a3FRRU5OaUlzNnQzZjJFdVNGbjZUbkNGZ1N6dVF1aWxsREtzazNVUm9md2puSzhuaEdHOUpr?oc=5"
     }
    ]
   }
