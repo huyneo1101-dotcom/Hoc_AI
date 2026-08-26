@@ -1,7 +1,59 @@
 {
  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
- "cap_nhat": "2026-08-25",
+ "cap_nhat": "2026-08-26",
  "muc": [
+  {
+   "ngay": "26/08/2026",
+   "cat": "agent",
+   "tieu_de": "Claude Cowork giờ nhớ được thứ bạn từng nói trong lúc chat",
+   "noi_dung": "Anthropic vừa cho Claude dùng chung một bộ nhớ giữa cửa sổ trò chuyện thường và công cụ làm việc nhóm Claude Cowork. Trước đây mỗi lần mở Cowork phải nhắc lại dự án, sở thích, thông tin nền cho Claude; nay Claude tự nhớ lại những gì đã nói ở chat trước đó.",
+   "voi_ban": "Nếu bạn hay dùng Claude cho nhiều việc khác nhau, giờ không cần gõ lại phần giới thiệu bối cảnh mỗi lần mở việc mới trên Cowork, đỡ mất công lặp lại.",
+   "nguon": [
+    {
+     "ten": "TechCrunch",
+     "url": "https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/"
+    }
+   ]
+  },
+  {
+   "ngay": "26/08/2026",
+   "cat": "antoan",
+   "tieu_de": "Nghị sĩ Mỹ chất vấn Anthropic và OpenAI về AI tác nhân hoạt động ngoài kiểm soát",
+   "noi_dung": "Một nhóm Hạ nghị sĩ Mỹ thuộc đảng Dân chủ gửi câu hỏi cho Anthropic và OpenAI, yêu cầu giải trình về rủi ro của các AI tác nhân (agent) tự hành hoạt động sai ý người dùng hoặc vượt ngoài kiểm soát. Bài quét được chỉ có tiêu đề, chưa rõ nội dung câu hỏi cụ thể.",
+   "voi_ban": "Chưa đổi gì trong cách bạn dùng AI hằng ngày, nhưng là dấu hiệu cơ quan quản lý Mỹ đang để mắt kỹ hơn tới các AI có thể tự ra quyết định và hành động thay người.",
+   "nguon": [
+    {
+     "ten": "AOL.com (tổng hợp qua Google News)",
+     "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxPTmt3NnplQ2FfeEM3NmtMMGh5Mzk1N3dYZFd1Szdqa0p4VHZOd1B4MWkzby1WLWJZMUo2eERjS3RTekV0VF9iakxobmxlNmhPUUg3ZGlmb2UtTjhORnhxVURkcTRZMWRGQVNfb3hZWlhieUxhX1Y1czkzZFFnU0tpeU84QmdtdmpiWmtUSzhQWXVDWkNtTkVVbFlITlFXRnQ4dkEtSmcyX21kRGN0Nm1XVVE2bEtURnhHU1RvRzc3a3pZaGxGR1BQeGtXbDd5X0dRdmtUVW5SQW5MbC1SZEt3aGlNdGFwa2FzYW4yZjJJWExOci1wamxGcnBucjZ2TVoyYkpvMmsxNDRBTHR2b0tUY2FFLXNKMlRHV1E?oc=5"
+    }
+   ]
+  },
+  {
+   "ngay": "26/08/2026",
+   "cat": "hatang",
+   "tieu_de": "OpenAI ra chip xử lý AI riêng mang tên Jalapeño",
+   "noi_dung": "OpenAI công bố kết quả đầu tiên của Jalapeño, một chip riêng dùng để chạy các mô hình AI, được giới thiệu là nhanh hơn, tiết kiệm điện hơn, xử lý được nhiều yêu cầu cùng lúc và phản hồi nhanh hơn so với cách chạy trước đây.",
+   "voi_ban": "Đây là việc ở tầng hạ tầng của công ty, chưa có gì bạn phải làm ngay; về lâu dài có thể giúp các dịch vụ AI chạy nhanh và rẻ hơn cho người dùng.",
+   "nguon": [
+    {
+     "ten": "OpenAI News",
+     "url": "https://openai.com/index/jalapeno-first-results"
+    }
+   ]
+  },
+  {
+   "ngay": "26/08/2026",
+   "cat": "agent",
+   "tieu_de": "Cách tạo 'Skills' riêng cho ChatGPT, không cần biết lập trình",
+   "noi_dung": "Một bài hướng dẫn tiếng Việt chỉ cách tạo Skills, tức các kỹ năng dựng sẵn, cho ChatGPT để nó làm đúng một việc lặp lại theo đúng cách bạn muốn mà không cần biết viết mã.",
+   "voi_ban": "Nếu bạn hay phải nhắc ChatGPT làm đi làm lại một kiểu việc giống nhau, ví dụ soạn email theo mẫu, có thể thử đóng gói việc đó thành một Skill để dùng lại nhiều lần.",
+   "nguon": [
+    {
+     "ten": "CellphoneS (tổng hợp qua Google News)",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9EQ2pSa3Q2c2lScnFDTl9UV0YteGlDT3NCYTQ4Z09HTGl2WGFfUFlQQTlScnRaRVZlSFhmS2NGMWNmTmZraF9scklOdnUxblc0TWl4U0wzeHdyWkl6VVdKTVJ3?oc=5"
+    }
+   ]
+  },
   {
    "ngay": "25/08/2026",
    "cat": "agent",
@@ -103,58 +155,6 @@
     {
      "ten": "Simon Willison",
      "url": "https://simonwillison.net/2026/Aug/22/more-than-just-code-review/"
-    }
-   ]
-  },
-  {
-   "ngay": "23/08/2026",
-   "cat": "agent",
-   "tieu_de": "Hướng dẫn khai thác hiệu quả một số tính năng đáng chú ý của Gemini",
-   "noi_dung": "Một bài hướng dẫn tiếng Việt trên Baolangson.vn giới thiệu cách dùng hiệu quả hơn một số tính năng của Gemini, trợ lý AI của Google.",
-   "voi_ban": "Nếu bạn đang dùng Gemini, đáng đọc qua để biết thêm tính năng có sẵn nhưng có thể chưa dùng tới; bài quét được chỉ có tiêu đề nên cần tự mở bài gốc để xem chi tiết trước khi áp dụng.",
-   "nguon": [
-    {
-     "ten": "Baolangson.vn (tổng hợp qua Google News)",
-     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQYU8tblVoSTNucFgxSkxQenpfa0xTeVFsVnczSFhqZWdoYWNxc3gyMXdNdzQ1WFowZjFyYkxxT1JiWFVIcnJKWmZfVmhDZVBIdE94TGJNeUc1aFZzbGx4VkNIRGRpNEJ5TVdxNkNGVUpoUldhTUR1Y3VpTHBLa0dPaEdfMy0xV3g4eXh1U19EZnFweEhCLVE?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "22/08/2026",
-   "cat": "hatang",
-   "tieu_de": "Anthropic mở Claude Academy, khoá học miễn phí dạy dùng Claude",
-   "noi_dung": "Anthropic vừa ra mắt Claude Academy, một loạt khoá học miễn phí giúp người dùng học cách dùng Claude hiệu quả hơn.",
-   "voi_ban": "Nếu bạn mới dùng Claude, đây là nguồn học chính hãng, miễn phí, đáng thử song song với tab Học AI này.",
-   "nguon": [
-    {
-     "ten": "WION (tổng hợp qua Google News)",
-     "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPdG1tdnBDYWI1bC03ODdleUZIaEhLaEZPN2F4cEFaR2xDb1JpQ2lSSGFtS3l2ZXhadHFYN3RGUEYxM2FTWmFlLTE1QUF1aHo0OUhnXy1HUXB4Y0ExR1VEQmJZc1JkYk44c3dWQkdxUklpc19WWFRpdU16RGtzWEhNN1FkOGRTaXlRa0p0clE2d25sQ3pMZUxXTUd4dHM0Nll6N3hEb3Z4R3ZQbGpZaWZvVnJPQkZRdjVMckk2TGJvbHM5ZkduRmFzdWlnUdIB0AFBVV95cUxOeFZ5dVRwSkpXZHg0UnFlYjlfLVJsX2JHMGp0OGhiNWhxUlc0YnJsWU1jRUJNR1FkNWhmSmZUUHlBMlhNcU9kLWEwVlptUzVmV205T091ZHYzR3owaVhVOUw4OUlUSzlmblVKLVJiZmdUZUtPekhQdzNCVGcyb0FxdVpMTEdXRXlRQ0NCTHdYOWhUMWd3bGdWT2lRUVlrWVRuMnhQaVJDZmswU0lnYWIwMnNOci0yem1nUDhrTzBDWUxMNTVncF9aVXZUT3NPZTdm?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "22/08/2026",
-   "cat": "gia",
-   "tieu_de": "Có tin ChatGPT sắp không còn bản dùng miễn phí như hiện nay",
-   "noi_dung": "Một bài trên Znews đưa tin thời kỳ dùng ChatGPT miễn phí thoải mái sắp kết thúc.",
-   "voi_ban": "Nếu bạn đang dùng bản miễn phí của ChatGPT, nên theo dõi thông báo chính thức từ OpenAI, và có thể thử Claude hoặc Gemini là hai lựa chọn khác vẫn đang có gói miễn phí.",
-   "nguon": [
-    {
-     "ten": "Znews (tổng hợp qua Google News)",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE02eHJXYl9wekpxMmtUYUxNWG1peUIwOUNheXN6U08tTkZnd3JrMmJ1ZzI4OFduTjNGWDJ1WWJETlAzVzB0c3dUSlZhT0tKeGhIRE1XTjBHQ0tnVHpjeWJjM0xBb3JyNkpaOTRZaF9HTQ?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "22/08/2026",
-   "cat": "gia",
-   "tieu_de": "Meta ra công cụ viết code bằng AI, giá rẻ hơn Anthropic và OpenAI",
-   "noi_dung": "Theo Yahoo Finance, Meta vừa tung ra một công cụ trợ lý viết code bằng AI với mức giá thấp hơn các sản phẩm tương tự của Anthropic và OpenAI.",
-   "voi_ban": "Không ảnh hưởng tới việc dùng AI hằng ngày để hỏi đáp hay viết lách, tin này chỉ đáng chú ý nếu bạn đang học lập trình và cân nhắc công cụ hỗ trợ viết code.",
-   "nguon": [
-    {
-     "ten": "Yahoo Finance (tổng hợp qua Google News)",
-     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPM3lJZHhnbnh1QzJvVHFncFJOWk1rOXh4Mk9PQXdZLVEtS0JkVE9vMnpMZEp5TVB3emlNc3VTUFJSNkFzdjVqYVdnNzdOdUJNLUozTVhoNERGSVZkbVFRVmJvTGwyeUFZYjAtMEdpdEkyWWJ4ckFtNHVjdmExQ0hlSXVTZEFFMnJua0hVajJkWC1xejZRWWZuNEFIeWZuWTJScFB2RzN3?oc=5"
     }
    ]
   }
