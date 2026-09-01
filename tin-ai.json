@@ -1,7 +1,59 @@
 {
  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
- "cap_nhat": "2026-08-27",
+ "cap_nhat": "2026-09-01",
  "muc": [
+  {
+   "ngay": "31/08/2026",
+   "cat": "luat",
+   "tieu_de": "EU đang nhắm quy định vào ChatGPT, Reddit và Roblox — còn Claude của Anthropic thì không",
+   "noi_dung": "Theo BeInCrypto, Liên minh châu Âu đang hướng sự chú ý về quy định vào ChatGPT, Reddit và Roblox, trong khi Claude của Anthropic lại không nằm trong nhóm bị nhắm tới lần này. Bài không nêu rõ đây là quy định cụ thể gì hay vì sao Claude được bỏ qua.",
+   "voi_ban": "Nếu bạn đang dùng Claude, đây là dấu hiệu Anthropic tạm thời ít bị soi quy định hơn ở châu Âu so với OpenAI hay các hãng khác — nhưng thông tin còn thiếu chi tiết nên chưa cần làm gì, chỉ nên theo dõi thêm.",
+   "nguon": [
+    {
+     "ten": "tổng hợp qua BeInCrypto",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBPMnpzN2FDRlV3VW5WUEpJVmdYQ1E1d0ZJRzJNRnJvMlBwLU1zeHZpdVBJNmNsWl9Xb0ZDUnU3WjhGaEtocmVXYlNhdEFaaGZ6Yk9lWFRtdWc5VEtKWXl0UHJaNXkzdDZoVUFZbVh6dm5qQnZH?oc=5"
+    }
+   ]
+  },
+  {
+   "ngay": "31/08/2026",
+   "cat": "gia",
+   "tieu_de": "Mảng quảng cáo trong ChatGPT đạt mốc doanh thu 1 tỷ đô la một năm, mở rộng ra nhiều nước để có thêm bản miễn phí và giá rẻ",
+   "noi_dung": "OpenAI công bố ChatGPT Ads — mảng quảng cáo hiển thị trong ChatGPT — đã đạt mức doanh thu quy đổi theo năm khoảng 1 tỷ đô la Mỹ (chừng 26 nghìn tỷ đồng) và đang mở rộng ra nhiều nước hơn, nhằm giúp nhiều người dùng tiếp cận ChatGPT với chi phí thấp hơn hoặc miễn phí.",
+   "voi_ban": "Nếu bạn đang dùng bản miễn phí của ChatGPT, có thể sẽ thấy quảng cáo xuất hiện nhiều hơn — đổi lại là được dùng công cụ miễn phí hoặc rẻ hơn, không cần làm gì thêm.",
+   "nguon": [
+    {
+     "ten": "OpenAI News",
+     "url": "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads"
+    }
+   ]
+  },
+  {
+   "ngay": "31/08/2026",
+   "cat": "agent",
+   "tieu_de": "Cursor bị OpenAI cắt bớt quyền dùng mô hình, nhưng Anthropic vẫn tiếp tục cung cấp Claude cho Cursor",
+   "noi_dung": "Theo The New Stack, Cursor — công cụ viết code có AI hỗ trợ đang được nhiều người dùng — bị OpenAI cắt bớt quyền truy cập mô hình, trong khi Anthropic vẫn duy trì việc cung cấp mô hình Claude cho Cursor. Bài không nêu rõ lý do OpenAI cắt quyền truy cập.",
+   "voi_ban": "Nếu bạn dùng Cursor để viết code, mô hình Claude vẫn dùng được bình thường trong công cụ này, dù các mô hình của OpenAI có thể bị hạn chế hơn.",
+   "nguon": [
+    {
+     "ten": "tổng hợp qua The New Stack",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1EdFBMVDBBTEJuWTNjM3EwVjVCRGc3UElNWk9fTXU2eHc3NXNjMVQyODZkaWNaYzA0MlBueGhKZ1pFaWlNRk83MWd4S0tFb2tVU09hc1hfbGd3cEROZ2tLLTB2T2RHY016MTEyRGpjNA?oc=5"
+    }
+   ]
+  },
+  {
+   "ngay": "31/08/2026",
+   "cat": "gia",
+   "tieu_de": "Circleback — công cụ AI ghi chú cuộc họp — ra mắt gói miễn phí, gói trả phí thấp nhất từ 14 đô la/tháng",
+   "noi_dung": "Theo TechCrunch, Circleback (công cụ dùng AI để ghi chép và tóm tắt cuộc họp) vừa thêm gói miễn phí để thu hút thêm người dùng, cùng lúc ra các gói trả phí mới bắt đầu từ 14 đô la Mỹ một tháng (khoảng 364 nghìn đồng).",
+   "voi_ban": "Nếu bạn hay phải ghi chép lại nội dung các cuộc họp, giờ có thể thử Circleback miễn phí trước, cần thêm tính năng thì mới cân nhắc trả phí.",
+   "nguon": [
+    {
+     "ten": "TechCrunch",
+     "url": "https://techcrunch.com/2026/08/31/meeting-notetaker-circleback-adds-a-free-tier-to-attract-more-customers/"
+    }
+   ]
+  },
   {
    "ngay": "27/08/2026",
    "cat": "antoan",
@@ -103,58 +155,6 @@
     {
      "ten": "CellphoneS (tổng hợp qua Google News)",
      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9EQ2pSa3Q2c2lScnFDTl9UV0YteGlDT3NCYTQ4Z09HTGl2WGFfUFlQQTlScnRaRVZlSFhmS2NGMWNmTmZraF9scklOdnUxblc0TWl4U0wzeHdyWkl6VVdKTVJ3?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "25/08/2026",
-   "cat": "agent",
-   "tieu_de": "Claude Code ra bản cập nhật, xem được từng tác vụ lặp đang tốn bao nhiêu token",
-   "noi_dung": "Anthropic vừa phát hành Claude Code bản 2.1.243. Điểm mới đáng chú ý: lệnh /usage nay có thêm bảng liệt kê riêng cho từng tác vụ lặp (/loop) — số lần chạy, tổng số token, token mỗi lần chạy — để dễ phát hiện tác vụ nào đang chạy tốn kém hoặc chạy quá nhiều lần. Bản này cũng cho phép tự sắp xếp lại danh sách model hiện ra khi chọn model.",
-   "voi_ban": "Nếu bạn dùng Claude Code, cập nhật lên bản mới sẽ giúp nhìn rõ hơn tác vụ lặp nào đang ăn nhiều token nhất, dễ cắt giảm chi phí hơn; người chỉ dùng Claude qua web hoặc app thường thì chưa cần quan tâm tin này.",
-   "nguon": [
-    {
-     "ten": "Claude Code releases (GitHub, chính hãng)",
-     "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.243"
-    }
-   ]
-  },
-  {
-   "ngay": "24/08/2026",
-   "cat": "model",
-   "tieu_de": "Một bảng xếp hạng ở Anh cho thấy Claude đứng đầu về mức hài lòng người dùng, vượt Gemini và ChatGPT",
-   "noi_dung": "Một bài báo tổng hợp qua Google News dẫn kết quả một bảng xếp hạng mức độ hài lòng của người dùng AI tại Anh, trong đó Claude đứng đầu, vượt qua Gemini và ChatGPT. Bài quét được chỉ có tiêu đề, chưa rõ đơn vị khảo sát hay số người tham gia.",
-   "voi_ban": "Đây là một tín hiệu tham khảo chứ chưa đủ chi tiết để kết luận chắc chắn — nếu đang phân vân chọn AI nào, vẫn nên tự dùng thử Claude, Gemini và ChatGPT một thời gian rồi so sánh theo nhu cầu thật của mình.",
-   "nguon": [
-    {
-     "ten": "디지털투데이 (tổng hợp qua Google News)",
-     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNbWNFMDlNRWc5R2ZFR2x5M05PZEVkT3loWHFvQ1FOUWh1eWlxeGRhWkVWeUVEa1BMamloZ0l0d3FPek55bWlyYmhuQjkwYXZCMUxxYnJ5V1F4bDd5b2k3S0YtakhHOFZrcFR1aGVPY0hRODVKSThUd2lQMm1ucjB2eEEtbVItTXM0U1N3STFka3U5aTBjOHppT1EwLTZyWlVaczc0cDJoTHd1YXdkeWVHVFY4TTI4UlZLSTJIcUd0ZmwxenFnbDdR?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "23/08/2026",
-   "cat": "vn",
-   "tieu_de": "So sánh Claude và ChatGPT cho giáo viên soạn giáo án",
-   "noi_dung": "Trang Vietnam.vn đăng bài so sánh chuyên sâu giữa Claude và ChatGPT, tìm hiểu xem trợ lý AI nào phù hợp hơn để giáo viên soạn giáo án. Bài đăng ngày 23/8.",
-   "voi_ban": "Nếu công việc của bạn liên quan tới soạn giáo án hay tài liệu giảng dạy, đây là một góc so sánh thực tế giữa hai công cụ đáng đọc trước khi chọn dùng cái nào.",
-   "nguon": [
-    {
-     "ten": "Vietnam.vn (tổng hợp qua Google News)",
-     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQRHhBMmlXWHZtZTVZbV9rQy1rMzg3b3RfcUxGbE5PS1loMjhIbndHMWpVb2RZQlBubmd6Nlh0ZGJFd2E3QTdlVFU4NXlSZG5KSTVRWFAxV29CRFNRUEh0Z3BRT2l6YzlNVEE5dU1yTnpYcFlwOFppR2QyMU9pSnFSa1g0UTlrUldtdTY5WnY4LWVzWWZCSjI0SzNEeVFCUG9xVTlqcnpFc3EzTVpkT0hUZA?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "23/08/2026",
-   "cat": "gia",
-   "tieu_de": "Model đắt nhất của Anthropic khó hút người dùng khi công cụ AI rẻ hơn phát triển mạnh",
-   "noi_dung": "Theo blog Simon Willison dẫn số liệu từ Financial Times, doanh thu quy năm của Anthropic tăng từ 47 tỷ đô la hồi tháng 5 lên 65 tỷ đô la vào tháng 7, và hãng có 6.000 khách hàng chi từ 100.000 đô la một năm trở lên. Dù doanh thu tăng mạnh, model tốt nhất của Anthropic vẫn đang gặp khó trong thu hút thêm người dùng khi các công cụ AI rẻ hơn ngày càng phát triển.",
-   "voi_ban": "Không nhất thiết phải chọn model đắt tiền nhất mới hiệu quả — các lựa chọn rẻ hơn đang ngày càng đáng cân nhắc, nhất là với người mới bắt đầu dùng AI.",
-   "nguon": [
-    {
-     "ten": "Simon Willison (dẫn Financial Times)",
-     "url": "https://simonwillison.net/2026/Aug/23/anthropics-best-ai-model-struggles-to-attract-users-as-cheaper-t/"
     }
    ]
   }
