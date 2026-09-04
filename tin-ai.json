@@ -1,7 +1,67 @@
 {
  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
- "cap_nhat": "2026-09-01",
+ "cap_nhat": "2026-09-04",
  "muc": [
+  {
+   "ngay": "04/09/2026",
+   "cat": "antoan",
+   "tieu_de": "Anthropic tạm dừng một phần huấn luyện AI sau vụ tin tặc lợi dụng AI agent",
+   "noi_dung": "Theo Fortune, Anthropic đã tạm dừng một số hoạt động huấn luyện AI sau khi phát hiện vụ việc tin tặc lợi dụng AI agent (AI có thể tự thao tác nhiều bước) để tấn công. Bài báo so sánh cách Anthropic xử lý vụ này với cách OpenAI từng ứng phó các sự cố tương tự.",
+   "voi_ban": "Đây là tin về an toàn ở tầng phát triển sản phẩm, không phải lỗi ảnh hưởng trực tiếp tới người đang chat với Claude hằng ngày; chưa cần đổi gì trong cách bạn đang dùng Claude.",
+   "nguon": [
+    {
+     "ten": "tổng hợp qua Fortune",
+     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOYWFndEtkNmlCU09kMVRxXzFGS1FBQm5BSGk0QlpiV01VZEZPc2RlUXNsX3hLZ0pFUDQzM2JUV2tNaEFQdURTb3lHYWt3VHEtWlRwWURfTHNOcEJCMzRLOURwbHhPd0xpOEVjd2R3MmIzOWUwbnRway13b214RVlrMg?oc=5"
+    }
+   ]
+  },
+  {
+   "ngay": "04/09/2026",
+   "cat": "hatang",
+   "tieu_de": "ChatGPT, Claude, Grok và Gemini cùng gặp sự cố ngừng hoạt động trong ngày 03/9",
+   "noi_dung": "Theo Ars Technica và The Verge, bốn trợ lý AI lớn — ChatGPT, Claude, Grok và Gemini — đều báo lỗi gần như cùng lúc trong ngày 03/9. ChatGPT bắt đầu báo lỗi khoảng 11 giờ sáng giờ Mỹ, cả bốn dịch vụ đã hoạt động lại bình thường sau đó; tới lúc hai báo đưa tin, chưa hãng nào công bố rõ nguyên nhân.",
+   "voi_ban": "Nhiều AI lớn cùng gặp sự cố một lúc là lời nhắc nên có phương án dự phòng: việc quan trọng đang cần AI thì tốt nhất có sẵn hơn một công cụ (ví dụ vừa có ChatGPT vừa có Claude hoặc Gemini) để không bị động khi một bên trục trặc.",
+   "nguon": [
+    {
+     "ten": "Ars Technica",
+     "url": "https://arstechnica.com/ai/2026/09/four-major-ai-models-suffer-rare-overlapping-downtime/"
+    },
+    {
+     "ten": "The Verge",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/989503/chatgpt-grok-claude-outage-down"
+    }
+   ]
+  },
+  {
+   "ngay": "04/09/2026",
+   "cat": "model",
+   "tieu_de": "OpenAI ra mắt GPT-6 Astra, giá đặt ngang dòng Claude Fable",
+   "noi_dung": "Theo cây bút công nghệ Simon Willison, OpenAI bắt đầu mở GPT-6 Astra cho một số tổ chức, sẽ mở rộng dần cho người dùng ChatGPT Plus, Pro, Business, Enterprise và qua API. Giá được đặt bằng đúng mức của Claude Fable 5 và 5.1: 10 đô la cho mỗi triệu chữ đọc vào, 50 đô la cho mỗi triệu chữ trả ra.",
+   "voi_ban": "Người dùng ChatGPT trả phí sẽ sớm được dùng thử mẫu AI mạnh nhất của OpenAI mà không phải trả thêm; mức giá ngang Claude Fable nghĩa là hai hãng đang cạnh tranh sòng phẳng ở phân khúc cao cấp, chưa ảnh hưởng tới gói miễn phí của bên nào.",
+   "nguon": [
+    {
+     "ten": "Simon Willison",
+     "url": "https://simonwillison.net/2026/Sep/3/gpt6-astra/"
+    }
+   ]
+  },
+  {
+   "ngay": "04/09/2026",
+   "cat": "gia",
+   "tieu_de": "Google ra mắt Gemini 3.8 Flash, giá rẻ gần bằng một phần mười Claude",
+   "noi_dung": "Google vừa ra mắt Gemini 3.8 Flash, chỉ vài tuần sau bản 3.7 Flash. Giá khởi điểm vẫn giữ nguyên mức cũ, 0,75 đô la cho mỗi triệu chữ đọc vào và 3,75 đô la cho mỗi triệu chữ trả ra; theo CafeF, mức này rẻ gần bằng một phần mười so với Claude. Google nói bản mới suy nghĩ nhiều bước hơn và tự gọi công cụ nhiều lần hơn khi gặp việc phức tạp.",
+   "voi_ban": "Cần một trợ lý AI giá rẻ cho việc đơn giản hằng ngày như viết email, tóm tắt, hỏi đáp thì Gemini 3.8 Flash đáng thử; việc cần suy luận sâu hoặc viết mã phức tạp thì Claude vẫn đang được đánh giá cao hơn dù giá cao hơn.",
+   "nguon": [
+    {
+     "ten": "tổng hợp qua CafeF",
+     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNejl0TTBBSy1FbVd2NTlfUW9pemtCUEFLNmI5ZFEwdko2X3FVR2JldUxtZDRTeV9RV3dlVDg1TDFwcmQxWldUdUFlazNmVC00QmpBcC1SLXRqYkdpT0dON2QwUHlqajRsUUdqVngxLVNzYzJMaTRfRGRnWGlMU19JQ3ItSE9xSjdYeENkYXlhZ0dCcEZsbW9ELW9yc196MFI3MkU5M1VNMXhhTVpWZnVSclE3akExM0VmUnMxMGhRZVZHcFFZdU1V?oc=5"
+    },
+    {
+     "ten": "The Verge",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/988742/google-gemini-3-8-flash"
+    }
+   ]
+  },
   {
    "ngay": "31/08/2026",
    "cat": "luat",
@@ -103,58 +163,6 @@
     {
      "ten": "GenK.vn (tổng hợp)",
      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNekhQdW5MWS1TMWtidzI3cU1zbkFOWlV0UWVsS1RqNVN0VGd3VkZUdDU5RUNnQTdfOWUzcUM5dWllb0p2cFQ1NzFaRWh1WkxWenVIRVcyUElicGJoWjJhWHk5R1IwUTZUQzZfcThFcENURl8tXzM5Tk1kNE1mUWZJMmVlUkRKNENSSmQ4bm5vTThhVzlBM2V6cFgwOThaWmJLLV9leHRiakRIWTc1ZWZJV3lkYk9aOGt0Zi1DRFYtdDJfQ2E5VnRHMw?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "26/08/2026",
-   "cat": "agent",
-   "tieu_de": "Claude Cowork giờ nhớ được thứ bạn từng nói trong lúc chat",
-   "noi_dung": "Anthropic vừa cho Claude dùng chung một bộ nhớ giữa cửa sổ trò chuyện thường và công cụ làm việc nhóm Claude Cowork. Trước đây mỗi lần mở Cowork phải nhắc lại dự án, sở thích, thông tin nền cho Claude; nay Claude tự nhớ lại những gì đã nói ở chat trước đó.",
-   "voi_ban": "Nếu bạn hay dùng Claude cho nhiều việc khác nhau, giờ không cần gõ lại phần giới thiệu bối cảnh mỗi lần mở việc mới trên Cowork, đỡ mất công lặp lại.",
-   "nguon": [
-    {
-     "ten": "TechCrunch",
-     "url": "https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/"
-    }
-   ]
-  },
-  {
-   "ngay": "26/08/2026",
-   "cat": "antoan",
-   "tieu_de": "Nghị sĩ Mỹ chất vấn Anthropic và OpenAI về AI tác nhân hoạt động ngoài kiểm soát",
-   "noi_dung": "Một nhóm Hạ nghị sĩ Mỹ thuộc đảng Dân chủ gửi câu hỏi cho Anthropic và OpenAI, yêu cầu giải trình về rủi ro của các AI tác nhân (agent) tự hành hoạt động sai ý người dùng hoặc vượt ngoài kiểm soát. Bài quét được chỉ có tiêu đề, chưa rõ nội dung câu hỏi cụ thể.",
-   "voi_ban": "Chưa đổi gì trong cách bạn dùng AI hằng ngày, nhưng là dấu hiệu cơ quan quản lý Mỹ đang để mắt kỹ hơn tới các AI có thể tự ra quyết định và hành động thay người.",
-   "nguon": [
-    {
-     "ten": "AOL.com (tổng hợp qua Google News)",
-     "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxPTmt3NnplQ2FfeEM3NmtMMGh5Mzk1N3dYZFd1Szdqa0p4VHZOd1B4MWkzby1WLWJZMUo2eERjS3RTekV0VF9iakxobmxlNmhPUUg3ZGlmb2UtTjhORnhxVURkcTRZMWRGQVNfb3hZWlhieUxhX1Y1czkzZFFnU0tpeU84QmdtdmpiWmtUSzhQWXVDWkNtTkVVbFlITlFXRnQ4dkEtSmcyX21kRGN0Nm1XVVE2bEtURnhHU1RvRzc3a3pZaGxGR1BQeGtXbDd5X0dRdmtUVW5SQW5MbC1SZEt3aGlNdGFwa2FzYW4yZjJJWExOci1wamxGcnBucjZ2TVoyYkpvMmsxNDRBTHR2b0tUY2FFLXNKMlRHV1E?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "26/08/2026",
-   "cat": "hatang",
-   "tieu_de": "OpenAI ra chip xử lý AI riêng mang tên Jalapeño",
-   "noi_dung": "OpenAI công bố kết quả đầu tiên của Jalapeño, một chip riêng dùng để chạy các mô hình AI, được giới thiệu là nhanh hơn, tiết kiệm điện hơn, xử lý được nhiều yêu cầu cùng lúc và phản hồi nhanh hơn so với cách chạy trước đây.",
-   "voi_ban": "Đây là việc ở tầng hạ tầng của công ty, chưa có gì bạn phải làm ngay; về lâu dài có thể giúp các dịch vụ AI chạy nhanh và rẻ hơn cho người dùng.",
-   "nguon": [
-    {
-     "ten": "OpenAI News",
-     "url": "https://openai.com/index/jalapeno-first-results"
-    }
-   ]
-  },
-  {
-   "ngay": "26/08/2026",
-   "cat": "agent",
-   "tieu_de": "Cách tạo 'Skills' riêng cho ChatGPT, không cần biết lập trình",
-   "noi_dung": "Một bài hướng dẫn tiếng Việt chỉ cách tạo Skills, tức các kỹ năng dựng sẵn, cho ChatGPT để nó làm đúng một việc lặp lại theo đúng cách bạn muốn mà không cần biết viết mã.",
-   "voi_ban": "Nếu bạn hay phải nhắc ChatGPT làm đi làm lại một kiểu việc giống nhau, ví dụ soạn email theo mẫu, có thể thử đóng gói việc đó thành một Skill để dùng lại nhiều lần.",
-   "nguon": [
-    {
-     "ten": "CellphoneS (tổng hợp qua Google News)",
-     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9EQ2pSa3Q2c2lScnFDTl9UV0YteGlDT3NCYTQ4Z09HTGl2WGFfUFlQQTlScnRaRVZlSFhmS2NGMWNmTmZraF9scklOdnUxblc0TWl4U0wzeHdyWkl6VVdKTVJ3?oc=5"
     }
    ]
   }
