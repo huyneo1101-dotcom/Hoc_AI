@@ -1,7 +1,46 @@
 {
  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
- "cap_nhat": "2026-09-07",
+ "cap_nhat": "2026-09-08",
  "muc": [
+  {
+   "ngay": "07/09/2026",
+   "cat": "luat",
+   "tieu_de": "Anthropic công khai không đồng thuận với OpenAI và Google về một dự luật an toàn AI được cho là khắt khe nhất ở Mỹ",
+   "noi_dung": "Theo WION, Anthropic vừa đứng khác phía với OpenAI và Google, khi hai hãng này phản đối một dự luật được mô tả là quy định an toàn AI khắt khe nhất từng được đề xuất ở Mỹ, còn Anthropic thì ủng hộ. Bài chưa nêu tên cụ thể của dự luật hay nội dung chi tiết bên trong.",
+   "voi_ban": "Đây là chuyện các hãng AI vận động chính sách với nhau ở Mỹ, chưa làm thay đổi gì tới cách bạn đang dùng Claude hay ChatGPT hằng ngày — chưa cần làm gì, chỉ nên biết các hãng lớn không cùng quan điểm về mức độ kiểm soát AI.",
+   "nguon": [
+    {
+     "ten": "WION (qua Google News)",
+     "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPSlhscmdvYVBBaTRtTjk1VkltRDlfUDU1U0FrZncxNnBtclQ5bk1BelBXcWltMHV3OHR5a3dmTWNFeW5uZURzMkxmTXN0dUg1ZlZkQTVBM1pPQ0Jhb3QtTGw0eWdHN0dzV0JlcFdEUlc0REhIN1hvckRtbS1RdDA3S0lzYkhoUk5pMFNhU1cwVHpxZ21sbzRIal9ZYURQakxxM0N1dEtidzlRNUt6MGZoZldXOVM4VTZycVoyNjl0RUFYS3dES2Z4QXJqY9IB0AFBVV95cUxOcEIyNGVTT1lQSEFQRUN3NUFhUGNQclFpb2ZnMkR2RklXSno2UE5wak11X2RaWkVscFZJUWhWNXo0R25qLVdMWnRfUWZrUUhDSE4xLVNRaHRSUExWdWY0cmxqX0dSNEtBcjJKX1RoaHg4di0xU1JpTUR2dEFBeUxpd1NieHh0bWpPMi1oTHN3clBLdnpxajMwSWRBejF3a0htbTlFTEJQMEdhallUSFpGYlRNUHdRTU1XR1F1eU9zTGVYQmFzNFNkYkpaUG5vQjY0?oc=5"
+    }
+   ]
+  },
+  {
+   "ngay": "07/09/2026",
+   "cat": "gia",
+   "tieu_de": "Một trang tin công nghệ đưa tin giá Grok 4.5 của xAI thấp hơn GPT-5 và Claude",
+   "noi_dung": "Theo shattered.io, mẫu Grok 4.5 của xAI được đưa tin với mức giá 2 đô la và 6 đô la, thấp hơn giá của GPT-5 và Claude. Bài không nêu rõ đây là giá tính trên đơn vị nào (ví dụ mỗi triệu chữ đọc vào hay trả ra), nên chưa đủ dữ kiện để so sánh chính xác từng cặp.",
+   "voi_ban": "Nếu đang cân nhắc đổi công cụ chỉ vì giá, nên đợi thêm nguồn xác nhận rõ đơn vị tính giá rồi hãy so sánh, vì tin này còn thiếu chi tiết.",
+   "nguon": [
+    {
+     "ten": "shattered.io (qua Google News)",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1hT091aVZEN2xLOVBOOVRRbmc4WHNfQnNjeTNjMGQ2NndmR2Q5RHRmaElNckp1Vi1vRFh1cjFhWkhXWE5pMDM4c0FNNW1SWGxXclBxOTV0c3AtX3R4LVdYNTVnbmpQOU0?oc=5"
+    }
+   ]
+  },
+  {
+   "ngay": "07/09/2026",
+   "cat": "sangtao",
+   "tieu_de": "Một lập trình viên nhờ Claude Fable 5.1 tự viết công cụ nén video ngay trên trình duyệt",
+   "noi_dung": "Theo blog cá nhân của Simon Willison, tác giả đã nhờ Claude Fable 5.1 chạy trong Claude Code cho web viết một công cụ nén video dùng bản WebAssembly của FFMPEG, để đăng một đoạn video demo quay bằng điện thoại lên blog cá nhân cho gọn dung lượng.",
+   "voi_ban": "Ví dụ cho thấy có thể nhờ AI tự viết một công cụ nhỏ đúng theo nhu cầu cụ thể của mình, thay vì đi tìm phần mềm có sẵn — không cần biết lập trình vẫn mô tả được việc cần làm rồi để AI dựng công cụ đó.",
+   "nguon": [
+    {
+     "ten": "Simon Willison (blog cá nhân)",
+     "url": "https://simonwillison.net/2026/Sep/7/video-compressor/"
+    }
+   ]
+  },
   {
    "ngay": "07/09/2026",
    "cat": "gia",
@@ -94,79 +133,6 @@
     {
      "ten": "tổng hợp qua NDTV",
      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOWEtTaXNNbm9KYll0VEtzWGF3WlpfR1ZhSEZtM2cwU0QtdkFwN0l3UnlQc1BpcjhEZWExai1DaWgxdzcwQ1N1bTZDRm04VmdKeWlrSGdYSWFpNk9oaFJZSWt5SEQ0eE9ONVdxOGViU0JmNEM1aWZCbURxRDJwUkxJMzhSbkM0WTl1ZzZnQlBxaDJoaVltR1R6ZEl1TDZtQl9uZFFBalVaOE5oTDlQRXRSa0Zhb3dpdFMxLUVNZkJ1VmJhbFB1b3dBTXdjWnh4UEFwZnJKS0JzWdIB3wFBVV95cUxQd3JoT3drQVhJWTUzT3pnOVh1S3p1NG1uejJJc2tzR0p4SVJUdkpUNjBpWjR4aHA0dWVVWXA1LUJMWkV1UzU3X3dzZ2xwYXFzOS15a3FZYVBlMkJ3NUdqUTVzWWZDc1lJblJ3RFJnbXFJcWRzNXFGbEp2cEdyMDZ3cElUd0Y3RkxpZlg3V1V4V2RVR1F6dlFnUVVmeWtoSjN1TC1UVmxTSjFKdzU4T0NIYi1qWTVoekJLNlBtajhSc2pieTl4N3ZmZk9NaWhVTHFlbmlLV0E4Vy1SLWM3WlVF?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "04/09/2026",
-   "cat": "antoan",
-   "tieu_de": "Anthropic tạm dừng một phần huấn luyện AI sau vụ tin tặc lợi dụng AI agent",
-   "noi_dung": "Theo Fortune, Anthropic đã tạm dừng một số hoạt động huấn luyện AI sau khi phát hiện vụ việc tin tặc lợi dụng AI agent (AI có thể tự thao tác nhiều bước) để tấn công. Bài báo so sánh cách Anthropic xử lý vụ này với cách OpenAI từng ứng phó các sự cố tương tự.",
-   "voi_ban": "Đây là tin về an toàn ở tầng phát triển sản phẩm, không phải lỗi ảnh hưởng trực tiếp tới người đang chat với Claude hằng ngày; chưa cần đổi gì trong cách bạn đang dùng Claude.",
-   "nguon": [
-    {
-     "ten": "tổng hợp qua Fortune",
-     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOYWFndEtkNmlCU09kMVRxXzFGS1FBQm5BSGk0QlpiV01VZEZPc2RlUXNsX3hLZ0pFUDQzM2JUV2tNaEFQdURTb3lHYWt3VHEtWlRwWURfTHNOcEJCMzRLOURwbHhPd0xpOEVjd2R3MmIzOWUwbnRway13b214RVlrMg?oc=5"
-    }
-   ]
-  },
-  {
-   "ngay": "04/09/2026",
-   "cat": "hatang",
-   "tieu_de": "ChatGPT, Claude, Grok và Gemini cùng gặp sự cố ngừng hoạt động trong ngày 03/9",
-   "noi_dung": "Theo Ars Technica và The Verge, bốn trợ lý AI lớn — ChatGPT, Claude, Grok và Gemini — đều báo lỗi gần như cùng lúc trong ngày 03/9. ChatGPT bắt đầu báo lỗi khoảng 11 giờ sáng giờ Mỹ, cả bốn dịch vụ đã hoạt động lại bình thường sau đó; tới lúc hai báo đưa tin, chưa hãng nào công bố rõ nguyên nhân.",
-   "voi_ban": "Nhiều AI lớn cùng gặp sự cố một lúc là lời nhắc nên có phương án dự phòng: việc quan trọng đang cần AI thì tốt nhất có sẵn hơn một công cụ (ví dụ vừa có ChatGPT vừa có Claude hoặc Gemini) để không bị động khi một bên trục trặc.",
-   "nguon": [
-    {
-     "ten": "Ars Technica",
-     "url": "https://arstechnica.com/ai/2026/09/four-major-ai-models-suffer-rare-overlapping-downtime/"
-    },
-    {
-     "ten": "The Verge",
-     "url": "https://www.theverge.com/ai-artificial-intelligence/989503/chatgpt-grok-claude-outage-down"
-    }
-   ]
-  },
-  {
-   "ngay": "04/09/2026",
-   "cat": "model",
-   "tieu_de": "OpenAI ra mắt GPT-6 Astra, giá đặt ngang dòng Claude Fable",
-   "noi_dung": "Theo cây bút công nghệ Simon Willison, OpenAI bắt đầu mở GPT-6 Astra cho một số tổ chức, sẽ mở rộng dần cho người dùng ChatGPT Plus, Pro, Business, Enterprise và qua API. Giá được đặt bằng đúng mức của Claude Fable 5 và 5.1: 10 đô la cho mỗi triệu chữ đọc vào, 50 đô la cho mỗi triệu chữ trả ra.",
-   "voi_ban": "Người dùng ChatGPT trả phí sẽ sớm được dùng thử mẫu AI mạnh nhất của OpenAI mà không phải trả thêm; mức giá ngang Claude Fable nghĩa là hai hãng đang cạnh tranh sòng phẳng ở phân khúc cao cấp, chưa ảnh hưởng tới gói miễn phí của bên nào.",
-   "nguon": [
-    {
-     "ten": "Simon Willison",
-     "url": "https://simonwillison.net/2026/Sep/3/gpt6-astra/"
-    }
-   ]
-  },
-  {
-   "ngay": "04/09/2026",
-   "cat": "gia",
-   "tieu_de": "Google ra mắt Gemini 3.8 Flash, giá rẻ gần bằng một phần mười Claude",
-   "noi_dung": "Google vừa ra mắt Gemini 3.8 Flash, chỉ vài tuần sau bản 3.7 Flash. Giá khởi điểm vẫn giữ nguyên mức cũ, 0,75 đô la cho mỗi triệu chữ đọc vào và 3,75 đô la cho mỗi triệu chữ trả ra; theo CafeF, mức này rẻ gần bằng một phần mười so với Claude. Google nói bản mới suy nghĩ nhiều bước hơn và tự gọi công cụ nhiều lần hơn khi gặp việc phức tạp.",
-   "voi_ban": "Cần một trợ lý AI giá rẻ cho việc đơn giản hằng ngày như viết email, tóm tắt, hỏi đáp thì Gemini 3.8 Flash đáng thử; việc cần suy luận sâu hoặc viết mã phức tạp thì Claude vẫn đang được đánh giá cao hơn dù giá cao hơn.",
-   "nguon": [
-    {
-     "ten": "tổng hợp qua CafeF",
-     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNejl0TTBBSy1FbVd2NTlfUW9pemtCUEFLNmI5ZFEwdko2X3FVR2JldUxtZDRTeV9RV3dlVDg1TDFwcmQxWldUdUFlazNmVC00QmpBcC1SLXRqYkdpT0dON2QwUHlqajRsUUdqVngxLVNzYzJMaTRfRGRnWGlMU19JQ3ItSE9xSjdYeENkYXlhZ0dCcEZsbW9ELW9yc196MFI3MkU5M1VNMXhhTVpWZnVSclE3akExM0VmUnMxMGhRZVZHcFFZdU1V?oc=5"
-    },
-    {
-     "ten": "The Verge",
-     "url": "https://www.theverge.com/ai-artificial-intelligence/988742/google-gemini-3-8-flash"
-    }
-   ]
-  },
-  {
-   "ngay": "31/08/2026",
-   "cat": "luat",
-   "tieu_de": "EU đang nhắm quy định vào ChatGPT, Reddit và Roblox — còn Claude của Anthropic thì không",
-   "noi_dung": "Theo BeInCrypto, Liên minh châu Âu đang hướng sự chú ý về quy định vào ChatGPT, Reddit và Roblox, trong khi Claude của Anthropic lại không nằm trong nhóm bị nhắm tới lần này. Bài không nêu rõ đây là quy định cụ thể gì hay vì sao Claude được bỏ qua.",
-   "voi_ban": "Nếu bạn đang dùng Claude, đây là dấu hiệu Anthropic tạm thời ít bị soi quy định hơn ở châu Âu so với OpenAI hay các hãng khác — nhưng thông tin còn thiếu chi tiết nên chưa cần làm gì, chỉ nên theo dõi thêm.",
-   "nguon": [
-    {
-     "ten": "tổng hợp qua BeInCrypto",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBPMnpzN2FDRlV3VW5WUEpJVmdYQ1E1d0ZJRzJNRnJvMlBwLU1zeHZpdVBJNmNsWl9Xb0ZDUnU3WjhGaEtocmVXYlNhdEFaaGZ6Yk9lWFRtdWc5VEtKWXl0UHJaNXkzdDZoVUFZbVh6dm5qQnZH?oc=5"
     }
    ]
   }
