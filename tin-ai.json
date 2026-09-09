@@ -1,7 +1,59 @@
 {
  "_ghi_chu": "Tin AI do routine 06:30 ghi vào (bước cuối của task `tin-kinh-doanh`). Trang nạp file này rồi chèn các mục lên ĐẦU danh sách tin trong tab 'Tin mới'; các mục viết tay trong index.html giữ nguyên bên dưới. File hỏng hoặc thiếu thì trang hiện y như cũ, không vỡ. Nhãn `cat` phải nằm trong bảng của bộ lọc: model · gia · agent · antoan · luat · hatang · sangtao · vn. Trần 12 mục, cũ nhất rơi ra trước.",
- "cap_nhat": "2026-09-08",
+ "cap_nhat": "2026-09-09",
  "muc": [
+  {
+   "ngay": "09/09/2026",
+   "cat": "antoan",
+   "tieu_de": "Anthropic cảnh báo: có hacker đang lấy trộm token tài khoản Claude của người dùng",
+   "noi_dung": "Theo TechCrunch, một người dùng Claude phát hiện tài khoản của mình tiêu tốn token dù không hề đang sử dụng. Anthropic sau đó đã cảnh báo người dùng về tình trạng hacker chiếm quyền truy cập rồi rút token từ các tài khoản bị đánh cắp. Bài chưa nêu rõ số người bị ảnh hưởng hay cách hacker lấy được quyền truy cập.",
+   "voi_ban": "Nên bật xác thực hai lớp cho tài khoản Claude, và nếu thấy token bị tiêu hao bất thường trong khi mình không dùng thì đổi mật khẩu ngay.",
+   "nguon": [
+    {
+     "ten": "TechCrunch",
+     "url": "https://techcrunch.com/2026/09/08/hackers-are-stealing-claude-tokens-from-subscribers/"
+    }
+   ]
+  },
+  {
+   "ngay": "09/09/2026",
+   "cat": "hatang",
+   "tieu_de": "ChatGPT, Claude và Grok cùng sập mạng, nhiều người nghi do sự cố ở Cloudflare",
+   "noi_dung": "Theo odaily.news, ba trợ lý AI phổ biến là ChatGPT, Claude và Grok đồng loạt gặp sự cố truy cập cùng một lúc. Nhiều người dùng nghi ngờ nguyên nhân đến từ sự cố ở Cloudflare, một dịch vụ hạ tầng mạng mà rất nhiều trang web và ứng dụng lớn đang dùng chung. Bài chưa xác nhận chính thức nguyên nhân sự cố.",
+   "voi_ban": "Nếu một ngày cả ChatGPT lẫn Claude cùng lúc không vào được, nhiều khả năng do sự cố hạ tầng dùng chung chứ không phải do máy hay mạng của bạn — cứ đợi ít phút rồi thử lại.",
+   "nguon": [
+    {
+     "ten": "odaily.news (qua Google News)",
+     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE96cWhBSDdqa2lpLTNBVWd4d2NWTTd6cXVuUDlWbV9mYzhXNXZyUjdyeHo5cFNpdmQxUVB2YWw3V0ZOaHoxYzVVU2RfVlNURWlL?oc=5"
+    }
+   ]
+  },
+  {
+   "ngay": "09/09/2026",
+   "cat": "sangtao",
+   "tieu_de": "ChatGPT thêm tính năng Sketch: vẽ nguệch ngoạc rồi để AI vẽ lại thành ảnh chi tiết",
+   "noi_dung": "Theo The Verge, OpenAI vừa công bố ChatGPT Images 2.5 kèm một tính năng mới tên Sketch. Với Sketch, người dùng vẽ một hình phác thảo đơn giản ngay trong ChatGPT rồi mô tả bằng lời muốn bức ảnh trông ra sao, ChatGPT sẽ vẽ lại thành một bức ảnh chi tiết dựa theo nét vẽ đó.",
+   "voi_ban": "Không cần biết vẽ đẹp — chỉ cần phác thảo bố cục rồi mô tả bằng lời là đã có thể ra ảnh ưng ý hơn so với việc chỉ gõ chữ mô tả ngay từ đầu.",
+   "nguon": [
+    {
+     "ten": "The Verge",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/991727/openai-chatgpt-images-2-5-sketch"
+    }
+   ]
+  },
+  {
+   "ngay": "09/09/2026",
+   "cat": "model",
+   "tieu_de": "Một mô hình AI chưa công bố của OpenAI được dùng để giải một bài toán treo giải hơn 20 năm",
+   "noi_dung": "Theo blog cá nhân của Simon Willison, OpenAI đã dùng một mô hình AI chưa phát hành để đưa ra lời giải cho bài toán Navier–Stokes, một trong bảy bài toán toán học thuộc giải thưởng Thiên niên kỷ (Millennium Prize) đã treo giải 1 triệu đô la từ năm 2000. Đây được xem là một kết quả gây ấn tượng, cho thấy khả năng suy luận toán học ở cấp độ nghiên cứu của các mô hình AI mới nhất.",
+   "voi_ban": "Đây là dấu hiệu AI đang tiến gần hơn tới việc hỗ trợ nghiên cứu khoa học chuyên sâu; chưa phải công cụ ai cũng cần dùng ngay, nhưng đáng chú ý nếu bạn làm trong ngành kỹ thuật hoặc nghiên cứu.",
+   "nguon": [
+    {
+     "ten": "Simon Willison (blog cá nhân)",
+     "url": "https://simonwillison.net/2026/Sep/8/on-navier-stokes/"
+    }
+   ]
+  },
   {
    "ngay": "07/09/2026",
    "cat": "luat",
@@ -107,32 +159,6 @@
     {
      "ten": "The Verge",
      "url": "https://www.theverge.com/ai-artificial-intelligence/990149/openai-rogue-agents-german-wiki"
-    }
-   ]
-  },
-  {
-   "ngay": "05/09/2026",
-   "cat": "antoan",
-   "tieu_de": "Nhóm người đi bộ đường dài phải được giải cứu sau khi làm theo kế hoạch do Gemini gợi ý",
-   "noi_dung": "Theo TechCrunch, văn phòng cảnh sát trưởng địa phương cho biết một nhóm người đi bộ đường dài phải được giải cứu sau khi dùng Google Gemini để lên kế hoạch chuyến đi; Gemini đã khuyên nhóm này mang theo lượng thức ăn và nước ít hơn nhiều so với nhu cầu thực tế của cả nhóm.",
-   "voi_ban": "Với các việc liên quan tới an toàn tính mạng như đi rừng, leo núi, sơ cứu, chỉ nên coi lời khuyên của AI là tham khảo ban đầu, luôn kiểm tra lại bằng nguồn chuyên môn hoặc kinh nghiệm thật trước khi làm theo.",
-   "nguon": [
-    {
-     "ten": "TechCrunch",
-     "url": "https://techcrunch.com/2026/09/05/hikers-rescued-after-using-google-gemini-for-planning/"
-    }
-   ]
-  },
-  {
-   "ngay": "05/09/2026",
-   "cat": "luat",
-   "tieu_de": "Thượng nghị sĩ Mỹ Bernie Sanders đưa ra dự luật có thể phạt tù lãnh đạo OpenAI, Anthropic",
-   "noi_dung": "Theo NDTV, Thượng nghị sĩ Mỹ Bernie Sanders vừa đưa ra một dự luật mới, theo đó lãnh đạo các công ty AI như OpenAI và Anthropic có thể bị phạt tù nhiều năm nếu vi phạm các quy định mà dự luật đặt ra. Đây mới là dự luật, chưa phải luật đang có hiệu lực.",
-   "voi_ban": "Người dùng AI thông thường chưa cần lo lắng gì lúc này vì dự luật còn phải qua nhiều bước mới thành luật thật; đây chỉ là dấu hiệu giới lập pháp Mỹ ngày càng để ý siết trách nhiệm của các hãng AI lớn.",
-   "nguon": [
-    {
-     "ten": "tổng hợp qua NDTV",
-     "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOWEtTaXNNbm9KYll0VEtzWGF3WlpfR1ZhSEZtM2cwU0QtdkFwN0l3UnlQc1BpcjhEZWExai1DaWgxdzcwQ1N1bTZDRm04VmdKeWlrSGdYSWFpNk9oaFJZSWt5SEQ0eE9ONVdxOGViU0JmNEM1aWZCbURxRDJwUkxJMzhSbkM0WTl1ZzZnQlBxaDJoaVltR1R6ZEl1TDZtQl9uZFFBalVaOE5oTDlQRXRSa0Zhb3dpdFMxLUVNZkJ1VmJhbFB1b3dBTXdjWnh4UEFwZnJKS0JzWdIB3wFBVV95cUxQd3JoT3drQVhJWTUzT3pnOVh1S3p1NG1uejJJc2tzR0p4SVJUdkpUNjBpWjR4aHA0dWVVWXA1LUJMWkV1UzU3X3dzZ2xwYXFzOS15a3FZYVBlMkJ3NUdqUTVzWWZDc1lJblJ3RFJnbXFJcWRzNXFGbEp2cEdyMDZ3cElUd0Y3RkxpZlg3V1V4V2RVR1F6dlFnUVVmeWtoSjN1TC1UVmxTSjFKdzU4T0NIYi1qWTVoekJLNlBtajhSc2pieTl4N3ZmZk9NaWhVTHFlbmlLV0E4Vy1SLWM3WlVF?oc=5"
     }
    ]
   }
