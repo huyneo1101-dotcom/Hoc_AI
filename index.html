@@ -4281,6 +4281,11 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
         <p>Máy đứng giữa trình duyệt và trang web, mọi lượt truy cập đi vòng qua nó rồi mới tới đích. Máy chuyển
           tiếp đòi mật khẩu mà không có thì trang không mở được, còn nhập bừa mật khẩu vào ô lạ là tự trao thông
           tin cho người khác.</p></div>
+
+      <div class="term" id="tu-ban-dung-cu-preview-deployment" data-cat="mang" data-k="ban dung cu preview deployment van mo duoc"><b>bản dựng cũ (preview deployment)</b> <span class="say">bản cũ vẫn mở được</span>
+        <p>Mỗi lần đưa app lên Cloudflare Pages, máy chủ giữ lại một bản riêng ở địa chỉ dạng
+          <code>mã.tên-app.pages.dev</code>. Đẩy bản mới hay trang «tạm tắt» chỉ đổi địa chỉ chính; bản cũ vẫn
+          chạy nguyên, kể cả phần máy chủ, cho tới khi bị xoá.</p></div>
     </div>
   </section>
 
@@ -4431,6 +4436,11 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       <div class="term" id="tu-hoi-dinh-ky" data-cat="web" data-k="hoi dinh ky cu vai giay lai mot lan"><b>hỏi định kỳ</b> <span class="say">cứ vài giây hỏi lại một lần</span>
         <p>Máy xem tự hỏi máy chủ mỗi 3 giây xem có số mới chưa; có thì vẽ lại. Đơn giản, mất mạng một lúc vẫn tự
           nối lại, đổi lại tốn một lượt gọi mỗi lần hỏi.</p></div>
+
+      <div class="term" id="tu-cung-goc-same-origin" data-cat="web" data-k="cung goc same origin chung mot ngan nho tren trinh duyet"><b>cùng gốc (same-origin)</b> <span class="say">chung một ngăn nhớ trên trình duyệt</span>
+        <p>Trình duyệt chia dữ liệu lưu trên máy theo tên miền. Mọi app đặt dưới cùng <code>tên.github.io</code> là
+          cùng một gốc, nên đọc được dữ liệu và phiên đăng nhập của nhau; app ở tên miền riêng như
+          <code>vi-du.pages.dev</code> thì tách ngăn.</p></div>
     </div>
   </section>
 
@@ -4700,6 +4710,16 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
         <p>Như dặn người giúp việc: chỉ được mở tủ lạnh và tưới cây, việc gì ngoài danh sách thì tự từ chối, không
           gọi điện hỏi. Phiên chạy đêm không bị kẹt chờ ai, mà trang web có cài lệnh lạ cũng không sai khiến
           được. Bỏ chế độ này mà chỉ đưa danh sách thì danh sách thành giấy trang trí.</p></div>
+
+      <div class="term" id="tu-truy-cap-khong-nguoi-truc-unattended-acc" data-cat="antoan" data-k="truy cap khong nguoi truc unattended access vao may can ai bam nhan anydesk dieu khien tu xa"><b>truy cập không người trực (unattended access)</b> <span class="say">vào máy không cần ai bấm nhận</span>
+        <p>Chế độ của phần mềm điều khiển từ xa như AnyDesk: ai có mã máy và mật khẩu là cầm chuột, gõ phím, chép
+          file trên máy từ bất cứ đâu, không cần người ngồi trước máy bấm đồng ý. Tiện khi tự vào máy nhà từ
+          điện thoại, nhưng mật khẩu lộ là mất cả máy.</p></div>
+
+      <div class="term" id="tu-do-khoa-lo-secret-scanning" data-cat="antoan" data-k="do khoa lo secret scanning github tu soi bi mat push protection"><b>dò khoá lộ (secret scanning)</b> <span class="say">GitHub tự soi khoá bí mật</span>
+        <p>Chức năng miễn phí của GitHub cho kho công khai: soi mọi lần lưu mã, kể cả lịch sử cũ, tìm chuỗi giống
+          khoá API hay mật khẩu rồi báo chủ kho. Bật kèm chặn lúc đẩy thì lần lưu nào mang khoá sẽ bị từ chối
+          ngay.</p></div>
     </div>
   </section>
 
