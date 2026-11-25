@@ -4519,6 +4519,22 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       <div class="term" id="tu-d1" data-cat="data" data-k="d1 so du lieu tren mang cua cloudflare"><b>D1</b> <span class="say">sổ dữ liệu trên mạng của Cloudflare</span>
         <p>Một cơ sở dữ liệu nhỏ Cloudflare cho dùng miễn phí tới 100.000 lượt ghi mỗi ngày. Bi-a Đền dùng nó để
           máy ghi điểm gửi số cho máy xem.</p></div>
+
+      <div class="term" id="tu-nhin-truoc-tuong-lai-lookahead-bias" data-cat="data" data-k="nhin truoc tuong lai lookahead bias kiem thu lo dung so chua co tai luc ra quyet dinh"><b>nhìn trước tương lai (lookahead bias)</b> <span class="say">kiểm thử lỡ dùng số chưa có tại lúc ra quyết định</span>
+        <p>Khi thử một luật giao dịch trên dữ liệu cũ, máy có thể vô tình dùng giá của cây nến chưa đóng, tức là
+          thông tin mà người thật lúc đó chưa biết. Kết quả trông lãi rất đẹp nhưng không bao giờ lặp lại được
+          khi dùng tiền thật. Cách chặn là dựng lại dữ liệu đúng tới thời điểm đặt lệnh rồi so quyết định với
+          bản đủ dữ liệu; lệch dù một lần là có lỗi.</p></div>
+
+      <div class="term" id="tu-kiem-tren-du-lieu-chua-thay-out-of-sampl" data-cat="data" data-k="kiem tren du lieu chua thay out of sample cham luat bang khong dung luc chon"><b>kiểm trên dữ liệu chưa thấy (out-of-sample)</b> <span class="say">chấm luật bằng dữ liệu không dùng lúc chọn luật</span>
+        <p>Luật được chọn trên một đoạn dữ liệu, rồi khoá lại và chấm đúng một lần trên đoạn hoặc rổ khác chưa ai
+          nhìn. Ví dụ bot coin chọn luật trên 05 coin giai đoạn 2017-2022, rồi chấm trên 10 coin khác. Lãi trên
+          phần dữ liệu chưa thấy mới gần với lãi thật sau này.</p></div>
+
+      <div class="term" id="tu-hieu-chinh-nhieu-phep-thu-multiple-testi" data-cat="data" data-k="hieu chinh nhieu phep thu multiple testing cang kieu thi de gap dep do may"><b>hiệu chỉnh nhiều phép thử (multiple testing)</b> <span class="say">thử càng nhiều kiểu thì càng dễ gặp kiểu đẹp do may</span>
+        <p>Thử 200 luật trên cùng một bộ số thì gần như chắc chắn có vài luật trông lãi đẹp chỉ nhờ may. Vì vậy mỗi
+          lần thử thêm, ngưỡng để tin một luật phải nâng lên; bot coin đếm số kiểu đã thử và nâng ngưỡng chỉ số
+          t tương ứng, ví dụ 12 lần thử cần t từ 2,64 trở lên.</p></div>
     </div>
   </section>
 
