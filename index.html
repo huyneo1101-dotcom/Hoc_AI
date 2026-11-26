@@ -283,6 +283,7 @@
   .feature-list .feat span{color:var(--muted);font-size:.88rem}
   .steps{margin:0;padding-left:1.3rem}
   .steps li{margin:6px 0;font-size:.94rem}
+  section > h3{font-size:1.05rem;margin:26px 0 8px}
   .applinks{margin:14px 0 4px;display:flex;flex-direction:column;gap:8px}
   .applinks-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
   .applinks-name{font-size:.82rem;font-weight:600;color:var(--muted);min-width:92px}
@@ -522,20 +523,21 @@
         <button class="subtab-btn" data-subtab="toolsdeep" role="tab" aria-selected="false" onclick="showSubTab('toolsdeep')"><span class="st-num">04</span><span class="st-name">Chi tiết từng AI</span></button>
         <button class="subtab-btn" data-subtab="multiai" role="tab" aria-selected="false" onclick="showSubTab('multiai')"><span class="st-num">05</span><span class="st-name">Dùng nhiều AI</span></button>
         <button class="subtab-btn" data-subtab="claude" role="tab" aria-selected="false" onclick="showSubTab('claude')"><span class="st-num">06</span><span class="st-name">Claude &amp; Claude Code</span></button>
+        <button class="subtab-btn" data-subtab="noidung" role="tab" aria-selected="false" onclick="showSubTab('noidung')"><span class="st-num">07</span><span class="st-name">Làm ảnh &amp; video bằng AI</span></button>
       </div>
     </div>
     <div class="st-group" role="presentation">
       <span class="st-glabel">Tự động hoá</span>
       <div class="st-row" role="presentation">
-        <button class="subtab-btn" data-subtab="skills" role="tab" aria-selected="false" onclick="showSubTab('skills')"><span class="st-num">07</span><span class="st-name">Agent Skills</span></button>
-        <button class="subtab-btn" data-subtab="agentic" role="tab" aria-selected="false" onclick="showSubTab('agentic')"><span class="st-num">08</span><span class="st-name">AI Agent (Agentic)</span></button>
+        <button class="subtab-btn" data-subtab="skills" role="tab" aria-selected="false" onclick="showSubTab('skills')"><span class="st-num">08</span><span class="st-name">Agent Skills</span></button>
+        <button class="subtab-btn" data-subtab="agentic" role="tab" aria-selected="false" onclick="showSubTab('agentic')"><span class="st-num">09</span><span class="st-name">AI Agent (Agentic)</span></button>
       </div>
     </div>
     <div class="st-group" role="presentation">
       <span class="st-glabel">Tra cứu và luyện</span>
       <div class="st-row" role="presentation">
-        <button class="subtab-btn" data-subtab="thuatngu" role="tab" aria-selected="false" onclick="showSubTab('thuatngu')"><span class="st-num">09</span><span class="st-name">Từ điển thuật ngữ</span></button>
-        <button class="subtab-btn" data-subtab="quiz" role="tab" aria-selected="false" onclick="showSubTab('quiz')"><span class="st-num">10</span><span class="st-name">Kiểm tra kiến thức</span></button>
+        <button class="subtab-btn" data-subtab="thuatngu" role="tab" aria-selected="false" onclick="showSubTab('thuatngu')"><span class="st-num">10</span><span class="st-name">Từ điển thuật ngữ</span></button>
+        <button class="subtab-btn" data-subtab="quiz" role="tab" aria-selected="false" onclick="showSubTab('quiz')"><span class="st-num">11</span><span class="st-name">Kiểm tra kiến thức</span></button>
       </div>
     </div>
   </div>
@@ -556,6 +558,7 @@
       <li><a href="#vi-du">Ví dụ prompt theo tình huống</a></li>
       <li><a href="#luu-y">Lưu ý an toàn tối thiểu</a></li>
       <li><a href="#lua-dao-ai">Lừa đảo bằng AI — nhận ra và tự bảo vệ</a></li>
+      <li><a href="#thoi-quen-ai">Thói quen dùng AI lâu dài</a></li>
     </ol>
   </nav>
 
@@ -908,6 +911,117 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
     <div class="tip">📌 Về phía pháp luật, Việt Nam đã buộc gắn nhãn với nội dung do AI tạo ra khi nội dung đó mô
       phỏng người thật và được đưa ra công cộng — chi tiết ở tab <strong>“Khái niệm nền tảng”</strong>, mục 10.
       Nhưng người đi lừa thì không tuân thủ quy định nào cả, nên phần tự bảo vệ ở trên vẫn là lớp chắn thật.</div>
+  </section>
+
+  <section id="thoi-quen-ai">
+    <h2><span class="num">8</span> Thói quen dùng AI lâu dài: đúc kết từ người dùng thật</h2>
+    <p>Các mục trên dạy cách hỏi cho đúng. Mục này gom những thói quen mà người dùng AI hằng ngày nhiều năm rút ra,
+      tổng hợp từ các video hướng dẫn trên YouTube tháng 11/2026. Mỗi ý đều ghi rõ lấy từ video nào ở cuối mục; số
+      liệu là lời của tác giả video, chưa được kiểm độc lập.</p>
+
+    <h3>Khi nào nên giao hẳn việc cho AI</h3>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:38%">Tình huống</th><th>Nên làm gì</th></tr>
+        <tr><td><strong>Bạn đã tự làm được</strong>, AI làm ngang bằng và tiết kiệm nhiều thời gian</td>
+          <td>Giao hẳn cho AI, chỉ kiểm lại kết quả.</td></tr>
+        <tr><td><strong>Bạn không biết làm</strong>, sau này cũng không cần biết, và làm sai không gây hậu quả</td>
+          <td>Giao hẳn cho AI.</td></tr>
+        <tr><td><strong>Mọi trường hợp còn lại</strong>, nhất là việc bạn phải chịu trách nhiệm lâu dài</td>
+          <td>Tự làm, học thêm, thuê người làm, hoặc đổi kế hoạch. Buộc phải dùng AI thì làm bước
+            <strong>giả định thất bại trước</strong> (premortem): tưởng tượng kế hoạch đã hỏng rồi lần ngược xem hỏng
+            vì đâu.</td></tr>
+      </table>
+    </div>
+    <div class="tip">⚠️ Một người dạy cách học (Justin Sung) đếm được: ở lĩnh vực mình rành, ông không đồng ý với
+      30 đến 40% nội dung AI trả lời; ở lĩnh vực không rành, con số tụt còn 2 đến 5%. Nghĩa là
+      <strong>càng ít hiểu một việc, càng khó thấy AI sai</strong>, chứ không phải AI sai ít hơn. Cái giá lớn nhất là
+      mất lòng tin: cấp trên không còn phân biệt được đâu là phán đoán của bạn, đâu là của máy.</div>
+
+    <h3>06 mẹo dùng được nhiều năm</h3>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Đổi tài liệu sang chữ thuần trước khi đưa cho AI.</strong> Một file PDF 661 KB đổi sang dạng
+          chữ thuần (markdown) còn 94 KB, AI đọc nhanh hơn và tốn ít hạn mức hơn. Thư mục nhiều file thì nhờ AI lập
+          một file mục lục: mỗi file một dòng mô tả và lúc nào cần dùng, để lần sau AI chỉ mở đúng file cần.</li>
+        <li><strong>Câu lệnh hay dùng thì lưu sẵn</strong> trong ứng dụng gõ tắt của điện thoại hoặc máy tính. Việc
+          nhiều bước lặp lại theo cùng một quy trình thì đóng thành Skill (xem tab “Agent Skills”).</li>
+        <li><strong>Bắt AI nhắc lại mục tiêu trước việc quan trọng.</strong> Bảo AI diễn đạt lại bạn muốn gì và
+          đưa kế hoạch để duyệt trước khi làm. Ví dụ chọn một trong ba bên tổ chức đám cưới: kế hoạch AI đưa ra thiếu
+          bảng chấm điểm, bổ sung 05 tiêu chí có trọng số thì kết quả mới dùng được.</li>
+        <li><strong>Một ví dụ mẫu tốt hơn một lệnh dài.</strong> Đưa một bản mẫu đúng ý, AI bắt chước chuẩn hơn là
+          đọc mười dòng mô tả.</li>
+        <li><strong>Thử nhỏ trước khi làm hàng loạt.</strong> Duyệt kết quả trên 05 file rồi mới cho AI làm 200 file.</li>
+        <li><strong>Mỗi công cụ một sổ quy tắc riêng.</strong> Ví dụ với lịch: cuộc họp mặc định 45 phút; với thư:
+          trả lời ngắn, không ký tên. Ghi một lần vào phần hướng dẫn riêng của AI, khỏi dặn lại mỗi lần.</li>
+      </ul>
+    </div>
+
+    <h3>Vòng học: AI soạn nháp, bạn sửa, AI so lại</h3>
+    <p>Người đứng đầu Instagram (Adam Mosseri) nói thẳng: AI mới dùng chỉ ở mức <strong>trung bình của
+      internet</strong>, muốn nó hợp với mình phải có vòng học. Cách làm giống nhau ở nhiều video:</p>
+    <ol class="steps">
+      <li>AI soạn bản nháp (thư trả lời, tóm tắt họp, bài đăng).</li>
+      <li>Bạn sửa rồi mới gửi đi.</li>
+      <li>Cuối ngày cho AI so bản nháp của nó với bản bạn đã gửi, rút ra quy tắc mới và ghi vào phần hướng dẫn.</li>
+    </ol>
+    <div class="tip">💡 Bản tóm tắt họp của ông lúc đầu vô dụng; sau 01 đến 02 tháng cho AI tự chấm theo biên bản
+      thật, bản tóm tắt mới thành hữu ích. Đừng bỏ cuộc sau tuần đầu.</div>
+
+    <h3>Nói chuyện thay vì viết lệnh dài</h3>
+    <ul class="checklist">
+      <li><strong>Cho AI hỏi ngược lại</strong> tới khi nó hiểu đủ yêu cầu, thay vì cố viết một câu lệnh hoàn hảo.
+        Nói bằng giọng cũng được, nhanh hơn gõ.</li>
+      <li><strong>Coi mọi thứ AI viết là giả thuyết.</strong> Đưa sang AI khác phản biện (xem tab “Dùng nhiều AI”),
+        bật chế độ suy nghĩ sâu, rồi mới tới lượt mình soát.</li>
+      <li><strong>Sửa ảnh thì chỉ khoanh chỗ lỗi</strong>, đừng bắt AI vẽ lại cả bức, vì vẽ lại là hỏng luôn chỗ
+        đang đẹp.</li>
+      <li><strong>Bắt đầu bằng bản miễn phí</strong>, chỉ trả phí khi AI đã giúp kiếm lại được tiền.</li>
+      <li><strong>Trẻ từ cấp hai trở xuống</strong> không nên dùng AI tự do khi không có bố mẹ ngồi cùng. Một học
+        sinh lớp 8 kể ba lần hỏi, AI cho ra cùng một mở bài.</li>
+      <li><strong>Đặt kỳ vọng khoảng 80%.</strong> Yêu cầu càng rõ, kết quả càng sát ý, nhưng phần còn lại và
+        quyết định cuối vẫn là của người.</li>
+    </ul>
+
+    <h3>Đừng để AI làm “cháy não”</h3>
+    <p>Khảo sát của BCG trên gần 1.500 người đi làm ở Mỹ (đăng trên Harvard Business Review) gọi hiện tượng mệt vì
+      phải canh AI liên tục là <strong>“cháy não vì AI”</strong>: 14% người dùng từng gặp, nhóm này mắc lỗi nghiêm
+      trọng nhiều hơn 39%. Năng suất tăng khi dùng 02 công cụ, cao nhất ở 03 công cụ, và <strong>giảm từ công cụ
+      thứ 04</strong>.</p>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Quy tắc 3 · 1 · 0:</strong> tối đa 03 công cụ AI, mỗi lúc 01 việc, 0 lệnh giao cho AI ngoài giờ
+          làm.</li>
+        <li><strong>Giao AI việc lặp lại, ít rủi ro, dễ kiểm</strong>: tóm tắt họp, đổi định dạng bảng, dựng khung
+          thư. Báo cáo tài chính, soát hợp đồng thì tự làm.</li>
+        <li><strong>Nếu soát bài của AI mất nhiều thời gian hơn tự làm, hãy tự làm.</strong></li>
+        <li>Mỗi lúc chỉ mở một tab; mỗi đầu việc một thẻ trên bảng 03 cột (chờ làm · đang làm · chờ duyệt).</li>
+      </ul>
+    </div>
+    <div class="tip">ℹ️ Hạn chế của khảo sát: số liệu do người tham gia tự khai, chưa rõ hiện tượng ngắn hạn hay lâu
+      dài, và BCG là công ty bán dịch vụ tư vấn chuyển đổi AI.</div>
+    <div class="tip">🔁 Việc AI chưa làm được hôm nay thì <strong>3 đến 6 tháng sau thử lại</strong>: model mới ra liên
+      tục, thứ từng thất bại có thể đã làm được (lời khuyên của giám đốc hãng Box).</div>
+
+    <h3>AI có sẵn trong máy, khỏi cài thêm</h3>
+    <ul class="checklist">
+      <li><strong>Siri AI trên iPhone và Mac</strong> (bản thử): nhớ ngữ cảnh qua nhiều câu hỏi, đọc được màn hình
+        (hỏi số kiện hành lý trên vé PDF, tóm 03 ý một bài báo đang mở), tìm trong tin nhắn, thư, ảnh. Vì còn là bản
+        thử, <strong>xem lại mọi thứ Siri sắp gửi, mua hoặc đặt</strong>. Tắt được việc Siri chuyển câu hỏi sang
+        ChatGPT trong phần cài đặt.</li>
+      <li><strong>Digup</strong> (Mac, miễn phí): tìm file theo điều bạn nhớ về nội dung, không cần nhớ tên file.
+        Phím tắt Command + Shift + Space.</li>
+    </ul>
+
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=yFtB-ekr8d4" target="_blank" rel="noopener">Justin Sung, 13/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=9Hwanevuhd8" target="_blank" rel="noopener">Jeff Su, 11/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=CN8c1edTCew" target="_blank" rel="noopener">Silicon Valley Girl phỏng vấn Adam Mosseri, 19/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=wmS8r_agSzw" target="_blank" rel="noopener">VTV Index, Bình dân học vụ số, 04/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=3L7bhIyA984" target="_blank" rel="noopener">VTV Index, AI thay đổi cách làm việc, 16/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=5lIXV2-3GPE" target="_blank" rel="noopener">Under30, Cháy não vì AI, 14/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=K_uSex24sPg" target="_blank" rel="noopener">Forbes phỏng vấn giám đốc Box, 15/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=a6bV3xFg5f0" target="_blank" rel="noopener">AI Master, Siri AI, 14/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=XQuRgVP9-Sc" target="_blank" rel="noopener">The AI Advantage, Digup, 04/11/2026</a></div>
   </section>
 
   <footer>
@@ -2340,6 +2454,7 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
       <li><a href="#thien-vi">Thiên vị &amp; giới hạn suy luận</a></li>
       <li><a href="#kiem-chung">Cách kiểm chứng một câu trả lời</a></li>
       <li><a href="#luat-ai-vn">Luật AI ở Việt Nam — người dùng thường cần biết gì</a></li>
+      <li><a href="#duong-lui">Công cụ AI cũng có thể đóng cửa: giữ đường lui</a></li>
     </ol>
   </nav>
 
@@ -2391,6 +2506,37 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
       đủ dùng tốt cho nhu cầu cơ bản hàng ngày.</p>
     <div class="tip">💰 Đừng vội trả phí — dùng thử bản free 1–2 tuần để biết mình thật sự cần tính năng nào trước
       khi nâng cấp.</div>
+    <h3>Bản miễn phí đang bị thu hẹp: ví dụ Gemini (11/2026)</h3>
+    <p>Theo video của kênh AI Master (08/11/2026), từ ngày 9/10 tài khoản Gemini miễn phí chỉ còn một model nhẹ ở
+      chế độ tự động, các model mạnh bị khoá; trí nhớ trong một cuộc chat của bản miễn phí là 32.000 token, so với
+      128.000 ở gói rẻ nhất và 1 triệu ở gói cao. Google không công bố bản miễn phí được hỏi bao nhiêu lượt.</p>
+    <div class="tip">💡 Kết luận của tác giả: Gemini miễn phí đủ cho hỏi nhanh và việc trong Gmail, Drive; việc cần
+      suy luận dài thì dùng bản miễn phí của ChatGPT hoặc Claude. Tin “Gemini miễn phí không giới hạn” là sai.</div>
+
+    <h3>AI chạy ngay trên máy tính, không tốn tiền, không gửi dữ liệu đi</h3>
+    <p>Ứng dụng <strong>LM Studio</strong> (Mac, Windows, Linux) cho tải một model về máy một lần, sau đó dùng được
+      cả khi ngắt mạng; tài liệu riêng không rời khỏi máy. Chọn model theo bộ nhớ máy:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:34%">Bộ nhớ (RAM) của máy</th><th>Cỡ model nên thử</th></tr>
+        <tr><td>8 GB</td><td>Cỡ 3B đến 4B (B là tỷ tham số, số càng lớn càng thông minh và càng nặng)</td></tr>
+        <tr><td>16 GB</td><td>Cỡ 7B đến 8B</td></tr>
+        <tr><td>32 GB trở lên</td><td>Cỡ 14B đến 30B</td></tr>
+      </table>
+    </div>
+    <ul class="checklist">
+      <li><strong>Hợp với:</strong> soạn và sửa văn bản, tóm tắt tài liệu riêng, đọc chữ trong ảnh chụp màn hình.</li>
+      <li><strong>Không hợp với:</strong> việc cần suy luận kỹ; model nhỏ vẫn có thể nói điều tài liệu không có, nên
+        mọi con số và trích dẫn phải kiểm lại.</li>
+      <li><strong>Máy chậm thì:</strong> đổi model nhỏ hơn, chọn bản nén thấp hơn, rút ngắn độ dài cuộc chat, đóng
+        ứng dụng khác. Cho cuộc chat dài hơn chỉ tốn thêm bộ nhớ, không làm model thông minh hơn.</li>
+    </ul>
+    <div class="tip">⚠️ Trên mạng có các bản model mở đã bị <strong>gỡ cơ chế từ chối</strong> (làm theo mọi lệnh).
+      Theo video của David Ondrej (02/11/2026), loại này làm theo cả lệnh xoá thư mục hệ thống, nên đừng cho nó quyền
+      chạy lệnh trên máy và đừng tải từ nguồn lạ.</div>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=1iySkKc4tyw" target="_blank" rel="noopener">AI Master, Gemini miễn phí còn gì, 08/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=5VzlwYqXXgc" target="_blank" rel="noopener">AI Master, LM Studio, 19/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=9tOu4r-FiQI" target="_blank" rel="noopener">David Ondrej, 02/11/2026</a></div>
   </section>
 
   <section id="du-lieu-rieng-tu">
@@ -2399,6 +2545,30 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
       thường có thể tắt trong phần cài đặt (settings) của tài khoản. Dù tắt hay không, nguyên tắc an toàn chung vẫn
       là: <strong>không nhập</strong> mật khẩu, số căn cước, hợp đồng mật, dữ liệu khách hàng hay bí mật công ty vào
       bất kỳ chat AI nào — vì bạn không kiểm soát được toàn bộ vòng đời của dữ liệu sau khi gửi đi.</p>
+    <h3>Chat ẩn danh không có nghĩa là đã xoá</h3>
+    <p>Chế độ chat tạm thời hay ẩn danh chỉ làm 03 việc: ẩn khỏi lịch sử của bạn, AI không nhớ sang lần sau, và hãng
+      cam kết không dùng để huấn luyện. <strong>Bản sao vẫn nằm trên máy chủ</strong> một thời gian. Theo video của
+      kênh Under30 (23/11/2026):</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:38%">Loại chat</th><th>Hãng giữ trong bao lâu</th></tr>
+        <tr><td>Chat tạm thời trên Gemini</td><td>Khoảng 60 ngày (trước đây 72 giờ)</td></tr>
+        <tr><td>Chat tạm thời trên ChatGPT, Claude</td><td>Tối đa 30 ngày</td></tr>
+        <tr><td>Chat thường trên Gemini</td><td>Mặc định 18 tháng, tối đa 36 tháng</td></tr>
+        <tr><td>Đoạn chat đã có người kiểm duyệt đọc</td><td>Có thể tới 03 năm, tách khỏi tài khoản</td></tr>
+      </table>
+    </div>
+    <ul class="checklist">
+      <li><strong>05 thứ không dán vào AI:</strong> (i) mật khẩu và mã OTP; (ii) căn cước, tài khoản ngân hàng;
+        (iii) tài liệu mật của công ty hoặc của khách; (iv) thông tin sức khoẻ, tài chính kèm danh tính; (v) thông
+        tin cá nhân của người khác.</li>
+      <li><strong>03 nút nên tắt:</strong> “Cải thiện mô hình cho mọi người” trên ChatGPT; dùng hoạt động để huấn
+        luyện trên Gemini (đặt tự xoá sau 03 tháng); “Giúp cải thiện Claude” trên Claude.</li>
+      <li><strong>Cẩn thận nút chia sẻ:</strong> năm 2025 hàng nghìn đoạn chat có đường dẫn chia sẻ đã hiện lên kết
+        quả tìm kiếm Google.</li>
+    </ul>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=dQQGFqbK2lw" target="_blank" rel="noopener">Under30, Gemini lưu chat ẩn danh, 23/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=wmS8r_agSzw" target="_blank" rel="noopener">VTV Index, 04/11/2026</a></div>
   </section>
 
   <section id="ban-quyen">
@@ -2484,6 +2654,33 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
       thật có dính tới trách nhiệm hoặc tiền thì đọc thẳng văn bản gốc hoặc hỏi người có chuyên môn.</div>
   </section>
 
+  <section id="duong-lui">
+    <h2><span class="num">11</span> Công cụ AI cũng có thể đóng cửa: giữ đường lui</h2>
+    <p>Năm 2026 nhiều công cụ AI nổi tiếng đã đóng. Theo video “Nghĩa địa AI 2026” của kênh Under30 (21/11/2026):
+      Sora của OpenAI ngừng ngày 24/3 vì tiền máy chủ khoảng 1 triệu USD mỗi ngày trong khi cả vòng đời chỉ thu khoảng
+      2,1 triệu USD; trình duyệt ChatGPT Atlas ngừng ngày 9/8; Character AI nộp đơn phá sản tháng 10; Notion Mail đóng
+      ngày 22/9. Ngay Claude Design, công cụ thiết kế riêng của Anthropic, cũng đóng ngày 14/12 để nhập vào app Claude
+      (xem tab “Claude &amp; Claude Code”, mục 6).</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:38%">05 dấu hiệu sắp đóng</th><th>Vì sao đáng lo</th></tr>
+        <tr><td>Tính năng chính vừa được ChatGPT, Gemini hoặc Claude làm sẵn</td><td>Người dùng không còn lý do trả tiền riêng</td></tr>
+        <tr><td>Miễn phí quá hào phóng</td><td>Tiền máy chủ vượt tiền thu, sớm muộn phải cắt</td></tr>
+        <tr><td>Lâu không cập nhật</td><td>Đội làm đã chuyển việc khác</td></tr>
+        <tr><td>Đang vướng kiện bản quyền</td><td>Có thể bị buộc ngừng bất cứ lúc nào</td></tr>
+        <tr><td>Chỉ là dự án phụ của một tập đoàn</td><td>Dễ bị cắt khi tập đoàn đổi hướng</td></tr>
+      </table>
+    </div>
+    <p>Trúng từ 03 dấu hiệu trở lên thì chuẩn bị sẵn đường lui:</p>
+    <ul class="checklist">
+      <li><strong>Xuất dữ liệu định kỳ</strong> ra dạng phổ thông (Word, Excel, chữ thuần, ảnh gốc).</li>
+      <li><strong>Trả phí theo tháng</strong> với công cụ nhỏ, đừng mua gói năm.</li>
+      <li><strong>Ghi lại quy trình và câu lệnh</strong> đã dùng, để chuyển sang công cụ khác trong một buổi.</li>
+    </ul>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=NRJO125cKrQ" target="_blank" rel="noopener">Under30, Nghĩa địa AI 2026, 21/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=KmeOD4SkBXg" target="_blank" rel="noopener">Futurepedia, Claude Design sắp đóng, 20/11/2026</a></div>
+  </section>
+
   <footer>
     Trang cá nhân · Kiến thức nền áp dụng chung cho mọi công cụ AI, không riêng hãng nào.
   </footer>
@@ -2506,6 +2703,8 @@ Không dùng từ "tuyệt vời"/"hàng đầu", không chèn emoji, không vi�
       <li><a href="#da-chi-phi">Dùng nhiều AI mà không tốn thêm tiền</a></li>
       <li><a href="#da-khac-multiagent">Đa AI khác multi-agent thế nào</a></li>
       <li><a href="#da-sai-lam">Sai lầm hay gặp &amp; checklist</a></li>
+      <li><a href="#da-chon-model">Chọn model và mức suy nghĩ cho đỡ tốn</a></li>
+      <li><a href="#da-ra-cheo">Rà chéo bằng AI hãng khác: kinh nghiệm thật</a></li>
     </ol>
   </nav>
 
@@ -2739,6 +2938,65 @@ Hãy đóng vai người can ngăn: nêu 5 lý do không nên mua, và 3 phươn
       <em>kiểm</em> phần đã có? <strong>(3)</strong> Đã có gói bàn giao đủ 4 phần chưa?</div>
   </section>
 
+  <section id="da-chon-model">
+    <h2><span class="num">9</span> Chọn model và mức suy nghĩ cho đỡ tốn</h2>
+    <p>Trong cùng một hãng cũng có model to, model nhỏ. Model to giỏi hơn nhưng ăn hạn mức nhanh hơn nhiều lần, mà
+      phần lớn việc thường ngày model nhỏ làm ngang bằng. Kênh AI Master (09/11/2026) đưa cùng 10 đề bài cho 03 model
+      của Claude (Haiku nhỏ, Sonnet vừa, Opus lớn) và ghi kết quả:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:34%">Việc</th><th>Kết quả</th></tr>
+        <tr><td>Viết thư, đặt tên, mô tả sản phẩm, lên chiến dịch quảng cáo</td>
+          <td>Cả 03 model cho kết quả gần nhau. Dùng model nhỏ là đủ.</td></tr>
+        <tr><td>Đọc hợp đồng, soát bảng doanh số</td>
+          <td>Cả 03 đều bắt được chỗ mâu thuẫn; Opus xếp hạng rủi ro và nêu lập trường, Haiku bỏ sót vài tháng.</td></tr>
+        <tr><td>Viết ứng dụng nhỏ</td>
+          <td>Bản của Haiku không chạy đúng; Sonnet và Opus đều chạy tốt. Việc viết mã nên bắt đầu từ Sonnet.</td></tr>
+        <tr><td>Giải toán</td><td>Cả 03 ra cùng đáp số.</td></tr>
+      </table>
+    </div>
+    <div class="tip">💡 Nguyên tắc rút ra: <strong>bắt đầu bằng model nhỏ, chỉ nâng khi kết quả thiếu</strong>. Gói
+      thuê bao dùng chung một hạn mức tuần cho mọi model, nên chọn model nhỏ là để dành hạn mức cho việc khó.</div>
+
+    <h3>Model mạnh nhất không phải lúc nào cũng đáng dùng</h3>
+    <ul class="checklist">
+      <li><strong>Chia theo giai đoạn việc.</strong> David Ondrej (13/11/2026) dùng model mạnh nhất của Claude
+        (Fable 5.2) cho việc chưa rõ hướng, soát lỗi, thiết kế lại; khi đã có kế hoạch thì chuyển sang Opus để làm.
+        Ngày đầu ông dùng Fable 88% thời gian, tới ngày thứ ba còn 26%, vì bị chặn hạn mức 53 lần.</li>
+      <li><strong>Mức suy nghĩ (effort) để ở “high” là đủ.</strong> Mức cao nhất chỉ dành cho điều tra sâu. Theo bài
+        đo của Ondrej (23/11/2026), nâng từ high lên extra high với Gemini chỉ thêm khoảng 01 điểm mà chi phí tăng 72%.
+        Model mạnh hay nghĩ quá lâu với việc ngắn thì hạ xuống “medium”.</li>
+      <li><strong>Tính tiền theo việc xong, không theo giá niêm yết.</strong> Model đắt hơn đôi khi xong việc với ít
+        lượt hơn, nên rẻ hơn tính trên mỗi việc.</li>
+      <li><strong>Mỗi model thắng một kiểu việc.</strong> Trong bài so cùng đề của Ondrej, Gemini 4 Neon thắng ở áp
+        phích và trang giới thiệu, Fable thắng ở cảnh 3D, GPT 6.2 Astra thắng ở logo và ảnh bìa video.</li>
+    </ul>
+    <div class="tip">⚠️ Cũng theo bài đo trên, khi không biết đáp án, Gemini 4 Neon tự bịa ra câu trả lời khoảng 14%
+      số lần, Opus khoảng một nửa, Fable và GPT 6.2 Astra khoảng 60%. Model mạnh vẫn bịa, nên vẫn phải kiểm chứng
+      (xem tab “Khái niệm nền tảng”, mục 9).</div>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=-l6H36dG1r8" target="_blank" rel="noopener">AI Master, Chọn model nào cho việc nào, 09/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=dSHSsMY8u88" target="_blank" rel="noopener">David Ondrej, Quy trình với Fable 5.2, 13/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=n-LwSQq3xYE" target="_blank" rel="noopener">David Ondrej, Gemini 4 Neon đấu Fable 5.2, 23/11/2026</a></div>
+  </section>
+
+  <section id="da-ra-cheo">
+    <h2><span class="num">10</span> Rà chéo bằng AI hãng khác: kinh nghiệm thật</h2>
+    <p>Mục 3 đã nêu cách bắt AI này kiểm AI kia. Người dùng nhiều nhất trên YouTube bổ sung thêm mấy điều về
+      <strong>liều lượng</strong>:</p>
+    <ul class="checklist">
+      <li><strong>Chỉ rà chéo việc lớn hoặc rủi ro cao.</strong> Ví dụ Claude viết, GPT rà. David Ondrej cho rằng
+        bước này bắt được khoảng 95% lỗi.</li>
+      <li><strong>Hỏi lại người viết.</strong> Đưa lời chê của AI rà sang cho AI đã viết và hỏi: “chỗ này phải sửa
+        thật, hay bên kia nghĩ quá?”.</li>
+      <li><strong>Đừng rà đi rà lại nhiều vòng.</strong> Bắt AI tìm lỗi mãi thì nó sẽ bịa ra lỗi để có cái mà báo.</li>
+      <li><strong>Chọn AI rà khác đội làm ra.</strong> Hai model khác hãng hiếm khi sai giống nhau, nên Ondrej dùng
+        Gemini để kiểm chéo bài của Claude và GPT.</li>
+    </ul>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=F8rc-ULd4_4" target="_blank" rel="noopener">David Ondrej, 15.700 phiên làm việc, 01/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=45-qbcAeUbM" target="_blank" rel="noopener">David Ondrej, Nhiều skill tác tử càng kém, 10/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=dSHSsMY8u88" target="_blank" rel="noopener">David Ondrej, 13/11/2026</a></div>
+  </section>
+
   <footer>
     Trang cá nhân · Cách phối hợp nhiều công cụ AI, không quảng cáo hay ưu ái hãng nào.
   </footer>
@@ -2753,6 +3011,8 @@ Hãy đóng vai người can ngăn: nêu 5 lý do không nên mua, và 3 phươn
       <li><a href="#claude-code-cai-dat">Cài đặt & bắt đầu với Claude Code</a></li>
       <li><a href="#claude-code-meo">Dùng Claude Code hiệu quả</a></li>
       <li><a href="#khoa-hoc">Tổng hợp khóa học Anthropic Academy</a></li>
+      <li><a href="#claude-thuc-chien">Kinh nghiệm thực chiến với Claude Code</a></li>
+      <li><a href="#claude-app-moi">App Claude bản mới (11/2026): tính năng đáng dùng</a></li>
     </ol>
   </nav>
 
@@ -2957,8 +3217,318 @@ claude</code>
       <a href="https://www.anthropic.com/learn" target="_blank" rel="noopener">anthropic.com/learn</a>.</p>
   </section>
 
+  <section id="claude-thuc-chien">
+    <h2><span class="num">5</span> Kinh nghiệm thực chiến với Claude Code</h2>
+    <p>Kênh AI Master gói hơn 1.000 giờ dùng Claude Code vào 06 cấp độ (05/11/2026). Bảng dưới giữ phần dùng được
+      ngay:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:24%">Cấp</th><th>Việc nên làm</th></tr>
+        <tr><td><strong>1 · Giữ an toàn</strong></td>
+          <td>Lưu một mốc Git trước mỗi phiên và đọc từng thay đổi trước khi đồng ý, vì Claude Code sửa nhiều file một
+            lúc. File CLAUDE.md chỉ ghi quyết định cụ thể (dùng công cụ nào, lệnh kiểm thử, thư mục cấm sửa); không
+            ghi mật khẩu hay khoá API.</td></tr>
+        <tr><td><strong>2 · Lập kế hoạch</strong></td>
+          <td>Việc đụng nhiều file thì bật chế độ lập kế hoạch (Shift + Tab). Đọc kế hoạch như đọc đề xuất của người
+            mới: bước nào mơ hồ hoặc không có cách kiểm thì trả lại. Yêu cầu nên nêu tên file và tiêu chí hoàn thành.</td></tr>
+        <tr><td><strong>3 · Tự kiểm</strong></td>
+          <td>Viết bài kiểm thử trước rồi mới viết mã; cài hook để tự chạy kiểm sau mỗi lần sửa.</td></tr>
+        <tr><td><strong>4–5 · Giữ hạn mức</strong></td>
+          <td>Hạn mức tính theo từng khoảng 05 giờ cộng giới hạn tuần. Mỗi việc một phiên mới; gõ <code>/context</code>
+            để xem phiên đang tốn bao nhiêu. Agent phụ và worktree chỉ hợp với việc hẹp, kiểm được, vì mỗi agent phụ ăn
+            hạn mức nhanh gấp nhiều lần.</td></tr>
+        <tr><td><strong>6 · Biết lúc tự làm</strong></td>
+          <td>Sửa ba dòng mà bạn đã biết cách viết thì tự gõ, vì giải thích cho Claude còn lâu hơn và tốn token hơn.</td></tr>
+      </table>
+    </div>
+
+    <h3>Quy trình soát của người chạy 15.700 phiên</h3>
+    <ul class="checklist">
+      <li><strong>Mỗi phiên một nhiệm vụ</strong>, đặt tên từng phiên để biết đang làm gì.</li>
+      <li><strong>Có lỗi thì tái hiện như người dùng thật trước khi sửa</strong>; đổi giao diện thì bắt gửi ảnh chụp
+        màn hình.</li>
+      <li><strong>Dặn trả lời ngắn và “đừng nghĩ quá”</strong> trong file hướng dẫn (CLAUDE.md hoặc agents.md), vì agent
+        hay làm lâu hơn cần thiết và hay đề xuất sửa cả lỗi hiếm gặp.</li>
+      <li><strong>Agent phụ chỉ cho việc rõ ràng, song song, lặp lại</strong> (ví dụ phân loại 2.000 tài liệu). Việc
+        phát triển thường có bất ngờ, giao cho một agent mạnh nhất làm tuần tự.</li>
+      <li><strong>Người giữ quyết định về kiến trúc, tên gọi và hướng đi.</strong> Người không biết mình cần xây gì
+        thì AI cũng xây ra thứ kém.</li>
+    </ul>
+
+    <h3>Tự dựng app nhỏ thay gói thuê bao</h3>
+    <p>Kênh AI Master (23/11/2026) dựng 04 app (đồng hồ tập trung, theo dõi các khoản thuê bao, sổ tập gym, bảng nhỏ ở
+      tai thỏ MacBook) chỉ bằng mô tả thứ muốn thấy trên màn hình, vừa đủ trong gói 20 USD mỗi tháng nếu mỗi app một
+      phiên. Cái giá phải biết trước:</p>
+    <ul class="checklist">
+      <li>Không đồng bộ giữa các máy; dữ liệu nằm trong trình duyệt nên xoá dữ liệu trình duyệt là mất. Phải có nút
+        xuất, nhập dữ liệu.</li>
+      <li>Không ai hỗ trợ khi hỏng. Thứ còn đáng trả tiền: đồng bộ và sao lưu, cộng đồng, và bên chịu trách nhiệm khi
+        mất dữ liệu.</li>
+      <li>App cần đăng nhập và lưu dữ liệu thật thì trang Claude dựng ban đầu chưa đủ: phải nối thêm một nền tảng có cơ
+        sở dữ liệu (ví dụ trong video là Softr qua MCP), rồi thử đăng nhập bằng tài khoản khách xem có lộ dữ liệu của
+        người khác không.</li>
+    </ul>
+    <div class="tip">🔐 Cho Claude Code quyền vào một máy chủ thuê riêng (VPS) thì việc đầu tiên là bắt nó khoá máy
+      lại: cập nhật hệ thống, tường lửa chỉ mở cửa cần thiết, tắt đăng nhập bằng mật khẩu, chặn dò mật khẩu. Theo
+      David Ondrej (08/11/2026), Claude Code làm xong việc này trong khoảng 2,5 phút.</div>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=ec0StkHdO18" target="_blank" rel="noopener">AI Master, 1.000 giờ dùng Claude Code, 05/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=F8rc-ULd4_4" target="_blank" rel="noopener">David Ondrej, 15.700 phiên, 01/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=7-Tj5qaOUbc" target="_blank" rel="noopener">David Ondrej, Tự dựng Superbot, 16/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=ACPcpG62ogo" target="_blank" rel="noopener">AI Master, Bốn app thay gói trả phí, 23/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=MZ3hEzqjJTg" target="_blank" rel="noopener">AI Master, App web đầy đủ bằng Claude, 01/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=us6SRuWuqWc" target="_blank" rel="noopener">David Ondrej, Linux cho tác tử AI, 08/11/2026</a></div>
+  </section>
+
+  <section id="claude-app-moi">
+    <h2><span class="num">6</span> App Claude bản mới (11/2026): tính năng đáng dùng</h2>
+    <p>Tháng 11/2026 app Claude trên máy tính được làm lại. Theo các video của Futurepedia và The AI Advantage:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:30%">Tính năng</th><th>Dùng để làm gì</th></tr>
+        <tr><td><strong>02 tab: Home và Code</strong></td><td>Home gộp chat và Cowork, chỉ cần nói bằng lời thường;
+          Code dành cho Claude Code.</td></tr>
+        <tr><td><strong>Artifacts 05 dạng</strong></td><td>Tài liệu, slide (xuất PowerPoint), thiết kế, bảng điều khiển
+          lấy số liệu thật qua kết nối, và đồ hoạ chuyển động.</td></tr>
+        <tr><td><strong>Sheets, Whiteboard, Data</strong></td><td>Bảng tính kiểu Google Sheets nhưng thiếu bảng tổng hợp
+          pivot và macro; bảng trắng để bày sơ đồ, lên ý tưởng; Data dựng bảng điều khiển từ số liệu. Mọi gói trả phí
+          đều dùng được.</td></tr>
+        <tr><td><strong>Side chat, Fork, Split view</strong></td><td>Hỏi nhanh không lưu; sao một cuộc chat sang hướng
+          mới; xem nhiều phiên cạnh nhau.</td></tr>
+        <tr><td><strong>Lệnh /goal</strong></td><td>Đặt đích để Claude tự kiểm tới khi xong. Đích phải đo được, tránh
+          viết mơ hồ kiểu “làm cho tốt”.</td></tr>
+        <tr><td><strong>Giữ máy thức, phiên đám mây</strong></td><td>Phiên chạy trên đám mây vẫn làm tiếp khi gập laptop.</td></tr>
+        <tr><td><strong>Plugin cho cửa hàng nhỏ</strong></td><td>44 kỹ năng dựng sẵn cho tài chính, bán hàng, marketing,
+          chăm sóc khách; nối Gmail, Lịch để đọc dữ liệu thật (xem tab “AI Agent (Agentic)”, mục 9).</td></tr>
+      </table>
+    </div>
+    <div class="tip">💡 Bảng tính của Claude chưa cần chuyển sang: tác giả The AI Advantage giao cùng một việc cho Claude
+      Sheets và Google Sheets, kết quả gần như nhau, riêng phần chia sẻ cho người khác thì Google Sheets tốt hơn hẳn.</div>
+
+    <h3>Claude Design chuyển vào app Claude từ 14/12/2026</h3>
+    <p>Trang thiết kế riêng Claude Design đóng ngày 14/12 và sau đó chỉ còn đọc được. Ai đang có dự án ở đó cần làm
+      ngay: bấm <strong>Move</strong> trên dải thông báo, hoặc vào Artifacts → Design → dấu ba chấm → “move from
+      standalone”. Bộ màu và kiểu chữ (hệ thống thiết kế) cũng là một dự án, phải chuyển thì mới dùng tiếp được.
+      <strong>Không chuyển được</strong>: lịch sử chat, bình luận, đường dẫn công khai, lời mời qua email.</p>
+    <ul class="checklist">
+      <li><strong>Đưa mẫu cụ thể</strong> (ảnh chụp, trang web) và chỉ rõ lấy gì từ mỗi mẫu: thanh menu, kiểu chữ hay
+        hiệu ứng thẻ.</li>
+      <li><strong>Xin 06 hướng khác nhau</strong> cho trang chủ trước khi dựng, rồi dùng bảng Tweaks bật tắt kiểu chữ,
+        nút, màu nhấn mà không phải gõ lại yêu cầu.</li>
+      <li><strong>Giữ vài chuyển động nhẹ và một điểm nhấn chính</strong>; thêm hiệu ứng khắp nơi là trang thành rối.</li>
+      <li>Thiết kế xong mà cần lưu dữ liệu thật thì chuyển sang Claude Code để dựng app.</li>
+    </ul>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=tM0dwXhOv2o" target="_blank" rel="noopener">Futurepedia, Claude 2.0, 04/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=SDipcfxxa8s" target="_blank" rel="noopener">The AI Advantage, Bảng trắng và bảng tính, 14/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=KmeOD4SkBXg" target="_blank" rel="noopener">Futurepedia, Claude Design sắp đóng, 20/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=rU5llKCPPwI" target="_blank" rel="noopener">Futurepedia, 15 mẹo Claude Design, 05/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=e8Ywi7AprYw" target="_blank" rel="noopener">AI Master, Plugin cho doanh nghiệp nhỏ, 01/11/2026</a></div>
+  </section>
+
   <footer>
     Trang cá nhân · Tóm tắt phi chính thức, không thay thế nội dung gốc từ Anthropic Academy.
+  </footer>
+  </div>
+
+  <div class="subwrap" id="sub-noidung" hidden>
+
+  <p class="lead-note"><b>Tab này dành cho người làm ảnh, video bán hàng hoặc nội dung mạng xã hội</b> bằng AI. Nội dung
+    tổng hợp từ các video hướng dẫn trên YouTube tháng 11/2026; mỗi mục ghi rõ lấy từ video nào. Số liệu về chi phí
+    và hạn mức là lời của tác giả video, nhiều video có nhà tài trợ, nên coi là mốc tham khảo chứ không phải bảng giá.</p>
+
+  <nav class="toc" aria-label="Mục lục">
+    <h2>Mục lục</h2>
+    <ol>
+      <li><a href="#nd-nguyen-tac">03 nguyên tắc chung</a></li>
+      <li><a href="#nd-anh">Ảnh quảng cáo không lộ vẻ máy làm</a></li>
+      <li><a href="#nd-video-qc">Video quảng cáo từ ảnh sản phẩm</a></li>
+      <li><a href="#nd-dung-video">Để AI dựng video quay thô</a></li>
+      <li><a href="#nd-hoat-hoa">Video hoạt hoạ, 3D, video thông tin</a></li>
+      <li><a href="#nd-chi-phi">Tốn bao nhiêu hạn mức</a></li>
+      <li><a href="#nd-rui-ro">Rủi ro và gu thẩm mỹ</a></li>
+    </ol>
+  </nav>
+
+  <section id="nd-nguyen-tac">
+    <h2><span class="num">1</span> 03 nguyên tắc chung</h2>
+    <ul class="checklist">
+      <li><strong>Đưa mẫu đã kiểm chứng, đừng bắt AI nghĩ từ số 0.</strong> AI chỉ đoán chữ kế tiếp nên mặc định cho ra
+        kết quả an toàn và nhạt. Nate Herk cho AI xem từng khung hình của 27 video ngắn đã chạy tốt, rút ra luật về
+        nhịp cảnh, hiệu ứng, âm lượng, đóng thành Skill; từ đó thả video quay thô vào là ra bản dựng giống đội dựng
+        chuyên nghiệp.</li>
+      <li><strong>Giao việc như giao cho người làm thuê.</strong> Người nêu mục tiêu và điểm dừng để duyệt; AI tự chọn
+        cách làm nhưng <strong>phải trình kế hoạch trước khi tạo</strong>. Ra kết quả thì soát và yêu cầu sửa như với
+        một nhân viên dựng.</li>
+      <li><strong>Chia vai: một AI nghĩ, một AI vẽ.</strong> Claude đọc hồ sơ thương hiệu, nghĩ ý tưởng, viết lệnh; công
+        cụ tạo ảnh hoặc video chỉ làm đúng phần vẽ. Để công cụ vẽ tự đọc hết các file quy tắc thì tốn hạn mức gấp
+        nhiều lần.</li>
+    </ul>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=R_E7aydlGBA" target="_blank" rel="noopener">Under30, Nate Herk, 04/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=gGscsK57CE0" target="_blank" rel="noopener">AI Master, Quảng cáo video từ ảnh sản phẩm, 01/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=quFAco7O2gc" target="_blank" rel="noopener">Under30, Claude Code thiết kế ấn phẩm, 07/11/2026</a></div>
+  </section>
+
+  <section id="nd-anh">
+    <h2><span class="num">2</span> Ảnh quảng cáo không lộ vẻ máy làm</h2>
+    <p>Kênh Under30 (07/11/2026) dựng một “giám đốc sáng tạo” bằng Claude Code cho ảnh đăng bài. Agent cần 03 file
+      riêng:</p>
+    <ol class="steps">
+      <li><strong>Hồ sơ thương hiệu</strong>: bán gì, cho ai, giọng nói thế nào.</li>
+      <li><strong>Quy tắc hình ảnh của thương hiệu</strong>: màu, logo, kiểu chữ.</li>
+      <li><strong>Nguyên tắc thiết kế chung</strong>: khoảng cách, thứ bậc chữ to chữ nhỏ, độ tương phản.</li>
+    </ol>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:34%">Cách đã thử</th><th>Kết quả</th></tr>
+        <tr><td>Để AI tự làm ngay</td><td>Ảnh rối vì thừa chữ, thừa chi tiết, không có thứ bậc.</td></tr>
+        <tr><td>Lấy ảnh mẫu từ Pinterest rồi đổi người, đổi tư thế</td><td>Đẹp nhưng quá giống bản gốc, có rủi ro đạo
+          ý tưởng.</td></tr>
+        <tr><td><strong>AI tự đề xuất 10 hướng sáng tạo, tự chấm điểm, chọn một hướng rồi mới viết lệnh vẽ</strong></td>
+          <td>Ảnh độc đáo, có chơi chữ và ẩn dụ hình ảnh. Tác giả chọn cách này.</td></tr>
+      </table>
+    </div>
+    <ul class="checklist">
+      <li><strong>Đừng gửi kèm ảnh mẫu cho công cụ vẽ</strong>: ảnh ra sẽ chép sát mẫu.</li>
+      <li><strong>Logo, số điện thoại, website thì chèn sau</strong> bằng Claude cho đúng tỷ lệ; chữ trên ảnh do AI vẽ
+        vẫn khó kiểm soát.</li>
+      <li><strong>Ảnh động GIF</strong> (ChatGPT tạo được từ 11/2026): khi làm động, model vẽ lại khuôn mặt nên dễ lệch nét
+        người thật. Dặn rõ <strong>chỉ làm động đồ vật, giữ nguyên mặt người</strong>.</li>
+      <li>Dựng luồng này mất khoảng 02 ngày; sau đó mới dùng hằng ngày được.</li>
+    </ul>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=quFAco7O2gc" target="_blank" rel="noopener">Under30, Claude Code thiết kế ấn phẩm, 07/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=5LkRDoGVook" target="_blank" rel="noopener">The AI Advantage, ChatGPT Images 2.6, 07/11/2026</a></div>
+  </section>
+
+  <section id="nd-video-qc">
+    <h2><span class="num">3</span> Video quảng cáo từ ảnh sản phẩm</h2>
+    <h3>Từ vài tấm ảnh sản phẩm thật</h3>
+    <ol class="steps">
+      <li>Đính vài ảnh sản phẩm thật, viết yêu cầu như một bản giao việc: mục tiêu, khổ video dọc 15 đến 20 giây, điểm
+        dừng để duyệt bản cắt đầu.</li>
+      <li>AI tra ví dụ quảng cáo đang chạy, đề xuất 03 hướng (mỗi hướng có đoạn mở đầu và danh sách cảnh), chọn một hướng
+        kèm lý do, rồi lập kế hoạch từng cảnh.</li>
+      <li><strong>Soát bằng cách đặt ảnh gốc, khung hình AI tạo và video cuối cạnh nhau</strong>, phóng to nhãn chữ nhỏ
+        và hình dáng sản phẩm. Nhãn hay hình dáng đổi giữa các cảnh là hỏng.</li>
+      <li>Xin thêm 03 đoạn mở đầu để thử A/B: hai bản chỉ khác đoạn mở đầu, giữ nguyên phần còn lại, rồi xem bản nào
+        nhiều người xem hết hơn.</li>
+    </ol>
+    <h3>Từ một video bán hàng đang lan truyền</h3>
+    <p>Kênh Under30 (16/11/2026) tải một video bán hàng đang nổi trên TikTok lên công cụ Dreamina, cho AI bóc cấu trúc
+      (mở đầu, thân, kết, nhịp), rồi viết kịch bản mới theo đúng cấu trúc đó cho sản phẩm của mình. Tính năng tách chuyển
+      động từ clip mẫu giúp nhân vật AI cử động tự nhiên hơn. Bản cuối ghép trong CapCut, thêm nhạc và tiếng động.</p>
+    <h3>Giữ nhân vật không bị đổi mặt giữa các cảnh</h3>
+    <ul class="checklist">
+      <li><strong>Làm tư liệu trước:</strong> 03 ảnh khuôn mặt, ảnh chân dung, bảng nhân vật ba góc, ảnh bối cảnh, đưa
+        vào theo đúng thứ tự nêu trong lệnh.</li>
+      <li><strong>Chạy bản nháp chất lượng thấp trước</strong> (480p), ưng rồi mới làm bản nét (1080p).</li>
+      <li><strong>Sửa đúng đoạn lệnh gây lỗi</strong>, ví dụ: chỉ cắt cảnh dứt khoát, mỗi cảnh một cú quay một hành động.</li>
+      <li>Thêm cảnh phụ không lộ mặt; lấy khung hình cuối của cảnh trước làm mẫu cho cảnh sau; thêm lớp hạt phim nhẹ để
+        bớt vẻ quá mịn của AI.</li>
+    </ul>
+    <div class="tip">⚠️ Cảnh sản phẩm do AI tạo phải có người so với hàng thật trước khi đăng: sai màu, sai nhãn là quảng
+      cáo sai sự thật. Video có yếu tố AI còn phải gắn nhãn theo luật Việt Nam (xem tab “Khái niệm nền tảng”, mục 10).</div>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=gGscsK57CE0" target="_blank" rel="noopener">AI Master, Quảng cáo video từ ảnh sản phẩm, 01/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=ZPatgXgTKXY" target="_blank" rel="noopener">Under30, Seedance và Dreamina, 16/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=H4vkHcggjqs" target="_blank" rel="noopener">AI Master, Video AI siêu thực, 17/11/2026</a></div>
+  </section>
+
+  <section id="nd-dung-video">
+    <h2><span class="num">4</span> Để AI dựng video quay thô</h2>
+    <p>Từ 11/2026 có ba đường để AI tự cắt khoảng lặng, thêm phụ đề, hiệu ứng, nhạc từ một file quay thô:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:30%">Đường</th><th>Cách làm</th></tr>
+        <tr><td><strong>Plugin CapCut trong ChatGPT</strong> (máy tính)</td>
+          <td>Cài plugin, đăng nhập CapCut, tải video thô và yêu cầu cắt đoạn thừa, thêm phụ đề đúng font tiếng Việt.
+            Kết quả mở được trong CapCut để sửa tay. Trong video: 48 giây còn 37 giây; đang miễn phí.</td></tr>
+        <tr><td><strong>Skill dựng video cho Claude</strong></td>
+          <td>Bộ Skill cắt, thêm hiệu ứng, phụ đề, nhạc, xuất cả khổ dọc lẫn ngang. Cần tài khoản trả phí và máy tính
+            từ 8 GB RAM. Các bộ Skill trong video phần lớn là hàng bán.</td></tr>
+        <tr><td><strong>Tự làm 4 giây đầu, AI làm phần còn lại</strong></td>
+          <td>Dựng tay khoảng 4 giây đầu trong CapCut để định phong cách, rồi mở phiên Claude Code mới, bảo đọc dự án
+            CapCut đó và làm nốt. Xong thì đóng thành bản mẫu trong Skill để gọi lại.</td></tr>
+      </table>
+    </div>
+    <ul class="checklist">
+      <li><strong>Xem hết rồi gửi một lượt sửa</strong>, đừng sửa từng chỗ một: mỗi lượt đều tốn hạn mức.</li>
+      <li><strong>Vẫn phải xem lại.</strong> Tác giả thừa nhận hiệu ứng có khi lệch nhịp, đoạn nói lặp chưa cắt hết.</li>
+      <li><strong>Video người đại diện (avatar):</strong> chỉ làm avatar cho ba đoạn đầu, giữa, cuối để tiết kiệm. Bài học
+        đắt giá trong video: để AI tự phiên âm chữ tiếng Anh sang tiếng Việt làm giọng đọc rất tệ, mất gần 100 credit làm
+        lại. Cách sửa: cấm phiên âm, viết kịch bản ít chữ tiếng Anh, thêm bước kiểm phát âm.</li>
+      <li>Muốn có phụ đề có mốc thời gian (file SRT) thì xuất file âm thanh MP3 rồi nhờ ChatGPT hoặc Claude tạo.</li>
+    </ul>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=w7CoN0tF_ew" target="_blank" rel="noopener">Phan Đông Giang, Plugin CapCut trên ChatGPT, 20/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=tlZumCwpmM8" target="_blank" rel="noopener">Phan Đông Giang, Skill dựng video, 08/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=_1Ly_yjZnWs" target="_blank" rel="noopener">Phan Đông Giang, 155 mẫu hiệu ứng, 25/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=4Ba9eI2YhDQ" target="_blank" rel="noopener">Under30, Video top list, 19/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=OcTO8Z7W45A" target="_blank" rel="noopener">Under30, HeyGen với Claude Code, 02/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=fS-88gtHXIg" target="_blank" rel="noopener">The AI Advantage, Hoạt hoạ bằng Claude, 05/11/2026</a></div>
+  </section>
+
+  <section id="nd-hoat-hoa">
+    <h2><span class="num">5</span> Video hoạt hoạ, 3D, video thông tin</h2>
+    <ul class="checklist">
+      <li><strong>Hình động minh hoạ cho video:</strong> đưa file phụ đề SRT vào Claude kèm yêu cầu (khổ 16:9, nhiều
+        chuyển động, ít chữ), logo và ảnh giao diện thật. Mỗi lượt mất 30 phút đến 2 giờ, đôi khi kẹt phải nhắn “tiếp tục”.</li>
+      <li><strong>Hoạt hình 3D:</strong> mô tả cảnh, Claude viết mã dựng thế giới 3D (thư viện Three.js) gồm đèn, camera,
+        chuyển động. Một clip giải thích 15 giây mất khoảng 12 phút. Chỉnh theo màu thương hiệu rồi lưu thành Skill.</li>
+      <li><strong>Video thông tin có bản đồ:</strong> ví dụ video tiện ích quanh một dự án nhà ở, Claude tự tìm thông tin,
+        logo, toạ độ trên bản đồ và khoảng cách tới bệnh viện, trường, ga tàu, có ghi nguồn báo chí; mất khoảng 10 phút.</li>
+      <li><strong>Video dạng danh sách:</strong> một mẫu nhân vật, vài chuyển động lặp lại, biểu tượng bật lên, nhạc đang
+        thịnh hành; mỗi video mới chỉ thay nội dung và nhạc, dưới 10 phút một video.</li>
+    </ul>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=fS-88gtHXIg" target="_blank" rel="noopener">The AI Advantage, 05/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=ZxaMmG71g8c" target="_blank" rel="noopener">Futurepedia, Hoạt hình 3D, 13/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=vX4zunB4lhg" target="_blank" rel="noopener">Phan Đông Giang, Video bản đồ tiện ích, 11/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=4Ba9eI2YhDQ" target="_blank" rel="noopener">Under30, Video top list, 19/11/2026</a></div>
+  </section>
+
+  <section id="nd-chi-phi">
+    <h2><span class="num">6</span> Tốn bao nhiêu hạn mức</h2>
+    <p>Gói Claude tính hạn mức theo từng khoảng 05 giờ. Số dưới đây do tác giả các video tự nêu, dùng để ước lượng:</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:44%">Việc</th><th>Tốn bao nhiêu</th></tr>
+        <tr><td>Dựng một video khoảng 01 phút bằng Skill</td><td>Khoảng 3 đến 5% hạn mức một khoảng 05 giờ, tức khoảng 20 video;
+          còn khoảng 10 nếu sửa thêm</td></tr>
+        <tr><td>Video 10 phút</td><td>Khoảng 10%</td></tr>
+        <tr><td>Video bản đồ tiện ích</td><td>Khoảng 9%, tức khoảng 10 video</td></tr>
+        <tr><td>Một ảnh quảng cáo khi để công cụ vẽ tự đọc hết quy tắc</td><td>Khoảng 2%; giảm hẳn khi để Claude viết lệnh,
+          công cụ vẽ chỉ vẽ</td></tr>
+        <tr><td>Avatar HeyGen cho video 90 giây</td><td>Khoảng 90 credit nếu làm cả bài, khoảng 37 nếu chỉ làm ba đoạn</td></tr>
+      </table>
+    </div>
+    <div class="tip">💡 Tiết kiệm nhất: <strong>làm hàng loạt trong một khoảng 05 giờ</strong>, gom mọi lượt sửa vào một
+      lần, và chỉ trả thêm cho công cụ tạo ảnh, video khi đã có khách hoặc có đơn từ nội dung đó.</div>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=tlZumCwpmM8" target="_blank" rel="noopener">Phan Đông Giang, 08/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=_1Ly_yjZnWs" target="_blank" rel="noopener">Phan Đông Giang, 25/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=vX4zunB4lhg" target="_blank" rel="noopener">Phan Đông Giang, 11/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=quFAco7O2gc" target="_blank" rel="noopener">Under30, 07/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=OcTO8Z7W45A" target="_blank" rel="noopener">Under30, 02/11/2026</a></div>
+  </section>
+
+  <section id="nd-rui-ro">
+    <h2><span class="num">7</span> Rủi ro và gu thẩm mỹ</h2>
+    <ul class="checklist">
+      <li><strong>“Rác AI” (AI slop)</strong> là sản phẩm làm ra khi người giao hết gu cho máy. Cách luyện gu: ghi lại thứ
+        mình thích kèm lý do, ghi cả thứ không thích kèm lý do, rồi xem lại kho đó thường xuyên; và làm thật nhiều, mỗi
+        tuần xong một sản phẩm.</li>
+      <li><strong>Đạo ý tưởng:</strong> ảnh, video sao sát mẫu của người khác có thể dính tranh chấp; để AI tự nghĩ hướng
+        từ một kho thủ pháp thì an toàn hơn.</li>
+      <li><strong>Nhân vật ảo kiếm tiền:</strong> video về “người ảnh hưởng AI” hay khoe trang triệu lượt xem, nhưng tài
+        khoản thử mới sau 03 video chỉ có khoảng 4.000 lượt xem và 08 người theo dõi. Một tuần quá ngắn để kết luận.</li>
+      <li><strong>Khách có thể từ chối nội dung AI:</strong> trong thử thách 07 ngày, vài cửa hàng từ chối thẳng vì không
+        muốn quảng cáo do AI làm. Hỏi khách trước khi giao.</li>
+      <li><strong>Video hướng dẫn thường có nhà tài trợ</strong> hoặc bán bộ Skill; con số “tiết kiệm” trong đó là lời người
+        bán.</li>
+    </ul>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=pFscaR3gkfU" target="_blank" rel="noopener">Chris Williamson, Luyện gu thời rác AI, 09/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=quFAco7O2gc" target="_blank" rel="noopener">Under30, 07/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=Q2vLbqB_mww" target="_blank" rel="noopener">AI Master, Higgsfield, 02/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=ZzDRSxx3zgY" target="_blank" rel="noopener">Mark Tilbury, 17/11/2026</a></div>
+  </section>
+
+  <footer>
+    Trang cá nhân · Tổng hợp từ video YouTube tháng 11/2026, chưa kiểm độc lập từng con số.
   </footer>
   </div>
 
@@ -2985,6 +3555,7 @@ claude</code>
       <li><a href="#sk-meo">Mẹo tự viết &amp; sai lầm hay gặp</a></li>
       <li><a href="#sk-goi-y">Gợi ý Skill theo lĩnh vực</a></li>
       <li><a href="#sk-faq">Câu hỏi thường gặp</a></li>
+      <li><a href="#sk-it-ma-chat">Ít Skill mà chất: bài học từ người dùng nhiều</a></li>
     </ol>
   </nav>
 
@@ -3428,6 +3999,44 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
     </div>
   </section>
 
+  <section id="sk-it-ma-chat">
+    <h2><span class="num">15</span> Ít Skill mà chất: bài học từ người dùng nhiều</h2>
+    <p>Skill càng nhiều không có nghĩa là agent càng giỏi. David Ondrej (10/11/2026) khuyên <strong>xoá 80 đến 90%
+      số Skill đang cài</strong>: chép hàng trăm Skill từ các kho trên mạng làm phần mô tả của chúng bị nạp vào mọi tin
+      nhắn, tốn token và chạm hạn mức sớm hơn (xem mục 2 về cách Skill được nạp).</p>
+    <ul class="checklist">
+      <li><strong>Tự viết Skill cho quy trình của chính mình</strong>, đừng sưu tầm Skill của người khác.</li>
+      <li><strong>Chỉ lấy Skill từ nguồn uy tín.</strong> Skill lạ có thể giấu lệnh bắt agent gửi file của bạn ra ngoài
+        (xem mục 11).</li>
+      <li><strong>Đặt Skill theo từng dự án</strong> thay vì cài chung cho mọi nơi, để dự án nào chỉ nạp Skill của dự án
+        đó.</li>
+      <li><strong>Mỗi lỗi sửa xong thành một luật mới trong Skill.</strong> Ví dụ trong video của Nate Herk: AI hay cắt
+        cụt âm cuối của từ khi dựng video, nên thêm luật “nhìn dạng sóng âm, chờ sóng phẳng mới cắt”.</li>
+      <li><strong>Cập nhật Skill khi có model mới.</strong> Chỉ dẫn viết cho model cũ có thể kìm model mạnh hơn (Jeff Su,
+        11/11/2026).</li>
+      <li><strong>Đóng thao tác lặp lại thành Skill</strong> sau khi đã làm tay vài lần cho ổn, ví dụ bộ thao tác dựng
+        video: lần sau chỉ cần đưa video thô và gọi Skill.</li>
+    </ul>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:30%">Skill mẫu đáng tự viết</th><th>Làm gì</th></tr>
+        <tr><td>Rà bằng AI hãng khác</td><td>Gửi bản làm xong sang model của hãng khác soát lỗi</td></tr>
+        <tr><td>Nhớ lại việc dở</td><td>Mở lại cuộc chat bỏ dở, nhắc mục đích và bước kế tiếp</td></tr>
+        <tr><td>Soát sau cuộc họp</td><td>Đề xuất cập nhật vào ghi chú liên quan sau mỗi buổi họp</td></tr>
+        <tr><td>Tóm chuỗi thư dài</td><td>Gom một chuỗi email dài thành vài dòng</td></tr>
+        <tr><td>“Đừng nghĩ quá”</td><td>Ngăn agent đề xuất sửa cả những lỗi hiếm gặp</td></tr>
+        <tr><td>Tóm tiến độ phiên</td><td>Cuối phiên ghi lại đã làm gì, còn gì</td></tr>
+      </table>
+    </div>
+    <div class="tip">💡 Trong nhóm, đưa Skill của người giỏi nhất vào kho chung: người mới vào dùng được ngay cách làm
+      tốt nhất, khỏi phải tự mò.</div>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=45-qbcAeUbM" target="_blank" rel="noopener">David Ondrej, Nhiều skill tác tử càng kém, 10/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=R_E7aydlGBA" target="_blank" rel="noopener">Under30, Nate Herk, 04/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=9Hwanevuhd8" target="_blank" rel="noopener">Jeff Su, 6 mẹo, 11/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=e0EGefCi7GE" target="_blank" rel="noopener">Jeff Su, 8 plugin, 25/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=w7CoN0tF_ew" target="_blank" rel="noopener">Phan Đông Giang, Plugin CapCut, 20/11/2026</a></div>
+  </section>
+
   <footer>
     Trang cá nhân · Tóm tắt theo tài liệu công khai của Anthropic, có thể thay đổi khi sản phẩm cập nhật.
   </footer>
@@ -3446,6 +4055,7 @@ Lan phụ trách thiết kế xong trước thứ Sáu, Nam viết nội dung so
       <li><a href="#da-tac-tu">Nhiều agent phối hợp (multi-agent)</a></li>
       <li><a href="#tu-xay">Tự xây agent với Claude Agent SDK</a></li>
       <li><a href="#an-toan">Dùng agent an toàn &amp; bắt đầu học</a></li>
+      <li><a href="#ag-bai-hoc-that">Bài học từ người cho agent làm việc thật</a></li>
     </ol>
   </nav>
 
@@ -3771,6 +4381,80 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       nó chạy qua từng vòng lặp — bạn sẽ "thấm" khái niệm agentic nhanh hơn nhiều so với chỉ đọc.</div>
   </section>
 
+  <section id="ag-bai-hoc-that">
+    <h2><span class="num">9</span> Bài học từ người cho agent làm việc thật</h2>
+    <p>Ngày 16/11/2026 có hai thử nghiệm kiếm tiền bằng AI trong 07 ngày được đăng cùng lúc, cho ra hai kết quả trái
+      ngược (tổng hợp trong video của Under30, 25/11/2026):</p>
+    <div class="card">
+      <table class="course-table">
+        <tr><th style="width:22%"></th><th>Bên lãi 658 USD</th><th>Bên trắng tay</th></tr>
+        <tr><td><strong>Cách làm</strong></td><td>Một người làm đúng lời khuyên của Claude, tự tay điều phối</td>
+          <td>Dựng “công ty” 08 agent tự vận hành để bán sách điện tử</td></tr>
+        <tr><td><strong>Khách</strong></td><td>Cửa hàng quen gần nhà, được tặng ảnh quảng cáo mẫu trước</td>
+          <td>Gửi 329 email cho người lạ</td></tr>
+        <tr><td><strong>Kết quả</strong></td><td>04 nơi đồng ý; thu 1.047 USD, trừ chi phí 389 USD</td>
+          <td>Hoàn thành 721 đầu việc, doanh thu bằng 0; agent “giám đốc” tự đặt luật chờ 03 ngày nên 07 agent kia ngồi
+            không, người điều hành phải thúc hơn 115 lần</td></tr>
+      </table>
+    </div>
+    <div class="tip">💡 03 nguyên tắc rút ra: <strong>bắt đầu từ người đã biết mình</strong>; làm sản phẩm mẫu trước
+      rồi mới bàn tiền; <strong>người giữ nhịp, AI làm phần tay chân</strong>. Chỉ nâng cấp công cụ đắt tiền sau khi đã
+      có khách đồng ý trả.</div>
+
+    <h3>Bắt đầu bằng một quy trình nhỏ, lặp lại, dễ kiểm</h3>
+    <ol class="steps">
+      <li><strong>Chọn một việc lặp lại</strong>: trả lời khách mới, nhắc hoá đơn quá hạn, tóm tắt thư mỗi sáng.</li>
+      <li><strong>Cho AI phỏng vấn bạn trước</strong> về sản phẩm, khách, khâu hay tắc, rồi lưu thành quy tắc riêng (ví
+        dụ: thư ngắn và thân thiện, không hứa giao trong ngày, không báo giá khi chưa xem tận nơi).</li>
+      <li><strong>Làm tay vài lần với ca thật.</strong> Thư gửi khách để ở dạng nháp, con số báo giá do người duyệt.</li>
+      <li><strong>Hết bất ngờ mới đặt lịch tự chạy</strong>, ví dụ bản tóm tắt lúc 6 giờ sáng.</li>
+    </ol>
+
+    <h3>04 agent cho cửa hàng một người</h3>
+    <p>Dan Martell (19/11/2026) xếp thứ tự giao việc cho agent như sau: <strong>hộp thư → bàn giao khách → tiếp thị →
+      bán hàng</strong>. Mỗi agent cần đủ 04 thứ: dữ liệu riêng của cửa hàng, quy trình mẫu, lịch chạy, và một chỗ báo
+      trạng thái để người can thiệp khi lệch hướng.</p>
+    <ul class="checklist">
+      <li><strong>Agent hộp thư</strong> soạn nháp, người sửa rồi gửi, agent so nháp với thư đã gửi để học (xem tab “Bắt
+        đầu dùng AI”, mục 8); chạy hai lần mỗi ngày thay vì canh liên tục.</li>
+      <li><strong>Agent bàn giao</strong> gửi hướng dẫn ngay khi khách trả tiền, để khách có kết quả đầu tiên trong ngày.</li>
+      <li><strong>Agent tiếp thị</strong> tìm khách tiềm năng mỗi sáng; <strong>khâu chốt đơn vẫn do người làm</strong>.</li>
+      <li>Các agent dùng chung một kho dữ liệu: lời từ chối của khách mà agent bán hàng ghi lại thì agent tiếp thị đổi
+        thành chủ đề bài đăng tuần sau.</li>
+    </ul>
+
+    <h3>Tự trả lời bình luận bằng từ khoá: 05 lỗi hay gặp</h3>
+    <p>Kiểu “bình luận chữ X để nhận quà”: khách gõ từ khoá dưới bài, hệ thống tự nhắn riêng kèm đường dẫn. Người đứng
+      đầu Instagram thừa nhận đây là mẹo tăng tương tác, không đẹp nhưng hiệu quả. Lỗi hay gặp khi dựng:</p>
+    <ul class="checklist">
+      <li>Hứa một đằng, tin nhắn gửi một nẻo.</li>
+      <li>Xin quá nhiều thông tin ngay lần đầu.</li>
+      <li>Từ khoá khó gõ trên điện thoại.</li>
+      <li>Quên thử bằng một tài khoản thứ hai.</li>
+      <li>Quên gỡ ưu đãi đã hết hạn.</li>
+    </ul>
+
+    <h3>Giữ an toàn khi agent cầm chìa khoá</h3>
+    <ul class="checklist">
+      <li><strong>Không tin mặc định (Zero Trust):</strong> coi như hệ thống đã bị xâm nhập, chỉ cấp cho agent đúng quyền
+        việc đó cần, chặn mọi ứng dụng và agent chưa duyệt. Giám đốc hãng Box dự đoán phần lớn vụ tấn công sắp tới đến từ
+        lỗi cơ bản như để khoá bí mật nằm trong mã nguồn.</li>
+      <li><strong>Kho mật khẩu riêng cho agent:</strong> nếu agent phải đăng nhập web thì tạo một kho mật khẩu riêng chỉ
+        chứa đúng tài khoản nó cần, đừng đưa kho mật khẩu của bạn.</li>
+      <li><strong>Vòng giao việc, phê bình, thêm quy tắc:</strong> giao việc, chê kết quả, ghi thêm quy tắc, lần sau tốt
+        hơn. Agent mới không tự giỏi lên nếu không có vòng này.</li>
+    </ul>
+    <div class="source-note">Theo video: <a href="https://www.youtube.com/watch?v=TBQ0-LwTLp0" target="_blank" rel="noopener">Under30, Thử thách 7 ngày, 25/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=ZzDRSxx3zgY" target="_blank" rel="noopener">Mark Tilbury, 17/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=e8Ywi7AprYw" target="_blank" rel="noopener">AI Master, Plugin cho doanh nghiệp nhỏ, 01/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=YD8uRumP8cM" target="_blank" rel="noopener">Dan Martell, 19/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=YUxvBstwv9U" target="_blank" rel="noopener">AI Master, Tự trả lời bình luận, 07/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=CN8c1edTCew" target="_blank" rel="noopener">Silicon Valley Girl phỏng vấn Adam Mosseri, 19/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=FYe62a0Uucc" target="_blank" rel="noopener">Forbes, Zero Trust, 13/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=K_uSex24sPg" target="_blank" rel="noopener">Forbes phỏng vấn giám đốc Box, 15/11/2026</a> ·
+      <a href="https://www.youtube.com/watch?v=MNiurW07nLs" target="_blank" rel="noopener">The AI Advantage, ChatGPT và Grok Bot, 01/11/2026</a></div>
+  </section>
+
   <footer>
     Trang cá nhân · Giới thiệu khái niệm về AI agent (agentic AI), không thay thế tài liệu chính thức từ Anthropic.
   </footer>
@@ -4063,6 +4747,19 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       <li><a href="https://www.youtube.com/@Stability_AI" target="_blank" rel="noopener">Stability AI</a> — Stable Diffusion</li>
     </ul>
 
+    <h3>Kênh của người dùng thật: xem được, nhưng biết đường lọc</h3>
+    <p>Ngoài kênh chính hãng, các kênh dưới đây hay có mẹo dùng được ngay (đúc kết trong các tab “Bắt đầu dùng AI”
+      mục 8, “Làm ảnh &amp; video bằng AI”, “Claude &amp; Claude Code” mục 5). Đổi lại, phần lớn có nhà tài trợ hoặc bán
+      khoá học, bộ Skill, nên con số họ nêu là lời người bán.</p>
+    <ul class="plain-list">
+      <li><strong>Jeff Su</strong>: mẹo dùng AI cho dân văn phòng, ngắn và thực dụng</li>
+      <li><strong>The AI Advantage</strong>, <strong>Futurepedia</strong>: cập nhật tính năng mới của ChatGPT, Claude, Gemini</li>
+      <li><strong>AI Master</strong>: hướng dẫn từng bước, so model, tự dựng app</li>
+      <li><strong>David Ondrej</strong>: dùng Claude Code và agent ở mức nâng cao</li>
+      <li><strong>Under30</strong>, <strong>Phan Đông Giang - Học AI</strong>: tiếng Việt, làm ảnh và video bán hàng bằng AI</li>
+      <li><strong>VTV Index</strong>: chuyện AI ở Việt Nam cho người mới</li>
+    </ul>
+
     <div class="tip">⚠️ Trên YouTube có rất nhiều kênh đặt trùng tên hãng. Kiểm ngày 07/08/2026: kênh mang tên
       "Perplexity" chỉ có 37 người theo dõi, kênh mang tên "xAI" có 20, kênh "Suno ai" có 2 — đều là kênh của
       người khác lập, không phải hãng. Cách chắc nhất là vào trang chủ của hãng rồi bấm biểu tượng YouTube ở
@@ -4286,6 +4983,10 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
         <p>Mỗi lần đưa app lên Cloudflare Pages, máy chủ giữ lại một bản riêng ở địa chỉ dạng
           <code>mã.tên-app.pages.dev</code>. Đẩy bản mới hay trang «tạm tắt» chỉ đổi địa chỉ chính; bản cũ vẫn
           chạy nguyên, kể cả phần máy chủ, cho tới khi bị xoá.</p></div>
+
+      <div class="term" id="tu-vps" data-cat="mang" data-k="vps may chu ao thue theo thang"><b>VPS</b> <span class="say">máy chủ ảo thuê theo tháng</span>
+        <p>Một máy tính thuê trên mạng chạy suốt ngày đêm, để đặt app hoặc cho agent làm việc. Thuê xong mà không
+          khoá cửa (tường lửa, tắt đăng nhập bằng mật khẩu) thì vài giờ sau đã có kẻ dò vào.</p></div>
     </div>
   </section>
 
@@ -4671,6 +5372,30 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       <div class="term" id="tu-prompt-injection" data-cat="ai" data-k="prompt injection chen lenh qua du lieu"><b>prompt injection</b> <span class="say">chèn lệnh qua dữ liệu</span>
         <p>Kẻ xấu cài một câu ra lệnh vào bài báo, tin nhắn hay ô góp ý; AI đọc phải tưởng là lệnh của chủ rồi làm
           theo. Bỏ qua thì một AI được quyền chạy lệnh trên máy có thể bị người lạ sai khiến.</p></div>
+
+      <div class="term" id="tu-rac-ai-ai-slop" data-cat="ai" data-k="rac ai slop san pham lam ra ma khong cham"><b>rác AI (AI slop)</b> <span class="say">sản phẩm AI làm ra mà không ai chăm</span>
+        <p>Ảnh, video, bài viết nhìn là biết máy làm: nhạt, rối, na ná nhau, vì người làm giao hết gu cho máy. Đăng
+          loại này lên trang bán hàng thì khách lướt qua và mất tin vào thương hiệu.</p></div>
+
+      <div class="term" id="tu-plugin" data-cat="ai" data-k="plugin phan cam them cho app ai tien ich"><b>plugin</b> <span class="say">phần cắm thêm cho app AI</span>
+        <p>Giống cắm thêm một món đồ nghề vào hộp: cài plugin CapCut vào ChatGPT là ChatGPT dựng được video. Plugin
+          của bên lạ có thể đọc dữ liệu của bạn, nên chỉ cài từ nguồn uy tín.</p></div>
+
+      <div class="term" id="tu-ai-chay-tren-may-local-model" data-cat="ai" data-k="ai chay tren may local model tai ve ngay tinh mo hinh cuc bo lm studio"><b>AI chạy trên máy (local model)</b> <span class="say">model tải về chạy ngay trên máy tính</span>
+        <p>Tải model về một lần rồi dùng cả khi mất mạng, tài liệu không rời khỏi máy, không tốn tiền thuê bao. Đổi
+          lại máy phải đủ bộ nhớ, và model nhỏ kém thông minh hơn bản trên mạng.</p></div>
+
+      <div class="term" id="tu-premortem" data-cat="ai" data-k="premortem gia dinh that bai truoc"><b>premortem</b> <span class="say">giả định thất bại trước</span>
+        <p>Trước khi làm, tưởng tượng việc đã hỏng rồi tự hỏi vì sao hỏng, để chặn trước các lỗ hổng. Bỏ bước này
+          thì thường chỉ thấy lỗi khi đã mất tiền.</p></div>
+
+      <div class="term" id="tu-che-do-lap-ke-hoach-plan-mode" data-cat="ai" data-k="che do lap ke hoach plan mode ai trinh truoc khi lam shift tab"><b>chế độ lập kế hoạch (plan mode)</b> <span class="say">AI trình kế hoạch trước khi làm</span>
+        <p>Claude Code chỉ đưa ra các bước định làm, chưa sửa file nào, chờ bạn duyệt (bật bằng Shift + Tab). Bỏ
+          qua bước này với việc lớn thì AI có thể sửa sai hàng loạt file trước khi bạn kịp thấy.</p></div>
+
+      <div class="term" id="tu-srt" data-cat="ai" data-k="srt file phu de co moc thoi gian"><b>SRT</b> <span class="say">file phụ đề có mốc thời gian</span>
+        <p>File chữ ghi từng câu thoại kèm giây bắt đầu và kết thúc, để phần mềm dựng video tự hiện phụ đề đúng
+          lúc. Thiếu mốc thời gian thì phụ đề chạy lệch tiếng.</p></div>
     </div>
   </section>
 
@@ -4746,6 +5471,10 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
         <p>Chức năng miễn phí của GitHub cho kho công khai: soi mọi lần lưu mã, kể cả lịch sử cũ, tìm chuỗi giống
           khoá API hay mật khẩu rồi báo chủ kho. Bật kèm chặn lúc đẩy thì lần lưu nào mang khoá sẽ bị từ chối
           ngay.</p></div>
+
+      <div class="term" id="tu-zero-trust" data-cat="antoan" data-k="zero trust khong tin mac dinh"><b>Zero Trust</b> <span class="say">không tin mặc định</span>
+        <p>Coi như kẻ gian đã ở trong nhà, nên mỗi người, mỗi app, mỗi agent chỉ được đúng quyền cần cho việc của
+          mình. Cấp quyền rộng cho agent thì một lần nó bị lừa là lộ cả kho.</p></div>
     </div>
   </section>
 
@@ -5323,6 +6052,7 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
       toolsdeep: document.getElementById('sub-toolsdeep'),
       multiai: document.getElementById('sub-multiai'),
       claude: document.getElementById('sub-claude'),
+      noidung: document.getElementById('sub-noidung'),
       skills: document.getElementById('sub-skills'),
       agentic: document.getElementById('sub-agentic'),
       roadmap: document.getElementById('sub-roadmap'),
@@ -6197,7 +6927,12 @@ trong code, một chuyên tổng hợp lịch sử commit) — rồi gộp cả 
     {tu:'webhook',      id:'tu-webhook'},
     {tu:'sandbox',      id:'tu-sandbox'},
     {tu:'OAuth',        id:'tu-oauth', hoa:true},
-    {tu:'RSS',          id:'tu-rss',   hoa:true}
+    {tu:'RSS',          id:'tu-rss',   hoa:true},
+    /* Bốn chữ dưới thêm 26/11/2026 cùng đợt kiến thức tổng hợp từ YouTube. */
+    {tu:'Zero Trust',   id:'tu-zero-trust'},
+    {tu:'premortem',    id:'tu-premortem'},
+    {tu:'VPS',          id:'tu-vps',   hoa:true},
+    {tu:'SRT',          id:'tu-srt',   hoa:true}
   ];
 
   /* Chữ nằm trong mấy thẻ này thì để yên: tiêu đề, khối mã, nút bấm, và nhất là

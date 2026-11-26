@@ -10,9 +10,16 @@ Trang tĩnh 1 file: `index.html` (~4.070 dòng, đo 07/08/2026), HTML + CSS + va
 ## Cấu trúc
 - **2 tab chính**: "Kiến thức chung" (`concepts`) và "Tin mới" (`news`), cộng menu xổ "Công cụ AI (25)". Chuyển bằng `showTab(name)`; tab mặc định đọc từ `location.hash`, hash lạ thì rơi về `concepts`.
   - Tab **"Phân tích"** (`analysis`) đã bị **gỡ ngày 07/08/2026** theo yêu cầu của Huy — gỡ trọn 03 chỗ: nút trong `.tabs`, khối `<div id="tab-analysis">`, và khoá `analysis` trong bảng `tabs` của `showTab()`. Thêm/gỡ tab thì phải sờ đủ 03 chỗ này, thiếu chỗ thứ ba thì `showTab` ném lỗi trên `.hidden` của `null`.
-- **09 tab con** trong `concepts` (`showSubTab`), sắp theo trình tự học từ dễ tới khó, nhãn nút mang số thứ tự:
-  `general` (1 · Bắt đầu dùng AI) · `overview` (2) · `toolsdeep` (3) · `multiai` (4 · Dùng nhiều AI) ·
-  `claude` (5) · `skills` (6 · Agent Skills) · `agentic` (7) · `roadmap` (8) · `quiz` (9).
+- **11 tab con** trong `concepts` (`showSubTab`), đo 26/11/2026, nhãn nút mang số thứ tự viết tay (`st-num`):
+  `general` (01) · `overview` (02) · `roadmap` (03) · `toolsdeep` (04) · `multiai` (05) · `claude` (06) ·
+  `noidung` (07 · Làm ảnh & video bằng AI, thêm 26/11/2026) · `skills` (08) · `agentic` (09) ·
+  `thuatngu` (10) · `quiz` (11). Chèn tab giữa dãy thì đánh lại số các nút phía sau.
+  - **Kiến thức tổng hợp từ YouTube (26/11/2026)**: nguồn là các mục `Chủ đề: AI` trong
+    `/Users/Huy/Claude/TomTatYouTube/ket-qua/ban-tin-<ngày>.md` (31/10 tới 25/11, 57 video về CÁCH DÙNG AI;
+    bỏ video tin ngành, chuyện công ty). Đã rải vào: `general` mục 8 `#thoi-quen-ai` · `overview` mục 5, 6 (thêm
+    thẻ) và mục 11 `#duong-lui` · `multiai` mục 9, 10 · `claude` mục 5, 6 · `skills` mục 15 · `agentic` mục 9 ·
+    `roadmap` mục 10 (kênh người dùng thật) · cả tab `noidung`. Lần bổ sung sau: lọc các ngày SAU 25/11, mọi mục
+    ghi «Theo video: kênh, ngày» có link, số liệu là lời tác giả video nên phải ghi rõ như vậy.
   - ⚠️ Thêm/gỡ tab con phải sờ đủ **03 chỗ**: nút trong `.subtabs`, khối `<div class="subwrap" id="sub-<tên>">`, và khoá trong bảng `subs` của `showSubTab()`. Thiếu chỗ thứ ba thì tab câm — bấm nút không có gì xảy ra, **không lỗi nào phát ra**.
   - **Sắp xếp lại toàn trang 14/08/2026**: tách `skills` khỏi tab `claude` thành tab riêng (Skills nay dùng được cả trên claude.ai và API, không còn là chuyện riêng của Claude Code); thêm tab `multiai`; gộp mục 7 "Mẹo nâng cao" của `general` vào mục 4 và 6 vì trùng với `overview`; đổi lưới 24 thẻ công cụ ở `general` mục 2 thành **một bảng gọn có link** sang trang chi tiết, vì phần mô tả sâu đã nằm ở `toolsdeep`.
 - **Tham chiếu chéo giữa các tab viết bằng TÊN TAB, không viết "tab trước"** — thứ tự tab đã đổi một lần và sẽ còn đổi. Đổi tên hay đổi số mục thì `grep` cả file các chuỗi dạng `tab "<tên>", mục N` rồi sửa hết trong cùng lượt; các chuỗi này còn nằm trong `explain` của bộ câu hỏi quiz.
