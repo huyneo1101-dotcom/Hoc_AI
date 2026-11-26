@@ -18,8 +18,11 @@ Trang tĩnh 1 file: `index.html` (~4.070 dòng, đo 07/08/2026), HTML + CSS + va
     `/Users/Huy/Claude/TomTatYouTube/ket-qua/ban-tin-<ngày>.md` (31/10 tới 25/11, 57 video về CÁCH DÙNG AI;
     bỏ video tin ngành, chuyện công ty). Đã rải vào: `general` mục 8 `#thoi-quen-ai` · `overview` mục 5, 6 (thêm
     thẻ) và mục 11 `#duong-lui` · `multiai` mục 9, 10 · `claude` mục 5, 6 · `skills` mục 15 · `agentic` mục 9 ·
-    `roadmap` mục 10 (kênh người dùng thật) · cả tab `noidung`. Lần bổ sung sau: lọc các ngày SAU 25/11, mọi mục
+    `roadmap` mục 10 (kênh người dùng thật) · cả tab `noidung`. Lần bổ sung sau: lấy các ngày SAU 25/11, mọi mục
     ghi «Theo video: kênh, ngày» có link, số liệu là lời tác giả video nên phải ghi rõ như vậy.
+    Từ lượt 27/11/2026 routine tóm tắt YouTube tự ghi sẵn `ket-qua/ai-cach-dung-<ngày>.txt` (mỗi video
+    dạy cách dùng AI một dòng `số · id · tiêu đề`): đọc các file đó trước, rồi chỉ mở đúng khối video trong
+    `ban-tin-<ngày>.md`, khỏi lọc lại mọi video AI. Ngày bị YouTube chặn thì không có bản tin, không có file.
   - ⚠️ Thêm/gỡ tab con phải sờ đủ **03 chỗ**: nút trong `.subtabs`, khối `<div class="subwrap" id="sub-<tên>">`, và khoá trong bảng `subs` của `showSubTab()`. Thiếu chỗ thứ ba thì tab câm — bấm nút không có gì xảy ra, **không lỗi nào phát ra**.
   - **Sắp xếp lại toàn trang 14/08/2026**: tách `skills` khỏi tab `claude` thành tab riêng (Skills nay dùng được cả trên claude.ai và API, không còn là chuyện riêng của Claude Code); thêm tab `multiai`; gộp mục 7 "Mẹo nâng cao" của `general` vào mục 4 và 6 vì trùng với `overview`; đổi lưới 24 thẻ công cụ ở `general` mục 2 thành **một bảng gọn có link** sang trang chi tiết, vì phần mô tả sâu đã nằm ở `toolsdeep`.
 - **Tham chiếu chéo giữa các tab viết bằng TÊN TAB, không viết "tab trước"** — thứ tự tab đã đổi một lần và sẽ còn đổi. Đổi tên hay đổi số mục thì `grep` cả file các chuỗi dạng `tab "<tên>", mục N` rồi sửa hết trong cùng lượt; các chuỗi này còn nằm trong `explain` của bộ câu hỏi quiz.
